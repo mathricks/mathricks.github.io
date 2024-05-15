@@ -1,2 +1,9 @@
-# mathricks.github.io
-Mathricks.com Website
+## MATHRICKS
+
+### GAMES
+
+#### GRIDLOCK NUMBERS
+
+#### COUNTDOWN NUMBERS
+
+#### ASTROVERT
