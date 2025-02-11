@@ -4,55 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathricks Support</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            margin: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        h1 {
-            color: #333;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        a {
-            color: #1a0dab;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.8em;
-        }
-    </style>
+    <link rel="stylesheet" href="../../styles.css"> <!-- Apply the Mathricks theme -->
+    <script defer src="../../js/dark.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-flex">
             <h1>Mathricks Support</h1>
             <p>We're here to ensure you enjoy our games!</p>
-        </header>
-
-        <section>
+            <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        </div>
+            
+    </header>
+<!-- Main Content -->
+<section class="content container"> 
             <h2>Contact Us</h2>
+            <table><tr><td align="left">
             <p>For any support issues and feedback, please don't hesitate to contact us:</p>
             <ul>
                 <li>X: <a href="https://x.com/mathricks">@mathricks</a> (DMs are open)</li>
@@ -60,19 +28,26 @@
                 <li>Email: <a href="mailto:info @ mathricks.com">info [@] mathricks.com</a></li>
                 <!--<li>Phone: 0 (123) 456-7890 (Mon-Fri, 7 AM - 7 PM GMT)</li>-->
             </ul>
-        </section>
+            </td></tr></table>
+</section>
+<section class="content container"> 
             <p>Thanks for playing our games!</p>
-    </div>
-    <br />
-    <footer>
-        <p><a href="../astrovert">Astrovert</a> | <a href="../gridlock/">GridLock </a> | <a href="../countdown/">Countdown </a> </p>
-            <p>Made with ❤️ using <a href="https://github.com/mathricks" target="_blank">GitHub</a></p>
+</section>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2010-2025, Mathricks. All rights reserved.</p>
+                <p>Contact: info [at] mathricks [dot] com</p>
+        <p>
+            <a href="../astrovert">Astrovert</a> | <a href="../gridlock/">GridLock </a> | <a href="../countdown/">Countdown </a>
+        </p>
             <div class="social-icons">
                 <a href="https://twitter.com/mathricks" target="_blank">X</a> |
                 <a href="https://instagram.com/mathricks" target="_blank">Instagram</a> |
                 <a href="https://linkedin.com/company/mathricks" target="_blank">LinkedIn</a> | 
                 <a href="../">mathricks.com</a>
             </div>
+            <p>Made with ❤️ using <a href="https://github.com/mathricks" target="_blank">GitHub</a></p>
     </footer>
+    
 </body>
 </html>

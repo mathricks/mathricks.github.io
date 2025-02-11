@@ -1,102 +1,83 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>GridLock Numbers</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<META NAME="keywords" CONTENT="mathricks, math, metrics, matrix, matrices, tricks, mathematics, matriks, numbers, play, puzzle" />
-<style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f4f4f4;
-        color: #333;
-        line-height: 1.6;
-        padding: 20px;
-        margin: 0;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: #fff;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    header {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-    h1 {
-        color: #333;
-    }
-    ul {
-        list-style: none;
-        padding: 0;
-    }
-    li {
-        margin-bottom: 10px;
-    }
-    a {
-        color: #1a0dab;
-    }
-    footer {
-        text-align: center;
-        margin-top: 40px;
-        font-size: 0.8em;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="mathricks, math, metrics, matrix, numbers, play, puzzle, gridlock">
+    <title>GridLock Numbers | Mathricks</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <script defer src="../js/dark.js"></script>
 </head>
-<body bgcolor="#f4f4f4" >
-<div align=center><br/>
-<table width="70%" height="80%" bgcolor="#fff" style="font-family: verdana;">
-<tr align=center style="width:200;opacity:0.8;">
-<td colspan=3>
-<h1><img src='../banner.png'></h1>
-</td></tr>
-<tr align=center>
-<td width="30%" valign="top">
-<h2>HOW TO PLAY</h2>
-<p>Choose your grid and fill it out completely with numbers, - only if you can.</p>
-<p>Start anywhere with 1 and continue filling numbers regarding two move constraints:</p>
-<p>1. Leave <strong>double</strong> spaces for left, up, right or down moves.&larr;&uarr;&rarr;&darr;</p>
-<p>2. <strong>Single</strong> space for diagonal moves.</p>
-<!--<h2>CROWNS </h2>
-<p>At each level placing the number before the very last earns you a single crown.</p>
-<p>Crowns help you unlock levels and try new challenges.</p>-->
-</td>
-<td>
-<br />
-<br />
-<img src="../app1.png" width="256" />
-<br />
-<br />
-<br />
-A challenging puzzle game!
-<br /><a href="https://itunes.apple.com/us/app/gridlock-numbers/id912871295?mt=8">
-<img src="../app-store-icon.png" width="256"></a>
-<br />
-<br />
-Requires iOS 7.0 or later. Works on iPod Touch, iPhone and iPad.			
-<br /><br /><br />
-Find out more about the initial version here: <a href="https://appadvice.com/app/gridlock-numbers/912871295">APPADVICE</a>
-<br />
-</td>
-<td width="30%" valign="top">
-<h2>TIPS</h2>
-<p>Turn on the switch under the grids to see all possibilities of 
-where the next number can go.</p>
-<br/>
-<p>You can undo your moves if you tap on the last number you put.</p>
-<h2>SCORING</h2>
-<p>Each number worths 10 times its worth.</p>
-<p>Removing a number makes you lose an extra 1 point.</p>
-<p>'x2' cells double the added numbers.</p>
-</td></tr></table>
-<footer>
-    <p>Thank you for playing!</p>
-    <p> 
-        <a href="https://twitter.com/gridlockn" target="_blank">X</a> |
-        <a href="https://instagram.com/gridlockn" target="_blank">Instagram</a> |  
-        <a href="../">mathricks.com</a> </p>
+<body>
+
+<!-- Header -->
+<header class="main-header">
+    <div class="container header-flex">
+        <h1>GridLock Numbers</h1>
+        <img src="../img/game1-logo.png" alt="GridLock Logo" class="game-logo">
+    </div>
+</header>
+
+<!-- Main Content -->
+<section class="content container">
+    <div class="game-info">
+        <div class="game-description">
+            <h2>How to Play</h2>
+            <table>
+                <tr><td align="left">
+                    Choose your grid and fill it out completely with numbers—only if you can.</p>
+            <p>Start anywhere with 1 and continue filling numbers following these two move constraints:</p>
+            <ul>
+                <li><strong>Double-space</strong> for left, up, right, or down moves.</li>
+                <li><strong>Single-space</strong> for diagonal moves.</li>
+            </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="features">
+        <div class="feature-box">
+            <h2>Tips</h2>
+            <p>Turn on the switch under the grids to see all possible moves.</p>
+            <p>You can undo your moves by tapping on the last number placed.</p>
+        </div>
+        <div class="feature-box">
+            <h2>Scoring</h2>
+            <p>Each number earns <strong>10 times its value</strong>.</p>
+            <p>Removing a number deducts an extra <strong>1 point</strong>.</p>
+            <p>‘x2’ cells <strong>double the added numbers</strong>.</p>
+        </div>
+    </div>
+    <div class="download-section">
+        <a href="https://itunes.apple.com/us/app/gridlock-numbers/id912871295?mt=8" class="download-btn">
+            <img src="../img/app-store-icon.png" alt="Download on the App Store" width="200">
+        </a>
+        <p>Requires iOS 7.0 or later. Works on iPod Touch, iPhone, and iPad.</p>
+        <p>Read more on <a href="https://appadvice.com/app/gridlock-numbers/912871295">AppAdvice</a></p>
+    </div>
+    <section class="thanks">
+        <div class="feature-box">
+            <h2></h2>
+        <p>Thank you for playing Gridlock Numbers! <br/> Follow us on 
+            <a href="https://twitter.com/gridlockn" target="_blank">X</a> &
+            <a href="https://instagram.com/gridlockn" target="_blank">Instagram</a>
+        </p>
+        </div>
+    </section>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2010-2025, Mathricks. All rights reserved.</p>
+        <p>Contact: info [at] mathricks [dot] com</p>
+        <p>
+            <a href="../support">Support Page</a> | <a href="../">mathricks.com</a>
+        </p>
+    </div>
 </footer>
-</div>
+<!-- Dark Mode Toggle -->
+<button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button>
 </body>
 </html>

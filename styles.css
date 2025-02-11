@@ -1,0 +1,292 @@
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    /* Default Light Mode Variables */
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --highlight-color: #440101;
+    --button-background: #f4f4f4;
+    --button-text: #252432;
+    --border-color: #e4cccc;
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+    --background-color: #1a1a1a;
+    --text-color: #f4f4f4;
+    --highlight-color: #ffcc00;
+    --button-background: #444444;
+    --button-text: #ffcc00;
+    --border-color: #333;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--background-color);
+    padding: 10px;
+    box-shadow: 0 0 5px var(--border-color);
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+h1, h2 {
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* Section Headers */
+.header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.content {
+    text-align: center;
+}
+
+.content p {
+    margin-bottom: 10px;
+}
+
+/* Links */
+a {
+    color: var(--highlight-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #050a0f;
+}
+
+a img {
+    width: 120px;
+    border: 0;
+    margin: 2px;
+    transition: transform 0.1s ease;
+}
+
+a img:hover {
+    transform: scale(2.05); /* Slight zoom effect */
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Increase space between buttons */
+    margin-top: 10px;
+}
+
+.button {
+    font-family: 'Arial', sans-serif; /* Align font with the page */
+    font-size: 1.5em; /* Increase font size for larger buttons */
+    color: var(--button-text);
+    text-decoration: none;
+    padding: 10px 20px; /* Add padding for touch-friendly buttons */
+    background-color: var(--button-background);
+    border: 2px solid var(--button-text);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    text-decoration: none;
+    color: var(--background-color);
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
+}
+
+/* Button Styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Utility Classes */
+.mt-20 { margin-top: 20px; }
+.mb-20 { margin-bottom: 20px; }
+.pt-20 { padding-top: 20px; }
+.pb-20 { padding-bottom: 20px; }
+.text-center { text-align: center; }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 5px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px; /* Reduce space for smaller screens */
+    }
+
+    .button {
+        font-size: 1.2em; /* Adjust button size for smaller screens */
+        padding: 10px 20px; /* Reduce padding for smaller buttons */
+    }
+
+    h1, h2 {
+        font-size: 1.8em; /* Adjust heading sizes */
+    }
+}
+
+/* Initial state of elements */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* When the element is in the viewport */
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes gradientScroll {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.hero {
+    background: var(--background-color);
+    background-size: 100% 100%;
+    animation: gradientScroll 10s ease infinite;
+}
+
+.noscript-message {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    border: 1px solid #cc0000;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 7px;
+    right: 7px;
+    padding: 2px 5px;
+    font-size: 1.5em;
+    cursor: pointer;
+    background: var(--button-background);
+    color: var(--button-text);
+    border: 2px solid var(--button-background);
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--highlight-color);
+    transform: scale(1.1);
+}
+.game-description {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Download Section */
+.download-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.download-btn img {
+    transition: transform 0.2s ease-in-out;
+}
+
+.download-btn img:hover {
+    transform: scale(1.1);
+}
+
+/* Logos n Images */
+.game-logo {
+    width: 150px;
+    max-width: 100%;
+}
+
+.astrovert-image {
+    flex: 1;
+    text-align: center;
+}
+
+.astrovert-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}

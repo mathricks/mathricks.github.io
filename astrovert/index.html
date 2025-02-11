@@ -4,53 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <META NAME="keywords" CONTENT="space, adventure, exploration, cosmic, interstellar, journey, obstacles, celestial, travel, baseball, mathricks" />
-    <title>Astrovert Game Guide</title>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            margin: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        header, footer {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        ul, li {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        p, li {
-            margin-bottom: 15px;
-        }
-        a {
-            color: #1a0dab;
-        }
-        img {
-            margin-top: 30px;
-        }
-    </style>
+    <title>Astrovert Game Guide | Mathricks</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="../js/dark.js"></script>
 </head>
 <body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-flex">
+            <h1>Astrovert</h1>
+            <img src="../img/game3-logo.png" alt="Astrovert Logo" class="game-logo">
+            <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        </div>
+    </header>
     <div class="container">
         <header>
-            <h1>Welcome to Astrovert!</h1>
             <p>Astrovert invites you to break out of your comfort zone and embark on an exhilarating journey through the cosmos!</p>
         </header>
+    </div>
+        <!-- Main Content -->
+    <section class="content container">
         <h2>Game Description</h2>
         <p>Dare to journey where no one has dared before with "Astrovert"! This is an invitation to break barriers and explore the unknown reaches of space. 
             Propel through celestial gateways, from the asteroid-strewn fields of Ceres to the stormy atmosphere of Jupiter, in a quest that stretches the limits of your courage.
@@ -60,6 +34,8 @@
             Each level introduces more speed, size increase and new obstacles that are not merely making things harder but require players to adapt their strategies, reflecting real-life growth and learning. 
         </p>
         <h2>How to Play</h2>
+        <table>
+            <tr><td align="left">
         <ul>
             <li><strong>Launch Your Ball:</strong> Drag the baseball to launch and reach from one celestial body to another.</li>
             <li><strong>Navigate Obstacles:</strong> Swipe to steer clear of the obstacles. Use quick reflexes to ensure your journey is not cut short.</li>
@@ -67,13 +43,25 @@
             <li><strong>Progress Through Levels:</strong> Complete each level by reaching the designated celestial body without running out of momentum or colliding with hazards.</li>
             <li><strong>Challenge Friends:</strong> Share and compare your high score with friends to see who is the true master of the cosmos!</li>
         </ul>
-
-        <a href="https://apps.apple.com/gb/app/astrovert/id6502262535" target="_blank"><img src="../app-store.png" alt="Available on the App Store" width="256"></a>
+        </td></tr></table>
+        <div class="astrovert-image">
+        <a href="https://apps.apple.com/gb/app/astrovert/id6502262535" target="_blank">
+            <img src="../img/app-store.png" alt="Available on the App Store" width="200">
+        </a>
+        </div>
 
             <p>Embark on your space adventure with Astrovert, where the sky is not the limit — it’s just the beginning!</p>
-        <footer>
-                <p><a href="support">Support Page</a> | <a href="privacy">Privacy Policy</a> | <a href="../">mathricks.com </a></p>
-        </footer>
     </div>
+    </section>
+    <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2010-2025, Mathricks. All rights reserved.</p>
+            <p>Contact: info [at] mathricks [dot] com</p>
+            <p><a href="support">Support Page</a> | 
+               <a href="privacy">Privacy Policy</a> | 
+               <a href="../">mathricks.com </a></p>
+    </div>
+</footer>
 </body>
 </html>
