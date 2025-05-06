@@ -73,9 +73,21 @@
         <td align="left">
           <ul>
             <li><strong>Q: What is Bitcoin Puzzle Quest?</strong><br>
-              A: Bitcoin Puzzle Quest (bpq for short) is a puzzle-hunting app that lets you generate random (or
+              A: Bitcoin Puzzle Quest (BPQ for short) is a puzzle-hunting app that lets you generate random (or
               sequential) keys and test them against the famous <em>Bitcoin Puzzle</em> address list — entirely
               offline, on your own iOS device.
+            </li>
+
+            <li><strong>Q: How are the puzzle levels structured?</strong><br>
+              A: The challenge is divided into 160 levels (originally 256), with each level using a key range that is twice as large as the previous one. For example:
+              <ul style="margin-top: 0.5em;">
+                <li>Level 1: <code>2⁰ ≤ key &lt; 2¹</code> (only 1 possible key)</li>
+                <li>Level 2: <code>2¹ ≤ key &lt; 2²</code></li>
+                <li>Level 3: <code>2² ≤ key &lt; 2³</code></li>
+                <li>...</li>
+                <li>Level 160: <code>2¹⁵⁹ ≤ key &lt; 2¹⁶⁰</code></li>
+              </ul>
+              Each higher level doubles the size of the key space, making it exponentially harder to solve. To reflect this, the puzzle creator(s) placed increasing amounts of Bitcoin in higher levels as added incentive.
             </li>
             
             <li><strong>Q: How do I start playing Bitcoin Puzzle Quest?</strong><br>A: Open the app and start testing 
@@ -106,10 +118,15 @@
               A: The remaining puzzles are still astronomically hard. Low-bit ranges (e.g. 25 bits) can be
               replayed for experimenting and learning; high-bit ranges (100+ bits) are purely for the
               thrill. We highlight the lowest unsolved in the difficulty level picker — your “best bad odds,” so to
-              speak.
+              speak. To estimate your personal chance, we've added the ratio of the number of keys tried by the total number of keys in that range for each puzzle.
             </li>
-
-            <li><strong>Q: Why can't bpq keep scanning in the background?</strong><br>
+            
+            <li><strong>Q: How have some high-bit difficulty levels already been solved?</strong><br>
+              A: The puzzle creator(s) left a "small" clue by making an outgoing transaction from those addresses, which reveals the public key. 
+              That hint cuts the number of possible keys to try in half. Using this extra information, puzzle hunters apply specialized search techniques to recover the private keys more quickly.
+            </li>
+            
+            <li><strong>Q: Why can't BPQ keep scanning in the background?</strong><br>
               A: Your device suspends nearly all CPU-intensive work when an app is backgrounded or the screen locks.
               Continuous Mode runs only while the app is in the foreground and the device is awake (e.g., charging with
               Auto-Lock disabled).
@@ -128,7 +145,7 @@
             </li>
 
             <li><strong>Q: How do I claim BTC if I find a winning key?</strong><br>
-              A: 1) First off, copy the private key bpq shows asap (write it down preferably). 
+              A: 1) First off, copy the private key BPQ shows asap (write it down preferably). 
               2) Check out <a href="https://bitcointalk.org/index.php?topic=1306983.0">the community forum</a> to learn the secure way to secure the funds. DYOR!
             </li>
 
@@ -138,7 +155,7 @@
               to rank you in global leaderboards.
             </li>
 
-            <li><strong>Q: Does bpq use proprietary cryptography?</strong><br>
+            <li><strong>Q: Does BPQ use proprietary cryptography?</strong><br>
               A: No. Only open, standard algorithms—secp256k1 (ECDSA), SHA-256, and RIPEMD-160—as specified
               by IETF/ISO are utilized to compute Bitcoin addresses from private keys.
             </li>
@@ -148,7 +165,7 @@
               use Low Power Mode (it only affects screen refresh), and give it breaks if it gets too warm.
             </li>
 
-            <li><strong>Q: Does bpq have a mini-game?</strong><br>
+            <li><strong>Q: Does BPQ have a mini-game?</strong><br>
               A: Absolutely! Double-tap the treasure-chest icon on the main screen to unlock a cheeky sliding-puzzle
               Easter egg—because every epic quest deserves a hidden side quest.
             </li>
