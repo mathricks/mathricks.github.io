@@ -1,119 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="mathricks, math, metrics, matrix, numbers, play, puzzle, gridlock">
-    <title>Bitcoin Puzzle Quest | Mathricks</title>
-    <link rel="stylesheet" href="../../styles.css">
-    <script defer src="../js/dark.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bitcoin Puzzle Quest - MATHRICKS</title>
+  <style>
+    :root{
+      --bg: #0e1111;            
+      --fg: #ffffff;            
+      --muted: #9aa6b2;        
+      --line: rgba(255,255,255,.12); 
+      --line-strong: rgba(255,255,255,.30);
+      --accent: #F4C236;       
+      --accent-grad-start: #F4D35E;
+      --accent-grad-end: #E8B02E;
+      --tint: rgba(244,194,54,.04);   
+      --container: 1200px;
+      --header-start: rgba(14,17,17,.94);  
+      --header-end:   rgba(14,17,17,.74);  
+      --band-radial: radial-gradient(80% 100% at 50% 0%, rgba(255,255,255,.03), rgba(255,255,255,0));
+    }
+    [data-theme="light"]{
+      --bg: #F4F1EC;            
+      --fg: #0e1111;            
+      --muted: #6d6d6d;         
+      --line: rgba(14,17,17,.12);
+      --line-strong: rgba(14,17,17,.34);
+      --accent: #E8B02E;
+      --accent-grad-start: #FFE37A;
+      --accent-grad-end: #E8B02E;
+      --tint: rgba(232,176,46,.05);
+      --header-start: rgba(244,241,236,.95);  
+      --header-end:   rgba(244,241,236,.80);
+      --band-radial: radial-gradient(80% 100% at 50% 0%, rgba(14,17,17,.08), rgba(14,17,17,0));
+    }
+    html,body{background:var(--bg);color:var(--fg);margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";}
+    *{box-sizing:border-box}
+    .container{max-width:var(--container);margin:0 auto;padding:0 24px}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+    /* ----- Header ----- */
+    header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg, var(--header-start), var(--header-end));backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--accent);}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-weight:600;letter-spacing:.18em;font-size:.85rem;opacity:.85}
+    .nav-actions{display:flex;gap:10px;align-items:center}
+    .btn{border:1px solid var(--line-strong);padding:10px 14px;border-radius:999px;font-size:.85rem;letter-spacing:.06em;background:transparent;transition:filter .15s ease, border-color .15s ease}
+    .btn:hover{filter:brightness(115%);border-color:var(--accent)}
+    .toggle{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:20px;
+      line-height:1;
+      border:1px solid var(--line-strong);
+      background:var(--bg);
+      cursor:pointer;
+      transition:background .25s ease, border-color .25s ease, transform .15s ease;
+    }
+    .toggle:hover{transform:scale(1.08);border-color:var(--accent);}
+
+    /* ----- Hero ----- */
+    .hero{position:relative;min-height:86vh;display:grid;place-items:center;border-bottom:1px solid var(--line);background-image:linear-gradient(180deg, var(--tint), transparent)}
+    .hero-inner{width:100%}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:10vw;align-items:center}
+    .hero h1{font-size:clamp(40px,8vw,92px);line-height:1.02;letter-spacing:.01em;margin:0 0 16px 0;font-weight:600}
+    .hero p{color:var(--muted);font-size:clamp(16px,2.4vw,20px);letter-spacing:.02em;margin:0 0 28px}
+    .signature{
+      position:absolute;
+      bottom:6vh;
+      right:8vw;
+      font-size:.8rem;
+      letter-spacing:.28em;
+      color:var(--muted);
+      text-transform:uppercase;
+      opacity:.9;
+    }
+    .hero-cta{display:flex;gap:12px;align-items:center}
+    .cta{border:1px solid var(--accent);background:transparent;color:var(--fg);padding:12px 18px;border-radius:999px;font-weight:600;letter-spacing:.08em;font-size:.85rem;text-transform:uppercase;transition:background .25s ease, color .25s ease, filter .15s ease}
+    .cta:hover{
+      background:linear-gradient(90deg,var(--accent-grad-start),var(--accent-grad-end));
+      color:var(--bg);
+      filter:none;
+    }
+
+    h1 .studio{font-size:.18em;letter-spacing:.22em;margin-left:.4em;vertical-align:super;font-weight:400;color:var(--muted);text-transform:uppercase}
+
+    /* Corner crosses — single set of lines, no duplicates */
+    .corner, .corner-r{position:absolute;opacity:1}
+    .corner{top:12vh;left:6vw;width:30vw;height:40vh}
+    .corner-r{bottom:10vh;right:6vw;width:30vw;height:46vh}
+
+    /* top-left: vertical + horizontal */
+    .corner::before{content:"";position:absolute;left:0;top:-12vh;width:3px;height:calc(100% + 12vh);background:var(--line-strong);z-index:2}
+    .corner::after{content:"";position:absolute;left:-14vw;top:0;width:calc(100% + 14vw);height:3px;background:var(--line-strong);z-index:2}
+
+    /* bottom-right: vertical + horizontal */
+    .corner-r::before{content:"";position:absolute;right:0;top:-12vh;width:3px;height:calc(100% + 24vh);background:var(--line-strong);z-index:2}
+    .corner-r::after{content:"";position:absolute;right:-14vw;bottom:0;width:calc(100% + 14vw);height:3px;background:var(--line-strong);z-index:2}
+
+    /* animate bottom-right vertical stroke from top to bottom */
+    .corner-r.animate-down::before{height:0;animation:drawDown 1100ms ease-in-out forwards}
+    @keyframes drawDown{to{height:calc(100% + 24vh)}}
+
+    .draw{transform-origin:left center;transform:scaleX(0);animation:draw 1.1s ease-in-out forwards}
+    .draw.delay{animation-delay:.25s}
+    .draw-right{transform-origin:right center;transform:scaleX(0);animation:draw 1.1s ease-in-out forwards}
+    @keyframes draw{to{transform:scaleX(1)}}
+
+    /* ----- Principles ----- */
+    section{border-bottom:none}
+    .section{padding:88px 0}
+    .section .eyebrow{font-size:.8rem;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:14px}
+    .section h2{font-size:clamp(28px,4.6vw,52px);margin:0 0 22px;line-height:1.06}
+    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+    .card{border:none;border-radius:16px;padding:28px 26px;min-height:180px;transition:filter .15s ease, transform .15s ease;position:relative}
+    .card h3{margin:0 0 8px;font-size:1rem;letter-spacing:.12em;text-transform:uppercase}
+    .card p{margin:0;color:var(--muted);line-height:1.6}
+    /* Corner ticks: horizontals */
+    .card::before{content:"";position:absolute;inset:0;pointer-events:none;background-repeat:no-repeat;background-image:
+      linear-gradient(var(--line), var(--line)), /* TL H */
+      linear-gradient(var(--line), var(--line)), /* TR H */
+      linear-gradient(var(--line), var(--line)), /* BR H */
+      linear-gradient(var(--line), var(--line)); /* BL H */
+    background-size:48px 1px, 48px 1px, 48px 1px, 48px 1px;
+    /* center 32px from edges, line half-length 24px */
+    background-position:left calc(32px - 24px) top 32px,
+                         right calc(32px - 24px) top 32px,
+                         right calc(32px - 24px) bottom 32px,
+                         left calc(32px - 24px) bottom 32px;
+    opacity:.95
+    }
+
+    /* Corner ticks: verticals (to create tiny crosses) */
+    .card::after{content:"";position:absolute;inset:0;pointer-events:none;background-repeat:no-repeat;background-image:
+      linear-gradient(var(--line), var(--line)), /* TL V */
+      linear-gradient(var(--line), var(--line)), /* TR V */
+      linear-gradient(var(--line), var(--line)), /* BR V */
+      linear-gradient(var(--line), var(--line)); /* BL V */
+    background-size:1px 36px, 1px 36px, 1px 36px, 1px 36px;
+    background-position:left 14px top 14px, right 14px top 14px, right 14px bottom 14px, left 14px bottom 14px;
+    opacity:.95
+    }
+    .card:hover{filter:brightness(110%);transform:translateY(-2px)}
+
+    /* ----- How it Works ----- */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:28px;counter-reset:step}
+    .step{position:relative;border-top:1px solid var(--line-strong);padding-top:22px}
+    .step::before{counter-increment:step;content:counter(step, decimal-leading-zero);position:absolute;top:-14px;left:0;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:.9rem;color:var(--muted);padding:0 8px;background:var(--bg)}
+    .step h4{margin:0 0 8px;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase}
+    .step p{margin:0;color:var(--muted)}
+
+    /* ----- Preview video ----- */
+    .preview-video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:contain; 
+      border-radius:14px;
+      background:var(--bg); 
+      box-shadow:0 0 6px rgba(0,0,0,.25);
+    }
+
+    /* ----- Subtle ticker band ----- */
+    .band{position:relative;overflow:hidden;background: var(--band-radial);}
+    .band .container{display:flex;align-items:center;gap:28px;height:72px}
+    .ticker{font-family:ui-monospace,Menlo,Consolas,monospace;color:#c7c7c7;white-space:nowrap;opacity:.75;animation:ticker 22s linear infinite}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* ----- Footer ----- */
+    footer{padding:60px 0}
+    .footer-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    .links{display:flex;gap:18px;align-items:center}
+    .link{color:var(--muted)}
+    .link:hover{color:var(--fg)}
+
+    /* ----- Scroll reveal ----- */
+    .reveal{opacity:0;transform:translateY(8px);transition:opacity .5s ease, transform .5s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    /* ----- New additions ----- */
+    .legal{margin-top:28px;text-align:center;font-size:.85rem;color:var(--muted)}
+
+    /* ----- Responsive ----- */
+    @media (max-width: 960px){
+      .hero-grid{grid-template-columns:1fr}
+      .corner{left:24px;width:54vw;height:28vh}
+      .corner-r{right:24px;width:56vw;height:30vh}
+      .principles{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-
-<!-- Header -->
-<header class="main-header">
-    <div class="container header-flex">
-        <h1>Bitcoin Puzzle Quest</h1>
-        <a href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" class="download-btn" target="_blank">
-        <img src="../img/app0-logo.png" alt="bpq Logo" class="game-logo" style="border:3px solid gray;" >
-        </a>
+  <header>
+    <div class="container nav">
+      <div class="logo" style="opacity:.6"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="#how">How it Works</a>
+        <a class="btn" href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" aria-label="Download on the App Store" rel="noopener">
+        App Store</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
     </div>
-</header>
+  </header>
 
-<!-- Main Content -->
-<section class="content container">
-    <div class="game-info">
-        <div class="game-description">
-            <h2>Hunt the legendary 1000BTC Puzzle on iOS</h2>
-            <table>
-                <tr><td align="left">
-                    <p>Choose your key size and hit 'Go'. <br> Test the keys to unlock big bounties of the legendary 1000 BTC Puzzle.</p>
-                    
-<h2>App Description</h2>
-                    
-<p>Become a famous puzzle hunter and test your luck against one of the most famous cryptographic challenges on the internet. 
-    Somewhere in blockchain's vast key-space lie dozens of addresses tied to a publicly known cryptographic puzzle setup more than a decade ago. Every one of the addresses is protected by nothing more than an unknown number within a known range. Bitcoin Puzzle Quest puts this legendary hunt in the palm of your hand.
-</p>
-<h2>How to Play</h2>
-
-<h3>1. Choose Your Challenge</h3>
-
-<p>Pick any key size up to the 160-bit “beast”. The larger the space, the harder the challenge.<br/>
-Not sure where to begin? Try 71-bit in Speed Dial: the lowest-bit puzzle still unsolved, with an untouched real prize, and a bit count still humanly conquerable.
-</p>
-<p>                  
-• Low-bit puzzles (already solved) offer quick feedback and are great for experimentation and learning.
-    <br />
-• High-bit challenges bring the thrill of chasing life-changing bounties.
-</p>
-                    
-<h3>2. Generate and Check Keys Instantly</h3>
-
-<p> • Tap to Hunt. Generate keys one-by-one or in batches of 5, 10, 50 or 100. <br>
- Each key is converted locally to a Bitcoin address, and checked against the official puzzle address list—all offline. Keep tapping until you find the correct number (or your thumbs tap out… pro tip: a DIY “robot finger” is totally fair game).
-<br> 
-    • Continuous Mode (one-time in-app purchase). Let the app press the button for you. No tapping required. Perfect for committed puzzle hunters who’d rather watch the numbers roll than their fingers ache. You can even enter a starting number for deterministic, sequential scans - ideal for targeting specific ranges or coordinating community efforts with fellow puzzle enthusiasts.
-<br>
-Need a breather? Double-tap the treasure-chest icon to reveal a cheeky sliding-puzzle mini-game. Because every great quest deserves a hidden side quest!
-</p>
-<h3>3. Global Leaderboards (Game Center)</h3>
-<p>Compare how many millions of keys you’ve tested, and see how you stack up against friends and puzzle hunters worldwide. Counts are reported in million-key milestones, and no key data ever leaves your device.
-</p>
-<h2>Key Features</h2>
-<p>
-• Human-Friendly Cryptography Experience. Just tap, scan, and get feedback. We’ve made cryptographic puzzle solving fun, simple and accessible.<br>
-• Offline & Private. All key generation and address checking happens locally on your device. No internet, no tracking, no wallet integration, no cloud needed. Just pure, private puzzle solving.<br>
-• Random or Sequential Runs. Switch between secure randomness or reproducible scans.<br>
-• Live Puzzle Balances. View the live balance of each puzzle address for extra motivation. Stay informed, stay inspired.<br>
-• Haptic + Audio Alerts for Instant Celebration. When you hit the correct number (fingers crossed!), you’ll feel a satisfying haptic buzz and see the winning key.<br>
-• Adaptive UI. Supports Light and Dark Mode, Dynamic Type, and is fully iOS-Universal.
-</p>
-                    
-<h2>Privacy-First Philosophy</h2>
-
-<p>• Found numbers are stored locally—never shared and no third parties involved.<br>
-• Attempt counts, number of tries, are saved to your device (unless you join Game Center).<br>
-• Network calls are limited to public endpoints for puzzle address balances and the ticker.<br>
-</p>
-                    
-<h2>Who’s It For?</h2>
-<p>Anyone curious about cryptographic puzzles especially about Bitcoin. Whether you’re an experienced puzzle hunter or totally new to blockchain, Bitcoin Puzzle Quest offers a playful, intuitive way into a legendary number searching puzzle.</p>
-<p>
-Ready to hunt the biggest cryptographic puzzle?<br />
-Download Bitcoin Puzzle Quest and start your adventure today!
-</p>
-<p>Please note: Bitcoin Puzzle Quest is not a wallet, contest, or sweepstakes app. Think of it as an educational cryptography playground and a community challenge rolled into one digital puzzle hunt. Any Bitcoin that may be discovered results from a third-party cryptographic challenge published to the public internet in 2015. The developer is not affiliated with the puzzle creators and has no control over the funds. Apple is not a sponsor of any challenge shown.</p>
-
-                    </td>
-                </tr>
-            </table>
+  <main>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="corner draw" aria-hidden="true"></div>
+      <div class="corner-r animate-down draw-right delay" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-grid">
+          <div>
+            <h1 id="hero-title">Bitcoin Puzzle Quest</h1>
+            <p>The legendary ~1000BTC cryptographic hunt. Offline, private, precise.</p>
+            <div class="hero-cta">
+              <a class="cta" id="download" href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" rel="noopener">Download</a>
+              <a class="btn" href="#how">Learn More</a>
+            </div>
+          </div>
+          <div>
+            <!-- Minimal blueprint preview card -->
+            <div class="card" style="height:420px;display:grid;place-items:center;border-radius:24px">
+              <div style="width:80%;height:1px;background:var(--line-strong)"></div>
+              <div style="width:60%;height:1px;background:var(--line-strong)"></div>
+              <div style="position:absolute;right:-72px;top:40%;width:60px;height:60px;border:1px solid var(--line-strong);"></div>
+              <div style="position:absolute;left:-72px;top:20%;width:40px;height:40px;border:1px solid var(--line-strong);"></div>
+              <div style="position:absolute;right:10%;top:-50px;width:48px;height:48px;border:1px solid var(--line-strong);"></div>
+              <video id="previewVideo" src="latest.mp4" muted playsinline autoplay poster="https://mathricks.com/img/app0-logo.png" style="position:absolute;width:260px;height:480px;object-fit:cover;border-radius:14px;box-shadow:0 0 6px rgba(0,0,0,.25);"></video>
+              <a href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" aria-label="Download on the App Store" rel="noopener" style="position:absolute;inset:0;"></a>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="download-section">
-        <a href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" class="download-btn" target="_blank">
-            <img src="../img/app-store.png" alt="Available Soon on the App Store" width="200">
-        </a>
-        <p>Requires iOS 18 or later. Works on iPhones and iPads.</p> 
-    <section class="thanks">
-        <div class="feature-box">
-        <p>Thank you for playing Bitcoin Puzzle Quest! <br/> Follow us on 
-            <a href="https://twitter.com/mathricks" target="_blank">X</a>
-        </p>
-        </div>
+        <div class="signature">Mathricks Studio</div>
+      </div>
     </section>
-</section>
-    
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2010-2025, Mathricks. All rights reserved.</p>
-            <p>Contact: info [at] mathricks [dot] com</p>
-            <p><a href="support">Support Page</a> | 
-               <a href="privacy">Privacy Policy</a> | 
-               <a href="../">mathricks.com </a></p>
+
+
+    <!-- Monochrome ticker band -->
+    <div class="band" aria-hidden="true">
+      <div class="container">
+        <div class="ticker">0000000000000000 ← 0000000000000001 ← 0000000000000005 ← 0000000000000032 ← 00000000000000FE ← 0000000000000A1C ← 000000000000C0DE ← 00000000000FFFFF ← 0000000000ABCDE ← 000000000C0FFEE ← 00000000DEADBEEF ← 0000000FACEFEED ← </div>
+        <div class="ticker" aria-hidden="true">0000000000000000 ← 0000000000000001 ← 0000000000000005 ← 0000000000000032 ← 00000000000000FE ← 0000000000000A1C ← 000000000000C0DE ← 00000000000FFFFF ← 0000000000ABCDE ← 000000000C0FFEE ← 00000000DEADBEEF ← 0000000FACEFEED ← </div>
+      </div>
     </div>
-</footer>
-</body>    
-<!-- Dark Mode Toggle -->
-<button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button>
+
+    <!-- How it works -->
+    <section class="section" id="how">
+      <div class="container reveal">
+        <div class="eyebrow">How it works</div>
+        <h2>Three steps.</h2>
+        <div class="steps">
+          <div class="step">
+            <h4>Choose your challenge</h4>
+            <p>Pick a key size up to 160-bit.</p>
+          </div>
+          <div class="step">
+            <h4>Generate and check</h4>
+            <p>Generate keys and the corresponding address locally and check against the target puzzle address.</p>
+          </div>
+          <div class="step">
+            <h4>Celebrate the find</h4>
+            <p>The winning number is stored on your device, private by design.</p>
+          </div>
+        </div>
+        <p style="text-align:center;margin-top:32px">
+          <a class="btn" href="details.html">Details</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="section" id="learn">
+      <div class="container reveal" style="text-align:center">
+        <div class="eyebrow">Ready</div>
+        <h2 style="margin-bottom:28px">Join the hunt.</h2>
+        <a class="cta" href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" rel="noopener">Get the app</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo" style="opacity:.6"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="https://mathricks.com/bpq/support">Support</a>
+        <span style="color:var(--line)">|</span>
+        <a class="link" href="https://mathricks.com/bpq/privacy">Privacy</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2025, Mathricks. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const applyTheme = (t)=>{
+      if(t==='light'){
+        root.setAttribute('data-theme','light');
+        toggle.textContent='🌙';   /* sun icon for light mode */
+      }else{
+        root.removeAttribute('data-theme');
+        toggle.textContent='☀️';   /* moon icon for dark mode */
+      }
+      localStorage.setItem('theme', t);
+    };
+    const toggle = document.getElementById('themeToggle');
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    toggle.addEventListener('click',()=>{
+      const current = root.getAttribute('data-theme')==='light' ? 'light' : 'dark';
+      applyTheme(current==='light' ? 'dark' : 'light');
+    });
+    const obs = new IntersectionObserver(entries => {
+      for (const e of entries){
+        if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+      }
+    }, {threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    // Blueprint video slideshow
+    const previewSources = ['gameplay.mp4','chestgame.mp4','latest.mp4'];
+    let previewIndex = 0;
+    const previewVideo = document.getElementById('previewVideo');
+    previewVideo.addEventListener('loadedmetadata', ()=> previewVideo.play());
+
+    if(previewVideo.src.includes('chestgame')){
+      previewVideo.style.height = '400px';
+    }
+    function cyclePreview(){
+      previewIndex = (previewIndex + 1) % previewSources.length;
+      previewVideo.src = previewSources[previewIndex];
+      if(previewVideo.src.includes('chestgame')){
+        previewVideo.style.height = '260px';
+      }else{
+        previewVideo.style.height = '480px';
+      }
+      previewVideo.load();
+    }
+    setInterval(cyclePreview, 3000);
+  </script>
 </body>
 </html>
