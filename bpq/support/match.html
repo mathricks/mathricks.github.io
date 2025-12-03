@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn exactly what it means when Bitcoin Puzzle Quest reports a match: a generated private key derives the same Bitcoin address as a publicly known puzzle address. See the simplified address-generation pipeline, and what a match does and does not mean.">
+  <title>What Does a “Match” Mean? | Bitcoin Puzzle Quest Support | Mathricks</title>
+  <style>
+    :root{
+      --bg: #0e1111;
+      --fg: #ffffff;
+      --muted: #9aa6b2;
+      --line: rgba(255,255,255,.12);
+      --line-strong: rgba(255,255,255,.30);
+      --accent: #F4C236;
+      --accent-grad-start: #F4D35E;
+      --accent-grad-end: #E8B02E;
+      --container: 1200px;
+      --header-start: rgba(14,17,17,.94);
+      --header-end: rgba(14,17,17,.74);
+    }
+
+    html[data-theme="light"],
+    body[data-theme="light"],
+    body.light,
+    body.light-mode{
+      --bg: #F4F1EC;
+      --fg: #0e1111;
+      --muted: #6d6d6d;
+      --line: rgba(14,17,17,.12);
+      --line-strong: rgba(14,17,17,.34);
+      --accent: #E8B02E;
+      --accent-grad-start: #FFE37A;
+      --accent-grad-end: #E8B02E;
+      --header-start: rgba(244,241,236,.95);
+      --header-end: rgba(244,241,236,.80);
+    }
+
+    html,body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial;
+    }
+
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--accent)}
+
+    .container{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    .main-header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:linear-gradient(180deg,var(--header-start),var(--header-end));
+      border-bottom:1px solid var(--accent);
+      backdrop-filter:saturate(140%) blur(6px);
+    }
+
+    .header-flex{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 0;
+    }
+
+    .logo{
+      font-weight:600;
+      letter-spacing:.18em;
+      font-size:.85rem;
+      opacity:.85;
+    }
+
+    .main-header h1{
+      margin:0;
+      font-size:clamp(18px,2vw,22px);
+      font-weight:600;
+      letter-spacing:.02em;
+    }
+
+    .dark-mode-toggle{
+      border:1px solid var(--line-strong);
+      background:transparent;
+      color:var(--fg);
+      border-radius:999px;
+      padding:10px 12px;
+      cursor:pointer;
+      transition:border-color .15s ease, filter .15s ease;
+    }
+
+    .dark-mode-toggle:hover{
+      border-color:var(--accent);
+      filter:brightness(115%);
+    }
+
+    .section{
+      position:relative;
+      padding:60px 0;
+      scroll-margin-top:120px;
+    }
+
+    .section + .section{
+      margin-top:40px;
+    }
+
+    .cross-bottom{
+      position:relative;
+      padding:0 88px 96px 32px;
+    }
+
+    .cross-bottom::before{
+      content:"";
+      position:absolute;
+      right:32px;
+      bottom:32px;
+      width:220px;
+      height:0;
+      border-bottom:2px solid var(--line-strong);
+      pointer-events:none;
+    }
+
+    .cross-bottom::after{
+      content:"";
+      position:absolute;
+      right:32px;
+      bottom:32px;
+      height:140px;
+      width:0;
+      border-right:2px solid var(--line-strong);
+      pointer-events:none;
+    }
+
+    .section::before{
+      content:"";
+      position:absolute;
+      left:32px;
+      top:32px;
+      width:220px;
+      height:0;
+      border-top:2px solid var(--line-strong);
+      pointer-events:none;
+    }
+
+    .section::after{
+      content:"";
+      position:absolute;
+      left:32px;
+      top:32px;
+      height:140px;
+      width:0;
+      border-left:2px solid var(--line-strong);
+      pointer-events:none;
+    }
+
+    @media (max-width: 720px){
+      .cross-bottom{
+        padding:0 56px 72px 24px;
+      }
+      .section::before,
+      .cross-bottom::before{
+        width:180px;
+      }
+      .section::after,
+      .cross-bottom::after{
+        height:120px;
+      }
+    }
+
+    h2{
+      margin:0 0 14px;
+      font-size:clamp(22px,2.6vw,30px);
+      letter-spacing:.01em;
+    }
+
+    h3{
+      margin-top:30px;
+      margin-bottom:10px;
+      font-size:1.1rem;
+    }
+
+    p,li{
+      line-height:1.6;
+    }
+
+    ul{
+      margin:0 0 1em;
+      padding-left:1.2em;
+    }
+
+    code{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      font-size:.95em;
+    }
+
+    .pill{
+      display:inline-block;
+      border-radius:999px;
+      border:1px solid var(--line-strong);
+      padding:4px 10px;
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    .note{
+      margin-top:24px;
+      padding:14px 16px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .toc{
+      margin-top:18px;
+      padding:12px 16px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .toc a{
+      color:inherit;
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    .toc a:hover{
+      color:var(--accent);
+    }
+
+    .footer{
+      margin-top:40px;
+      border-top:1px solid var(--line);
+      padding:32px 0;
+      color:var(--muted);
+      text-align:center;
+      font-size:.85rem;
+    }
+
+    .footer a{
+      color:var(--muted);
+    }
+
+    .footer a:hover{
+      color:var(--accent);
+    }
+
+    .flow-diagram{
+      margin-top:18px;
+      padding:16px 18px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.01);
+      font-size:.9rem;
+      overflow-x:auto;
+    }
+
+    .flow-diagram h4{
+      margin:0 0 8px;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+    }
+
+    .flow-row{
+      display:flex;
+      align-items:stretch;
+      gap:8px;
+      min-width:320px;
+    }
+
+    .flow-box{
+      flex:1 1 0;
+      border-radius:10px;
+      border:1px solid var(--line-strong);
+      padding:8px 10px;
+      background:rgba(0,0,0,.08);
+    }
+
+    .flow-box strong{
+      font-size:.85rem;
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .flow-box p{
+      margin:0;
+      line-height:1.4;
+    }
+
+    .flow-arrow{
+      align-self:center;
+      font-size:1.2rem;
+      opacity:.7;
+      flex:0 0 auto;
+    }
+
+    @media (max-width: 720px){
+      .flow-diagram{
+        padding:12px 14px;
+      }
+      .flow-row{
+        gap:6px;
+      }
+    }
+  </style>
+</head>
+
+<body id="page-top">
+  <header class="main-header">
+    <div class="container header-flex">
+      <a href="https://mathricks.com/bpq/" class="logo">MATHRICKS</a>
+      <h1>What Does a “Match” Mean?</h1>
+      <button id="themeToggle" class="dark-mode-toggle" aria-label="Toggle theme">Light</button>
+    </div>
+  </header>
+
+  <section class="section" id="intro">
+    <div class="cross-bottom">
+      <div class="container">
+        <span class="pill">Bitcoin Puzzle Quest · Support</span>
+        <h2>What it means when a private key “matches” a puzzle address</h2>
+        <p>
+          From time to time you might see language like “generated a private key that matches one of the publicly known puzzle addresses.” This page explains what “match” means in simple, precise terms, and what it does
+          <em>not</em> mean, so you can better understand what Bitcoin Puzzle Quest is doing on your device.
+        </p>
+        <p>
+          This is an educational overview only. It is not financial, legal, or tax advice, and it is not an instruction manual for moving or storing cryptocurrency.
+        </p>
+        <p style="margin-top:18px;font-size:.9rem;">
+          ← Back to the <a href="index.html"><u>Support FAQ</u></a> · Read also
+          <a href="claim.html"><u>Understanding how BTC can be claimed</u></a>
+        </p>
+        <div class="toc" aria-label="On-page navigation">
+          <strong>On this page:</strong>
+          <a href="#puzzle-addresses">1) Puzzle addresses</a> ·
+          <a href="#how-matching-works">2) How key testing works</a> ·
+          <a href="#what-match-means">3) What “match” means</a> ·
+          <a href="#what-match-not">4) What it does not mean</a> ·
+          <a href="#safety-next-steps">5) Safety and next steps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="puzzle-addresses">
+    <div class="cross-bottom">
+      <div class="container">
+        <h3>1. The puzzle addresses are public</h3>
+        <p>
+          The “Bitcoin Puzzle” is built from a list of Bitcoin addresses that were created and funded by the puzzle creator or creators. These addresses, and the amounts originally placed on them, were published publicly on the internet as part of the challenge. In other words, the targets are known to everyone and anyone is allowed to search for the corresponding private keys.
+        </p>
+        <p>
+          Bitcoin Puzzle Quest does not invent its own targets. It uses copies of those publicly shared addresses locally on your device so it can check whether any key you generate corresponds to one of them.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how-matching-works">
+    <div class="cross-bottom">
+      <div class="container">
+        <h3>2. What the app actually does when testing a key</h3>
+        <p>For each candidate private key the app:</p>
+        <ol>
+          <li>Generates a private key integer <code>k</code> inside the allowed range for a given puzzle level.</li>
+          <li>Uses standard secp256k1 math to compute the corresponding public key point and compressed public key.</li>
+          <li>Turns that public key into a Bitcoin address using the same hash functions the Bitcoin protocol specifies.</li>
+          <li>Compares the resulting address to the offline list of published puzzle addresses stored in the app.</li>
+        </ol>
+        <p>
+          All of these checks are performed locally. Your candidate private keys and any discovered matches stay on your device and are not sent to any server by Bitcoin Puzzle Quest.
+        </p>
+        <div class="flow-diagram" aria-label="Overview of how a candidate key is tested">
+          <h4>Standard Bitcoin address pipeline, simplified</h4>
+          <div class="flow-row">
+            <div class="flow-box">
+              <strong>Private key</strong><br>
+              <p><code>k</code> is a random integer in the allowed range for the chosen level.</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">
+              <strong>Public key point</strong><br>
+              <p>Compute <code>K = k·G</code> on the secp256k1 curve, which yields coordinates <code>(x,y)</code>.</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">
+              <strong>Compressed public key</strong><br>
+              <p>Store only <code>x</code> plus the parity of <code>y</code>: prefix <code>0x02</code> (even) or <code>0x03</code> (odd), then 32-byte <code>x</code>.</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">
+              <strong>Hash160</strong><br>
+              <p>Apply <code>SHA-256</code> then <code>RIPEMD-160</code> to the compressed public key.</p>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">
+              <strong>Bitcoin address</strong><br>
+              <p>Add version byte, compute checksum, and encode the result with Base58Check.<br>
+              <br><strong>Voilà! You now have the Bitcoin address derived from that private key.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-match-means">
+    <div class="cross-bottom">
+      <div class="container">
+        <h3>3. So what does “generated a private key that matches a publicly known puzzle address” mean?</h3>
+        <p>
+          In simple terms, a “match” means that:
+        </p>
+        <ul>
+          <li>Your generated private key <code>k</code> went through the standard Bitcoin address generation process, and</li>
+          <li>The final address that came out is identical to one of the published puzzle addresses that were funded for the challenge.</li>
+        </ul>
+        <p>
+          Because Bitcoin address generation is deterministic, the same private key will always derive the same Bitcoin address. So if your locally generated key produces the same address as a published puzzle address, then you have found the corresponding private key for that target.
+        </p>
+        <p class="note">
+          At that point, you control whatever funds are still present at that address. The app does not and cannot “partially” control an address for you: either the generated key is a true mathematical match, or it is not.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-match-not">
+    <div class="cross-bottom">
+      <div class="container">
+        <h3>4. What a “match” does not mean</h3>
+        <p>
+          It is equally important to understand what a match is not:
+        </p>
+        <ul>
+          <li>It is not a sign that the app has hacked an address or broken Bitcoin’s encryption. You are only testing keys inside the ranges intentionally chosen for the puzzle.</li>
+          <li>It is not a promise of a payout. A puzzle address might have been emptied or moved by someone else in the past.</li>
+          <li>It is not a background network scan. The app does not query the blockchain for every key you try. It simply checks your locally computed address against its local list.</li>
+        </ul>
+        <p>
+          Also, genuine matches are extremely rare at higher difficulty levels. The remaining unsolved levels are intentionally astronomical in size, and most users will never encounter a real match. The game is designed to make that vastness feel tangible and fun.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="safety-next-steps">
+    <div class="cross-bottom">
+      <div class="container">
+        <h3>5. Safety, responsibility, and next steps</h3>
+        <p>
+          Managing private keys is a high‑stakes activity. Whoever knows a private key can spend any funds that key controls. If you ever believe you have found a real match, you should treat that key with extreme care.
+        </p>
+        <p>
+          Bitcoin Puzzle Quest does not guide you through the operational steps of moving or storing any coins, and it does not provide legal, tax, or investment advice. Instead, we encourage you to:
+        </p>
+        <ul>
+          <li>Read our companion page <a href="claim.html"><u>Understanding how BTC can be claimed</u></a> for a high‑level overview of the general concepts involved.</li>
+          <li>Consult reputable resources and, where appropriate, independent professional advice regarding security, custody, and taxes in your jurisdiction.</li>
+          <li>Explore community discussions, for example the long‑running threads on forums like Bitcointalk, to understand how others approach these puzzles.</li>
+        </ul>
+        <p>
+          Bitcoin Puzzle Quest is a learning and puzzle experience first. Any discovery of real funds is a rare and serious responsibility that happens to arise from that exploration.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2010-2025, Mathricks. All rights reserved.</p>
+      <p>Contact: info [at] mathricks [dot] com</p>
+      <p>
+        <a href="../privacy">Privacy Policy</a> |
+        <a href="../">Bitcoin Puzzle Quest Home</a> |
+        <a href="../../">mathricks.com</a>
+      </p>
+    </div>
+    <p>Made with ❤️ using <a href="https://github.com/mathricks" target="_blank">GitHub Pages</a></p>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+
+    function applyTheme(t){
+      if(t === 'light'){
+        root.setAttribute('data-theme','light');
+        toggle.textContent='🌙';
+      }else{
+        root.removeAttribute('data-theme');
+        toggle.textContent='☀️';
+      }
+      localStorage.setItem('theme', t);
+    }
+
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+  </script>
+</body>
+
+</html>
