@@ -6,226 +6,384 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bitcoin Puzzle Quest (Game) Support | Mathricks</title>
   <link rel="stylesheet" href="../../styles.css"> <!-- Apply the Mathricks theme -->
-  <script defer src="../../js/dark.js"></script>
+  <style>
+    :root{
+      /* Match BPQ theme */
+      --bg: #0e1111;
+      --fg: #ffffff;
+      --muted: #9aa6b2;
+      --line: rgba(255,255,255,.12);
+      --line-strong: rgba(255,255,255,.30);
+      --accent: #F4C236;
+      --accent-grad-start: #F4D35E;
+      --accent-grad-end: #E8B02E;
+      --container: 1200px;
+      --header-start: rgba(14,17,17,.94);
+      --header-end: rgba(14,17,17,.74);
+    }
+
+    /* Light mode: keep beige like BPQ */
+    html[data-theme="light"],
+    body[data-theme="light"],
+    body.light,
+    body.light-mode{
+      --bg: #F4F1EC;
+      --fg: #0e1111;
+      --muted: #6d6d6d;
+      --line: rgba(14,17,17,.12);
+      --line-strong: rgba(14,17,17,.34);
+      --accent: #E8B02E;
+      --accent-grad-start: #FFE37A;
+      --accent-grad-end: #E8B02E;
+      --header-start: rgba(244,241,236,.95);
+      --header-end: rgba(244,241,236,.80);
+    }
+
+    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial;}
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--accent)}
+    .container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+
+    /* Header polish */
+    .main-header{
+      position:sticky;top:0;z-index:10;
+      background:linear-gradient(180deg,var(--header-start),var(--header-end));
+      border-bottom:1px solid var(--accent);
+      backdrop-filter:saturate(140%) blur(6px);
+    }
+    .header-flex{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;}
+    .logo{font-weight:600;letter-spacing:.18em;font-size:.85rem;opacity:.85;}
+    .main-header h1{margin:0;font-size:clamp(18px,2vw,22px);font-weight:600;letter-spacing:.02em}
+    .main-header p{margin:10px 0 0;color:var(--muted);max-width:70ch;}
+
+    .dark-mode-toggle{
+      border:1px solid var(--line-strong);
+      background:transparent;
+      color:var(--fg);
+      border-radius:999px;
+      padding:10px 12px;
+      cursor:pointer;
+      transition:border-color .15s ease, filter .15s ease;
+    }
+    .dark-mode-toggle:hover{border-color:var(--accent);filter:brightness(115%)}
+
+    /* Sections + crossing frames */
+    .section{position:relative;padding:60px 0;scroll-margin-top:120px;}
+    .section + .section{margin-top:60px;}
+
+    /* limited top-left cross */
+    .section::before{content:"";position:absolute;left:32px;top:32px;width:220px;height:0;border-top:2px solid var(--line-strong);pointer-events:none;}
+    .section::after{content:"";position:absolute;left:32px;top:32px;height:140px;width:0;border-left:2px solid var(--line-strong);pointer-events:none;}
+
+    /* limited bottom-right cross */
+    .cross-bottom{position:relative;padding:0 88px 96px 32px;}
+    .cross-bottom::before{content:"";position:absolute;right:32px;bottom:32px;width:220px;height:0;border-bottom:2px solid var(--line-strong);pointer-events:none;}
+    .cross-bottom::after{content:"";position:absolute;right:32px;bottom:32px;height:140px;width:0;border-right:2px solid var(--line-strong);pointer-events:none;}
+
+    @media (max-width: 720px){
+    .cross-bottom{padding:0 56px 72px 24px;}
+    .section::before,.cross-bottom::before{width:180px;}
+    .section::after,.cross-bottom::after{height:120px;}
+    }
+
+    h2{margin:0 0 14px;font-size:clamp(22px,2.6vw,30px);letter-spacing:.01em;}
+    p,li{line-height:1.6;}
+    /* FAQ list spacing */
+    #faq ul{list-style-position:outside;margin:0;padding-left:1.2em;}
+    /* extra space between Q&A blocks, but keep Q and its own answer tight */
+    #faq li{margin:22px 0;}
+    #faq li strong{display:block;margin:0 0 2px;}
+
+    /* Form styling in-theme */
+    form{margin-top:14px;display:grid;gap:14px;max-width:720px}
+    label{display:grid;gap:8px;color:var(--muted)}
+    input,textarea{
+      width:100%;
+      background:transparent;
+      color:var(--fg);
+      border:1px solid var(--line-strong);
+      border-radius:14px;
+      padding:12px 14px;
+      font-size:1rem;
+      outline:none;
+    }
+    textarea{min-height:140px;resize:vertical}
+    input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(244,194,54,.18)}
+    button[type="submit"]{
+      justify-self:start;
+      border:1px solid var(--accent);
+      background:transparent;
+      color:var(--fg);
+      border-radius:999px;
+      padding:12px 18px;
+      font-weight:600;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:background .25s ease, color .25s ease;
+    }
+    button[type="submit"]:hover{
+      background:linear-gradient(90deg,var(--accent-grad-start),var(--accent-grad-end));
+      color:var(--bg);
+    }
+
+    table{width:100%;border-collapse:collapse}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+
+    /* Make the FAQ comparison table readable */
+    table[border="1"]{margin-top:10px;border:1px solid var(--line-strong)}
+    table[border="1"] th, table[border="1"] td{border:1px solid var(--line-strong);padding:10px 12px;}
+
+    /* Footer polish */
+    .footer{margin-top:80px;border-top:1px solid var(--line);padding:40px 0;color:var(--muted);text-align:center}
+    .footer a{color:var(--muted)}
+    .footer a:hover{color:var(--accent)}
+  </style>
 </head>
 
-<body>
+<body id="page-top">
   <!-- Header -->
   <header class="main-header">
     <div class="container header-flex">
-      <h1>Bitcoin Puzzle Quest Support</h1>
-      <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+      <a href="https://mathricks.com/bpq/" class="logo">MATHRICKS</a>
+      <h1>Bitcoin Puzzle Quest&nbsp;Support</h1>
+      <button id="themeToggle" class="dark-mode-toggle" aria-label="Toggle theme">Light</button>
     </div>
     <div class="container">
-      <p>We're here to ensure your journey through the cosmos is enjoyable!</p>
-      <p>For any support issues, feedback and new feature requests, please don't hesitate to contact:</p>
+      <p style="margin-top:10px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;"><a href="#faq">Jump to FAQ ↓</a></p>
     </div>
   </header>
   <!-- Main Content -->
-  <section class="content container">
-    <h2>Get in Touch</h2>
-    <form action="https://formspree.io/f/xqkrjjva" method="POST">
-      <label for="email-address">Your email:
-        <input type="email" name="email" id="email-address" placeholder="email@domain.tld" required=""></label>
-      <label for="message">Your message:
-        <textarea name="message" id="message"></textarea></label>
-      <label for="telephone">Telephone Number (Optional):</label>
-      <input type="telephone" name="telephone" id="telephone" placeholder="(555) 555-5555">
-      <button type="submit">Send</button>
-    </form>
+  <section class="section" id="contact">
+    <div class="cross-bottom">
+      <div class="container">
+        <p>We're here to ensure your journey through the Mathricks cosmos is enjoyable!</p>
+        <p>For any support issues, feedback and new feature requests, please don't hesitate to contact:</p>
+      <p>&nbsp;</p>
+        <h2>Get in Touch</h2>
+        <form action="https://formspree.io/f/xqkrjjva" method="POST">
+          <label for="email-address">Your email:
+            <input type="email" name="email" id="email-address" placeholder="email@domain.tld" required=""></label>
+          <label for="message">Your message:
+            <textarea name="message" id="message"></textarea></label>
+          <label for="telephone">Telephone Number (Optional):</label>
+          <input type="telephone" name="telephone" id="telephone" placeholder="(555) 555-5555">
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </div>
   </section>
-  <!-- Contact Section -->
-  <section class="content container">
-    <h2>Other Ways to Contact Us</h2>
-    <table>
-      <tr>
-        <td align="left">
-          <ul>
-            <li><strong>DM us on X</strong>: <a href="https://x.com/mathricks">@mathricks</a></li>
-            <li><strong>Drop an email</strong>: <a href="mailto:info @ mathricks.com">info [@] mathricks.com</a>
-            </li>
-            <li><strong>Open a Github issue</strong>: <a
-                href="https://github.com/mathricks/mathricks.github.io/issues">@mathricks</a>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </table>
-  </section>
   <!-- Disclaimer Section -->
-  <section class="content container">
-    <br>
-    <h2>Third-Party Puzzle Disclaimer</h2><br>
-    Bitcoin Puzzle Quest references the “~1000 BTC Bitcoin Challenge,” a cryptographic puzzle published January 15, 2015 by an anonymous contributor to demonstrate the vastness of Bitcoin's private-key space. 
-    The original challenge funded a series of 256 addresses (now 160 active ranges) with a prize pool close to 1000 BTC.<br><br>
-     This app provides only a local, offline tool to generate and test private keys against that publicly-available list. The developer:
-     <ul>
-       <li>Is not affiliated with the puzzle's creator</li>
-       <li>Does not control, sponsor, or administer any prizes or funds</li>
-       <li>Does not store or broadcast keys or transactions</li>
-     </ul>
-     Any Bitcoin discovered belongs solely to the private-key holder. Apple Inc. is not a sponsor or organizer of this challenge.
+  <section class="section" id="puzzle-disclaimer">
+    <div class="cross-bottom">
+      <div class="container">
+        <br>
+        <h2>Third-Party Puzzle Disclaimer</h2><br>
+        Bitcoin Puzzle Quest references the “~1000 BTC Bitcoin Challenge,” a cryptographic puzzle published January 15, 2015 by an anonymous contributor to demonstrate the vastness of Bitcoin's private-key space. 
+        The original challenge funded a series of 256 addresses (now 160 active ranges) with a prize pool close to 1000 BTC.<br><br>
+         This app provides only a local, offline tool to generate and test private keys against that publicly-available list. The developer:
+         <ul>
+           <li>Is not affiliated with the puzzle's creator</li>
+           <li>Does not control, sponsor, or administer any prizes or funds</li>
+           <li>Does not store or broadcast keys or transactions</li>
+         </ul>
+         Any Bitcoin discovered belongs solely to the private-key holder. Apple Inc. is not a sponsor or organizer of this challenge.
+      </div>
+    </div>
   </section>
   <!-- FAQs Section -->
-  <section id="faq" class="content container">
-    <h2>Frequently Asked Questions (FAQs)</h2>
-    <table>
-      <tr>
-        <td align="left">
-          <ul>
-            <li><strong>Q: What is Bitcoin Puzzle Quest?</strong><br>
-              A: Bitcoin Puzzle Quest (BPQ for short) is a puzzle-hunting app that lets you generate random (or
-              sequential) keys and test them against the famous <em>Bitcoin Puzzle</em> address list — entirely
-              offline, on your own iOS device.
-            </li>
+  <section class="section" id="faq">
+    <div class="cross-bottom">
+      <div class="container">
+        <h2>Frequently Asked Questions (FAQs)</h2>
+        <table>
+          <tr>
+            <td align="left">
+              <ul>
+                <li><strong>Q: What is Bitcoin Puzzle Quest?</strong>
+                  A: Bitcoin Puzzle Quest (BPQ for short) is a puzzle-hunting app that lets you generate random (or
+                  sequential) keys and test them against the famous <em>Bitcoin Puzzle</em> address list — entirely
+                  offline, on your own iOS device.
+                </li>
 
-            <li><strong>Q: How are the puzzle levels structured?</strong><br>
-              A: The challenge is divided into 160 levels (originally 256), with each level using a key range that is twice as large as the previous one. For example:
-              <ul style="margin-top: 0.5em;">
-                <li>Level 1: <code>2⁰ ≤ key &lt; 2¹</code> (only 1 possible key)</li>
-                <li>Level 2: <code>2¹ ≤ key &lt; 2²</code></li>
-                <li>Level 3: <code>2² ≤ key &lt; 2³</code></li>
-                <li>...</li>
-                <li>Level 160: <code>2¹⁵⁹ ≤ key &lt; 2¹⁶⁰</code></li>
+                <li><strong>Q: How are the puzzle levels structured?</strong>
+                  A: The challenge is divided into 160 levels (originally 256), with each level using a key range that is twice as large as the previous one. For example:
+                  <ul style="margin-top: 0.5em;">
+                    <li>Level 1: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>2⁰ ≤ key &lt; 2¹</code> (only 1 possible key)</li>
+                    <li>Level 2: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>2¹ ≤ key &lt; 2²</code></li>
+                    <li>Level 3: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>2² ≤ key &lt; 2³</code></li>
+                    <li>...</li>
+                    <li>Level 160: &nbsp;&nbsp;&nbsp;<code>2¹⁵⁹ ≤ key &lt; 2¹⁶⁰</code></li>
+                  </ul>
+                  Each higher level doubles the size of the key space, making it exponentially harder to solve. To reflect this, the puzzle creator(s) placed increasing amounts of Bitcoin in higher levels as added incentive.
+                </li>
+                
+                <li><strong>Q: How do I start playing Bitcoin Puzzle Quest?</strong>A: Open the app and start testing 
+                  keys by choosing your difficulty level and number of tries and hit the 'Go' button.
+                </li>
+                
+                <li><strong>Q: What does “difficulty level” mean?</strong>
+                  A: The difficulty level defines the bit-size, i.e. the bit-length of the secret key. The 26-bit puzzle contains 2<sup>25</sup> possible
+                  keys (≈33 million); the 160-bit puzzle, the "beast", contains 2<sup>159</sup> (≈7.3 x 10<sup>47</sup>). Bigger bits =
+                  bigger needle in the haystack.
+                </li>
+
+                <li><strong>Q: Are there in-app purchases?</strong>A: Yes, there is an in-app purchase to run continuous
+                  scans, which also brings sequential scans.
+                </li>
+                
+                <li><strong>Q: Are there ads?</strong>A: No, there is no ads at the moment. Enjoy the game without any
+                  distractions.
+                </li>
+
+                <li><strong>Q: Is this mining Bitcoin?</strong>
+                  A: No. Mining secures the Bitcoin network by hashing block headers; our app merely guesses private keys
+                  inside predefined ranges to see if any unlock the funded puzzle addresses. Think “lottery scratch-off,”
+                  not “industrial crypto mine.”
+                </li>
+
+                <li><strong>Q: How likely am I to win?</strong>
+                  A: The remaining puzzles are still astronomically hard. Low-bit ranges (e.g. 25 bits) can be
+                  replayed for experimenting and learning; high-bit ranges (100+ bits) are purely for the
+                  thrill. We highlight the lowest unsolved in the difficulty level picker — your “best bad odds,” so to
+                  speak. To estimate your personal chance, we've added the ratio of the number of keys tried by the total number of keys in that range for each puzzle.
+                </li>
+                
+                <li><strong>Q: How have some high-bit difficulty levels already been solved?</strong>
+                  A: The puzzle creator(s) left a "small" clue by making an outgoing transaction from those addresses, which reveals the public key. 
+                  That hint cuts the number of possible keys to try in half. Using this extra information, puzzle hunters apply specialized search techniques to recover the private keys more quickly.
+                </li>
+                
+                <li><strong>Q: Why can't BPQ keep scanning in the background?</strong>
+                  A: Your device suspends nearly all CPU-intensive work when an app is backgrounded or the screen locks.
+                  Continuous Mode runs only while the app is in the foreground and the device is awake (e.g., charging with
+                  Auto-Lock disabled).
+                </li>
+
+                <li><strong>Q: What is Continuous Mode and do I need it?</strong>
+                  A: Continuous Mode is a one-time in-app purchase that automates the “Go!” button and adds sequential scanning. Manual tapping and batch modes remain free—perfect if you prefer the DIY “robot finger.”<br><br>
+                  <em>Features comparison:</em>
+                  <table border="1">
+                    <tr><th>Scenario</th><th>Free Mode</th><th>Continuous Mode</th></tr>
+                    <tr><td>Single/batch taps</td><td>✔️</td><td>✔️</td></tr>
+                    <tr><td>Sequential scanning</td><td>—</td><td>✔️</td></tr>
+                    <tr><td>Auto‑tapping while you sip coffee</td><td>—</td><td>✔️</td></tr>
+                  </table>
+                  <br/>
+                </li>
+
+                <li id="faq-claim"><strong>Q: How do I claim BTC if I find a winning key?</strong>
+                  A: Congratulations! If you have successfully generated a private key that matches one of the publicly known and still-funded puzzle addresses, 
+                  you have solved a legendary cryptographic challenge!<br>
+                  Managing private keys and moving cryptocurrency can be risky, so Bitcoin Puzzle Quest does not provide financial, legal, or operational instructions. 
+                  We do offer a short, informational overview to explain the general concepts involved: <br><br>
+                  <a href="claim.html">→ <u>Understanding How BTC Can Be Claimed</a>.</u> <br><br>
+                  For broader community discussion, many puzzle hunters reference <a href="https://bitcointalk.org/index.php?topic=1306983.0"><u>the long-running forum thread on Bitcointalk</u></a>.
+                </li>
+
+                <li><strong>Q: Is my data private?</strong>
+                  A: Yes. Found keys and puzzle/key-attempt counters are stored locally in UserDefaults.
+                  Nothing leaves your device. If join Game Center to compete against the worlwide hunters, the attempt counts will be shared
+                  to rank you in global leaderboards.
+                </li>
+
+                <li><strong>Q: Does BPQ use proprietary cryptography?</strong>
+                  A: No. Only open, standard algorithms—secp256k1 (ECDSA), SHA-256, and RIPEMD-160—as specified
+                  by IETF/ISO are utilized to compute Bitcoin addresses from private keys.
+                </li>
+
+                <li><strong>Q: Why is my device heating up?</strong>
+                  A: Generating tons of keys per minute taxes the CPU. For marathon runs, keep your device on a charger,
+                  use Low Power Mode (it only affects screen refresh), and give it breaks if it gets too warm.
+                </li>
+
+                <li><strong>Q: Does BPQ have a mini-game?</strong>
+                  A: Absolutely! Double-tap the treasure-chest icon on the main screen to unlock a cheeky sliding-puzzle
+                  Easter egg—because every epic quest deserves a hidden side quest.
+                </li>
+
+                <li><strong>Q: Will there be Android / macOS / Apple Watch versions?</strong>
+                  A: Android is under exploration (no ETA). macOS on Apple silicon works via the universal build. Apple Watch support is on our roadmap as a remote dashboard.
+                </li>
+
+                <li><strong>Q: What do I do if the game crashes?</strong>A: Restart the game and ensure your
+                  device's OS is up to date. Your discovered keys are saved on your device.</li>
+                
+                <li><strong>Q: Can I play on multiple devices?</strong>A: Yes, you can play on as many devices as
+                  you wish. However, any found keys are saved per device.</li>
+                
+                  <li><strong>Q: I found a bug or have a feature idea—how do I contact you?</strong>
+                  A: Email info @ mathricks.com</a> with your app version, iOS version, device model, and reproduction steps.
+                  Screenshots help!
+                </li>
+                <li><strong>Q: How do I request a refund for Continuous Mode?</strong>
+                  A: All purchases are handled by Apple. Go to Settings ▶️ Apple ID ▶️ Media & Purchases ▶️ View Account ▶️
+                  Purchase History to request a refund.
+                </li>
+                <li><strong>Q: Is this legal?</strong>
+                  A: Yes. Solving public Bitcoin puzzles is legal in most jurisdictions. Be sure to check local laws on digital assets and taxes.
+                </li>
+                <li><strong>Q: Where can I learn more about this Bitcoin Puzzle?</strong>
+                  A: Visit the community forum topic at <a href="https://bitcointalk.org">bitcointalk.org</a> and the helpful websites like <a href="https://privatekeys.pw/puzzles/bitcoin-puzzle-tx">privatekeys.pw</a> or <a href="https://btcpuzzle.info">btcpuzzle.info</a> for historical data,
+                  solved levels, and tips. Reddit's <a href="https://www.reddit.com/r/Bitcoin">r/Bitcoin</a> and <a
+                    href="https://www.reddit.com/r/cryptocurrency">r/cryptocurrency</a> also discuss current puzzles.
+                </li>
               </ul>
-              Each higher level doubles the size of the key space, making it exponentially harder to solve. To reflect this, the puzzle creator(s) placed increasing amounts of Bitcoin in higher levels as added incentive.
-            </li>
-            
-            <li><strong>Q: How do I start playing Bitcoin Puzzle Quest?</strong><br>A: Open the app and start testing 
-              keys by choosing your difficulty level and number of tries and hit the 'Go' button.
-            </li>
-            
-            <li><strong>Q: What does “difficulty level” mean?</strong><br>
-              A: The difficulty level defines the bit-size, i.e. the bit-length of the secret key. The 26-bit puzzle contains 2<sup>25</sup> possible
-              keys (≈33 million); the 160-bit puzzle, the "beast", contains 2<sup>159</sup> (≈7.3 x 10<sup>47</sup>). Bigger bits =
-              bigger needle in the haystack.
-            </li>
-
-            <li><strong>Q: Are there in-app purchases?</strong><br>A: Yes, there is an in-app purchase to run continuous
-              scans, which also brings sequential scans.
-            </li>
-            
-            <li><strong>Q: Are there ads?</strong><br>A: No, there is no ads at the moment. Enjoy the game without any
-              distractions.
-            </li>
-
-            <li><strong>Q: Is this mining Bitcoin?</strong><br>
-              A: No. Mining secures the Bitcoin network by hashing block headers; our app merely guesses private keys
-              inside predefined ranges to see if any unlock the funded puzzle addresses. Think “lottery scratch-off,”
-              not “industrial crypto mine.”
-            </li>
-
-            <li><strong>Q: How likely am I to win?</strong><br>
-              A: The remaining puzzles are still astronomically hard. Low-bit ranges (e.g. 25 bits) can be
-              replayed for experimenting and learning; high-bit ranges (100+ bits) are purely for the
-              thrill. We highlight the lowest unsolved in the difficulty level picker — your “best bad odds,” so to
-              speak. To estimate your personal chance, we've added the ratio of the number of keys tried by the total number of keys in that range for each puzzle.
-            </li>
-            
-            <li><strong>Q: How have some high-bit difficulty levels already been solved?</strong><br>
-              A: The puzzle creator(s) left a "small" clue by making an outgoing transaction from those addresses, which reveals the public key. 
-              That hint cuts the number of possible keys to try in half. Using this extra information, puzzle hunters apply specialized search techniques to recover the private keys more quickly.
-            </li>
-            
-            <li><strong>Q: Why can't BPQ keep scanning in the background?</strong><br>
-              A: Your device suspends nearly all CPU-intensive work when an app is backgrounded or the screen locks.
-              Continuous Mode runs only while the app is in the foreground and the device is awake (e.g., charging with
-              Auto-Lock disabled).
-            </li>
-
-            <li><strong>Q: What is Continuous Mode and do I need it?</strong><br>
-              A: Continuous Mode is a one-time in-app purchase that automates the “Go!” button and adds sequential scanning. Manual tapping and batch modes remain free—perfect if you prefer the DIY “robot finger.”<br><br>
-              <em>Features comparison:</em>
-              <table border="1">
-                <tr><th>Scenario</th><th>Free Mode</th><th>Continuous Mode</th></tr>
-                <tr><td>Single/batch taps</td><td>✔️</td><td>✔️</td></tr>
-                <tr><td>Sequential scanning</td><td>—</td><td>✔️</td></tr>
-                <tr><td>Auto‑tapping while you sip coffee</td><td>—</td><td>✔️</td></tr>
-              </table>
-              <br/>
-            </li>
-
-            <li><strong>Q: How do I claim BTC if I find a winning key?</strong><br>
-              A: 1) First off, copy the private key BPQ shows asap (write it down preferably). 
-              2) Check out <a href="https://bitcointalk.org/index.php?topic=1306983.0">the community forum</a> to learn the secure way to secure the funds. DYOR!
-            </li>
-
-            <li><strong>Q: Is my data private?</strong><br>
-              A: Yes. Found keys and puzzle/key-attempt counters are stored locally in UserDefaults.
-              Nothing leaves your device. If join Game Center to compete against the worlwide hunters, the attempt counts will be shared
-              to rank you in global leaderboards.
-            </li>
-
-            <li><strong>Q: Does BPQ use proprietary cryptography?</strong><br>
-              A: No. Only open, standard algorithms—secp256k1 (ECDSA), SHA-256, and RIPEMD-160—as specified
-              by IETF/ISO are utilized to compute Bitcoin addresses from private keys.
-            </li>
-
-            <li><strong>Q: Why is my device heating up?</strong><br>
-              A: Generating tons of keys per minute taxes the CPU. For marathon runs, keep your device on a charger,
-              use Low Power Mode (it only affects screen refresh), and give it breaks if it gets too warm.
-            </li>
-
-            <li><strong>Q: Does BPQ have a mini-game?</strong><br>
-              A: Absolutely! Double-tap the treasure-chest icon on the main screen to unlock a cheeky sliding-puzzle
-              Easter egg—because every epic quest deserves a hidden side quest.
-            </li>
-
-            <li><strong>Q: Will there be Android / macOS / Apple Watch versions?</strong><br>
-              A: Android is under exploration (no ETA). macOS on Apple silicon works via the universal build. Apple Watch support is on our roadmap as a remote dashboard.
-            </li>
-
-            <li><strong>Q: What do I do if the game crashes?</strong><br>A: Restart the game and ensure your
-              device's OS is up to date. Your discovered keys are saved on your device.</li>
-            
-            <li><strong>Q: Can I play on multiple devices?</strong><br>A: Yes, you can play on as many devices as
-              you wish. However, any found keys are saved per device.</li>
-            
-              <li><strong>Q: I found a bug or have a feature idea—how do I contact you?</strong><br>
-              A: Email info @ mathricks.com</a> with your app version, iOS version, device model, and reproduction steps.
-              Screenshots help!
-            </li>
-            <li><strong>Q: How do I request a refund for Continuous Mode?</strong><br>
-              A: All purchases are handled by Apple. Go to Settings ▶️ Apple ID ▶️ Media & Purchases ▶️ View Account ▶️
-              Purchase History to request a refund.
-            </li>
-            <li><strong>Q: Is this legal?</strong><br>
-              A: Yes. Solving public Bitcoin puzzles is legal in most jurisdictions. Be sure to check local laws on digital assets and taxes.
-            </li>
-            <li><strong>Q: Where can I learn more about this Bitcoin Puzzle?</strong><br>
-              A: Visit the community forum topic at <a href="https://bitcointalk.org">bitcointalk.org</a> and the helpful websites like <a href="https://privatekeys.pw/puzzles/bitcoin-puzzle-tx">privatekeys.pw</a> or <a href="https://btcpuzzle.info">btcpuzzle.info</a> for historical data,
-              solved levels, and tips. Reddit's <a href="https://www.reddit.com/r/Bitcoin">r/Bitcoin</a> and <a
-                href="https://www.reddit.com/r/cryptocurrency">r/cryptocurrency</a> also discuss current puzzles.
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </table>
+            </td>
+          </tr>
+        </table>
+        <p style="margin-top:24px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;">
+          <a href="#page-top">Back to top ↑</a>
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- Troubleshooting Section -->
-  <section class="content container">
-    <h2>Troubleshooting Tips</h2>
-    <table>
-      <tr>
-        <td align="left">
-          <ul>
-            <li><strong>Sound not working:</strong> Check the device's volume settings and headphones.</li>
-            <li><strong>Game not loading:</strong> Check your device storage.</li>
-            <li><strong>Game crashes:</strong> Restart the app.</li>
-          </ul>
-        </td>
-      </tr>
-    </table>
+  <section class="section" id="troubleshooting">
+    <div class="cross-bottom">
+      <div class="container">
+        <h2>Troubleshooting Tips</h2>
+        <table>
+          <tr>
+            <td align="left">
+              <ul>
+                <li><strong>Sound not working:</strong> Check the device's volume settings and headphones.</li>
+                <li><strong>Game not loading:</strong> Check your device storage.</li>
+                <li><strong>Game crashes:</strong> Restart the app.</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </section>
 
-  <section class="content container">
-    <p>Thank you for playing Bitcoin Puzzle Quest! For more information, visit our
-      <a href="../index.html">Game Guide</a>.
-    </p>
+    <!-- Contact Section -->
+  <section class="section" id="other-contact">
+    <div class="cross-bottom">
+      <div class="container">
+        <h2>Other Ways to Contact Us</h2>
+        <table>
+          <tr>
+            <td align="left">
+              <ul>
+                <li><strong>DM us on X</strong>: <a href="https://x.com/mathricks">@mathricks</a></li>
+                <li><strong>Drop an email</strong>: <a href="mailto:info @ mathricks.com">info [@] mathricks.com</a>
+                </li>
+                <li><strong>Open a Github issue</strong>: <a
+                    href="https://github.com/mathricks/mathricks.github.io/issues">@mathricks</a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+        <p>Thank you for playing Bitcoin Puzzle Quest! For more information, visit our
+          <a href="../index.html">Game Guide</a>.
+        </p>
+      </div>
+    </div>
   </section>
-  </div>
   <footer class="footer">
     <div class="container">
       <p>&copy; 2010-2025, Mathricks. All rights reserved.</p>
@@ -238,6 +396,33 @@
     </div>
     <p>Made with ❤️ using <a href="https://github.com/mathricks" target="_blank">GitHub Pages</a></p>
   </footer>
+  <script>
+    // Theme toggle (aligned with main BPQ pages)
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+
+    function applyTheme(t){
+      if(t==='light'){
+        root.setAttribute('data-theme','light');
+        toggle.textContent='🌙';   /* sun icon for light mode */
+      }else{
+        root.removeAttribute('data-theme');
+        toggle.textContent='☀️';   /* moon icon for dark mode */
+      }
+      localStorage.setItem('theme', t);
+    }
+
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+  </script>
 </body>
 
 </html>
