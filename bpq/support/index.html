@@ -248,7 +248,16 @@
                   thrill. We highlight the lowest unsolved in the difficulty level picker — your “best bad odds,” so to
                   speak. To estimate your personal chance, we've added the ratio of the number of keys tried by the total number of keys in that range for each puzzle.
                 </li>
-                
+
+                <li id="faq-claim"><strong>Q: How do I claim BTC if I find a winning key?</strong>
+                  A: Congratulations! If you have successfully generated a private key that <a href="match.html">matches</a> one of the publicly known and still-funded puzzle addresses, 
+                  you have solved a legendary cryptographic challenge!<br>
+                  Managing private keys and moving cryptocurrency can be risky, so Bitcoin Puzzle Quest does not provide financial, legal, or operational instructions. 
+                  We do offer a short, informational overview to explain the general concepts involved: <br><br>
+                  <a href="claim.html">→ <u>Understanding How BTC Can Be Claimed</a>.</u> <br><br>
+                  For broader community discussion, many puzzle hunters reference <a href="https://bitcointalk.org/index.php?topic=1306983.0"><u>the long-running forum thread on Bitcointalk</u></a>.
+                </li>
+
                 <li><strong>Q: How have some high-bit difficulty levels already been solved?</strong>
                   A: The puzzle creator(s) left a "small" clue by making an outgoing transaction from those addresses, which reveals the public key. 
                   That hint cuts the number of possible keys to try in half. Using this extra information, puzzle hunters apply specialized search techniques to recover the private keys more quickly.
@@ -272,13 +281,19 @@
                   <br/>
                 </li>
 
-                <li id="faq-claim"><strong>Q: How do I claim BTC if I find a winning key?</strong>
-                  A: Congratulations! If you have successfully generated a private key that <a href="match.html">matches</a> one of the publicly known and still-funded puzzle addresses, 
-                  you have solved a legendary cryptographic challenge!<br>
-                  Managing private keys and moving cryptocurrency can be risky, so Bitcoin Puzzle Quest does not provide financial, legal, or operational instructions. 
-                  We do offer a short, informational overview to explain the general concepts involved: <br><br>
-                  <a href="claim.html">→ <u>Understanding How BTC Can Be Claimed</a>.</u> <br><br>
-                  For broader community discussion, many puzzle hunters reference <a href="https://bitcointalk.org/index.php?topic=1306983.0"><u>the long-running forum thread on Bitcointalk</u></a>.
+                <li><strong>Q: Is Continuous Mode a subscription?</strong>
+                  A: No. Continuous Mode is a one-time in-app purchase that permanently unlocks continuous and sequential scanning on your Apple ID for this app, subject to Apple's usual App Store rules.
+                </li>
+
+                <li><strong>Q: I tried to upgrade to Continuous Mode but it does not work. What can I do?</strong>
+                    A: Continuous Mode is sold through Apple's in-app purchase system. If the upgrade button does not work, or the purchase fails, please try the following:
+                    <ul style="margin-top: 0.5em;">
+                        <li>Make sure you are signed in with a valid Apple ID and that your payment method is up to date.</li>
+                        <li>Check that in-app purchases are allowed in Settings on your device.</li>
+                        <li>Ensure you have a stable internet connection and try again after a few minutes.</li>
+                        <li>If the App Store shows a specific error message, follow the link in that message or visit Apple Support and check your purchase history.</li>
+                    </ul>
+                    If you still cannot complete the purchase, please contact us with screenshots of any error messages so we can help you investigate.
                 </li>
 
                 <li><strong>Q: Is my data private?</strong>
@@ -302,8 +317,23 @@
                   Easter egg—because every epic quest deserves a hidden side quest.
                 </li>
 
+                <li><strong>Q: Can I run Bitcoin Puzzle Quest on Windows, Linux, or Android?</strong>
+                  A: Today Bitcoin Puzzle Quest is built and supported for Apple platforms only, with the main focus on iOS. 
+                  On macOS with Apple silicon, the game can run via the universal build in the App Store. 
+                  We do not currently offer a Windows, Linux, or Android version, and we cannot promise if or when versions for other platforms will be available.
+                </li>
+
+                <li><strong>Q: Does BPQ use my GPU or support powerful desktop graphics cards?</strong>
+                  A: No. BPQ currently runs on the CPU of your iOS or Apple silicon device and is designed as an offline, on-device puzzle experience. 
+                  There is no support for external GPUs, desktop GPUs, or dedicated mining hardware.
+                </li>
+
                 <li><strong>Q: Will there be Android / macOS / Apple Watch versions?</strong>
                   A: Android is under exploration (no ETA). macOS on Apple silicon works via the universal build. Apple Watch support is on our roadmap as a remote dashboard.
+                </li>
+
+                <li><strong>Q: Will you add a cloud or “rented GPU” option for faster scanning?</strong>
+                  A: No, not at this time. Bitcoin Puzzle Quest is designed as a local, offline game that runs on your own Apple device. We do not provide remote GPU servers or cloud computing resources, and we cannot offer a timeline or promise for such a feature in the future.
                 </li>
 
                 <li><strong>Q: What do I do if the game crashes?</strong>A: Restart the game and ensure your
@@ -348,9 +378,11 @@
           <tr>
             <td align="left">
               <ul>
-                <li><strong>Sound not working:</strong> Check the device's volume settings and headphones.</li>
-                <li><strong>Game not loading:</strong> Check your device storage.</li>
-                <li><strong>Game crashes:</strong> Restart the app.</li>
+                <li><strong>Game not loading or stuck on the first screen:</strong> Force-quit Bitcoin Puzzle Quest, reopen it, and make sure you have enough free storage and a recent iOS version supported by the App Store listing.</li>
+                <li><strong>Game crashes:</strong> Restart your device, open BPQ again, and try a smaller difficulty or fewer tries per batch. </li>
+                <li><strong>Continuous Mode stops by itself:</strong> Continuous Mode only runs while BPQ is open in the foreground and the screen is on. If you want to keep it running for longer sessions, check that Auto-Lock is disabled or set to a long interval and keep the device awake, for example by leaving it on a charger. Be aware that long continuous runs can warm up your device more quickly, so take breaks if it feels too hot.</li>
+                <li><strong>Device gets hot or battery drains quickly:</strong> This is expected when scanning large numbers of keys. Run on a charger if desired, lower the difficulty level or tries per batch, and give the device breaks if it becomes very warm.</li>
+                <li><strong>Cannot purchase or upgrade to Continuous Mode:</strong> Check that you are signed in with a valid Apple ID, that in-app purchases are allowed in Settings, and that your payment method is valid. If the App Store shows an error, follow the link in that dialog or contact Apple Support. If you are still stuck, contact us with screenshots.</li>
               </ul>
             </td>
           </tr>
@@ -380,6 +412,12 @@
         </table>
         <p>Thank you for playing Bitcoin Puzzle Quest! For more information, visit our
           <a href="../index.html">Game Guide</a>.
+        </p>
+        <p style="font-size:.8rem;color:var(--muted);">
+        Using another language? Most modern browsers can translate this page for you, for example via the translate option in the address bar or page menu.
+        </p>
+        <p style="font-size:.8rem;color:var(--muted);">
+        🌐 In-app languages: العربية, Deutsch, Español, Français, हिन्दी, Italiano, Nederlands, Português (Brasil, Portugal), Русский, Türkçe, اردو, 日本語, 中文.
         </p>
       </div>
     </div>
