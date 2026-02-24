@@ -16,6 +16,19 @@
     --frame-y: clamp(100px, 10vh, 120px);
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
+    --app-qr-border: var(--glass-border);
+    --app-qr-border-hover: var(--line-strong);
+    --app-qr-card-bg: var(--glass-bg);
+    --app-qr-card-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    --app-qr-label-color: var(--muted);
+    --app-qr-label-font: 'Orbitron', monospace;
+    --app-qr-label-letter-spacing: .2em;
+    --app-qr-card-gap: 16px;
+    --app-qr-card-padding: 28px;
+    --app-qr-card-radius: 20px;
+    --app-qr-code-padding: 12px;
+    --app-qr-code-radius: 12px;
+    --app-qr-card-filter: blur(10px);
 }
 
 html {
@@ -435,12 +448,48 @@ header {
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 80px rgba(0, 243, 255, 0.1);
 }
 
+.hero-tech-line {
+    position: absolute;
+    height: 1px;
+    background: var(--line-strong);
+}
+
+.hero-tech-line-top {
+    width: 80%;
+    top: 20%;
+}
+
+.hero-tech-line-bottom {
+    width: 60%;
+    bottom: 20%;
+}
+
+.hero-tech-box {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+}
+
 .app-icon {
     width: min(75%, 340px);
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .4));
     position: relative;
     z-index: 5;
     transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-preview-video {
+    display: none;
+    width: 270px;
+    height: 460px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    position: relative;
 }
 
 .hero-card:hover .app-icon {
@@ -896,54 +945,6 @@ footer {
     letter-spacing: 0.1em;
 }
 
-/* QR Code — Desktop Only */
-.qr-container {
-    margin-top: 48px;
-    display: flex;
-    justify-content: center;
-}
-
-.qr-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 28px;
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    transition: all 0.4s ease;
-}
-
-.qr-card:hover {
-    border-color: var(--line-strong);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
-}
-
-.qr-card #qrcode {
-    border-radius: 12px;
-    overflow: hidden;
-    padding: 12px;
-    background: #fff;
-    line-height: 0;
-}
-
-.qr-label {
-    font-family: 'Orbitron', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 0;
-}
-
-@media (max-width: 768px) {
-    .qr-container {
-        display: none;
-    }
-}
-
 /* Responsive */
 @media (max-width: 960px) {
     .hero-grid {
@@ -1087,4 +1088,8 @@ footer {
     width: 18px;
     height: 18px;
     fill: currentColor;
+}
+
+.is-hidden {
+    display: none;
 }
