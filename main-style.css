@@ -300,8 +300,8 @@ header {
 }
 
 .app-qr .qr-wrap {
-    width: 74px;
-    height: 74px;
+    width: 112px;
+    height: 112px;
     padding: 6px;
     background: #fff;
     border-radius: 8px;
@@ -655,21 +655,28 @@ h1 .studio {
     justify-content: flex-end;
 }
 
+.app-logo-stack a {
+    display: block;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
 .app-logo-stack img {
     width: clamp(64px, 7vw, 92px);
     height: auto;
     border-radius: 22%;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     border: 1px solid var(--line-strong);
-    opacity: 0.9;
+    opacity: 0.7;
     background: var(--bg);
     transform: perspective(800px) rotateY(-10deg) rotateX(4deg);
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
 }
 
-.app-logo-stack img:hover {
+.app-logo-stack a:hover img {
     transform: perspective(800px) rotateY(0deg) rotateX(0deg) translateZ(10px) scale(1.05);
     filter: brightness(1.1);
+    opacity: 0.85;
     z-index: 10;
 }
 
