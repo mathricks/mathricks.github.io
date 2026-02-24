@@ -99,6 +99,14 @@ header {
     opacity: .85
 }
 
+.logo-muted {
+    opacity: .6;
+}
+
+.footer-separator {
+    color: var(--line);
+}
+
 .nav-actions {
     display: flex;
     gap: 10px;
@@ -270,6 +278,70 @@ header {
     margin-bottom: 18px;
     border-radius: 12px;
     box-shadow: 0 0 4px rgba(0, 0, 0, .2)
+}
+
+.read-more {
+    font-weight: 500;
+    color: var(--accent);
+    white-space: nowrap;
+    transition: opacity .15s ease;
+}
+
+.read-more:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.app-qr {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.app-qr .qr-wrap {
+    width: 74px;
+    height: 74px;
+    padding: 6px;
+    background: #fff;
+    border-radius: 8px;
+    line-height: 0;
+    flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .12);
+}
+
+.app-qr .qr-wrap canvas,
+.app-qr .qr-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+.app-qr .qr-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: center;
+}
+
+.app-qr .qr-hint {
+    font-size: .85rem;
+    color: var(--muted);
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.app-qr .qr-app-store {
+    height: 32px;
+    width: auto;
+    display: block;
+    filter: brightness(1.5);
+    opacity: 0.85;
+    transition: opacity .15s ease;
+}
+
+.app-qr .qr-app-store:hover {
+    opacity: 1;
 }
 
 .hero {
@@ -481,6 +553,124 @@ h1 .studio {
     -webkit-mask-image: radial-gradient(80% 70% at 90% 50%, #000 60%, transparent 100%);
     mask-image: radial-gradient(80% 70% at 90% 50%, #000 60%, transparent 100%);
     border-left: 1px solid var(--line-strong);
+}
+
+.geo-arc-1 {
+    width: 260px;
+    height: 260px;
+    top: 16%;
+    right: 12%;
+}
+
+.geo-ring-1 {
+    width: 220px;
+    height: 220px;
+    top: 22%;
+    right: 10%;
+    animation-duration: 12s;
+}
+
+.geo-ring-small-1 {
+    width: 80px;
+    height: 80px;
+    top: 42%;
+    right: 22%;
+    opacity: .65;
+    animation-duration: 9s;
+}
+
+.geo-cube-1 {
+    top: 28%;
+    right: 4%;
+    animation-duration: 10s;
+}
+
+.geo-crosshair-1 {
+    top: 62%;
+    right: 12%;
+    animation-duration: 7s;
+}
+
+.geo-shape-sq-1 {
+    width: 46px;
+    height: 46px;
+    top: 26%;
+    right: 22%;
+    opacity: .7;
+}
+
+.geo-shape-cir-1 {
+    width: 36px;
+    height: 36px;
+    top: 54%;
+    right: 28%;
+    border-width: 1px;
+    opacity: .5;
+}
+
+.geo-shape-tri-1 {
+    top: 64%;
+    right: 6%;
+    transform: rotate(-8deg);
+}
+
+.geo-arc-2 {
+    width: 230px;
+    height: 230px;
+    top: 16%;
+    right: 12%;
+    opacity: .25;
+}
+
+.geo-ring-2 {
+    width: 190px;
+    height: 190px;
+    top: 22%;
+    right: 10%;
+    animation-duration: 11s;
+    opacity: .25;
+}
+
+.geo-grid3-2 {
+    top: 52%;
+    right: 8%;
+    transform: rotate(6deg);
+    opacity: .3;
+}
+
+.app-logo-stack {
+    position: absolute;
+    bottom: clamp(14%, 20vh, 24%);
+    right: clamp(6%, 10vw, 14%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+    z-index: 2;
+}
+
+.app-logo-row {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+}
+
+.app-logo-stack img {
+    width: clamp(64px, 7vw, 92px);
+    height: auto;
+    border-radius: 22%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--line-strong);
+    opacity: 0.9;
+    background: var(--bg);
+    transform: perspective(800px) rotateY(-10deg) rotateX(4deg);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.app-logo-stack img:hover {
+    transform: perspective(800px) rotateY(0deg) rotateX(0deg) translateZ(10px) scale(1.05);
+    filter: brightness(1.1);
+    z-index: 10;
 }
 
 .ring {
@@ -1081,5 +1271,23 @@ footer {
 
     .slider-dots {
         bottom: 18px
+    }
+}
+
+@media (max-width: 768px) {
+    .app-qr {
+        display: none;
+    }
+
+    .app-logo-stack {
+        bottom: 12%;
+        right: 4%;
+        gap: 10px;
+        transform: scale(0.85);
+        transform-origin: bottom right;
+    }
+
+    .app-logo-row {
+        gap: 10px;
     }
 }

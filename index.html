@@ -5,79 +5,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="main-style.css">
-  <style>
-    /* card-actions removed */
-    /* card-actions btn removed */
-    .read-more {
-      font-weight: 500;
-      color: var(--accent);
-      white-space: nowrap;
-      transition: opacity .15s ease;
-    }
-
-    .read-more:hover {
-      opacity: 0.8;
-      text-decoration: underline;
-    }
-
-    .app-qr {
-      margin-top: 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .app-qr .qr-wrap {
-      width: 74px;
-      height: 74px;
-      padding: 6px;
-      background: #fff;
-      border-radius: 8px;
-      line-height: 0;
-      flex-shrink: 0;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, .12);
-    }
-
-    .app-qr .qr-wrap canvas,
-    .app-qr .qr-wrap img {
-      width: 100% !important;
-      height: 100% !important;
-      display: block;
-    }
-
-    .app-qr .qr-text {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      justify-content: center;
-    }
-
-    .app-qr .qr-hint {
-      font-size: .85rem;
-      color: var(--muted);
-      line-height: 1.3;
-      font-weight: 500;
-    }
-
-    .app-qr .qr-app-store {
-      height: 32px;
-      width: auto;
-      display: block;
-      filter: brightness(1.5);
-      opacity: 0.85;
-      transition: opacity .15s ease;
-    }
-
-    .app-qr .qr-app-store:hover {
-      opacity: 1;
-    }
-
-    @media (max-width:768px) {
-      .app-qr {
-        display: none;
-      }
-    }
-  </style>
   <title>MATHRICKS</title>
   <!-- Mathricks Analytics (GA4 + click tracking) -->
   <script src="/js/analytics.js"></script>
@@ -86,7 +13,7 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="logo" style="opacity:.6"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
       <nav class="nav-actions">
         <a class="btn" href="#why">About</a>
         <a class="btn" href="#apps-list">Apps</a>
@@ -108,17 +35,17 @@
             <!-- right-side blueprint cluster -->
             <div class="geo-panel"></div>
 
-            <div class="arc" style="width:260px;height:260px;top:16%;right:12%;"></div>
-            <div class="ring ticks" style="width:220px;height:220px;top:22%;right:10%;animation-duration:12s;"></div>
-            <div class="ring" style="width:80px;height:80px;top:42%;right:22%;opacity:.65;animation-duration:9s;"></div>
+            <div class="arc geo-arc-1"></div>
+            <div class="ring ticks geo-ring-1"></div>
+            <div class="ring geo-ring-small-1"></div>
 
-            <div class="cube" style="top:28%;right:4%;animation-duration:10s;"></div>
-            <div class="crosshair" style="top:62%;right:12%;animation-duration:7s;"></div>
+            <div class="cube geo-cube-1"></div>
+            <div class="crosshair geo-crosshair-1"></div>
 
             <!-- subtle original primitives to echo the banner -->
-            <div class="shape sq" style="width:46px;height:46px;top:26%;right:22%;opacity:.7;"></div>
-            <div class="shape cir" style="width:36px;height:36px;top:54%;right:28%;border-width:1px;opacity:.5;"></div>
-            <div class="shape tri" style="top:64%;right:6%;transform:rotate(-8deg);"></div>
+            <div class="shape sq geo-shape-sq-1"></div>
+            <div class="shape cir geo-shape-cir-1"></div>
+            <div class="shape tri geo-shape-tri-1"></div>
           </div>
           <div class="container hero-inner">
             <div class="hero-grid">
@@ -141,11 +68,23 @@
           <!-- decorative, simplified blueprint cluster for apps -->
           <div class="geo-shapes" aria-hidden="true">
             <div class="geo-cluster"></div>
-            <div class="arc" style="width:230px;height:230px;top:16%;right:12%;"></div>
-            <div class="ring ticks" style="width:190px;height:190px;top:22%;right:10%;animation-duration:11s;"></div>
-            <div class="grid3" style="top:52%;right:8%;transform:rotate(6deg);"></div>
-            <div class="shape" style="width:46px;height:46px;top:30%;right:22%;opacity:.7;"></div>
-            <div class="accent-dot" style="top:62%;right:24%;"></div>
+            <!-- Subtler background hints -->
+            <div class="arc geo-arc-2"></div>
+            <div class="ring ticks geo-ring-2"></div>
+            <div class="grid3 geo-grid3-2"></div>
+
+            <!-- App Logos Stack -->
+            <div class="app-logo-stack" aria-hidden="true">
+              <div class="app-logo-row">
+                <img src="./img/game1-logo.png" alt="" />
+                <img src="./img/game2-logo.png" alt="" />
+              </div>
+              <div class="app-logo-row">
+                <img src="./img/game3-logo.png" alt="" />
+                <img src="./img/game4-logo.png" alt="" />
+                <img src="./img/game5-logo.png" alt="" />
+              </div>
+            </div>
           </div>
           <div class="container hero-inner">
             <div class="hero-grid">
@@ -329,10 +268,10 @@
 
   <footer>
     <div class="container footer-grid">
-      <div class="logo" style="opacity:.6"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
       <div class="links">
         <a class="link" href="https://mathricks.com/support">Support</a>
-        <span style="color:var(--line)">|</span>
+        <span class="footer-separator">|</span>
       </div>
     </div>
     <div class="container legal">
