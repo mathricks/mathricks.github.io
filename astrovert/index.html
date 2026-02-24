@@ -1,14 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <META NAME="keywords" CONTENT="space, adventure, exploration, cosmic, interstellar, journey, obstacles, celestial, travel, baseball, mathricks" />
+    <META NAME="keywords"
+        CONTENT="space, adventure, exploration, cosmic, interstellar, journey, obstacles, celestial, travel, baseball, mathricks" />
     <title>Astrovert Game Guide | Mathricks</title>
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .qr-container {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center
+        }
+
+        .qr-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            padding: 24px;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .05);
+            transition: all .3s ease
+        }
+
+        .qr-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .12)
+        }
+
+        .qr-card #qrcode {
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 10px;
+            background: #fff;
+            line-height: 0
+        }
+
+        .qr-label {
+            font-size: .75rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #888;
+            margin: 0
+        }
+
+        @media (max-width:768px) {
+            .qr-container {
+                display: none
+            }
+        }
+    </style>
     <script defer src="../js/dark.js"></script>
+    <!-- Mathricks Analytics (GA4 + click tracking) -->
+    <script src="/js/analytics.js"></script>
 </head>
+
 <body>
     <!-- Header -->
     <header class="main-header">
@@ -20,48 +70,79 @@
     </header>
     <div class="container">
         <header>
-            <p>Astrovert invites you to break out of your comfort zone and embark on an exhilarating journey through the cosmos!</p>
+            <p>Astrovert invites you to break out of your comfort zone and embark on an exhilarating journey through the
+                cosmos!</p>
         </header>
     </div>
-        <!-- Main Content -->
+    <!-- Main Content -->
     <section class="content container">
         <h2>Game Description</h2>
-        <p>Dare to journey where no one has dared before with "Astrovert"! This is an invitation to break barriers and explore the unknown reaches of space. 
-            Propel through celestial gateways, from the asteroid-strewn fields of Ceres to the stormy atmosphere of Jupiter, in a quest that stretches the limits of your courage.
+        <p>Dare to journey where no one has dared before with "Astrovert"! This is an invitation to break barriers and
+            explore the unknown reaches of space.
+            Propel through celestial gateways, from the asteroid-strewn fields of Ceres to the stormy atmosphere of
+            Jupiter, in a quest that stretches the limits of your courage.
         </p>
-        <p>Astrovert is not just another space game; it is designed with a unique narrative and gameplay mechanics that encourage users to explore space through a fresh perspective. 
-            Unlike typical space games that focus on combat or racing, Astrovert is a metaphorical journey about stepping out of one's comfort zone, represented by navigating a baseball through various celestial bodies. 
-            Each level introduces more speed, size increase and new obstacles that are not merely making things harder but require players to adapt their strategies, reflecting real-life growth and learning. 
+        <p>Astrovert is not just another space game; it is designed with a unique narrative and gameplay mechanics that
+            encourage users to explore space through a fresh perspective.
+            Unlike typical space games that focus on combat or racing, Astrovert is a metaphorical journey about
+            stepping out of one's comfort zone, represented by navigating a baseball through various celestial bodies.
+            Each level introduces more speed, size increase and new obstacles that are not merely making things harder
+            but require players to adapt their strategies, reflecting real-life growth and learning.
         </p>
         <h2>How to Play</h2>
         <table>
-            <tr><td align="left">
-        <ul>
-            <li><strong>Launch Your Ball:</strong> Drag the baseball to launch and reach from one celestial body to another.</li>
-            <li><strong>Navigate Obstacles:</strong> Swipe to steer clear of the obstacles. Use quick reflexes to ensure your journey is not cut short.</li>
-            <li><strong>Collect Shields:</strong> Gather shields along your journey to have a protection against the obstacles. Shields are limited, so use them wisely!</li>
-            <li><strong>Progress Through Levels:</strong> Complete each level by reaching the designated celestial body without running out of momentum or colliding with hazards.</li>
-            <li><strong>Challenge Friends:</strong> Share and compare your high score with friends to see who is the true master of the cosmos!</li>
-        </ul>
-        </td></tr></table>
+            <tr>
+                <td align="left">
+                    <ul>
+                        <li><strong>Launch Your Ball:</strong> Drag the baseball to launch and reach from one celestial
+                            body to another.</li>
+                        <li><strong>Navigate Obstacles:</strong> Swipe to steer clear of the obstacles. Use quick
+                            reflexes to ensure your journey is not cut short.</li>
+                        <li><strong>Collect Shields:</strong> Gather shields along your journey to have a protection
+                            against the obstacles. Shields are limited, so use them wisely!</li>
+                        <li><strong>Progress Through Levels:</strong> Complete each level by reaching the designated
+                            celestial body without running out of momentum or colliding with hazards.</li>
+                        <li><strong>Challenge Friends:</strong> Share and compare your high score with friends to see
+                            who is the true master of the cosmos!</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
         <div class="astrovert-image">
-        <a href="https://apps.apple.com/gb/app/astrovert/id6502262535" target="_blank">
-            <img src="../img/app-store.png" alt="Available on the App Store" width="200">
-        </a>
+            <a href="https://apps.apple.com/gb/app/astrovert/id6502262535" target="_blank">
+                <img src="../img/app-store.png" alt="Available on the App Store" width="200">
+            </a>
+        </div>
+        <div class="qr-container">
+            <div class="qr-card">
+                <div id="qrcode"></div>
+                <p class="qr-label">Scan with your phone to download</p>
+            </div>
         </div>
 
-            <p>Embark on your space adventure with Astrovert, where the sky is not the limit — it’s just the beginning!</p>
-    </div>
+        <p>Embark on your space adventure with Astrovert, where the sky is not the limit — it’s just the beginning!</p>
+        </div>
     </section>
     <!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2010-2026, Mathricks. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2010-2026, Mathricks. All rights reserved.</p>
             <p>Contact: info [at] mathricks [dot] com</p>
-            <p><a href="support">Support Page</a> | 
-               <a href="privacy">Privacy Policy</a> | 
-               <a href="../">mathricks.com </a></p>
-    </div>
-</footer>
+            <p><a href="support">Support Page</a> |
+                <a href="privacy">Privacy Policy</a> |
+                <a href="../">mathricks.com </a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        new QRCode(document.getElementById('qrcode'), {
+            text: 'https://apps.apple.com/gb/app/astrovert/id6502262535',
+            width: 160, height: 160,
+            colorDark: '#000000', colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
 </body>
+
 </html>

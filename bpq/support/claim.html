@@ -1,133 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Claiming BTC – Bitcoin Puzzle Quest | MATHRICKS</title>
 
   <style>
-    :root{
+    :root {
       /* Match BPQ theme */
       --bg: #0e1111;
       --fg: #ffffff;
       --muted: #9aa6b2;
-      --line: rgba(255,255,255,.12);
-      --line-strong: rgba(255,255,255,.30);
+      --line: rgba(255, 255, 255, .12);
+      --line-strong: rgba(255, 255, 255, .30);
       --accent: #F4C236;
       --accent-grad-start: #F4D35E;
       --accent-grad-end: #E8B02E;
       --container: 1200px;
-      --header-start: rgba(14,17,17,.94);
-      --header-end: rgba(14,17,17,.74);
+      --header-start: rgba(14, 17, 17, .94);
+      --header-end: rgba(14, 17, 17, .74);
     }
 
     /* Light mode: keep beige like BPQ */
     html[data-theme="light"],
     body[data-theme="light"],
     body.light,
-    body.light-mode{
+    body.light-mode {
       --bg: #F4F1EC;
       --fg: #0e1111;
       --muted: #6d6d6d;
-      --line: rgba(14,17,17,.12);
-      --line-strong: rgba(14,17,17,.34);
+      --line: rgba(14, 17, 17, .12);
+      --line-strong: rgba(14, 17, 17, .34);
       --accent: #E8B02E;
       --accent-grad-start: #FFE37A;
       --accent-grad-end: #E8B02E;
-      --header-start: rgba(244,241,236,.95);
-      --header-end: rgba(244,241,236,.80);
+      --header-start: rgba(244, 241, 236, .95);
+      --header-end: rgba(244, 241, 236, .80);
     }
 
-    html,body{
-      margin:0;
-      background:var(--bg);
-      color:var(--fg);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial;
+    html,
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial;
     }
-    a{color:inherit;text-decoration:none}
-    a:hover{color:var(--accent)}
-    .container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    a:hover {
+      color: var(--accent)
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
     /* Header */
-    .main-header{
-      position:sticky;top:0;z-index:10;
-      background:linear-gradient(180deg,var(--header-start),var(--header-end));
-      border-bottom:1px solid var(--accent);
-      backdrop-filter:saturate(140%) blur(6px);
+    .main-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(180deg, var(--header-start), var(--header-end));
+      border-bottom: 1px solid var(--accent);
+      backdrop-filter: saturate(140%) blur(6px);
     }
-    .header-flex{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;}
-    .logo{font-weight:600;letter-spacing:.18em;font-size:.85rem;opacity:.85;}
-    .main-header h1{margin:0;font-size:clamp(18px,2vw,22px);font-weight:600;letter-spacing:.02em}
-    .main-header p{margin:10px 0 0;color:var(--muted);max-width:70ch;}
 
-    .dark-mode-toggle{
-      border:1px solid var(--line-strong);
-      background:transparent;
-      color:var(--fg);
-      border-radius:999px;
-      padding:10px 12px;
-      cursor:pointer;
-      transition:border-color .15s ease, filter .15s ease;
-      font-weight:600;
-      letter-spacing:.06em;
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0;
     }
-    .dark-mode-toggle:hover{border-color:var(--accent);filter:brightness(115%)}
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: .18em;
+      font-size: .85rem;
+      opacity: .85;
+    }
+
+    .main-header h1 {
+      margin: 0;
+      font-size: clamp(18px, 2vw, 22px);
+      font-weight: 600;
+      letter-spacing: .02em
+    }
+
+    .main-header p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .dark-mode-toggle {
+      border: 1px solid var(--line-strong);
+      background: transparent;
+      color: var(--fg);
+      border-radius: 999px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: border-color .15s ease, filter .15s ease;
+      font-weight: 600;
+      letter-spacing: .06em;
+    }
+
+    .dark-mode-toggle:hover {
+      border-color: var(--accent);
+      filter: brightness(115%)
+    }
 
     /* Sections + crossing frames */
-    .section{position:relative;padding:60px 0;}
-    .section + .section{margin-top:60px;}
+    .section {
+      position: relative;
+      padding: 60px 0;
+    }
+
+    .section+.section {
+      margin-top: 60px;
+    }
 
     /* limited top-left cross */
-    .section::before{content:"";position:absolute;left:32px;top:32px;width:220px;height:0;border-top:2px solid var(--line-strong);pointer-events:none;}
-    .section::after{content:"";position:absolute;left:32px;top:32px;height:140px;width:0;border-left:2px solid var(--line-strong);pointer-events:none;}
+    .section::before {
+      content: "";
+      position: absolute;
+      left: 32px;
+      top: 32px;
+      width: 220px;
+      height: 0;
+      border-top: 2px solid var(--line-strong);
+      pointer-events: none;
+    }
+
+    .section::after {
+      content: "";
+      position: absolute;
+      left: 32px;
+      top: 32px;
+      height: 140px;
+      width: 0;
+      border-left: 2px solid var(--line-strong);
+      pointer-events: none;
+    }
 
     /* limited bottom-right cross */
-    .cross-bottom{position:relative;padding:0 88px 96px 32px;}
-    .cross-bottom::before{content:"";position:absolute;right:32px;bottom:32px;width:220px;height:0;border-bottom:2px solid var(--line-strong);pointer-events:none;}
-    .cross-bottom::after{content:"";position:absolute;right:32px;bottom:32px;height:140px;width:0;border-right:2px solid var(--line-strong);pointer-events:none;}
-
-    @media (max-width: 720px){
-      .cross-bottom{padding:0 56px 72px 24px;}
-      .section::before,.cross-bottom::before{width:180px;}
-      .section::after,.cross-bottom::after{height:120px;}
+    .cross-bottom {
+      position: relative;
+      padding: 0 88px 96px 32px;
     }
 
-    h2{margin:0 0 14px;font-size:clamp(22px,2.6vw,30px);letter-spacing:.01em;}
-    h3{margin:26px 0 10px;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;}
-    p,li{line-height:1.6;}
-
-    ul{padding-left:1.2em;margin:0 0 10px;}
-
-    .badge{display:inline-block;border-radius:999px;border:1px solid var(--accent);padding:4px 10px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
-
-    .cta{
-      display:inline-block;
-      margin-top:18px;
-      border:1px solid var(--accent);
-      background:transparent;
-      color:var(--fg);
-      padding:10px 16px;
-      border-radius:999px;
-      font-weight:600;
-      letter-spacing:.08em;
-      font-size:.8rem;
-      text-transform:uppercase;
-      transition:background .25s ease, color .25s ease, filter .15s ease;
-    }
-    .cta:hover{
-      background:linear-gradient(90deg,var(--accent-grad-start),var(--accent-grad-end));
-      color:var(--bg);
-      filter:none;
+    .cross-bottom::before {
+      content: "";
+      position: absolute;
+      right: 32px;
+      bottom: 32px;
+      width: 220px;
+      height: 0;
+      border-bottom: 2px solid var(--line-strong);
+      pointer-events: none;
     }
 
-    .note{font-size:.9rem;color:var(--muted);}
+    .cross-bottom::after {
+      content: "";
+      position: absolute;
+      right: 32px;
+      bottom: 32px;
+      height: 140px;
+      width: 0;
+      border-right: 2px solid var(--line-strong);
+      pointer-events: none;
+    }
 
-    .footer{margin-top:80px;border-top:1px solid var(--line);padding:40px 0;color:var(--muted);text-align:center}
-    .footer a{color:var(--muted)}
-    .footer a:hover{color:var(--accent)}
-    .footnote{font-size:.75rem;line-height:1.5;max-width:820px;margin:24px auto 0;opacity:.7;}
+    @media (max-width: 720px) {
+      .cross-bottom {
+        padding: 0 56px 72px 24px;
+      }
+
+      .section::before,
+      .cross-bottom::before {
+        width: 180px;
+      }
+
+      .section::after,
+      .cross-bottom::after {
+        height: 120px;
+      }
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(22px, 2.6vw, 30px);
+      letter-spacing: .01em;
+    }
+
+    h3 {
+      margin: 26px 0 10px;
+      font-size: 1.05rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    p,
+    li {
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 1.2em;
+      margin: 0 0 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      padding: 4px 10px;
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 18px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--fg);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      font-size: .8rem;
+      text-transform: uppercase;
+      transition: background .25s ease, color .25s ease, filter .15s ease;
+    }
+
+    .cta:hover {
+      background: linear-gradient(90deg, var(--accent-grad-start), var(--accent-grad-end));
+      color: var(--bg);
+      filter: none;
+    }
+
+    .note {
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--line);
+      padding: 40px 0;
+      color: var(--muted);
+      text-align: center
+    }
+
+    .footer a {
+      color: var(--muted)
+    }
+
+    .footer a:hover {
+      color: var(--accent)
+    }
+
+    .footnote {
+      font-size: .75rem;
+      line-height: 1.5;
+      max-width: 820px;
+      margin: 24px auto 0;
+      opacity: .7;
+    }
   </style>
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
 </head>
+
 <body>
   <header class="main-header">
     <div class="container header-flex">
@@ -148,12 +303,15 @@
           <span class="badge">Important</span>
           <h2>What this page is (and isn’t)</h2>
           <p>
-            If you generate a private key that <a href="match.html"><u>matches</u></a> one of the still-funded puzzle addresses, you have solved a famous community challenge.
+            If you generate a private key that <a href="match.html"><u>matches</u></a> one of the still-funded puzzle
+            addresses, you have solved a famous community challenge.
             Holding that key gives you control over any BTC at the corresponding address.
           </p>
           <p class="note">
-            This page is a high-level, informational overview of concepts that many advanced Bitcoin users consider when thinking about
-            claiming funds. It is <strong>not</strong> financial, legal, tax, or operational advice, and it may be incomplete or out of date.
+            This page is a high-level, informational overview of concepts that many advanced Bitcoin users consider when
+            thinking about
+            claiming funds. It is <strong>not</strong> financial, legal, tax, or operational advice, and it may be
+            incomplete or out of date.
             You are responsible for your own research and decisions.
           </p>
         </div>
@@ -167,16 +325,21 @@
           <span class="badge">Risk</span>
           <h2>Why "bot theft" is a real risk</h2>
           <p>
-            Many low-bit Bitcoin puzzles are vulnerable to automated attacks if you try to spend directly from the original weak address.
-            When a transaction is broadcast from such an address, the corresponding public key is revealed to the whole network.
+            Many low-bit Bitcoin puzzles are vulnerable to automated attacks if you try to spend directly from the
+            original weak address.
+            When a transaction is broadcast from such an address, the corresponding public key is revealed to the whole
+            network.
           </p>
           <p>
-            Specialised bots watch the public mempool for these reveals. Once they see the public key, they can rapidly derive the
-            private key and race your transaction by submitting a competing transaction with a higher fee. If their transaction confirms
+            Specialised bots watch the public mempool for these reveals. Once they see the public key, they can rapidly
+            derive the
+            private key and race your transaction by submitting a competing transaction with a higher fee. If their
+            transaction confirms
             first, the funds go to them, not you.
           </p>
           <p class="note">
-            This is why many community write-ups stress caution, and why some advanced users look for ways to avoid broadcasting
+            This is why many community write-ups stress caution, and why some advanced users look for ways to avoid
+            broadcasting
             transactions in the usual way.
           </p>
         </div>
@@ -190,14 +353,17 @@
           <span class="badge">Overview</span>
           <h2>High-level flow used by advanced users</h2>
           <p class="note">
-            The following points describe, in general terms, how some experienced Bitcoin users think about claiming funds from
-            vulnerable puzzle addresses. This does <strong>not</strong> constitute a complete or correct procedure, and it is not a
+            The following points describe, in general terms, how some experienced Bitcoin users think about claiming
+            funds from
+            vulnerable puzzle addresses. This does <strong>not</strong> constitute a complete or correct procedure, and
+            it is not a
             recommendation to act.
           </p>
 
           <h3>1 · Secure the winning private key</h3>
           <p>
-            Treat the winning key like a physical bearer instrument. If anyone else gains access to it, they can move the funds. Many
+            Treat the winning key like a physical bearer instrument. If anyone else gains access to it, they can move
+            the funds. Many
             users choose to:
           </p>
           <ul>
@@ -208,14 +374,17 @@
 
           <h3>2 · Choose a destination wallet you truly control</h3>
           <p>
-            Before any attempt to move funds, advanced users typically prepare a secure, self-custody wallet (often a hardware wallet)
-            and choose a fresh receiving address. Which wallet software or hardware to use is a personal decision that depends on
+            Before any attempt to move funds, advanced users typically prepare a secure, self-custody wallet (often a
+            hardware wallet)
+            and choose a fresh receiving address. Which wallet software or hardware to use is a personal decision that
+            depends on
             your own research and risk tolerance.
           </p>
 
           <h3>3 · Construct and sign a transaction offline</h3>
           <p>
-            A common pattern in community discussions is to use an air-gapped (never online) device to construct and sign the
+            A common pattern in community discussions is to use an air-gapped (never online) device to construct and
+            sign the
             transaction. Conceptually, this involves:
           </p>
           <ul>
@@ -224,23 +393,28 @@
             <li>Choosing an appropriate fee level for the prevailing network conditions.</li>
           </ul>
           <p>
-            The result is usually a long string of text called a <em>signed transaction hex</em>. In careful setups, the private key
+            The result is usually a long string of text called a <em>signed transaction hex</em>. In careful setups, the
+            private key
             never leaves the offline device.
           </p>
 
           <h3>4 · Submit via a private or direct-miner service</h3>
           <p>
-            To reduce exposure to mempool-watching bots, some users look for ways to submit a signed transaction directly to a mining
+            To reduce exposure to mempool-watching bots, some users look for ways to submit a signed transaction
+            directly to a mining
             pool or trusted operator instead of broadcasting it to the public mempool. These are sometimes called
             <em>private transaction submission</em>, <em>block inclusion</em>, or <em>mempool-less</em> services.
           </p>
           <p>
-            One example that is frequently mentioned in the community is Mara Pool's Slipstream service. Other mining pools and
-            operators may offer similar functionality. <strong>Bitcoin Puzzle Quest is not affiliated with any of these providers and
-            does not endorse or vet them.</strong>
+            One example that is frequently mentioned in the community is Mara Pool's Slipstream service. Other mining
+            pools and
+            operators may offer similar functionality. <strong>Bitcoin Puzzle Quest is not affiliated with any of these
+              providers and
+              does not endorse or vet them.</strong>
           </p>
           <p class="note">
-            If you decide to explore such services, you must carefully research the provider, understand their trust and threat model,
+            If you decide to explore such services, you must carefully research the provider, understand their trust and
+            threat model,
             and, where appropriate, seek professional advice.
           </p>
         </div>
@@ -255,19 +429,24 @@
           <h2>Things to consider before taking any action</h2>
           <ul>
             <li>
-              <strong>Talk to professionals.</strong> If you are not already very comfortable with Bitcoin security, offline key
-              management, and transaction building, consider speaking with a trusted Bitcoin security professional or advisor.
+              <strong>Talk to professionals.</strong> If you are not already very comfortable with Bitcoin security,
+              offline key
+              management, and transaction building, consider speaking with a trusted Bitcoin security professional or
+              advisor.
             </li>
             <li>
-              <strong>Think about legal and tax questions.</strong> Claiming any amount of BTC may have legal or tax implications in your
+              <strong>Think about legal and tax questions.</strong> Claiming any amount of BTC may have legal or tax
+              implications in your
               jurisdiction. Only a qualified professional can advise you on this.
             </li>
             <li>
-              <strong>Be suspicious of anyone asking for your key.</strong> Neither Bitcoin Puzzle Quest nor legitimate researchers will
+              <strong>Be suspicious of anyone asking for your key.</strong> Neither Bitcoin Puzzle Quest nor legitimate
+              researchers will
               ever need or request your private key.
             </li>
             <li>
-              <strong>Beware of phishing and impersonation.</strong> Always verify URLs, certificates, and identities before you share
+              <strong>Beware of phishing and impersonation.</strong> Always verify URLs, certificates, and identities
+              before you share
               sensitive information or connect a wallet.
             </li>
           </ul>
@@ -282,18 +461,21 @@
           <span class="badge">Community</span>
           <h2>Where people discuss these puzzles</h2>
           <p>
-            Many puzzle hunters share ideas, success stories, and security considerations in public forums. If you want to see how
+            Many puzzle hunters share ideas, success stories, and security considerations in public forums. If you want
+            to see how
             others think about the 1000 BTC puzzle, you can read:
           </p>
           <ul>
             <li>
               The long-running Bitcointalk thread:
-              <a href="https://bitcointalk.org/index.php?topic=1306983.0" target="_blank" rel="noopener"><u>Bitcoin Forum &mdash; 1000 BTC
-              Puzzle</u></a>.
+              <a href="https://bitcointalk.org/index.php?topic=1306983.0" target="_blank" rel="noopener"><u>Bitcoin
+                  Forum &mdash; 1000 BTC
+                  Puzzle</u></a>.
             </li>
           </ul>
           <p class="note">
-            These discussions are community-sourced and may include incorrect, outdated, or conflicting information. Treat them as
+            These discussions are community-sourced and may include incorrect, outdated, or conflicting information.
+            Treat them as
             perspectives to analyse, not instructions to follow.
           </p>
         </div>
@@ -310,14 +492,17 @@
         <a href="index.html">Support Home</a> |
         <a href="https://mathricks.com/bpq/">Bitcoin Puzzle Quest Home</a> |
         <a href="../../">mathricks.com</a>
-      </div>
-          <p>Made with ❤️ using <a href="https://github.com/mathricks" target="_blank">GitHub Pages</a></p>
-      <p class="footnote">
-        Bitcoin Puzzle Quest is an educational cryptography app and a front-end for a public community challenge. It is not a
-        wallet, exchange, or financial service. This page is for general informational purposes only and does not constitute
-        financial, legal, tax, or operational advice. The developer is not affiliated with the original puzzle creators and has no
-        control over any funds associated with the puzzle addresses.
-      </p>
+    </div>
+    <p>Made with ❤️ using <a href="https://github.com/mathricks" target="_blank">GitHub Pages</a></p>
+    <p class="footnote">
+      Bitcoin Puzzle Quest is an educational cryptography app and a front-end for a public community challenge. It is
+      not a
+      wallet, exchange, or financial service. This page is for general informational purposes only and does not
+      constitute
+      financial, legal, tax, or operational advice. The developer is not affiliated with the original puzzle creators
+      and has no
+      control over any funds associated with the puzzle addresses.
+    </p>
     </div>
   </footer>
 
@@ -328,13 +513,13 @@
     const root = document.documentElement;
     const toggle = document.getElementById('themeToggle');
 
-    function applyTheme(t){
-      if(t==='light'){
-        root.setAttribute('data-theme','light');
-        toggle.textContent='🌙';   /* sun icon for light mode */
-      }else{
+    function applyTheme(t) {
+      if (t === 'light') {
+        root.setAttribute('data-theme', 'light');
+        toggle.textContent = '🌙';   /* sun icon for light mode */
+      } else {
         root.removeAttribute('data-theme');
-        toggle.textContent='☀️';   /* moon icon for dark mode */
+        toggle.textContent = '☀️';   /* moon icon for dark mode */
       }
       localStorage.setItem('theme', t);
     }
@@ -349,4 +534,5 @@
     }
   </script>
 </body>
+
 </html>

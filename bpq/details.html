@@ -1,164 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bitcoin Puzzle Quest – Full Details | MATHRICKS</title>
   <style>
-    :root{
-      --bg: #0e1111;            
-      --fg: #ffffff;            
-      --muted: #9aa6b2;      
-      --line: rgba(255,255,255,.12); 
-      --line-strong: rgba(255,255,255,.30);
-      --accent: #F4C236;        
+    :root {
+      --bg: #0e1111;
+      --fg: #ffffff;
+      --muted: #9aa6b2;
+      --line: rgba(255, 255, 255, .12);
+      --line-strong: rgba(255, 255, 255, .30);
+      --accent: #F4C236;
       --accent-grad-start: #F4D35E;
       --accent-grad-end: #E8B02E;
-      --tint: rgba(244,194,54,.04);  
+      --tint: rgba(244, 194, 54, .04);
       --container: 1200px;
-      --header-start: rgba(14,17,17,.94);  
-      --header-end:   rgba(14,17,17,.74);  
-      --band-radial: radial-gradient(80% 100% at 50% 0%, rgba(255,255,255,.03), rgba(255,255,255,0));
+      --header-start: rgba(14, 17, 17, .94);
+      --header-end: rgba(14, 17, 17, .74);
+      --band-radial: radial-gradient(80% 100% at 50% 0%, rgba(255, 255, 255, .03), rgba(255, 255, 255, 0));
     }
-    [data-theme="light"]{
-      --bg: #F4F1EC;            
-      --fg: #0e1111;           
-      --muted: #6d6d6d;        
-      --line: rgba(14,17,17,.12);
-      --line-strong: rgba(14,17,17,.34);
+
+    [data-theme="light"] {
+      --bg: #F4F1EC;
+      --fg: #0e1111;
+      --muted: #6d6d6d;
+      --line: rgba(14, 17, 17, .12);
+      --line-strong: rgba(14, 17, 17, .34);
       --accent: #E8B02E;
       --accent-grad-start: #FFE37A;
       --accent-grad-end: #E8B02E;
-      --tint: rgba(232,176,46,.05);
-      --header-start: rgba(244,241,236,.95);  
-      --header-end:   rgba(244,241,236,.80);
-      --band-radial: radial-gradient(80% 100% at 50% 0%, rgba(14,17,17,.08), rgba(14,17,17,0));
+      --tint: rgba(232, 176, 46, .05);
+      --header-start: rgba(244, 241, 236, .95);
+      --header-end: rgba(244, 241, 236, .80);
+      --band-radial: radial-gradient(80% 100% at 50% 0%, rgba(14, 17, 17, .08), rgba(14, 17, 17, 0));
     }
-    html,body{background:var(--bg);color:var(--fg);margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";}
-    *{box-sizing:border-box}
-    .container{max-width:var(--container);margin:0 auto;padding:0 24px}
-    a{color:inherit;text-decoration:none}
-    a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+    html,
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px
+    }
 
     /* ----- Header ----- */
-    header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg, var(--header-start), var(--header-end));backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--accent);}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .logo{font-weight:600;letter-spacing:.18em;font-size:.85rem;opacity:.85}
-    .nav-actions{display:flex;gap:10px;align-items:center}
-    .btn{border:1px solid var(--line-strong);padding:10px 14px;border-radius:999px;font-size:.85rem;letter-spacing:.06em;background:transparent;transition:filter .15s ease, border-color .15s ease}
-    .btn:hover{filter:brightness(115%);border-color:var(--accent)}
-    .toggle{border:1px solid var(--line-strong);padding:10px 14px;border-radius:999px;font-size:.85rem;background:transparent;letter-spacing:.06em;cursor:pointer;transition:filter .15s ease, border-color .15s ease; color: var(--fg);}
-    .toggle:hover{filter:brightness(115%);border-color:var(--fg)}
-
-    /* ----- Hero ----- */
-    .hero{position:relative;min-height:86vh;display:grid;place-items:center;border-bottom:1px solid var(--line);background-image:linear-gradient(180deg, var(--tint), transparent)}
-    .hero-inner{width:100%}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:10vw;align-items:center}
-    .hero h1{font-size:clamp(40px,8vw,92px);line-height:1.02;letter-spacing:.01em;margin:0 0 16px 0;font-weight:600}
-    .hero p{color:var(--muted);font-size:clamp(16px,2.4vw,20px);letter-spacing:.02em;margin:0 0 28px}
-    .hero-cta{display:flex;gap:12px;align-items:center}
-    .cta{border:1px solid var(--accent);background:transparent;color:var(--fg);padding:12px 18px;border-radius:999px;font-weight:600;letter-spacing:.08em;font-size:.85rem;text-transform:uppercase;transition:background .25s ease, color .25s ease, filter .15s ease;margin:40px 0;}
-    .cta:hover{
-      background:linear-gradient(90deg,var(--accent-grad-start),var(--accent-grad-end));
-      color:var(--bg);
-      filter:none;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(180deg, var(--header-start), var(--header-end));
+      backdrop-filter: saturate(140%) blur(6px);
+      border-bottom: 1px solid var(--accent);
     }
 
-    h1 .studio{font-size:.18em;letter-spacing:.22em;margin-left:.4em;vertical-align:super;font-weight:400;color:var(--muted);text-transform:uppercase}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: .18em;
+      font-size: .85rem;
+      opacity: .85
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    .btn {
+      border: 1px solid var(--line-strong);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: .85rem;
+      letter-spacing: .06em;
+      background: transparent;
+      transition: filter .15s ease, border-color .15s ease
+    }
+
+    .btn:hover {
+      filter: brightness(115%);
+      border-color: var(--accent)
+    }
+
+    .toggle {
+      border: 1px solid var(--line-strong);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: .85rem;
+      background: transparent;
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: filter .15s ease, border-color .15s ease;
+      color: var(--fg);
+    }
+
+    .toggle:hover {
+      filter: brightness(115%);
+      border-color: var(--fg)
+    }
+
+    /* ----- Hero ----- */
+    .hero {
+      position: relative;
+      min-height: 86vh;
+      display: grid;
+      place-items: center;
+      border-bottom: 1px solid var(--line);
+      background-image: linear-gradient(180deg, var(--tint), transparent)
+    }
+
+    .hero-inner {
+      width: 100%
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 10vw;
+      align-items: center
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 8vw, 92px);
+      line-height: 1.02;
+      letter-spacing: .01em;
+      margin: 0 0 16px 0;
+      font-weight: 600
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: clamp(16px, 2.4vw, 20px);
+      letter-spacing: .02em;
+      margin: 0 0 28px
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .cta {
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--fg);
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      font-size: .85rem;
+      text-transform: uppercase;
+      transition: background .25s ease, color .25s ease, filter .15s ease;
+      margin: 40px 0;
+    }
+
+    .cta:hover {
+      background: linear-gradient(90deg, var(--accent-grad-start), var(--accent-grad-end));
+      color: var(--bg);
+      filter: none;
+    }
+
+    h1 .studio {
+      font-size: .18em;
+      letter-spacing: .22em;
+      margin-left: .4em;
+      vertical-align: super;
+      font-weight: 400;
+      color: var(--muted);
+      text-transform: uppercase
+    }
 
 
     /* ----- Principles ----- */
-    section{border-bottom:none}
-    .section{padding:60px 0}
-    .section{position:relative}
-    .section::before{
-      content:"";position:absolute;z-index:1;
-      left:32px;top:0;width:220px;height:0;
-      border-top:2px solid var(--line-strong);
-    }
-    .section::after{
-      content:"";position:absolute;z-index:1;
-      left:48px;top:-32px;height:140px;width:0;
-      border-left:2px solid var(--line-strong);
-    }
-    .section>.cross-bottom::before,
-    .section>.cross-bottom::after{content:"";position:absolute;pointer-events:none;}
-    .section>.cross-bottom::before{right:32px;bottom:0;width:220px;height:0;border-bottom:2px solid var(--line-strong);}
-    .section>.cross-bottom::after{right:48px;bottom:-32px;height:140px;width:0;border-right:2px solid var(--line-strong);}
-    .section+.section{margin-top:60px}
-    #how{margin-top:80px}
-    .cross-bottom{padding:0 32px;}
-    .footnote{font-size:.75rem;line-height:1.4;color:var(--muted);opacity:.65;margin:40px 0 0;text-align:center;max-width:800px;margin-left:auto;margin-right:auto}
-    .section .eyebrow{font-size:.8rem;letter-spacing:.28em;color:var(--muted);text-transform:uppercase;margin-bottom:14px}
-    .section h2{font-size:clamp(28px,4.6vw,52px);margin:0 0 22px;line-height:1.06}
-    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
-    .card{border:none;border-radius:16px;padding:28px 26px;min-height:180px;transition:filter .15s ease, transform .15s ease;position:relative}
-    .card h3{margin:0 0 8px;font-size:1rem;letter-spacing:.12em;text-transform:uppercase}
-    .card p{margin:0;color:var(--muted);line-height:1.6}
-    /* Corner ticks: horizontals */
-    .card::before{content:"";position:absolute;inset:0;pointer-events:none;background-repeat:no-repeat;background-image:
-      linear-gradient(var(--line), var(--line)), /* TL H */
-      linear-gradient(var(--line), var(--line)), /* TR H */
-      linear-gradient(var(--line), var(--line)), /* BR H */
-      linear-gradient(var(--line), var(--line)); /* BL H */
-    background-size:48px 1px, 48px 1px, 48px 1px, 48px 1px;
-    background-position:left calc(32px - 24px) top 32px,
-                         right calc(32px - 24px) top 32px,
-                         right calc(32px - 24px) bottom 32px,
-                         left calc(32px - 24px) bottom 32px;
-    opacity:.95
+    section {
+      border-bottom: none
     }
 
-    .card::after{content:"";position:absolute;inset:0;pointer-events:none;background-repeat:no-repeat;background-image:
-      linear-gradient(var(--line), var(--line)), /* TL V */
-      linear-gradient(var(--line), var(--line)), /* TR V */
-      linear-gradient(var(--line), var(--line)), /* BR V */
-      linear-gradient(var(--line), var(--line)); /* BL V */
-    background-size:1px 36px, 1px 36px, 1px 36px, 1px 36px;
-    background-position:left 14px top 14px, right 14px top 14px, right 14px bottom 14px, left 14px bottom 14px;
-    opacity:.95
+    .section {
+      padding: 60px 0
     }
-    .card:hover{filter:brightness(110%);transform:translateY(-2px)}
+
+    .section {
+      position: relative
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: 32px;
+      top: 0;
+      width: 220px;
+      height: 0;
+      border-top: 2px solid var(--line-strong);
+    }
+
+    .section::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: 48px;
+      top: -32px;
+      height: 140px;
+      width: 0;
+      border-left: 2px solid var(--line-strong);
+    }
+
+    .section>.cross-bottom::before,
+    .section>.cross-bottom::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .section>.cross-bottom::before {
+      right: 32px;
+      bottom: 0;
+      width: 220px;
+      height: 0;
+      border-bottom: 2px solid var(--line-strong);
+    }
+
+    .section>.cross-bottom::after {
+      right: 48px;
+      bottom: -32px;
+      height: 140px;
+      width: 0;
+      border-right: 2px solid var(--line-strong);
+    }
+
+    .section+.section {
+      margin-top: 60px
+    }
+
+    #how {
+      margin-top: 80px
+    }
+
+    .cross-bottom {
+      padding: 0 32px;
+    }
+
+    .footnote {
+      font-size: .75rem;
+      line-height: 1.4;
+      color: var(--muted);
+      opacity: .65;
+      margin: 40px 0 0;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .section .eyebrow {
+      font-size: .8rem;
+      letter-spacing: .28em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 14px
+    }
+
+    .section h2 {
+      font-size: clamp(28px, 4.6vw, 52px);
+      margin: 0 0 22px;
+      line-height: 1.06
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 32px
+    }
+
+    .card {
+      border: none;
+      border-radius: 16px;
+      padding: 28px 26px;
+      min-height: 180px;
+      transition: filter .15s ease, transform .15s ease;
+      position: relative
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      letter-spacing: .12em;
+      text-transform: uppercase
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6
+    }
+
+    /* Corner ticks: horizontals */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-image:
+        linear-gradient(var(--line), var(--line)),
+        /* TL H */
+        linear-gradient(var(--line), var(--line)),
+        /* TR H */
+        linear-gradient(var(--line), var(--line)),
+        /* BR H */
+        linear-gradient(var(--line), var(--line));
+      /* BL H */
+      background-size: 48px 1px, 48px 1px, 48px 1px, 48px 1px;
+      background-position: left calc(32px - 24px) top 32px,
+        right calc(32px - 24px) top 32px,
+        right calc(32px - 24px) bottom 32px,
+        left calc(32px - 24px) bottom 32px;
+      opacity: .95
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-repeat: no-repeat;
+      background-image:
+        linear-gradient(var(--line), var(--line)),
+        /* TL V */
+        linear-gradient(var(--line), var(--line)),
+        /* TR V */
+        linear-gradient(var(--line), var(--line)),
+        /* BR V */
+        linear-gradient(var(--line), var(--line));
+      /* BL V */
+      background-size: 1px 36px, 1px 36px, 1px 36px, 1px 36px;
+      background-position: left 14px top 14px, right 14px top 14px, right 14px bottom 14px, left 14px bottom 14px;
+      opacity: .95
+    }
+
+    .card:hover {
+      filter: brightness(110%);
+      transform: translateY(-2px)
+    }
 
     /* ----- How it Works ----- */
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:28px;counter-reset:step}
-    .step{position:relative;border-top:1px solid var(--line-strong);padding-top:22px}
-    .step::before{counter-increment:step;content:counter(step, decimal-leading-zero);position:absolute;top:-14px;left:0;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:.9rem;color:var(--muted);padding:0 8px;background:var(--bg)}
-    .step h4{margin:0 0 8px;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase}
-    .step p{margin:0;color:var(--muted)}
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 28px;
+      counter-reset: step
+    }
+
+    .step {
+      position: relative;
+      border-top: 1px solid var(--line-strong);
+      padding-top: 22px
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      top: -14px;
+      left: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .9rem;
+      color: var(--muted);
+      padding: 0 8px;
+      background: var(--bg)
+    }
+
+    .step h4 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted)
+    }
 
 
 
     /* ----- Footer ----- */
-    footer{padding:60px 0}
-    .footer-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-    .links{display:flex;gap:18px;align-items:center}
-    .link{color:var(--muted)}
-    .link:hover{color:var(--fg)}
+    footer {
+      padding: 60px 0
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap
+    }
+
+    .links {
+      display: flex;
+      gap: 18px;
+      align-items: center
+    }
+
+    .link {
+      color: var(--muted)
+    }
+
+    .link:hover {
+      color: var(--fg)
+    }
 
     /* ----- Scroll reveal ----- */
-    .reveal{opacity:0;transform:translateY(8px);transition:opacity .5s ease, transform .5s ease}
-    .reveal.in{opacity:1;transform:none}
+    .reveal {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .5s ease, transform .5s ease
+    }
 
-    .thank-you{padding:48px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .thank-you-note{color:var(--muted);font-size:.65rem;margin:16px 0 0}
+    .reveal.in {
+      opacity: 1;
+      transform: none
+    }
+
+    .thank-you {
+      padding: 48px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .thank-you-note {
+      color: var(--muted);
+      font-size: .65rem;
+      margin: 16px 0 0
+    }
 
     /* ----- Responsive ----- */
-    @media (max-width: 960px){
-      .hero-grid{grid-template-columns:1fr}
-      .corner{left:24px;width:54vw;height:28vh}
-      .corner-r{right:24px;width:56vw;height:30vh}
-      .principles{grid-template-columns:1fr}
-      .steps{grid-template-columns:1fr}
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr
+      }
+
+      .corner {
+        left: 24px;
+        width: 54vw;
+        height: 28vh
+      }
+
+      .corner-r {
+        right: 24px;
+        width: 56vw;
+        height: 30vh
+      }
+
+      .principles {
+        grid-template-columns: 1fr
+      }
+
+      .steps {
+        grid-template-columns: 1fr
+      }
     }
   </style>
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
 </head>
+
 <body>
   <header>
     <div class="container nav">
       <a href="https://mathricks.com/bpq/" class="logo">MATHRICKS</a>
       <nav class="nav-actions">
-        <a class="btn" href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" aria-label="Download on the App Store" rel="noopener">App Store</a>
+        <a class="btn" href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717"
+          aria-label="Download on the App Store" rel="noopener">App Store</a>
         <button class="toggle" id="themeToggle" aria-label="Toggle dark/light">Light</button>
       </nav>
     </div>
@@ -178,10 +524,14 @@
     <!-- App Description -->
     <section class="section" id="app-description">
       <div class="cross-bottom">
-      <div class="container">
-        <h2>App Description</h2>
-        <p>Become a famous puzzle hunter and test your luck against one of the most&nbsp;famous cryptographic challenges on the internet. Somewhere in Bitcoin’s vast key‑space lie dozens of addresses tied to a publicly known 1000&nbsp;BTC puzzle first setup in&nbsp;2015. Every one of the addresses is protected by nothing more than an unknown number within a known range.  <strong>Bitcoin Puzzle Quest</strong> puts this legendary hunt in the palm of your hand.</p>
-      </div>
+        <div class="container">
+          <h2>App Description</h2>
+          <p>Become a famous puzzle hunter and test your luck against one of the most&nbsp;famous cryptographic
+            challenges on the internet. Somewhere in Bitcoin’s vast key‑space lie dozens of addresses tied to a publicly
+            known 1000&nbsp;BTC puzzle first setup in&nbsp;2015. Every one of the addresses is protected by nothing more
+            than an unknown number within a known range. <strong>Bitcoin Puzzle Quest</strong> puts this legendary hunt
+            in the palm of your hand.</p>
+        </div>
       </div>
     </section>
 
@@ -192,22 +542,33 @@
           <h2>How to Play</h2>
 
           <h3>1&nbsp;· Choose Your Challenge</h3>
-          <p>Pick any key size up to the 160‑bit “beast”. The larger the space, the harder the challenge. Not sure where to begin? Start with 71‑bit—the lowest‑bit puzzle still unsolved yet humanly conquerable.</p>
+          <p>Pick any key size up to the 160‑bit “beast”. The larger the space, the harder the challenge. Not sure where
+            to begin? Start with 71‑bit—the lowest‑bit puzzle still unsolved yet humanly conquerable.</p>
           <ul>
-            <li>Low‑bit puzzles (already solved) offer quick feedback and are great for experimentation and learning.</li>
+            <li>Low‑bit puzzles (already solved) offer quick feedback and are great for experimentation and learning.
+            </li>
             <li>High‑bit challenges bring the thrill of chasing life‑changing bounties.</li>
           </ul>
 
           <h3>2&nbsp;· Generate and Check Keys Instantly</h3>
           <ul>
-            <li><strong>Tap to Hunt.</strong> Generate keys one‑by‑one or in batches of 5, 10, 50 or 100. Each key is converted locally to a Bitcoin address and checked against the official puzzle list —<em>all offline</em>. Keep tapping until you find the correct number (or your thumbs tap out… pro tip: a DIY “robot finger” is totally fair game).</li>
-            <li><strong>Continuous Mode</strong> (one‑time in‑app purchase). Let the app press the button for you. No tapping required. Perfect for committed puzzle hunters who’d rather watch the numbers roll than their fingers ache.
-              Enter a starting number for deterministic, sequential scans—perfect for targeting specific ranges or coordinating community efforts.</li>
-            <li>Need a breather? Double-tap the treasure-chest icon to reveal a cheeky sliding-puzzle mini-game. Because every great quest deserves a hidden side quest!</li>
+            <li><strong>Tap to Hunt.</strong> Generate keys one‑by‑one or in batches of 5, 10, 50 or 100. Each key is
+              converted locally to a Bitcoin address and checked against the official puzzle list —<em>all offline</em>.
+              Keep tapping until you find the correct number (or your thumbs tap out… pro tip: a DIY “robot finger” is
+              totally fair game).</li>
+            <li><strong>Continuous Mode</strong> (one‑time in‑app purchase). Let the app press the button for you. No
+              tapping required. Perfect for committed puzzle hunters who’d rather watch the numbers roll than their
+              fingers ache.
+              Enter a starting number for deterministic, sequential scans—perfect for targeting specific ranges or
+              coordinating community efforts.</li>
+            <li>Need a breather? Double-tap the treasure-chest icon to reveal a cheeky sliding-puzzle mini-game. Because
+              every great quest deserves a hidden side quest!</li>
           </ul>
 
           <h3>3&nbsp;· Global Leaderboards (Game Center)</h3>
-          <p>Compare how many millions of keys you’ve tested, celebrate your achievements and see how you stack up against friends and puzzle hunters worldwide. Counts are reported in million-key milestones, and no key data ever leaves your device.</p>
+          <p>Compare how many millions of keys you’ve tested, celebrate your achievements and see how you stack up
+            against friends and puzzle hunters worldwide. Counts are reported in million-key milestones, and no key data
+            ever leaves your device.</p>
         </div>
       </div>
     </section>
@@ -218,12 +579,17 @@
         <div class="container">
           <h2>Key Features</h2>
           <ul>
-            <li><strong>Human‑Friendly Cryptography Experience.</strong> Just tap, scan, and get feedback. We’ve made cryptographic puzzle solving fun, simple and accessible.</li>
-            <li><strong>Offline &amp; Private.</strong> All key generation and address checking happens locally on your device. No servers, no accounts, no wallet integration needed. Just pure, private puzzle solving.</li>
+            <li><strong>Human‑Friendly Cryptography Experience.</strong> Just tap, scan, and get feedback. We’ve made
+              cryptographic puzzle solving fun, simple and accessible.</li>
+            <li><strong>Offline &amp; Private.</strong> All key generation and address checking happens locally on your
+              device. No servers, no accounts, no wallet integration needed. Just pure, private puzzle solving.</li>
             <li><strong>Random or Sequential Runs.</strong> Switch between secure randomness or reproducible scans.</li>
-            <li><strong>Live Puzzle Balances.</strong> View the live balance of each puzzle address for extra motivation. Stay informed, stay inspired.</li>
-            <li><strong>Haptic + Audio Alerts.</strong> When you hit the correct number (fingers crossed!), you’ll feel a satisfying haptic buzz and see the winning key.</li>
-            <li><strong>Adaptive UI.</strong> Supports Light &amp; Dark Mode, Dynamic Type, and is fully iOS-Universal.</li>
+            <li><strong>Live Puzzle Balances.</strong> View the live balance of each puzzle address for extra
+              motivation. Stay informed, stay inspired.</li>
+            <li><strong>Haptic + Audio Alerts.</strong> When you hit the correct number (fingers crossed!), you’ll feel
+              a satisfying haptic buzz and see the winning key.</li>
+            <li><strong>Adaptive UI.</strong> Supports Light &amp; Dark Mode, Dynamic Type, and is fully iOS-Universal.
+            </li>
           </ul>
         </div>
       </div>
@@ -236,7 +602,8 @@
           <h2>Privacy‑First Philosophy</h2>
           <ul>
             <li>Found numbers are stored locally never shared and no third parties involved.</li>
-            <li>Attempt counts, number of tries, are saved on your device (unless you opt into Game Center leaderboards).</li>
+            <li>Attempt counts, number of tries, are saved on your device (unless you opt into Game Center
+              leaderboards).</li>
             <li>Network calls are limited to public endpoints for puzzle address balances and the ticker.</li>
           </ul>
         </div>
@@ -248,8 +615,9 @@
       <div class="cross-bottom">
         <div class="container">
           <h2>Who’s It For?</h2>
-          <p>Anyone curious about cryptographic puzzles—especially Bitcoin enthusiasts. 
-            Whether you’re an experienced hunter or totally new to blockchain, <strong>Bitcoin Puzzle Quest</strong> offers a playful, intuitive way into a legendary number‑search challenge.</p>
+          <p>Anyone curious about cryptographic puzzles—especially Bitcoin enthusiasts.
+            Whether you’re an experienced hunter or totally new to blockchain, <strong>Bitcoin Puzzle Quest</strong>
+            offers a playful, intuitive way into a legendary number‑search challenge.</p>
         </div>
       </div>
     </section>
@@ -261,19 +629,26 @@
           <h2>Ready to hunt the biggest cryptographic puzzle?</h2>
           <p>Choose your key size, press <strong>Go</strong>, and start your Bitcoin Puzzle Quest today.</p>
           <p>
-          <br>
-          <a class="cta" href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" rel="noopener">Get the App</a>
-          <br><br>
+            <br>
+            <a class="cta" href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" rel="noopener">Get
+              the App</a>
+            <br><br>
           </p>
           <p class="thank-you-note">Bitcoin Puzzle Quest requires iOS 18 or later. Works on iPhones and iPads.</p>
-          <p class="thank-you-note">Thank you for playing Bitcoin Puzzle Quest! Follow us on <a href="https://twitter.com/mathricks" style="color:var(--accent)">X</a></p>
+          <p class="thank-you-note">Thank you for playing Bitcoin Puzzle Quest! Follow us on <a
+              href="https://twitter.com/mathricks" style="color:var(--accent)">X</a></p>
         </div>
       </div>
     </section>
 
 
-<p class="footnote">Please note: Bitcoin Puzzle Quest is not a wallet, contest, or sweepstakes app. Think of it as an educational cryptography playground and a community challenge rolled into one digital puzzle hunt. Any Bitcoin that may be discovered results from a third‑party cryptographic challenge published to the public internet in 2015. Move or claim funds only if you are legally entitled to them and understand the legal and tax implications in your jurisdiction. The developer is not affiliated with the puzzle creators and has no control over the funds. Apple is not a sponsor of any challenge shown.</p>
-      
+    <p class="footnote">Please note: Bitcoin Puzzle Quest is not a wallet, contest, or sweepstakes app. Think of it as
+      an educational cryptography playground and a community challenge rolled into one digital puzzle hunt. Any Bitcoin
+      that may be discovered results from a third‑party cryptographic challenge published to the public internet in
+      2015. Move or claim funds only if you are legally entitled to them and understand the legal and tax implications
+      in your jurisdiction. The developer is not affiliated with the puzzle creators and has no control over the funds.
+      Apple is not a sponsor of any challenge shown.</p>
+
   </main>
 
   <footer>
@@ -294,40 +669,40 @@
     const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
     const savedTheme = localStorage.getItem('theme');
     const root = document.documentElement;
-    const applyTheme = (t)=>{
-      if(t==='light'){ root.setAttribute('data-theme','light'); toggle.textContent='Dark'; }
-      else { root.removeAttribute('data-theme'); toggle.textContent='Light'; }
+    const applyTheme = (t) => {
+      if (t === 'light') { root.setAttribute('data-theme', 'light'); toggle.textContent = 'Dark'; }
+      else { root.removeAttribute('data-theme'); toggle.textContent = 'Light'; }
       localStorage.setItem('theme', t);
     };
     const toggle = document.getElementById('themeToggle');
     applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
-    toggle.addEventListener('click',()=>{
-      const current = root.getAttribute('data-theme')==='light' ? 'light' : 'dark';
-      applyTheme(current==='light' ? 'dark' : 'light');
+    toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      applyTheme(current === 'light' ? 'dark' : 'light');
     });
     // IntersectionObserver for scroll reveal
     const obs = new IntersectionObserver(entries => {
-      for (const e of entries){
-        if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
       }
-    }, {threshold:.15});
-    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    }, { threshold: .15 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
     // Blueprint video slideshow
-    const previewSources = ['gameplay.mp4','chestgame.mp4','latest.mp4'];
+    const previewSources = ['gameplay.mp4', 'chestgame.mp4', 'latest.mp4'];
     let previewIndex = 0;
     const previewVideo = document.getElementById('previewVideo');
-    previewVideo.addEventListener('loadedmetadata', ()=> previewVideo.play());
+    previewVideo.addEventListener('loadedmetadata', () => previewVideo.play());
     // Initial height adjustment for chestgame
-    if(previewVideo.src.includes('chestgame')){
+    if (previewVideo.src.includes('chestgame')) {
       previewVideo.style.height = '400px';
     }
-    function cyclePreview(){
+    function cyclePreview() {
       previewIndex = (previewIndex + 1) % previewSources.length;
       previewVideo.src = previewSources[previewIndex];
-      if(previewVideo.src.includes('chestgame')){
+      if (previewVideo.src.includes('chestgame')) {
         previewVideo.style.height = '260px';
-      }else{
+      } else {
         previewVideo.style.height = '480px';
       }
       previewVideo.load();
@@ -335,4 +710,5 @@
     setInterval(cyclePreview, 3000);
   </script>
 </body>
+
 </html>

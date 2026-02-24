@@ -1,82 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="mathricks, math, metrics, matrix, numbers, play, puzzle, gridlock">
     <title>GridLock Numbers | Mathricks</title>
     <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .qr-container {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center
+        }
+
+        .qr-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            padding: 24px;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .05);
+            transition: all .3s ease
+        }
+
+        .qr-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .12)
+        }
+
+        .qr-card #qrcode {
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 10px;
+            background: #fff;
+            line-height: 0
+        }
+
+        .qr-label {
+            font-size: .75rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #888;
+            margin: 0
+        }
+
+        @media (max-width:768px) {
+            .qr-container {
+                display: none
+            }
+        }
+    </style>
     <script defer src="../js/dark.js"></script>
+    <!-- Mathricks Analytics (GA4 + click tracking) -->
+    <script src="/js/analytics.js"></script>
 </head>
+
 <body>
 
-<!-- Header -->
-<header class="main-header">
-    <div class="container header-flex">
-        <h1>GridLock Numbers</h1>
-        <img src="../img/game1-logo2.png" alt="GridLock Logo" class="game-logo">
-    </div>
-</header>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-flex">
+            <h1>GridLock Numbers</h1>
+            <img src="../img/game1-logo2.png" alt="GridLock Logo" class="game-logo">
+        </div>
+    </header>
 
-<!-- Main Content -->
-<section class="content container">
-    <div class="game-info">
-        <div class="game-description">
-            <h2>How to Play</h2>
-            <table>
-                <tr><td align="left">
-                    Choose your grid and fill it out completely with numbers—only if you can.</p>
-            <p>Start anywhere with 1 and continue filling numbers following these two move constraints:</p>
-            <ul>
-                <li><strong>Double-space</strong> for left, up, right, or down moves.</li>
-                <li><strong>Single-space</strong> for diagonal moves.</li>
-            </ul>
-                    </td>
-                </tr>
-            </table>
+    <!-- Main Content -->
+    <section class="content container">
+        <div class="game-info">
+            <div class="game-description">
+                <h2>How to Play</h2>
+                <table>
+                    <tr>
+                        <td align="left">
+                            Choose your grid and fill it out completely with numbers—only if you can.</p>
+                            <p>Start anywhere with 1 and continue filling numbers following these two move constraints:
+                            </p>
+                            <ul>
+                                <li><strong>Double-space</strong> for left, up, right, or down moves.</li>
+                                <li><strong>Single-space</strong> for diagonal moves.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="features">
-        <div class="feature-box">
-            <h2>Tips</h2>
-            <p>Turn on the switch under the grids to see all possible moves.</p>
-            <p>You can undo your moves by tapping on the last number placed.</p>
+        <div class="features">
+            <div class="feature-box">
+                <h2>Tips</h2>
+                <p>Turn on the switch under the grids to see all possible moves.</p>
+                <p>You can undo your moves by tapping on the last number placed.</p>
+            </div>
+            <div class="feature-box">
+                <h2>Scoring</h2>
+                <p>Each number earns <strong>10x</strong> in Easy, <strong>15x</strong> in Medium and
+                    <strong>20x</strong> in Hard
+                </p>
+                <p>Removing a number deducts an extra <strong>1 point</strong>.</p>
+                <p>‘x2’ cells <strong>double the added numbers</strong>.</p>
+            </div>
         </div>
-        <div class="feature-box">
-            <h2>Scoring</h2>
-            <p>Each number earns <strong>10x</strong> in Easy, <strong>15x</strong> in Medium and <strong>20x</strong> in Hard</p>
-            <p>Removing a number deducts an extra <strong>1 point</strong>.</p>
-            <p>‘x2’ cells <strong>double the added numbers</strong>.</p>
+        <div class="download-section">
+            <a href="https://itunes.apple.com/us/app/gridlock-numbers/id912871295" class="download-btn" target="_blank">
+                <img src="../img/app-store.png" alt="Available on the App Store" width="200">
+            </a>
+            <p>Requires iOS 16.2 or later. Works on iPhones and iPads.</p>
+            <div class="qr-container">
+                <div class="qr-card">
+                    <div id="qrcode"></div>
+                    <p class="qr-label">Scan to download</p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="download-section">
-        <a href="https://itunes.apple.com/us/app/gridlock-numbers/id912871295" class="download-btn" target="_blank">
-            <img src="../img/app-store.png" alt="Available on the App Store" width="200">
-        </a>
-        <p>Requires iOS 16.2 or later. Works on iPhones and iPads.</p>
-    </div>
-    <section class="thanks">
-        <div class="feature-box">
-            <h2></h2>
-        <p>Thank you for playing Gridlock Numbers! <br/> Follow us on 
-            <a href="https://twitter.com/gridlockn" target="_blank">X</a> &
-            <a href="https://instagram.com/gridlockn" target="_blank">Instagram</a>
-        </p>
-        </div>
+        <section class="thanks">
+            <div class="feature-box">
+                <h2></h2>
+                <p>Thank you for playing Gridlock Numbers! <br /> Follow us on
+                    <a href="https://twitter.com/gridlockn" target="_blank">X</a> &
+                    <a href="https://instagram.com/gridlockn" target="_blank">Instagram</a>
+                </p>
+            </div>
+        </section>
     </section>
-</section>
-    
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2010-2026, Mathricks. All rights reserved.</p>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2010-2026, Mathricks. All rights reserved.</p>
             <p>Contact: info [at] mathricks [dot] com</p>
-            <p><a href="support">Support Page</a> | 
-               <a href="privacy">Privacy Policy</a> | 
-               <a href="../">mathricks.com </a></p>
-    </div>
-</footer>
-</body>    
+            <p><a href="support">Support Page</a> |
+                <a href="privacy">Privacy Policy</a> |
+                <a href="../">mathricks.com </a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        new QRCode(document.getElementById('qrcode'), {
+            text: 'https://itunes.apple.com/us/app/gridlock-numbers/id912871295',
+            width: 160, height: 160,
+            colorDark: '#000000', colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
 <!-- Dark Mode Toggle -->
 <button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button>
 </body>
+
 </html>
