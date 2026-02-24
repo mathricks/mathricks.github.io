@@ -33,7 +33,11 @@ function goSlide(i) {
 let sliderTimer = null;
 function startAuto() {
     if (sliderPaused) return;
-    sliderTimer = setInterval(() => goSlide(slideIndex + 1), 6000);
+    // Only auto-cycle between slides 0 and 1; slide 2 (game) stays hidden
+    sliderTimer = setInterval(() => {
+        const next = slideIndex === 0 ? 1 : 0;
+        goSlide(next);
+    }, 6000);
 }
 dots.forEach((d, i) => d.addEventListener('click', () => {
     clearInterval(sliderTimer);
@@ -51,6 +55,66 @@ dots.forEach((d, i) => d.addEventListener('click', () => {
     goSlide(i);
 }));
 startAuto();
+
+// Touch swipe support for hero slider
+(function () {
+    const slider = document.getElementById('heroSlider');
+    if (!slider) return;
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+    let isSwiping = false;
+
+    slider.addEventListener('touchstart', function (e) {
+        const touch = e.touches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+        touchStartTime = Date.now();
+        isSwiping = false;
+    }, { passive: true });
+
+    slider.addEventListener('touchmove', function (e) {
+        if (!touchStartX) return;
+        const touch = e.touches[0];
+        const dx = touch.clientX - touchStartX;
+        const dy = touch.clientY - touchStartY;
+
+        // If horizontal movement dominates, flag as a swipe and prevent default
+        // to stop the page from being dragged sideways
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+            isSwiping = true;
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    slider.addEventListener('touchend', function (e) {
+        if (!isSwiping) { touchStartX = 0; return; }
+
+        const touch = e.changedTouches[0];
+        const dx = touch.clientX - touchStartX;
+        const elapsed = Date.now() - touchStartTime;
+        const threshold = 40; // min px to count as swipe
+        const maxTime = 600; // max ms for a valid swipe
+
+        if (elapsed < maxTime && Math.abs(dx) > threshold) {
+            // Only swipe between slides 0 and 1; game slide (2) is dot-only
+            let target = dx < 0 ? slideIndex + 1 : slideIndex - 1;
+            target = Math.max(0, Math.min(1, target));
+            if (target === slideIndex) { touchStartX = 0; isSwiping = false; return; }
+
+            clearInterval(sliderTimer);
+            sliderTimer = null;
+            sliderPaused = false;
+            goSlide(target);
+            setTimeout(startAuto, 6000);
+        }
+
+        touchStartX = 0;
+        touchStartY = 0;
+        isSwiping = false;
+    }, { passive: true });
+})();
 
 (function () {
     const canvas = document.getElementById('rocketGame');

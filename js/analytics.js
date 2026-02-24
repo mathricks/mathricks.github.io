@@ -14,15 +14,16 @@
     document.head.appendChild(s);
 
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    window.gtag = gtag;                       // expose globally if needed
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag; // expose globally if needed
+
     gtag('js', new Date());
     gtag('config', GA_ID);
 
     /* ── 2. Click tracking (event delegation) ─────────── */
     document.addEventListener('click', function (e) {
         var a = e.target.closest('a');
-        if (!a) return;                          // not a link click
+        if (!a) return;
 
         var href = a.href || '';
 
@@ -33,7 +34,7 @@
                 link_text: (a.textContent || '').trim().substring(0, 80),
                 page_path: location.pathname
             });
-            return;                                // don't prevent navigation
+            return;
         }
 
         // "Learn more" / "read more" internal links
@@ -59,3 +60,4 @@
         } catch (_) { /* ignore malformed URLs */ }
     });
 })();
+
