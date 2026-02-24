@@ -31,25 +31,33 @@ function goSlide(i) {
     dots[slideIndex].classList.add('active');
 }
 let sliderTimer = null;
+let autoRestartTimeout = null;
 function startAuto() {
     if (sliderPaused) return;
+    clearInterval(sliderTimer);
     // Only auto-cycle between slides 0 and 1; slide 2 (game) stays hidden
     sliderTimer = setInterval(() => {
+        if (sliderPaused || slideIndex === 2) return;
         const next = slideIndex === 0 ? 1 : 0;
         goSlide(next);
     }, 6000);
 }
-dots.forEach((d, i) => d.addEventListener('click', () => {
+function stopAuto() {
     clearInterval(sliderTimer);
     sliderTimer = null;
+    clearTimeout(autoRestartTimeout);
+    autoRestartTimeout = null;
+}
+dots.forEach((d, i) => d.addEventListener('click', () => {
+    stopAuto();
     dots.forEach(dot => dot.classList.remove('paused'));
 
-    if (i === 2) { // Rocket game slide knob
+    if (i === 2) { // Rocket game slide knob — pause everything
         sliderPaused = true;
         if (dots[2]) dots[2].classList.add('paused');
     } else {
         sliderPaused = false;
-        setTimeout(startAuto, 6000);
+        autoRestartTimeout = setTimeout(startAuto, 6000);
     }
 
     goSlide(i);
@@ -67,6 +75,8 @@ startAuto();
     let isSwiping = false;
 
     slider.addEventListener('touchstart', function (e) {
+        // Don't intercept touches on the game slide
+        if (slideIndex === 2) { touchStartX = 0; return; }
         const touch = e.touches[0];
         touchStartX = touch.clientX;
         touchStartY = touch.clientY;
@@ -75,7 +85,7 @@ startAuto();
     }, { passive: true });
 
     slider.addEventListener('touchmove', function (e) {
-        if (!touchStartX) return;
+        if (!touchStartX || slideIndex === 2) return;
         const touch = e.touches[0];
         const dx = touch.clientX - touchStartX;
         const dy = touch.clientY - touchStartY;
@@ -103,11 +113,10 @@ startAuto();
             target = Math.max(0, Math.min(1, target));
             if (target === slideIndex) { touchStartX = 0; isSwiping = false; return; }
 
-            clearInterval(sliderTimer);
-            sliderTimer = null;
+            stopAuto();
             sliderPaused = false;
             goSlide(target);
-            setTimeout(startAuto, 6000);
+            autoRestartTimeout = setTimeout(startAuto, 6000);
         }
 
         touchStartX = 0;
@@ -172,10 +181,7 @@ startAuto();
     let gameOver = false;
 
     function pauseSliderOnGame() {
-        if (typeof sliderTimer !== 'undefined' && sliderTimer) {
-            clearInterval(sliderTimer);
-            sliderTimer = null;
-        }
+        stopAuto();
         sliderPaused = true;
         if (dots[2]) dots[2].classList.add('paused');
     }
@@ -731,10 +737,7 @@ startAuto();
     const gameSlide = document.querySelector('.slide.game-slide');
     if (gameSlide) {
         gameSlide.addEventListener('pointerdown', () => {
-            if (sliderTimer) {
-                clearInterval(sliderTimer);
-                sliderTimer = null;
-            }
+            stopAuto();
             sliderPaused = true;
             if (dots[2]) dots[2].classList.add('paused');
         }, { passive: true });
