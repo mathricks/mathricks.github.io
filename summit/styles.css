@@ -19,6 +19,7 @@
   --app-qr-card-shadow: 0 8px 24px rgba(0, 0, 0, .2);
   --app-qr-label-color: var(--muted);
   --app-qr-label-letter-spacing: .18em;
+  --card-bg: rgba(10, 15, 22, .55);
 }
 
 [data-theme="light"] {
@@ -35,6 +36,9 @@
   --header-start: rgba(244, 248, 252, .95);
   --header-end: rgba(244, 248, 252, .80);
   --band-radial: radial-gradient(80% 100% at 50% 0%, rgba(11, 16, 23, .08), rgba(11, 16, 23, 0));
+  --card-bg: rgba(255, 255, 255, .8);
+  --app-qr-card-bg: rgba(255, 255, 255, .9);
+  --app-qr-card-shadow: 0 8px 24px rgba(0, 0, 0, .08);
 }
 
 html,
@@ -362,7 +366,7 @@ section {
   transition: filter .15s ease, transform .15s ease;
   position: relative;
   isolation: isolate;
-  background: rgba(10, 15, 22, .55);
+  background: var(--card-bg);
 }
 
 .card h3 {
