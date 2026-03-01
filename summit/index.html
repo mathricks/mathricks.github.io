@@ -1,1 +1,181 @@
-Under construction.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="summit, numbers, game, puzzle, mathricks" />
+  <title>Summit Numbers | Mathricks</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app-pages-common.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo logo-soft"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="#how">How it Works</a>
+        <a class="btn" href="https://apps.apple.com/app/id6753334821" target="_blank" rel="noopener">App Store</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="corner draw" aria-hidden="true"></div>
+      <div class="corner-r animate-down draw-right delay" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-grid">
+          <div>
+            <h1 id="hero-title">Summit Numbers</h1>
+            <p>Strategy-first number puzzle set on a wrap-around board. Combine math with chess-like movement planning.
+            </p>
+            <div class="hero-cta">
+              <a class="cta" href="https://apps.apple.com/app/id6753334821" target="_blank" rel="noopener">Download</a>
+              <a class="btn" href="#how">Learn More</a>
+            </div>
+          </div>
+          <div>
+            <div class="hero-card" aria-label="Summit Numbers app preview">
+              <img src="../img/game4-logo.png" alt="Summit Numbers app logo">
+              <div class="glow" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+        <div class="signature">Mathricks Studio</div>
+      </div>
+    </section>
+
+    <div class="band" aria-hidden="true">
+      <div class="container">
+        <div class="ticker">Top: 15 • Right: 12 • Bottom: 10 • Left: 14 • Match all 4 targets • Edge-wrap movement •
+          Merge identical pieces • </div>
+        <div class="ticker" aria-hidden="true">Top: 15 • Right: 12 • Bottom: 10 • Left: 14 • Match all 4 targets •
+          Edge-wrap movement • Merge identical pieces • </div>
+      </div>
+    </div>
+
+    <section class="section" id="how">
+      <div class="container reveal">
+        <div class="eyebrow">How it works</div>
+        <h2>Three steps to the summit.</h2>
+        <div class="steps">
+          <div class="step">
+            <h4>Plan your movement</h4>
+            <p>Move pieces exactly by their value horizontally or vertically with chess-like planning on an
+              edge-wrapping board.</p>
+          </div>
+          <div class="step">
+            <h4>Merge and reshape</h4>
+            <p>Merge identical 1s, 2s, and 3s into larger values to open space. Every turn starts from the center,
+              reshaping your options.</p>
+          </div>
+          <div class="step">
+            <h4>Hit the targets</h4>
+            <p>Your goal is to hit all four edge lane targets at the exact same time: Top, Right, Bottom, and Left.</p>
+          </div>
+        </div>
+        <p class="section-action">
+          <a class="btn" href="https://apps.apple.com/app/id6753334821" target="_blank" rel="noopener">Get the app</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container reveal">
+        <div class="eyebrow">Why Summit Numbers</div>
+        <h2>Deep, tactical play with social features.</h2>
+        <div class="principles">
+          <div class="card">
+            <h3>Tactical number movement</h3>
+            <p>Strategy-first puzzle combining the math of Sudoku and Kakuro with Pac-Man-like edge-wrap mechanics and
+              chess-style movements.</p>
+          </div>
+          <div class="card">
+            <h3>Social challenges</h3>
+            <p>Save winning boards and share challenge links with friends to replay the exact same target sets.</p>
+          </div>
+          <div class="card">
+            <h3>Track and compete</h3>
+            <p>Keep track of your best performance by moves and time, and stack up on Game Center leaderboards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cta">
+      <div class="container reveal section-center">
+        <div class="eyebrow">Ready</div>
+        <h2 class="section-title-tight">Start your climb.</h2>
+        <a class="cta" href="https://apps.apple.com/app/id6753334821" target="_blank" rel="noopener">Download on App
+          Store</a>
+        <div class="qr-container">
+          <div class="qr-card">
+            <div id="qrcode"></div>
+            <p class="qr-label">Scan to download</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="https://mathricks.com/support">Support</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="https://mathricks.com/summit/privacy/">Privacy</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (t) => {
+      if (t === 'light') {
+        root.setAttribute('data-theme', 'light');
+        toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      applyTheme(current === 'light' ? 'dark' : 'light');
+    });
+    const obs = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      }
+    }, { threshold: .15 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    new QRCode(document.getElementById('qrcode'), {
+      text: 'https://apps.apple.com/app/id6753334821',
+      width: 160, height: 160,
+      colorDark: '#0c1118', colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
+</body>
+
+</html>
