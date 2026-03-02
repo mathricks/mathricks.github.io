@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Support - Summit Numbers | Mathricks</title>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/app-pages-common.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .support-form {
+            margin-top: 20px;
+            display: grid;
+            gap: 24px;
+            max-width: 600px;
+        }
+
+        .support-form label {
+            display: grid;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        .support-form input,
+        .support-form textarea {
+            width: 100%;
+            background: var(--card-bg);
+            color: var(--fg);
+            border: 1px solid var(--line-strong);
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            font-family: inherit;
+        }
+
+        .support-form textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .support-form input:focus,
+        .support-form textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent);
+        }
+
+        .support-form button {
+            justify-self: start;
+            cursor: pointer;
+            font-family: inherit;
+        }
+    </style>
+    <!-- Mathricks Analytics (GA4 + click tracking) -->
+    <script src="/js/analytics.js"></script>
+    <script src="/js/consent.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <div class="logo logo-soft"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+            <nav class="nav-actions">
+                <a class="btn" href="../">Back to Game</a>
+                <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container reveal">
+                <div class="eyebrow">Summit Numbers</div>
+                <h2>Support Center</h2>
+                <p
+                    style="color: var(--muted); font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin-bottom: 20px;">
+                    Need help with your Summit experience? Whether it's a bug report or gameplay feedback, please reach
+                    out to us using the form below.
+                </p>
+
+                <form action="https://formspree.io/f/xqkrjjva" method="POST" class="support-form">
+                    <label for="email-address">Email Address
+                        <input type="email" name="email" id="email-address" placeholder="user@example.com" required>
+                    </label>
+
+                    <label for="message">Message
+                        <textarea name="message" id="message" placeholder="Describe your issue or feedback..."
+                            required></textarea>
+                    </label>
+
+                    <button type="submit" class="cta">Submit Ticket</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+            <div class="links">
+                <a class="link" href="https://mathricks.com/support">Support</a>
+                <span class="footer-separator">|</span>
+                <a class="link" href="https://mathricks.com/summit/privacy/">Privacy</a>
+            </div>
+        </div>
+        <div class="container legal">
+            &copy; 2010-2026, Mathricks. All rights reserved.<br>
+            Contact: info [at] mathricks [dot] com
+        </div>
+    </footer>
+
+    <script>
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        const savedTheme = localStorage.getItem('theme');
+        const root = document.documentElement;
+        const toggle = document.getElementById('themeToggle');
+        const applyTheme = (t) => {
+            if (t === 'light') {
+                root.setAttribute('data-theme', 'light');
+                toggle.textContent = '🌙';
+            } else {
+                root.removeAttribute('data-theme');
+                toggle.textContent = '☀️';
+            }
+            localStorage.setItem('theme', t);
+        };
+        applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+        toggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            applyTheme(current === 'light' ? 'dark' : 'light');
+        });
+        const obs = new IntersectionObserver(entries => {
+            for (const e of entries) {
+                if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+            }
+        }, { threshold: .15 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+</body>
+
+</html>
