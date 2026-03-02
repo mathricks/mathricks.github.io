@@ -2,104 +2,212 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <META NAME="keywords"
-        CONTENT="space, adventure, exploration, cosmic, interstellar, journey, obstacles, celestial, travel, baseball, mathricks" />
-    <title>Astrovert Game Guide | Mathricks</title>
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/css/app-pages-common.css">
-    <link rel="stylesheet" href="../styles.css">
-    <script defer src="../js/dark.js"></script>
-    <!-- Mathricks Analytics (GA4 + click tracking) -->
-    <script src="/js/analytics.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords"
+    content="astrovert, space game, cosmic puzzle, arcade, exploration, mathricks, iOS, mobile game" />
+  <meta name="description"
+    content="Astrovert by Mathricks. Launch, drift, and dodge through a cosmic obstacle course designed for quick reflexes and high-score runs." />
+  <title>Astrovert | Mathricks</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app-pages-common.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
   <script src="/js/consent.js"></script>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="main-header">
-        <div class="container header-flex">
-            <h1>Astrovert</h1>
-            <img src="../img/game3-logo.png" alt="Astrovert Logo" class="game-logo">
-            <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
-        </div>
-    </header>
-    <div class="container">
-        <header>
-            <p>Astrovert invites you to break out of your comfort zone and embark on an exhilarating journey through the
-                cosmos!</p>
-        </header>
+  <header>
+    <div class="container nav">
+      <div class="logo logo-soft"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="#how">How it Works</a>
+        <a class="btn" href="#features">Features</a>
+        <a class="btn" href="https://apps.apple.com/gb/app/astrovert/id6502262535" target="_blank"
+          rel="noopener">App Store</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
     </div>
-    <!-- Main Content -->
-    <section class="content container">
-        <h2>Game Description</h2>
-        <p>Dare to journey where no one has dared before with "Astrovert"! This is an invitation to break barriers and
-            explore the unknown reaches of space.
-            Propel through celestial gateways, from the asteroid-strewn fields of Ceres to the stormy atmosphere of
-            Jupiter, in a quest that stretches the limits of your courage.
-        </p>
-        <p>Astrovert is not just another space game; it is designed with a unique narrative and gameplay mechanics that
-            encourage users to explore space through a fresh perspective.
-            Unlike typical space games that focus on combat or racing, Astrovert is a metaphorical journey about
-            stepping out of one's comfort zone, represented by navigating a baseball through various celestial bodies.
-            Each level introduces more speed, size increase and new obstacles that are not merely making things harder
-            but require players to adapt their strategies, reflecting real-life growth and learning.
-        </p>
-        <h2>How to Play</h2>
-        <table>
-            <tr>
-                <td align="left">
-                    <ul>
-                        <li><strong>Launch Your Ball:</strong> Drag the baseball to launch and reach from one celestial
-                            body to another.</li>
-                        <li><strong>Navigate Obstacles:</strong> Swipe to steer clear of the obstacles. Use quick
-                            reflexes to ensure your journey is not cut short.</li>
-                        <li><strong>Collect Shields:</strong> Gather shields along your journey to have a protection
-                            against the obstacles. Shields are limited, so use them wisely!</li>
-                        <li><strong>Progress Through Levels:</strong> Complete each level by reaching the designated
-                            celestial body without running out of momentum or colliding with hazards.</li>
-                        <li><strong>Challenge Friends:</strong> Share and compare your high score with friends to see
-                            who is the true master of the cosmos!</li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
-        <div class="astrovert-image">
-            <a href="https://apps.apple.com/gb/app/astrovert/id6502262535" target="_blank">
-                <img src="../img/app-store.png" alt="Available on the App Store" width="200">
-            </a>
-        </div>
-        <div class="qr-container">
-            <div class="qr-card">
-                <div id="qrcode"></div>
-                <p class="qr-label">Scan with your phone to download</p>
-            </div>
-        </div>
+  </header>
 
-        <p>Embark on your space adventure with Astrovert, where the sky is not the limit — it’s just the beginning!</p>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="corner draw" aria-hidden="true"></div>
+      <div class="corner-r animate-down draw-right delay" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Cosmic Reflex Journey</div>
+            <h1 id="hero-title">Astrovert</h1>
+            <p>Launch across planetary lanes, thread through hazards, and keep your run alive. Astrovert turns
+              space-travel into a clean, high-focus challenge.</p>
+            <div class="hero-cta">
+              <a class="cta" href="https://apps.apple.com/gb/app/astrovert/id6502262535" target="_blank"
+                rel="noopener">Download</a>
+              <a class="btn" href="#how">Learn More</a>
+            </div>
+            <div class="stats" aria-label="Astrovert highlights">
+              <div class="stat">
+                <span class="stat-label">Planetary Zones</span>
+                <span class="stat-value">6+</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Shield Pickups</span>
+                <span class="stat-value">Limited</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Scoring</span>
+                <span class="stat-value">Endless</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="hero-card" aria-label="Astrovert app preview">
+              <div class="orbit orbit-a" aria-hidden="true"></div>
+              <div class="orbit orbit-b" aria-hidden="true"></div>
+              <img src="../img/game3-logo.png" alt="Astrovert app icon">
+              <div class="glow" aria-hidden="true"></div>
+            </div>
+          </div>
         </div>
+        <div class="signature">Mathricks Studio</div>
+      </div>
     </section>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2010-2026, Mathricks. All rights reserved.</p>
-            <p>Contact: info [at] mathricks [dot] com</p>
-            <p><a href="support">Support Page</a> |
-                <a href="privacy">Privacy Policy</a> |
-                <a href="../">mathricks.com </a>
-            </p>
+
+    <div class="band" aria-hidden="true">
+      <div class="container">
+        <div class="ticker">Ceres corridor • Jupiter storm lane • Asteroid fields • Shield timing • Precision swipes
+          • One more run • Ceres corridor • Jupiter storm lane • Asteroid fields • </div>
+        <div class="ticker" aria-hidden="true">Ceres corridor • Jupiter storm lane • Asteroid fields • Shield timing
+          • Precision swipes • One more run • Ceres corridor • Jupiter storm lane • Asteroid fields • </div>
+      </div>
+    </div>
+
+    <section class="section" id="how">
+      <div class="container reveal">
+        <div class="eyebrow">How it Works</div>
+        <h2>Three actions, one smooth run.</h2>
+        <div class="steps">
+          <div class="step">
+            <h4>Launch</h4>
+            <p>Drag and release the baseball to jump from one celestial body to the next.</p>
+          </div>
+          <div class="step">
+            <h4>Steer</h4>
+            <p>Swipe quickly to avoid debris and stay on a survivable route.</p>
+          </div>
+          <div class="step">
+            <h4>Protect</h4>
+            <p>Collect shields and spend them only when they preserve a long, high-value run.</p>
+          </div>
         </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script>
-        new QRCode(document.getElementById('qrcode'), {
-            text: 'https://apps.apple.com/gb/app/astrovert/id6502262535',
-            width: 160, height: 160,
-            colorDark: '#000000', colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
-        });
-    </script>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container reveal">
+        <div class="eyebrow">Why Astrovert</div>
+        <h2>Arcade clarity with a growth metaphor.</h2>
+        <div class="principles">
+          <div class="card">
+            <h3>Fast but readable</h3>
+            <p>Simple controls and clear visual lanes make each failure teachable, not random.</p>
+          </div>
+          <div class="card">
+            <h3>Escalating pressure</h3>
+            <p>Levels increase speed, obstacle density, and decision load as your run advances.</p>
+          </div>
+          <div class="card">
+            <h3>Challenge your circle</h3>
+            <p>Compare scores with friends and keep pushing for cleaner, longer cosmic runs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cta">
+      <div class="container reveal section-center">
+        <div class="eyebrow">Ready</div>
+        <h2 class="section-title-tight">Break orbit.</h2>
+        <a class="cta" href="https://apps.apple.com/gb/app/astrovert/id6502262535" target="_blank"
+          rel="noopener">Download on App Store</a>
+        <p class="platform-note">Requires iOS 13.0 or later. Works on iPhone and iPad.</p>
+        <div class="qr-container">
+          <div class="qr-card">
+            <div id="qrcode"></div>
+            <p class="qr-label">Scan to download</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="support/">Support</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="privacy/">Privacy</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+
+    const applyTheme = (theme) => {
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', theme);
+    };
+
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    if (window.QRCode && document.getElementById('qrcode')) {
+      new QRCode(document.getElementById('qrcode'), {
+        text: 'https://apps.apple.com/gb/app/astrovert/id6502262535',
+        width: 160,
+        height: 160,
+        colorDark: '#071226',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+  </script>
 </body>
 
 </html>

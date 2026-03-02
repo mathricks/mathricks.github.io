@@ -1,0 +1,246 @@
+.page-main {
+  padding: 88px 0 72px;
+}
+
+.content-shell {
+  max-width: 980px;
+}
+
+.page-header {
+  margin-bottom: 22px;
+}
+
+.page-title {
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.05;
+  margin: 0 0 12px;
+}
+
+.page-subtitle {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.62;
+  max-width: 64ch;
+}
+
+.section-block {
+  margin-top: 22px;
+  border-radius: 16px;
+  padding: 28px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  position: relative;
+  isolation: isolate;
+}
+
+.section-block::before,
+.section-block::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.section-block::before {
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line));
+  background-size: 36px 1px, 36px 1px, 36px 1px, 36px 1px;
+  background-position: left 16px top 16px, right 16px top 16px, right 16px bottom 16px, left 16px bottom 16px;
+}
+
+.section-block::after {
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line)),
+    linear-gradient(var(--line), var(--line));
+  background-size: 1px 28px, 1px 28px, 1px 28px, 1px 28px;
+  background-position: left 16px top 16px, right 16px top 16px, right 16px bottom 16px, left 16px bottom 16px;
+}
+
+.section-block > * {
+  position: relative;
+  z-index: 1;
+}
+
+.block-title {
+  margin: 0 0 16px;
+  font-size: 1.05rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 22px;
+}
+
+.support-form {
+  display: grid;
+  gap: 18px;
+}
+
+.support-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-weight: 600;
+}
+
+.support-form input,
+.support-form textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, .04);
+  color: var(--fg);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-family: inherit;
+  font-size: .98rem;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+[data-theme="light"] .support-form input,
+[data-theme="light"] .support-form textarea {
+  background: rgba(255, 255, 255, .86);
+}
+
+.support-form textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.support-form input:focus,
+.support-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.support-form button {
+  justify-self: start;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.clean-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.clean-list li {
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.clean-list strong {
+  color: var(--fg);
+}
+
+.inline-link {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+.inline-link:hover {
+  opacity: .88;
+}
+
+.small-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.faq-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  background: rgba(255, 255, 255, .02);
+}
+
+.faq-card h4 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  letter-spacing: .04em;
+}
+
+.faq-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.policy-updated {
+  margin: 0;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .76rem;
+}
+
+.policy-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.policy-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, .02);
+}
+
+.policy-item h4 {
+  margin: 0 0 8px;
+  font-size: .95rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.policy-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+  .support-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-main {
+    padding: 72px 0 64px;
+  }
+}
+
+@media (max-width: 520px) {
+  .section-block {
+    padding: 20px;
+  }
+
+  .support-form button {
+    width: 100%;
+    text-align: center;
+  }
+}
