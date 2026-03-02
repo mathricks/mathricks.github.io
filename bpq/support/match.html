@@ -61,7 +61,7 @@
       padding: 0 24px;
     }
 
-    .main-header {
+    .page-header {
       position: sticky;
       top: 0;
       z-index: 10;
@@ -85,14 +85,14 @@
       opacity: .85;
     }
 
-    .main-header h1 {
+    .page-header h1 {
       margin: 0;
       font-size: clamp(18px, 2vw, 22px);
       font-weight: 600;
       letter-spacing: .02em;
     }
 
-    .dark-mode-toggle {
+    .theme-toggle {
       border: 1px solid var(--line-strong);
       background: transparent;
       color: var(--fg);
@@ -102,7 +102,7 @@
       transition: border-color .15s ease, filter .15s ease;
     }
 
-    .dark-mode-toggle:hover {
+    .theme-toggle:hover {
       border-color: var(--accent);
       filter: brightness(115%);
     }
@@ -335,11 +335,11 @@
 </head>
 
 <body id="page-top">
-  <header class="main-header">
+  <header class="page-header">
     <div class="container header-flex">
       <a href="https://mathricks.com/bpq/" class="logo">MATHRICKS</a>
       <h1>What Does a “Match” Mean?</h1>
-      <button id="themeToggle" class="dark-mode-toggle" aria-label="Toggle theme">Light</button>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">Light</button>
     </div>
   </header>
 

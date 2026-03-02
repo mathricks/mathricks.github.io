@@ -63,7 +63,7 @@
     }
 
     /* Header */
-    .main-header {
+    .page-header {
       position: sticky;
       top: 0;
       z-index: 10;
@@ -87,20 +87,20 @@
       opacity: .85;
     }
 
-    .main-header h1 {
+    .page-header h1 {
       margin: 0;
       font-size: clamp(18px, 2vw, 22px);
       font-weight: 600;
       letter-spacing: .02em
     }
 
-    .main-header p {
+    .page-header p {
       margin: 10px 0 0;
       color: var(--muted);
       max-width: 70ch;
     }
 
-    .dark-mode-toggle {
+    .theme-toggle {
       border: 1px solid var(--line-strong);
       background: transparent;
       color: var(--fg);
@@ -112,7 +112,7 @@
       letter-spacing: .06em;
     }
 
-    .dark-mode-toggle:hover {
+    .theme-toggle:hover {
       border-color: var(--accent);
       filter: brightness(115%)
     }
@@ -285,14 +285,14 @@
 </head>
 
 <body>
-  <header class="main-header">
+  <header class="page-header">
     <div class="container header-flex">
       <a href="https://mathricks.com/bpq/" class="logo">MATHRICKS</a>
       <div>
         <h1>Claiming BTC found via Bitcoin Puzzle Quest</h1>
         <!--<p>High-level, educational information about what it means to find a winning key, and where to learn more. This is not financial, legal, tax, or operational advice.</p>-->
       </div>
-      <button id="themeToggle" class="dark-mode-toggle" aria-label="Toggle theme">Light</button>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">Light</button>
     </div>
   </header>
 

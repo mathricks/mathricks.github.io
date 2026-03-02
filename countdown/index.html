@@ -1,34 +1,100 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Countdown Numbers</title>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="gridlock.css" />
-    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-9">
-    <META HTTP-EQUIV="Content-language" CONTENT="tr">
-    <META NAME="keywords" CONTENT="countdown, numbers, puzzle, addition, multiplication, mathricks" />
-    <link rel="stylesheet" href="../../styles.css"> <!-- Apply the Mathricks theme -->
-    <script defer src="../../js/dark.js"></script>
-    <!-- Mathricks Analytics (GA4 + click tracking) -->
-    <script src="/js/analytics.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Countdown Numbers by Mathricks is coming soon." />
+  <title>Countdown Numbers | Mathricks</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/catalog-pages.css">
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
   <script src="/js/consent.js"></script>
 </head>
 
 <body>
-    <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
-    <div align=center><br />
-        🔜 The game of countdown only with numbers! Fun inside!
-        <br />
-        <img src="../img/app-store-icon.png" width="256"></a>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="/games.html">Games</a>
+        <a class="btn" href="/support/">Support</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
     </div>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2010-2026, Mathricks. All rights reserved.</p>
-            <p>Contact: info [at] mathricks [dot] com</p>
-            <p><a href="../">mathricks.com </a></p>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner reveal">
+        <div class="eyebrow">Upcoming</div>
+        <h1>Countdown Numbers</h1>
+        <p>A numbers-only challenge inspired by the classic countdown format. We are preparing the next public build.</p>
+        <div class="hero-cta">
+          <a class="cta" href="/games.html">Back to Games</a>
+          <a class="btn" href="/">Home</a>
         </div>
-    </footer>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="card coming">
+          <span class="pill">Coming Soon</span>
+          <img src="../img/app-store-icon.png" alt="Countdown app icon">
+          <p>Stay tuned for launch details.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="/support/">Support</a>
+        <a class="link" href="/">Home</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (t) => {
+      if (t === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
 </body>
 
 </html>

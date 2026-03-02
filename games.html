@@ -2,81 +2,126 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathricks - Games</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="js/script.js"></script>
-    <script defer src="js/dark.js"></script>
-    <!-- Mathricks Analytics (GA4 + click tracking) -->
-    <script src="/js/analytics.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Explore Mathricks game catalog." />
+  <title>Mathricks - Games</title>
+  <link rel="stylesheet" href="/css/catalog-pages.css">
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
   <script src="/js/consent.js"></script>
 </head>
 
 <body>
-    <!-- Dark Mode Toggle -->
-    <button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button>
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <h1 class="hero-title">Discover Our Games</h1>
-            <p class="hero-subtitle">Unleash your inner child with fun, challenging, and mind-bending games!</p>
-        </div>
-    </header>
-
-    <!-- Games Section 
-    <div class="container">
-        <h2>Our Featured Games</h2>
-        <div class="content">
-            <p>2024 🆕<br>
-                <div align="center">Astrovert [iOS]</div> 
-                <a href="astrovert">
-                    <img class="game-image" src="img/game3-logo.png" alt="Astrovert">
-                </a>
-            </p><br><br>
-            <p>2014
-                <div align="center">Gridlock Numbers [iOS] 🔙</div> 
-                <a href="gridlock">
-                    <img class="game-image" src="img/game1-logo2.png" alt="Gridlock Numbers">
-                </a>
-            </p><br><br>
-            <p>... 🔜
-                <div align="center">Countdown Numbers [iOS]</div> 
-                <a href="countdown">
-                    <img class="game-image" src="img/game2-logo.png" alt="Countdown Numbers">
-                </a>
-            </p>
-        </div>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="/apps.html">Apps</a>
+        <a class="btn" href="/support/">Support</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
     </div>
--->
-    <!-- Call-to-Action Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Play?</h2>
-            <p>Download our games and embark on an exciting journey of puzzles, challenges and fun. Don’t wait, start
-                now!</p>
-            <div class="button-container">
-                <a href="index.html" class="button">Back to Homepage</a>
-            </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner reveal">
+        <div class="eyebrow">Mathricks</div>
+        <h1>Game Catalog</h1>
+        <p>Fast sessions, strategic depth, and puzzle-first design across our active and upcoming titles.</p>
+        <div class="hero-cta">
+          <a class="cta" href="#games-list">See Games</a>
+          <a class="btn" href="/">Back Home</a>
         </div>
+      </div>
     </section>
 
-    <!-- Common Footer -->
-    <footer class="footer">
-        <div class="container">
-            &copy; 2010-2026, Mathricks. All rights reserved.
-            <br>
-            info [at] mathricks [dot] com
-            <br>
-            <p>
-                <a href="support">Support Page</a> | <a href="../">mathricks.com</a>
-            </p>
+    <section class="section" id="games-list">
+      <div class="container reveal">
+        <h2>Playable Titles</h2>
+        <div class="grid">
+          <a class="card" href="/entropy/">
+            <img src="/img/game5-logo.png" alt="Entropy: Zero logo">
+            <h3>Entropy: Zero</h3>
+            <p>Place geometric repairs under pressure and stabilize systems before corruption spreads.</p>
+          </a>
+          <a class="card" href="/summit/">
+            <img src="/img/game4-logo.png" alt="Summit Numbers logo">
+            <h3>Summit Numbers</h3>
+            <p>Wrap-around number tactics and target balancing with shareable board challenges.</p>
+          </a>
+          <a class="card" href="/astrovert/">
+            <img src="/img/game3-logo.png" alt="Astrovert logo">
+            <h3>Astrovert</h3>
+            <p>High-focus cosmic runner centered on timing, movement control, and survival scoring.</p>
+          </a>
+          <a class="card" href="/gridlock/">
+            <img src="/img/game1-logo.png" alt="Gridlock Numbers logo">
+            <h3>Gridlock Numbers</h3>
+            <p>Route-building number puzzle with strict movement rules and x2 bonus optimization.</p>
+          </a>
+          <a class="card" href="/bpq/">
+            <img src="/img/game2-logo.png" alt="Bitcoin Puzzle Quest logo">
+            <h3>Bitcoin Puzzle Quest</h3>
+            <p>Public puzzle challenge simulator with offline key testing and progression controls.</p>
+          </a>
+          <a class="card" href="/countdown/">
+            <img src="/img/game6-logo.png" alt="Countdown Numbers logo">
+            <h3>Countdown Numbers</h3>
+            <p>Upcoming number challenge inspired by classic arithmetic puzzle formats.</p>
+          </a>
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="/support/">Support</a>
+        <a class="link" href="/">Home</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (t) => {
+      if (t === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
 </body>
 
 </html>
