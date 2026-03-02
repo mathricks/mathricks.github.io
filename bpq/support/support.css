@@ -1,0 +1,225 @@
+a:hover {
+  color: var(--accent)
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  letter-spacing: .02em
+}
+
+header p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+}
+
+/* Sections + crossing frames */
+.section {
+  position: relative;
+  padding: 60px 0;
+  scroll-margin-top: 120px;
+}
+
+#faq-claim {
+  scroll-margin-top: 140px;
+}
+
+.section+.section {
+  margin-top: 60px;
+}
+
+/* limited top-left cross */
+.section::before {
+  content: "";
+  position: absolute;
+  left: 32px;
+  top: 32px;
+  width: 220px;
+  height: 0;
+  border-top: 2px solid var(--line-strong);
+  pointer-events: none;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  left: 32px;
+  top: 32px;
+  height: 140px;
+  width: 0;
+  border-left: 2px solid var(--line-strong);
+  pointer-events: none;
+}
+
+/* limited bottom-right cross */
+.cross-bottom {
+  position: relative;
+  padding: 0 88px 96px 32px;
+}
+
+.cross-bottom::before {
+  content: "";
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  width: 220px;
+  height: 0;
+  border-bottom: 2px solid var(--line-strong);
+  pointer-events: none;
+}
+
+.cross-bottom::after {
+  content: "";
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  height: 140px;
+  width: 0;
+  border-right: 2px solid var(--line-strong);
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .cross-bottom {
+    padding: 0 56px 72px 24px;
+  }
+
+  .section::before,
+  .cross-bottom::before {
+    width: 180px;
+  }
+
+  .section::after,
+  .cross-bottom::after {
+    height: 120px;
+  }
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: clamp(22px, 2.6vw, 30px);
+  letter-spacing: .01em;
+}
+
+p,
+li {
+  line-height: 1.6;
+}
+
+/* FAQ list spacing */
+#faq ul {
+  list-style-position: outside;
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+#faq li {
+  margin: 22px 0;
+}
+
+#faq li strong {
+  display: block;
+  margin: 0 0 2px;
+}
+
+/* Form styling in-theme */
+form {
+  margin-top: 14px;
+  display: grid;
+  gap: 14px;
+  max-width: 720px
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted)
+}
+
+input,
+textarea {
+  width: 100%;
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  outline: none;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(244, 194, 54, .18)
+}
+
+button[type="submit"] {
+  justify-self: start;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--fg);
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, var(--accent-grad-start), var(--accent-grad-end));
+  color: var(--bg);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+}
+
+table[border="1"] {
+  margin-top: 10px;
+  border: 1px solid var(--line-strong)
+}
+
+table[border="1"] th,
+table[border="1"] td {
+  border: 1px solid var(--line-strong);
+  padding: 10px 12px;
+}
+
+.footer {
+  margin-top: 80px;
+  border-top: 1px solid var(--line);
+  padding: 40px 0;
+  color: var(--muted);
+  text-align: center
+}
+
+.footer a {
+  color: var(--muted)
+}
+
+.footer a:hover {
+  color: var(--accent)
+}

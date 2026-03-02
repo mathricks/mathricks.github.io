@@ -5,319 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bitcoin Puzzle Quest (Game) Support | Mathricks</title>
-  <style>
-    :root {
-      /* Match BPQ theme */
-      --bg: #0e1111;
-      --fg: #ffffff;
-      --muted: #9aa6b2;
-      --line: rgba(255, 255, 255, .12);
-      --line-strong: rgba(255, 255, 255, .30);
-      --accent: #F4C236;
-      --accent-grad-start: #F4D35E;
-      --accent-grad-end: #E8B02E;
-      --container: 1200px;
-      --header-start: rgba(14, 17, 17, .94);
-      --header-end: rgba(14, 17, 17, .74);
-    }
-
-    /* Light mode: keep beige like BPQ */
-    html[data-theme="light"],
-    body[data-theme="light"],
-    body.light,
-    body.light-mode {
-      --bg: #F4F1EC;
-      --fg: #0e1111;
-      --muted: #6d6d6d;
-      --line: rgba(14, 17, 17, .12);
-      --line-strong: rgba(14, 17, 17, .34);
-      --accent: #E8B02E;
-      --accent-grad-start: #FFE37A;
-      --accent-grad-end: #E8B02E;
-      --header-start: rgba(244, 241, 236, .95);
-      --header-end: rgba(244, 241, 236, .80);
-    }
-
-    html,
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none
-    }
-
-    a:hover {
-      color: var(--accent)
-    }
-
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Header polish */
-    .main-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: linear-gradient(180deg, var(--header-start), var(--header-end));
-      border-bottom: 1px solid var(--accent);
-      backdrop-filter: saturate(140%) blur(6px);
-    }
-
-    .header-flex {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 18px 0;
-    }
-
-    .logo {
-      font-weight: 600;
-      letter-spacing: .18em;
-      font-size: .85rem;
-      opacity: .85;
-    }
-
-    .main-header h1 {
-      margin: 0;
-      font-size: clamp(18px, 2vw, 22px);
-      font-weight: 600;
-      letter-spacing: .02em
-    }
-
-    .main-header p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      max-width: 70ch;
-    }
-
-    .dark-mode-toggle {
-      border: 1px solid var(--line-strong);
-      background: transparent;
-      color: var(--fg);
-      border-radius: 999px;
-      padding: 10px 12px;
-      cursor: pointer;
-      transition: border-color .15s ease, filter .15s ease;
-    }
-
-    .dark-mode-toggle:hover {
-      border-color: var(--accent);
-      filter: brightness(115%)
-    }
-
-    /* Sections + crossing frames */
-    .section {
-      position: relative;
-      padding: 60px 0;
-      scroll-margin-top: 120px;
-    }
-
-    #faq-claim {
-      scroll-margin-top: 140px;
-    }
-
-    .section+.section {
-      margin-top: 60px;
-    }
-
-    /* limited top-left cross */
-    .section::before {
-      content: "";
-      position: absolute;
-      left: 32px;
-      top: 32px;
-      width: 220px;
-      height: 0;
-      border-top: 2px solid var(--line-strong);
-      pointer-events: none;
-    }
-
-    .section::after {
-      content: "";
-      position: absolute;
-      left: 32px;
-      top: 32px;
-      height: 140px;
-      width: 0;
-      border-left: 2px solid var(--line-strong);
-      pointer-events: none;
-    }
-
-    /* limited bottom-right cross */
-    .cross-bottom {
-      position: relative;
-      padding: 0 88px 96px 32px;
-    }
-
-    .cross-bottom::before {
-      content: "";
-      position: absolute;
-      right: 32px;
-      bottom: 32px;
-      width: 220px;
-      height: 0;
-      border-bottom: 2px solid var(--line-strong);
-      pointer-events: none;
-    }
-
-    .cross-bottom::after {
-      content: "";
-      position: absolute;
-      right: 32px;
-      bottom: 32px;
-      height: 140px;
-      width: 0;
-      border-right: 2px solid var(--line-strong);
-      pointer-events: none;
-    }
-
-    @media (max-width: 720px) {
-      .cross-bottom {
-        padding: 0 56px 72px 24px;
-      }
-
-      .section::before,
-      .cross-bottom::before {
-        width: 180px;
-      }
-
-      .section::after,
-      .cross-bottom::after {
-        height: 120px;
-      }
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      font-size: clamp(22px, 2.6vw, 30px);
-      letter-spacing: .01em;
-    }
-
-    p,
-    li {
-      line-height: 1.6;
-    }
-
-    /* FAQ list spacing */
-    #faq ul {
-      list-style-position: outside;
-      margin: 0;
-      padding-left: 1.2em;
-    }
-
-    /* extra space between Q&A blocks, but keep Q and its own answer tight */
-    #faq li {
-      margin: 22px 0;
-    }
-
-    #faq li strong {
-      display: block;
-      margin: 0 0 2px;
-    }
-
-    /* Form styling in-theme */
-    form {
-      margin-top: 14px;
-      display: grid;
-      gap: 14px;
-      max-width: 720px
-    }
-
-    label {
-      display: grid;
-      gap: 8px;
-      color: var(--muted)
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      background: transparent;
-      color: var(--fg);
-      border: 1px solid var(--line-strong);
-      border-radius: 14px;
-      padding: 12px 14px;
-      font-size: 1rem;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: vertical
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 2px rgba(244, 194, 54, .18)
-    }
-
-    button[type="submit"] {
-      justify-self: start;
-      border: 1px solid var(--accent);
-      background: transparent;
-      color: var(--fg);
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background .25s ease, color .25s ease;
-    }
-
-    button[type="submit"]:hover {
-      background: linear-gradient(90deg, var(--accent-grad-start), var(--accent-grad-end));
-      color: var(--bg);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse
-    }
-
-    code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
-    }
-
-    /* Make the FAQ comparison table readable */
-    table[border="1"] {
-      margin-top: 10px;
-      border: 1px solid var(--line-strong)
-    }
-
-    table[border="1"] th,
-    table[border="1"] td {
-      border: 1px solid var(--line-strong);
-      padding: 10px 12px;
-    }
-
-    /* Footer polish */
-    .footer {
-      margin-top: 80px;
-      border-top: 1px solid var(--line);
-      padding: 40px 0;
-      color: var(--muted);
-      text-align: center
-    }
-
-    .footer a {
-      color: var(--muted)
-    }
-
-    .footer a:hover {
-      color: var(--accent)
-    }
-  </style>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="support.css">
   <!-- Mathricks Analytics (GA4 + click tracking) -->
   <script src="/js/analytics.js"></script>
   <script src="/js/consent.js"></script>
@@ -325,11 +14,11 @@
 
 <body id="page-top">
   <!-- Header -->
-  <header class="main-header">
+  <header>
     <div class="container header-flex">
       <a href="https://mathricks.com/bpq/" class="logo">MATHRICKS</a>
       <h1>Bitcoin Puzzle Quest&nbsp;Support</h1>
-      <button id="themeToggle" class="dark-mode-toggle" aria-label="Toggle theme">Light</button>
+      <button id="themeToggle" class="toggle" aria-label="Toggle theme"></button>
     </div>
     <div class="container">
       <p style="margin-top:10px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;"><a href="#faq">Jump to
@@ -340,7 +29,7 @@
   <section class="section" id="contact">
     <div class="cross-bottom">
       <div class="container">
-        <p>We're here to ensure your journey through the Mathricks cosmos is enjoyable!</p>
+        <p>We're here to ensure your cryptographic hunt is as smooth as possible!</p>
         <p>For any support issues, feedback and new feature requests, please don't hesitate to contact:</p>
         <p>&nbsp;</p>
         <h2>Get in Touch</h2>
@@ -349,8 +38,6 @@
             <input type="email" name="email" id="email-address" placeholder="email@domain.tld" required=""></label>
           <label for="message">Your message:
             <textarea name="message" id="message"></textarea></label>
-          <label for="telephone">Telephone Number (Optional):</label>
-          <input type="telephone" name="telephone" id="telephone" placeholder="(555) 555-5555">
           <button type="submit">Send</button>
         </form>
       </div>
