@@ -208,6 +208,198 @@ header {
   transition: border-color .2s ease, transform .15s ease;
 }
 
+.card.game-card {
+  --game-card-bg-start: rgba(18, 34, 57, .90);
+  --game-card-bg-end: rgba(10, 19, 34, .86);
+  --game-card-glow-main: rgba(78, 167, 255, .22);
+  --game-card-glow-alt: rgba(119, 190, 255, .14);
+  --game-card-line-strong: rgba(255, 255, 255, .30);
+  --game-card-title: #f2f7ff;
+  --game-card-muted: #bfd1e8;
+  --game-card-hover: #77beff;
+  border: 1px solid var(--game-card-line-strong);
+  background:
+    radial-gradient(circle at 85% 12%, var(--game-card-glow-main), transparent 46%),
+    radial-gradient(circle at 10% 92%, var(--game-card-glow-alt), transparent 52%),
+    linear-gradient(160deg, var(--game-card-bg-start), var(--game-card-bg-end));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .22);
+}
+
+.card.game-card:hover {
+  border-color: var(--game-card-hover);
+}
+
+.card.game-card h3 {
+  color: var(--game-card-title);
+}
+
+.card.game-card p {
+  color: var(--game-card-muted);
+}
+
+.card.game-card .pill {
+  border-color: var(--game-card-line-strong);
+  color: var(--game-card-title);
+}
+
+.card.game-card.game-card-bpq {
+  --game-card-bg-start: #1d1a11;
+  --game-card-bg-end: #0f1213;
+  --game-card-glow-main: rgba(244, 194, 54, .28);
+  --game-card-glow-alt: rgba(255, 227, 122, .16);
+  --game-card-line-strong: rgba(244, 194, 54, .36);
+  --game-card-title: #fff6de;
+  --game-card-muted: #d9cca5;
+  --game-card-hover: #ffd25f;
+}
+
+.card.game-card.game-card-entropy {
+  --game-card-bg-start: #1a1246;
+  --game-card-bg-end: #050510;
+  --game-card-glow-main: rgba(0, 243, 255, .26);
+  --game-card-glow-alt: rgba(255, 0, 255, .16);
+  --game-card-line-strong: rgba(0, 243, 255, .34);
+  --game-card-title: #e7feff;
+  --game-card-muted: #a5d5dc;
+  --game-card-hover: #00f3ff;
+}
+
+.card.game-card.game-card-gridlock {
+  --game-card-bg-start: #241015;
+  --game-card-bg-end: #140b0d;
+  --game-card-glow-main: rgba(201, 90, 97, .24);
+  --game-card-glow-alt: rgba(239, 182, 187, .14);
+  --game-card-line-strong: rgba(239, 182, 187, .34);
+  --game-card-title: #fff3f3;
+  --game-card-muted: #dcb8be;
+  --game-card-hover: #efb6bb;
+}
+
+.card.game-card.game-card-astrovert {
+  --game-card-bg-start: #122147;
+  --game-card-bg-end: #050d22;
+  --game-card-glow-main: rgba(39, 211, 236, .24);
+  --game-card-glow-alt: rgba(145, 237, 255, .16);
+  --game-card-line-strong: rgba(145, 237, 255, .34);
+  --game-card-title: #e9f8ff;
+  --game-card-muted: #bed4e8;
+  --game-card-hover: #66dff2;
+}
+
+.card.game-card.game-card-summit {
+  --game-card-bg-start: #1a2436;
+  --game-card-bg-end: #0c1118;
+  --game-card-glow-main: rgba(246, 162, 60, .26);
+  --game-card-glow-alt: rgba(139, 201, 255, .16);
+  --game-card-line-strong: rgba(246, 162, 60, .36);
+  --game-card-title: #f7f9ff;
+  --game-card-muted: #c3cfde;
+  --game-card-hover: #ffbe62;
+}
+
+.card.game-card.game-card-countdown {
+  --game-card-bg-start: #2a1737;
+  --game-card-bg-end: #150a20;
+  --game-card-glow-main: rgba(255, 92, 160, .28);
+  --game-card-glow-alt: rgba(161, 108, 255, .18);
+  --game-card-line-strong: rgba(255, 146, 202, .36);
+  --game-card-title: #ffeef8;
+  --game-card-muted: #ddbdd5;
+  --game-card-hover: #ff88c4;
+}
+
+.card.game-card.game-card-rmm {
+  --game-card-bg-start: #10272a;
+  --game-card-bg-end: #081618;
+  --game-card-glow-main: rgba(56, 224, 186, .24);
+  --game-card-glow-alt: rgba(131, 255, 226, .14);
+  --game-card-line-strong: rgba(131, 255, 226, .34);
+  --game-card-title: #e8fffb;
+  --game-card-muted: #b6ddd6;
+  --game-card-hover: #6effd9;
+}
+
+[data-theme="light"] .card.game-card {
+  box-shadow: 0 10px 26px rgba(12, 20, 34, .12);
+}
+
+[data-theme="light"] .card.game-card.game-card-bpq {
+  --game-card-bg-start: #fff4d9;
+  --game-card-bg-end: #f4f1ec;
+  --game-card-glow-main: rgba(232, 176, 46, .18);
+  --game-card-glow-alt: rgba(255, 227, 122, .14);
+  --game-card-line-strong: rgba(232, 176, 46, .40);
+  --game-card-title: #34260a;
+  --game-card-muted: #6d5b33;
+  --game-card-hover: #c58511;
+}
+
+[data-theme="light"] .card.game-card.game-card-entropy {
+  --game-card-bg-start: #eff4ff;
+  --game-card-bg-end: #e6eeff;
+  --game-card-glow-main: rgba(0, 182, 198, .18);
+  --game-card-glow-alt: rgba(191, 66, 191, .16);
+  --game-card-line-strong: rgba(0, 150, 170, .40);
+  --game-card-title: #10283b;
+  --game-card-muted: #35526a;
+  --game-card-hover: #007f9d;
+}
+
+[data-theme="light"] .card.game-card.game-card-gridlock {
+  --game-card-bg-start: #ffecef;
+  --game-card-bg-end: #faf1f1;
+  --game-card-glow-main: rgba(159, 48, 56, .16);
+  --game-card-glow-alt: rgba(202, 88, 85, .14);
+  --game-card-line-strong: rgba(159, 48, 56, .40);
+  --game-card-title: #34171a;
+  --game-card-muted: #735b60;
+  --game-card-hover: #9f3038;
+}
+
+[data-theme="light"] .card.game-card.game-card-astrovert {
+  --game-card-bg-start: #ecf6ff;
+  --game-card-bg-end: #f2f8ff;
+  --game-card-glow-main: rgba(23, 121, 200, .17);
+  --game-card-glow-alt: rgba(37, 183, 209, .14);
+  --game-card-line-strong: rgba(23, 121, 200, .40);
+  --game-card-title: #10233f;
+  --game-card-muted: #5a6f8f;
+  --game-card-hover: #1779c8;
+}
+
+[data-theme="light"] .card.game-card.game-card-summit {
+  --game-card-bg-start: #fff3e4;
+  --game-card-bg-end: #f4f8fc;
+  --game-card-glow-main: rgba(224, 122, 31, .17);
+  --game-card-glow-alt: rgba(76, 157, 230, .14);
+  --game-card-line-strong: rgba(224, 122, 31, .40);
+  --game-card-title: #1d2734;
+  --game-card-muted: #5e6f80;
+  --game-card-hover: #d26f17;
+}
+
+[data-theme="light"] .card.game-card.game-card-countdown {
+  --game-card-bg-start: #fef0f8;
+  --game-card-bg-end: #f7eefc;
+  --game-card-glow-main: rgba(236, 77, 146, .16);
+  --game-card-glow-alt: rgba(146, 100, 235, .14);
+  --game-card-line-strong: rgba(236, 77, 146, .40);
+  --game-card-title: #351730;
+  --game-card-muted: #734f6c;
+  --game-card-hover: #ba3c85;
+}
+
+[data-theme="light"] .card.game-card.game-card-rmm {
+  --game-card-bg-start: #e6fbf8;
+  --game-card-bg-end: #edf8f6;
+  --game-card-glow-main: rgba(29, 170, 143, .15);
+  --game-card-glow-alt: rgba(75, 223, 194, .14);
+  --game-card-line-strong: rgba(29, 170, 143, .40);
+  --game-card-title: #11322f;
+  --game-card-muted: #446864;
+  --game-card-hover: #12876f;
+}
+
 .card:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
