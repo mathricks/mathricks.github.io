@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Story of Entropy: Zero | Mathricks</title>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --bg: #050510;
+            --fg: #e0faff;
+            --muted: #6e7c85;
+            --cyan: #00f3ff;
+            --magenta: #ff00ff;
+            --lime: #ccff00;
+            --line: rgba(255, 255, 255, 0.15);
+            --line-strong: rgba(255, 255, 255, 0.4);
+            --accent: var(--cyan);
+            --container: 800px;
+        }
+
+        html,
+        body {
+            background: var(--bg);
+            color: var(--fg);
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--line);
+            background: rgba(5, 5, 16, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .content {
+            padding: 60px 0;
+            min-height: 60vh;
+        }
+
+        article {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            border-bottom: 1px dashed var(--line-strong);
+            padding-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 50px;
+            margin-bottom: 15px;
+            color: var(--cyan);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: rgba(224, 250, 255, 0.9);
+            margin-bottom: 24px;
+        }
+
+        blockquote {
+            margin: 40px 0;
+            padding: 24px 30px;
+            border-left: 4px solid var(--magenta);
+            background: rgba(255, 0, 255, 0.05);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #fff;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight {
+            color: var(--lime);
+            font-weight: 500;
+            text-shadow: 0 0 8px rgba(204, 255, 0, 0.3);
+        }
+
+        .formula {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: inherit;
+            /* maybe serif for math */
+            font-style: italic;
+            border: 1px solid var(--line);
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.05), rgba(255, 0, 255, 0.05));
+            border: 1px solid var(--line-strong);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-family: monospace;
+            letter-spacing: 0.1em;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <!-- Mathricks Analytics (GA4 + click tracking) -->
+    <script src="/js/analytics.js"></script>
+    <script src="/js/consent.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="brand">ENTROPY: ZERO</div>
+            <div>
+                <a href="./" style="margin-right: 20px;">Support</a>
+                <a href="../">Back to Game</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <article class="container">
+            <h1>The Story of Entropy: Zero</h1>
+            <div class="meta">TRANSMISSION LOG // CLASSIFIED ORIGINS // FILE: E-00</div>
+
+            <p>At the heart of the universe, there lies an inescapable truth. A fundamental law that dictates the flow
+                of time and the destiny of stars: <span class="highlight">Entropy</span>.</p>
+
+            <h2>The Arrow of Time</h2>
+            <p>In the mid-19th century, the physicist <a href="https://en.wikipedia.org/wiki/Rudolf_Clausius"
+                    target="_blank">Rudolf Clausius</a> first formalized the concept, coining the term "entropy" from
+                the Greek word for "transformation." He observed that heat cannot naturally flow from a colder body to a
+                hotter one on its own. In broader terms, isolated systems will eternally evolve toward a state of
+                maximum disorder.</p>
+
+            <p>Later, the Austrian pioneer <a href="https://en.wikipedia.org/wiki/Ludwig_Boltzmann"
+                    target="_blank">Ludwig Boltzmann</a> expanded on this idea, defining entropy as a mathematical
+                measure of the microscopic states a system can inhabit. His famous equation, <span class="formula">S = k
+                    log W</span>, cemented the idea that chaos is statistically inevitable. The universe is not
+                maliciously destroying order; it simply finds disorder infinitely more probable.</p>
+
+            <blockquote>
+                "The general struggle for existence of animate beings is not a struggle for raw materials... but a
+                struggle for entropy, which becomes available through the transition of energy from the hot sun to the
+                cold earth."<br />
+                <span
+                    style="font-size: 0.9rem; color: var(--muted); font-style: normal; display: block; margin-top: 10px;">—
+                    Ludwig Boltzmann</span>
+            </blockquote>
+
+            <h2>Information as a Weapon</h2>
+            <p>Fast forward to 1948. <a href="https://en.wikipedia.org/wiki/Claude_Shannon" target="_blank">Claude
+                    Shannon</a> published "A Mathematical Theory of Communication," laying the conceptual groundwork for
+                the digital age we live in today. He introduced a parallel concept called <span
+                    class="highlight">Information Entropy</span>. In the realm of data, entropy represents uncertainty,
+                the element of surprise, the noise that obscures the pure signal.</p>
+
+            <div class="image-placeholder">
+                [ ARCHIVAL FOOTAGE: SYSTEM CORE // OFFLINE ]
+            </div>
+
+            <h2>Forging Order in Entropy: Zero</h2>
+            <p>Our game, <strong>Entropy: Zero</strong>, was born from this exact existential and mathematical tension.
+                If the physical universe naturally trends toward chaos, what happens when human consciousness is tasked
+                with violently reversing the tide within a closed digital environment?</p>
+
+            <p>In <strong>Entropy: Zero</strong>, you are placed in a decaying microcosm descending into disarray.
+                Unlike the real world, here your actions have the power to reconstruct the broken fragments. Every move
+                you make is a tactical calculation, a defiant stand against Boltzmann's probabilities. It is the
+                ultimate puzzle: to take a state of high entropy and meticulously process it until pristine uniformity
+                is restored.</p>
+
+            <p>The goal is simple to state, yet incredibly punishing to achieve: reduce the system's entropy to
+                absolutely nothing. Eliminate the variables. Harmonize the chaotic numbers. Achieve the impossible state
+                that nature abhors.</p>
+
+            <h3>By playing, you are mathematically proving that order can emerge from the noise.</h3>
+
+            <p>Are you ready to fight against the unbreakable law of the universe? It's time to play the perfect game
+                and attain <strong>Entropy: Zero</strong>.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2010-2026 Mathricks. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>
