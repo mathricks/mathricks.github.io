@@ -2,108 +2,242 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="mathricks, math, metrics, matrix, numbers, play, puzzle, gridlock">
-    <title>GridLock Numbers | Mathricks</title>
-    <link rel="stylesheet" href="/css/app-pages-common.css">
-    <link rel="stylesheet" href="../../styles.css">
-    <script defer src="../js/dark.js"></script>
-    <!-- Mathricks Analytics (GA4 + click tracking) -->
-    <script src="/js/analytics.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="gridlock numbers, puzzle, math game, number puzzle, mathricks" />
+  <meta name="description"
+    content="GridLock Numbers by Mathricks: a strategy-first number-filling puzzle with strict movement rules, bonus cells, and score chasing." />
+  <title>GridLock Numbers | Mathricks</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app-pages-common.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
   <script src="/js/consent.js"></script>
 </head>
 
 <body>
+  <header>
+    <div class="container nav">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="#how">How it Works</a>
+        <a class="btn" href="#scoring">Scoring</a>
+        <a class="btn" href="https://apps.apple.com/us/app/gridlock-numbers/id912871295" target="_blank"
+          rel="noopener">App Store</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header class="main-header">
-        <div class="container header-flex">
-            <h1>GridLock Numbers</h1>
-            <img src="../img/game1-logo.png" alt="GridLock Logo" class="game-logo">
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="corner draw" aria-hidden="true"></div>
+      <div class="corner-r animate-down draw-right delay" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Classic Logic Puzzle</div>
+            <h1 id="hero-title">GridLock Numbers</h1>
+            <p>A deceptively simple number-filling challenge. Start from 1, follow strict movement rules, and complete
+              the full board without getting trapped.</p>
+            <div class="hero-cta">
+              <a class="cta" href="https://apps.apple.com/us/app/gridlock-numbers/id912871295" target="_blank"
+                rel="noopener">Download</a>
+              <a class="btn" href="#how">Learn More</a>
+            </div>
+            <div class="metrics" aria-label="GridLock scoring multipliers">
+              <div class="metric">
+                <span class="metric-label">Easy</span>
+                <span class="metric-value">10x</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Medium</span>
+                <span class="metric-value">15x</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Hard</span>
+                <span class="metric-value">20x</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="hero-card" aria-label="GridLock Numbers app preview">
+              <img src="../img/game1-logo.png" alt="GridLock Numbers app icon">
+              <div class="glow" aria-hidden="true"></div>
+            </div>
+          </div>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <section class="content container">
-        <div class="game-info">
-            <div class="game-description">
-                <h2>How to Play</h2>
-                <table>
-                    <tr>
-                        <td align="left">
-                            Choose your grid and fill it out completely with numbers—only if you can.</p>
-                            <p>Start anywhere with 1 and continue filling numbers following these two move constraints:
-                            </p>
-                            <ul>
-                                <li><strong>Double-space</strong> for left, up, right, or down moves.</li>
-                                <li><strong>Single-space</strong> for diagonal moves.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div class="features">
-            <div class="feature-box">
-                <h2>Tips</h2>
-                <p>Turn on the switch under the grids to see all possible moves.</p>
-                <p>You can undo your moves by tapping on the last number placed.</p>
-            </div>
-            <div class="feature-box">
-                <h2>Scoring</h2>
-                <p>Each number earns <strong>10x</strong> in Easy, <strong>15x</strong> in Medium and
-                    <strong>20x</strong> in Hard
-                </p>
-                <p>Removing a number deducts an extra <strong>1 point</strong>.</p>
-                <p>‘x2’ cells <strong>double the added numbers</strong>.</p>
-            </div>
-        </div>
-        <div class="download-section">
-            <a href="https://itunes.apple.com/us/app/gridlock-numbers/id912871295" class="download-btn" target="_blank">
-                <img src="../img/app-store.png" alt="Available on the App Store" width="200">
-            </a>
-            <p>Requires iOS 16.2 or later. Works on iPhones and iPads.</p>
-            <div class="qr-container">
-                <div class="qr-card">
-                    <div id="qrcode"></div>
-                    <p class="qr-label">Scan to download</p>
-                </div>
-            </div>
-        </div>
-        <section class="thanks">
-            <div class="feature-box">
-                <h2></h2>
-                <p>Thank you for playing Gridlock Numbers! <br /> Follow us on
-                    <a href="https://twitter.com/gridlockn" target="_blank">X</a> &
-                    <a href="https://instagram.com/gridlockn" target="_blank">Instagram</a>
-                </p>
-            </div>
-        </section>
+        <div class="signature">Mathricks Studio</div>
+      </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2010-2026, Mathricks. All rights reserved.</p>
-            <p>Contact: info [at] mathricks [dot] com</p>
-            <p><a href="support">Support Page</a> |
-                <a href="privacy">Privacy Policy</a> |
-                <a href="../">mathricks.com </a>
-            </p>
+    <div class="band" aria-hidden="true">
+      <div class="container">
+        <div class="ticker">Orthogonal moves: jump 2 cells • Diagonal moves: jump 1 cell • Fill every cell • Use x2
+          bonuses smartly • Undo when needed • Plan ahead to avoid dead ends • </div>
+        <div class="ticker" aria-hidden="true">Orthogonal moves: jump 2 cells • Diagonal moves: jump 1 cell • Fill
+          every cell • Use x2 bonuses smartly • Undo when needed • Plan ahead to avoid dead ends • </div>
+      </div>
+    </div>
+
+    <section class="section" id="how">
+      <div class="container reveal">
+        <div class="eyebrow">How it Works</div>
+        <h2>Three rules to master.</h2>
+        <div class="steps">
+          <div class="step">
+            <h4>Start from 1</h4>
+            <p>Pick your starting position and place 1. From there, each next number follows the movement limits.</p>
+          </div>
+          <div class="step">
+            <h4>Follow movement constraints</h4>
+            <p>Move two cells for left, right, up, or down. Move one cell when moving diagonally.</p>
+          </div>
+          <div class="step">
+            <h4>Complete the board</h4>
+            <p>Fill all cells without boxing yourself in. Every choice reshapes your future options.</p>
+          </div>
         </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script>
-        new QRCode(document.getElementById('qrcode'), {
-            text: 'https://itunes.apple.com/us/app/gridlock-numbers/id912871295',
-            width: 160, height: 160,
-            colorDark: '#000000', colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
-        });
-    </script>
-</body>
-<!-- Dark Mode Toggle -->
-<button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button>
+      </div>
+    </section>
+
+    <section class="section" id="tips">
+      <div class="container reveal">
+        <div class="eyebrow">Play Better</div>
+        <h2>Small habits, better runs.</h2>
+        <div class="principles">
+          <div class="card">
+            <h3>Use move hints</h3>
+            <p>Enable the switch under the board to reveal available moves and quickly spot safer paths.</p>
+          </div>
+          <div class="card">
+            <h3>Undo deliberately</h3>
+            <p>Tap the latest number to undo. It costs points, but it can rescue a long run that would otherwise fail.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Save x2 cells</h3>
+            <p>Route high-value numbers through multiplier cells when possible to maximize the final score.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="scoring">
+      <div class="container reveal">
+        <div class="eyebrow">Scoring</div>
+        <h2>Reward precision.</h2>
+        <p class="section-desc">GridLock rewards efficient planning and penalizes backtracking. Keep your chain alive
+          and
+          use bonus cells with intent.</p>
+        <div class="scoring-grid">
+          <div class="score-card">
+            <h3>Difficulty Multipliers</h3>
+            <p><strong>Easy:</strong> 10x per number<br><strong>Medium:</strong> 15x per
+              number<br><strong>Hard:</strong>
+              20x per number</p>
+          </div>
+          <div class="score-card">
+            <h3>Undo Penalty</h3>
+            <p>Removing a placed number deducts an extra <strong>1 point</strong>. Use undo when it avoids a full
+              restart.</p>
+          </div>
+          <div class="score-card">
+            <h3>x2 Bonus Cells</h3>
+            <p>Landing on an <strong>x2</strong> cell doubles the added number value. Route your highest-value turns
+              through bonus cells.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cta">
+      <div class="container reveal section-center">
+        <div class="eyebrow">Ready</div>
+        <h2 class="section-title-tight">Fill the board.</h2>
+        <a class="cta" href="https://apps.apple.com/us/app/gridlock-numbers/id912871295" target="_blank"
+          rel="noopener">Download on App Store</a>
+        <p class="platform-note">Requires iOS 16.2 or later. Works on iPhone and iPad.</p>
+        <div class="qr-container">
+          <div class="qr-card">
+            <div id="qrcode"></div>
+            <p class="qr-label">Scan to download</p>
+          </div>
+        </div>
+        <p class="social-note">Follow GridLock Numbers on
+          <a href="https://twitter.com/gridlockn" target="_blank" rel="noopener">X</a> and
+          <a href="https://instagram.com/gridlockn" target="_blank" rel="noopener">Instagram</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="support/">Support</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="privacy/">Privacy</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+
+    const applyTheme = (theme) => {
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', theme);
+    };
+
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    if (window.QRCode && document.getElementById('qrcode')) {
+      new QRCode(document.getElementById('qrcode'), {
+        text: 'https://apps.apple.com/us/app/gridlock-numbers/id912871295',
+        width: 160,
+        height: 160,
+        colorDark: '#1a0d0f',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+  </script>
 </body>
 
 </html>
