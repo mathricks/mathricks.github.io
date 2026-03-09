@@ -224,14 +224,16 @@ h1 .studio {
     top: 12vh;
     left: 6vw;
     width: 30vw;
-    height: 40vh
+    height: 40vh;
+    filter: drop-shadow(0 0 6px rgba(244, 194, 54, 0.75))
 }
 
 .corner-r {
     bottom: 10vh;
     right: 6vw;
     width: 30vw;
-    height: 46vh
+    height: 46vh;
+    filter: drop-shadow(0 0 6px rgba(244, 194, 54, 0.75))
 }
 
 /* ensure hero content always paints above decorative strokes */
@@ -248,7 +250,14 @@ h1 .studio {
     top: -12vh;
     width: 3px;
     height: calc(100% + 12vh);
-    background: var(--line-strong)
+    /* junction is 12vh from the arm's start */
+    background: linear-gradient(to bottom,
+            var(--line-strong) calc(12vh - 60px),
+            rgba(244, 194, 54, 0.35) calc(12vh - 44px),
+            var(--accent) calc(12vh - 26px),
+            var(--accent) calc(12vh + 26px),
+            rgba(244, 194, 54, 0.35) calc(12vh + 44px),
+            var(--line-strong) calc(12vh + 60px))
 }
 
 .corner::after {
@@ -258,7 +267,14 @@ h1 .studio {
     top: 0;
     width: calc(100% + 14vw);
     height: 3px;
-    background: var(--line-strong)
+    /* junction is 14vw from the arm's start */
+    background: linear-gradient(to right,
+            var(--line-strong) calc(14vw - 60px),
+            rgba(244, 194, 54, 0.35) calc(14vw - 44px),
+            var(--accent) calc(14vw - 26px),
+            var(--accent) calc(14vw + 26px),
+            rgba(244, 194, 54, 0.35) calc(14vw + 44px),
+            var(--line-strong) calc(14vw + 60px))
 }
 
 /* bottom-right: vertical + horizontal */
@@ -269,7 +285,14 @@ h1 .studio {
     top: -12vh;
     width: 3px;
     height: calc(100% + 24vh);
-    background: var(--line-strong)
+    /* junction is 12vh from the arm's bottom (arm = 12vh above + 46vh box + 12vh below) */
+    background: linear-gradient(to top,
+            var(--line-strong) calc(12vh - 60px),
+            rgba(244, 194, 54, 0.35) calc(12vh - 44px),
+            var(--accent) calc(12vh - 26px),
+            var(--accent) calc(12vh + 26px),
+            rgba(244, 194, 54, 0.35) calc(12vh + 44px),
+            var(--line-strong) calc(12vh + 60px))
 }
 
 .corner-r::after {
@@ -279,7 +302,14 @@ h1 .studio {
     bottom: 0;
     width: calc(100% + 14vw);
     height: 3px;
-    background: var(--line-strong)
+    /* junction is 14vw from the arm's right end */
+    background: linear-gradient(to left,
+            var(--line-strong) calc(14vw - 60px),
+            rgba(244, 194, 54, 0.35) calc(14vw - 44px),
+            var(--accent) calc(14vw - 26px),
+            var(--accent) calc(14vw + 26px),
+            rgba(244, 194, 54, 0.35) calc(14vw + 44px),
+            var(--line-strong) calc(14vw + 60px))
 }
 
 /* animate bottom-right vertical stroke from top to bottom */

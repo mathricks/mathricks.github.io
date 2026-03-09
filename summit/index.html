@@ -43,7 +43,11 @@
           </div>
           <div>
             <div class="hero-card" aria-label="Summit Numbers app preview">
-              <img src="../img/game4-logo.png" alt="Summit Numbers app logo">
+              <img id="previewImage" src="../img/game4-logo.png" alt="Summit Numbers app logo">
+              <video id="previewVideo" src="latest.mov" muted playsinline poster="../img/game4-logo.png"
+                class="hero-preview-video"></video>
+              <a href="https://apps.apple.com/app/id6753334821" target="_blank" rel="noopener" class="hero-preview-link"
+                aria-label="Download Summit Numbers on the App Store"></a>
               <div class="glow" aria-hidden="true"></div>
             </div>
           </div>
@@ -166,6 +170,33 @@
       }
     }, { threshold: .15 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Video / image cycling
+    const previewVideo = document.getElementById('previewVideo');
+    const previewImage = document.getElementById('previewImage');
+
+    function showSummitVideo() {
+      if (previewImage) previewImage.style.display = 'none';
+      if (previewVideo) {
+        previewVideo.style.display = 'block';
+        previewVideo.currentTime = 0;
+        previewVideo.play().catch(e => console.log('Autoplay prevented:', e));
+      }
+    }
+
+    function showSummitImage() {
+      if (previewVideo) {
+        previewVideo.style.display = 'none';
+        previewVideo.pause();
+      }
+      if (previewImage) previewImage.style.display = 'block';
+      setTimeout(showSummitVideo, 1500);
+    }
+
+    if (previewVideo) {
+      previewVideo.addEventListener('ended', showSummitImage);
+      setTimeout(showSummitVideo, 1500);
+    }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>

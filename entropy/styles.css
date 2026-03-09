@@ -544,6 +544,7 @@ header {
     height: 200px;
     border-top: 2px solid var(--frame-color);
     border-left: 2px solid var(--frame-color);
+    animation: drawEntropBracket 1.1s ease-in-out forwards;
 }
 
 .corner-r {
@@ -553,6 +554,19 @@ header {
     height: 200px;
     border-bottom: 2px solid var(--frame-color);
     border-right: 2px solid var(--frame-color);
+    animation: drawEntropBracket 1.1s ease-in-out 0.25s forwards;
+}
+
+@keyframes drawEntropBracket {
+    from {
+        width: 0;
+        height: 0;
+    }
+
+    to {
+        width: 200px;
+        height: 200px;
+    }
 }
 
 .corner::before,

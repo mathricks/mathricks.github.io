@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Mathricks Analytics (GA4 + click tracking) -->
     <script src="/js/analytics.js"></script>
-  <script src="/js/consent.js"></script>
+    <script src="/js/consent.js"></script>
 </head>
 
 <body>
@@ -102,9 +102,10 @@
                         <div class="hero-tech-box"></div>
 
                         <!-- Toggle between Image and Video -->
-                        <img id="previewImage" src="../img/game5-logo.png" alt="Entropy: Zero App Icon" class="app-icon">
+                        <img id="previewImage" src="../img/game5-logo.png" alt="Entropy: Zero App Icon"
+                            class="app-icon">
 
-                        <video id="previewVideo" src="gameplay.mov" muted playsinline poster="../img/game5-logo.png"
+                        <video id="previewVideo" src="latest.mov" muted playsinline poster="../img/game5-logo.png"
                             class="hero-preview-video">
                         </video>
 
@@ -292,8 +293,17 @@
         }
 
         if (previewVideo) {
-            // When video ends, show image
-            previewVideo.addEventListener('ended', showImage);
+            // Cycle through both videos: latest.mov → gameplay.mov → repeat
+            const videoSources = ['latest.mov', 'gameplay.mov'];
+            let videoIndex = 0;
+
+            // When video ends, switch to next video or back to image briefly
+            previewVideo.addEventListener('ended', () => {
+                videoIndex = (videoIndex + 1) % videoSources.length;
+                previewVideo.src = videoSources[videoIndex];
+                previewVideo.load();
+                showVideo();
+            });
 
             // Initialize
             updateMuteIcon();

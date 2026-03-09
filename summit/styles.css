@@ -204,6 +204,7 @@ header {
   color: var(--muted);
   text-transform: uppercase;
   opacity: .9;
+  z-index: 5;
 }
 
 .corner,
@@ -218,14 +219,16 @@ header {
   top: 12vh;
   left: 6vw;
   width: 30vw;
-  height: 40vh
+  height: 40vh;
+  filter: drop-shadow(0 0 6px rgba(139, 201, 255, 0.75))
 }
 
 .corner-r {
   bottom: 10vh;
   right: 6vw;
   width: 30vw;
-  height: 46vh
+  height: 46vh;
+  filter: drop-shadow(0 0 6px rgba(246, 162, 60, 0.75))
 }
 
 .corner::before {
@@ -235,7 +238,14 @@ header {
   top: -12vh;
   width: 3px;
   height: calc(100% + 12vh);
-  background: var(--line-strong)
+  /* junction is 12vh from the arm's start (top), i.e. where top:0 of .corner box is */
+  background: linear-gradient(to bottom,
+      var(--line-strong) calc(12vh - 60px),
+      rgba(139, 201, 255, 0.35) calc(12vh - 44px),
+      var(--ice) calc(12vh - 26px),
+      var(--ice) calc(12vh + 26px),
+      rgba(139, 201, 255, 0.35) calc(12vh + 44px),
+      var(--line-strong) calc(12vh + 60px))
 }
 
 .corner::after {
@@ -245,7 +255,14 @@ header {
   top: 0;
   width: calc(100% + 14vw);
   height: 3px;
-  background: var(--line-strong)
+  /* junction is 14vw from the arm's start (left), i.e. where left:0 of .corner box is */
+  background: linear-gradient(to right,
+      var(--line-strong) calc(14vw - 60px),
+      rgba(139, 201, 255, 0.35) calc(14vw - 44px),
+      var(--ice) calc(14vw - 26px),
+      var(--ice) calc(14vw + 26px),
+      rgba(139, 201, 255, 0.35) calc(14vw + 44px),
+      var(--line-strong) calc(14vw + 60px))
 }
 
 .corner-r::before {
@@ -255,7 +272,17 @@ header {
   top: -12vh;
   width: 3px;
   height: calc(100% + 24vh);
-  background: var(--line-strong)
+  /*
+   * Arm: 12vh above box + 46vh box + 12vh below box = 70vh total.
+   * Junction (where ::after lives, at bottom:0 of box) is 12vh from arm's bottom.
+   */
+  background: linear-gradient(to top,
+      var(--line-strong) calc(12vh - 60px),
+      rgba(246, 162, 60, 0.35) calc(12vh - 44px),
+      var(--accent) calc(12vh - 26px),
+      var(--accent) calc(12vh + 26px),
+      rgba(246, 162, 60, 0.35) calc(12vh + 44px),
+      var(--line-strong) calc(12vh + 60px))
 }
 
 .corner-r::after {
@@ -265,7 +292,14 @@ header {
   bottom: 0;
   width: calc(100% + 14vw);
   height: 3px;
-  background: var(--line-strong)
+  /* junction is 14vw from the arm's right end, i.e. where right:0 of .corner-r box is */
+  background: linear-gradient(to left,
+      var(--line-strong) calc(14vw - 60px),
+      rgba(246, 162, 60, 0.35) calc(14vw - 44px),
+      var(--accent) calc(14vw - 26px),
+      var(--accent) calc(14vw + 26px),
+      rgba(246, 162, 60, 0.35) calc(14vw + 44px),
+      var(--line-strong) calc(14vw + 60px))
 }
 
 .corner-r.animate-down::before {
@@ -318,6 +352,25 @@ header {
 .hero-card img {
   width: min(72%, 320px);
   filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .35));
+  z-index: 2;
+  position: relative;
+}
+
+.hero-preview-video {
+  display: none;
+  width: 240px;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .6);
+  z-index: 2;
+  position: relative;
+}
+
+.hero-preview-link {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
 }
 
 .hero-card .glow {
