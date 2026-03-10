@@ -191,6 +191,16 @@ header {
   margin: 0 0 18px;
 }
 
+.name-mark {
+  display: inline-block;
+  margin-left: 0.08em;
+  font-size: 0.38em;
+  line-height: 1;
+  vertical-align: super;
+  letter-spacing: 0;
+  opacity: 0.72;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

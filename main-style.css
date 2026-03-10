@@ -113,6 +113,16 @@ header {
     opacity: .6;
 }
 
+.name-mark {
+    display: inline-block;
+    margin-left: .08em;
+    font-size: .38em;
+    line-height: 1;
+    vertical-align: super;
+    letter-spacing: 0;
+    opacity: .72;
+}
+
 .footer-separator {
     color: var(--line);
 }

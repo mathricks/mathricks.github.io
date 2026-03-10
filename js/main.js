@@ -282,7 +282,7 @@ startAuto();
         ctx.font = `600 ${Math.max(11, Math.min(width, height) * 0.035)}px -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif`;
         ctx.textAlign = 'right';
         ctx.textBaseline = 'alphabetic';
-        ctx.fillText('MATHRICKS STUDIO', width - pad, height - pad);
+        ctx.fillText('MATHRICKS™ STUDIO', width - pad, height - pad);
         ctx.restore();
     }
 
