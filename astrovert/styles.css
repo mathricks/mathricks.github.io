@@ -304,13 +304,15 @@ header {
 
 .signature {
   position: absolute;
-  bottom: 6vh;
-  right: 8vw;
+  /* sit just inside the corner-r elbow — same anchor as the bracket */
+  bottom: calc(10vh + 20px);
+  right: calc(6vw + 20px);
   font-size: .8rem;
   letter-spacing: .28em;
   color: var(--muted);
   text-transform: uppercase;
   opacity: .9;
+  z-index: 3;
 }
 
 .corner,
@@ -654,7 +656,8 @@ footer {
   }
 
   .signature {
-    right: 24px;
+    bottom: calc(10vh + 20px);
+    right: calc(env(safe-area-inset-right) + 10px + 20px);
   }
 }
 
@@ -700,8 +703,8 @@ footer {
   }
 
   .signature {
-    right: 18px;
-    bottom: 20px;
+    right: calc(env(safe-area-inset-right) + 6px + 20px);
+    bottom: calc(10vh + 20px);
   }
 
   .corner {

@@ -518,14 +518,16 @@ header {
 
 .signature {
     position: absolute;
-    bottom: 40px;
-    right: 60px;
+    /* sit just inside the corner-r elbow (corner-r is bottom:--frame-y right:--frame-x = 40px each) */
+    bottom: calc(var(--frame-y) + 20px);
+    right: calc(var(--frame-x) + 20px);
     font-family: 'Orbitron', monospace;
     font-size: .65rem;
     letter-spacing: .4em;
     color: var(--muted);
     text-transform: uppercase;
     opacity: .5;
+    z-index: 3;
 }
 
 /* Corner Frames */

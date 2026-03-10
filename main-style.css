@@ -549,13 +549,15 @@ header {
 
 .signature {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    /* sit just inside the corner-r elbow — same anchor as the bracket */
+    bottom: calc(var(--frame-bottom) + 20px);
+    right: calc(var(--frame-x) + 20px);
     font-size: .8rem;
     letter-spacing: .28em;
     color: var(--muted);
     text-transform: uppercase;
     opacity: .9;
+    z-index: 3;
 }
 
 .hero-cta {
@@ -607,6 +609,7 @@ h1 .studio {
     left: var(--frame-x);
     width: 30vw;
     height: 40vh;
+    filter: drop-shadow(0 0 6px rgba(255, 210, 95, 0.75));
 }
 
 .corner-r {
@@ -614,6 +617,7 @@ h1 .studio {
     right: var(--frame-x);
     width: 30vw;
     height: 46vh;
+    filter: drop-shadow(0 0 6px rgba(255, 210, 95, 0.75));
 }
 
 .corner::before {
@@ -623,7 +627,16 @@ h1 .studio {
     top: calc(-1 * var(--frame-extend-y));
     width: var(--frame-line);
     height: calc(100% + var(--frame-extend-y));
-    background: var(--line-strong);
+    /* sleeve centred on junction = frame-extend-y from arm's start */
+    background: linear-gradient(
+        to bottom,
+        var(--line-strong)        calc(var(--frame-extend-y) - 60px),
+        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-y) - 44px),
+        var(--accent)             calc(var(--frame-extend-y) - 26px),
+        var(--accent)             calc(var(--frame-extend-y) + 26px),
+        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-y) + 44px),
+        var(--line-strong)        calc(var(--frame-extend-y) + 60px)
+    );
     z-index: 0;
 }
 
@@ -634,7 +647,16 @@ h1 .studio {
     top: 0;
     width: calc(100% + var(--frame-extend-x));
     height: var(--frame-line);
-    background: var(--line-strong);
+    /* sleeve centred on junction = frame-extend-x from arm's start */
+    background: linear-gradient(
+        to right,
+        var(--line-strong)        calc(var(--frame-extend-x) - 60px),
+        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-x) - 44px),
+        var(--accent)             calc(var(--frame-extend-x) - 26px),
+        var(--accent)             calc(var(--frame-extend-x) + 26px),
+        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-x) + 44px),
+        var(--line-strong)        calc(var(--frame-extend-x) + 60px)
+    );
     z-index: 0;
 }
 
@@ -645,7 +667,16 @@ h1 .studio {
     top: calc(-1 * var(--frame-extend-y));
     width: var(--frame-line);
     height: calc(100% + (2 * var(--frame-extend-y)));
-    background: var(--line-strong);
+    /* junction at bottom:0 of .corner-r box = frame-extend-y from arm's bottom end */
+    background: linear-gradient(
+        to top,
+        var(--line-strong)        calc(var(--frame-extend-y) - 60px),
+        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-y) - 44px),
+        var(--accent)             calc(var(--frame-extend-y) - 26px),
+        var(--accent)             calc(var(--frame-extend-y) + 26px),
+        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-y) + 44px),
+        var(--line-strong)        calc(var(--frame-extend-y) + 60px)
+    );
     z-index: 0;
 }
 
@@ -656,7 +687,16 @@ h1 .studio {
     bottom: 0;
     width: calc(100% + var(--frame-extend-x));
     height: var(--frame-line);
-    background: var(--line-strong);
+    /* junction at right:0 of .corner-r box = frame-extend-x from arm's right end */
+    background: linear-gradient(
+        to left,
+        var(--line-strong)        calc(var(--frame-extend-x) - 60px),
+        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-x) - 44px),
+        var(--accent)             calc(var(--frame-extend-x) - 26px),
+        var(--accent)             calc(var(--frame-extend-x) + 26px),
+        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-x) + 44px),
+        var(--line-strong)        calc(var(--frame-extend-x) + 60px)
+    );
     z-index: 0;
 }
 
@@ -836,7 +876,7 @@ h1 .studio {
     border-radius: 22%;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     border: 1px solid var(--line-strong);
-    opacity: 0.7;
+    opacity: 0.4;
     background: var(--bg);
     transform: perspective(800px) rotateY(-10deg) rotateX(4deg);
     transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
@@ -845,7 +885,7 @@ h1 .studio {
 .app-logo-stack a:hover img {
     transform: perspective(800px) rotateY(0deg) rotateX(0deg) translateZ(10px) scale(1.05);
     filter: brightness(1.1);
-    opacity: 0.85;
+    opacity: 0.7;
     z-index: 10;
 }
 
@@ -1411,10 +1451,7 @@ footer {
     left: 6vw;
 }
 
-.slide.game-slide .signature {
-    right: 0;
-    left: auto;
-}
+/* game-slide signature inherits the standard bottom/right from .signature */
 
 /* Game slide uses the same outer hero corners as other slides */
 

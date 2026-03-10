@@ -167,13 +167,15 @@ header {
 
 .signature {
     position: absolute;
-    bottom: 6vh;
-    right: 8vw;
+    /* sit just inside the corner-r elbow (corner-r is bottom:10vh right:6vw) */
+    bottom: calc(10vh + 20px);
+    right: calc(6vw + 20px);
     font-size: .8rem;
     letter-spacing: .28em;
     color: var(--muted);
     text-transform: uppercase;
     opacity: .9;
+    z-index: 3;
 }
 
 .hero-cta {
