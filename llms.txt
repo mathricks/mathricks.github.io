@@ -1,0 +1,56 @@
+# Mathricks
+
+> Mathricks is an independent game studio that creates math-inspired puzzle games and apps for iOS.
+
+## About
+
+Mathricks (mathricks.com) is an independent studio focused on building original, math-inspired puzzle games and productivity apps. All titles are available on the Apple App Store. The studio has been active since 2010.
+
+Contact: info @ mathricks.com
+Support: https://mathricks.com/support/
+X/Twitter: https://x.com/mathricks
+GitHub: https://github.com/mathricks
+
+## Games
+
+### Bitcoin Puzzle Quest
+- Description: A cryptographic puzzle-hunt game. Generate keys offline, climb global leaderboards, and hunt the legendary 1000 BTC puzzle in a private playground.
+- App Store: https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717
+- Page: https://mathricks.com/bpq/
+- Platform: iOS
+
+### Summit Numbers
+- Description: A fast number-summation puzzle. Build clean summits using wrap-around movement, keep your streak alive, and share the same climb with friends via social challenge play.
+- App Store: https://apps.apple.com/app/id6753334821
+- Page: https://mathricks.com/summit/
+- Platform: iOS
+
+### Entropy: Zero
+- Description: A tactical grid repair puzzle. Restore corrupted systems by placing geometric shapes to repair damaged tiles. Every placement matters. Designed to replace doom-scrolling with focused flow-state play.
+- App Store: https://apps.apple.com/app/id6757635585
+- Page: https://mathricks.com/entropy/
+- Platform: iOS
+
+### GridLock Numbers
+- Description: A strategy-first number-filling puzzle. Jump double for orthogonal moves, single for diagonals, and master x2 bonus cells to crush high scores.
+- App Store: https://apps.apple.com/us/app/gridlock-numbers/id912871295
+- Page: https://mathricks.com/gridlock/
+- Platform: iOS
+
+### Astrovert
+- Description: A cosmic runner arcade game. Guide a cosmic baseball through asteroid belts and stormy atmospheres. Quick reflexes and timing-based gameplay with high-score runs.
+- App Store: https://apps.apple.com/gb/app/astrovert/id6502262535
+- Page: https://mathricks.com/astrovert/
+- Platform: iOS
+
+### Countdown Numbers
+- Description: Upcoming number challenge inspired by classic arithmetic puzzle formats.
+- Page: https://mathricks.com/countdown/
+- Status: Coming soon
+
+## Apps
+
+### RMM
+- Description: Experimental workspace currently in active iteration.
+- Page: https://mathricks.com/rmm/
+- Status: Lab / In development
