@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Story of Astrovert | Mathricks&trade;</title>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --bg: #050d22;
+            --fg: #e8f7ff;
+            --muted: #5e7a94;
+            --cyan: #27d3ec;
+            --ice: #91edff;
+            --blue: #2483d5;
+            --line: rgba(255, 255, 255, 0.12);
+            --line-strong: rgba(255, 255, 255, 0.30);
+            --accent: var(--cyan);
+            --container: 800px;
+        }
+
+        html,
+        body {
+            background: var(--bg);
+            color: var(--fg);
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--line);
+            background: rgba(5, 13, 34, 0.96);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .content {
+            padding: 60px 0;
+            min-height: 60vh;
+        }
+
+        article {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            text-shadow: 0 0 24px rgba(39, 211, 236, 0.2);
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            border-bottom: 1px dashed var(--line-strong);
+            padding-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 50px;
+            margin-bottom: 15px;
+            color: var(--cyan);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: rgba(232, 247, 255, 0.85);
+            margin-bottom: 24px;
+        }
+
+        blockquote {
+            margin: 40px 0;
+            padding: 24px 30px;
+            border-left: 4px solid var(--blue);
+            background: rgba(36, 131, 213, 0.06);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #fff;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight {
+            color: var(--ice);
+            font-weight: 500;
+            text-shadow: 0 0 8px rgba(145, 237, 255, 0.3);
+        }
+
+        .formula {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-style: italic;
+            border: 1px solid var(--line);
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, rgba(39, 211, 236, 0.04), rgba(36, 131, 213, 0.06));
+            border: 1px solid var(--line-strong);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-family: monospace;
+            letter-spacing: 0.1em;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <!-- Mathricks Analytics (GA4 + click tracking) -->
+    <script src="/js/analytics.js"></script>
+    <script src="/js/consent.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="brand">ASTROVERT</div>
+            <div>
+                <a href="./" style="margin-right: 20px;">Support</a>
+                <a href="../">Back to Game</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <article class="container">
+            <h1>The Story of Astrovert</h1>
+            <div class="meta">MISSION LOG // ORBITAL ORIGINS // FILE: AV-01</div>
+
+            <p>Space does not care about courage. It operates on physics. Every trajectory you fly, every lane you
+                thread, every close call with an asteroid field, all of it obeys the same set of equations that
+                <span class="highlight">Isaac Newton</span> wrote down in 1687 and that engineers still use to send
+                probes to the edges of the solar system. Astrovert is built on that physics, and on the audacious
+                human idea that you can use a planet's own gravity as a weapon.
+            </p>
+
+            <h2>The Gravity Assist</h2>
+            <p>When you launch in Astrovert, you are performing a stripped-down version of one of the most
+                counterintuitive maneuvers in spaceflight: the <a
+                    href="https://en.wikipedia.org/wiki/Gravity_assist" target="_blank">gravity assist</a>, also
+                called a gravitational slingshot. The concept is almost paradoxical. A spacecraft approaches a
+                planet, curves around it under the pull of gravity, and flies away, faster than it arrived, having
+                stolen a fraction of the planet's own orbital momentum. No fuel burned. Energy conjured from the
+                geometry of the encounter.</p>
+
+            <p>The technique was first proposed mathematically by <a
+                    href="https://en.wikipedia.org/wiki/Yuri_Kondratyuk" target="_blank">Yuri Kondratyuk</a> in
+                1918 and independently developed by <a href="https://en.wikipedia.org/wiki/Michael_Minovitch"
+                    target="_blank">Michael Minovitch</a> at NASA's Jet Propulsion Laboratory in 1961. When
+                engineers applied it to <a href="https://en.wikipedia.org/wiki/Voyager_1"
+                    target="_blank">Voyager 1</a> and <a href="https://en.wikipedia.org/wiki/Voyager_2"
+                    target="_blank">Voyager 2</a> in 1977, they achieved something remarkable: two spacecraft
+                launched in the same year as the first <em>Star Wars</em> film are now, as of today, the most
+                distant human-made objects in existence, propelled to the edge of interstellar space not by
+                enormous engines, but by <span class="highlight">precise timing through planetary lanes</span>.</p>
+
+            <blockquote>
+                "We are like a sailor who sits down on a coast and gazes out to sea. The wind carries the ship
+                forward — the navigator only decides when to turn."<br />
+                <span
+                    style="font-size: 0.9rem; color: var(--muted); font-style: normal; display: block; margin-top: 10px;">—
+                    Paraphrase of Michael Minovitch, on trajectory design</span>
+            </blockquote>
+
+            <h2>The N-Body Problem</h2>
+            <p>The catch — and there is always a catch — is that real orbital mechanics is not clean. Newton's
+                equations solve perfectly for two bodies in isolation: one planet, one spacecraft, nothing else. The
+                moment a third gravitational influence enters the picture, the system becomes <span
+                    class="highlight">chaotic</span>.</p>
+
+            <p>The <a href="https://en.wikipedia.org/wiki/Three-body_problem" target="_blank">three-body problem</a>
+                has no general closed-form solution. <a href="https://en.wikipedia.org/wiki/Henri_Poincar%C3%A9"
+                    target="_blank">Henri Poincaré</a> proved this in 1890, and in doing so essentially founded the
+                modern field of chaos theory. Small differences in starting conditions, a fraction of a meter per
+                second in velocity, a few kilometers in position, compound exponentially over time. Trajectories
+                that seem nearly identical diverge catastrophically. In a solar system full of gravitational
+                influences pulling in every direction, the question of where you will end up is a question that
+                mathematics cannot answer precisely. Only careful, iterative calculation and fast reflexes can
+                keep a journey on course.</p>
+
+            <div class="image-placeholder">
+                [ VOYAGER 2 TRAJECTORY // JUPITER → SATURN → URANUS → NEPTUNE // 1977–1989 ]
+            </div>
+
+            <h2>Threading the Lanes</h2>
+            <p>Astrovert compresses this into something you can hold in one hand. The planetary corridors, the
+                Ceres corridor, the Jupiter storm lane, the Quiper Belt are not decorative. They represent the
+                real geometry of the solar system's most navigable pathways, the interplanetary highways that
+                mission planners call <a href="https://en.wikipedia.org/wiki/Interplanetary_Transport_Network"
+                    target="_blank">low-energy transfer routes</a>. Every zone you cross is a region where the
+                balance of gravitational forces creates a thin, navigable corridor. Stray outside it and the chaos
+                Poincaré described takes over.</p>
+
+            <p>The asteroid fields are not random. Debris in the real solar system clusters in
+                <span class="highlight">orbital resonances</span>, zones where the gravitational rhythm of Jupiter
+                has swept out or packed in material over billions of years. The <a
+                    href="https://en.wikipedia.org/wiki/Kirkwood_gap" target="_blank">Kirkwood gaps</a>, discovered
+                by Daniel Kirkwood in 1866, are the real-world version of the empty lanes you can thread safely.
+                The dense clusters are the zones where resonance has concentrated the rock. Picking a path through
+                them is not luck. It is pattern recognition under pressure.
+            </p>
+
+            <h2>The Introvert Who Went Astro</h2>
+            <p>The name <strong>Astrovert</strong> is a deliberate inversion. An introvert turns inward, conserves
+                energy, avoids exposure, stays within a comfortable orbit. The game asks what happens when that
+                posture is forced outward by the physics of the cosmos. There is no staying still in space.
+                Orbits decay. Corridors close. The moment you stop moving, the debris catches up.</p>
+
+            <p>Every run in Astrovert is a small act of transformation: the controlled expenditure of a shield at
+                exactly the right moment, the decision to take a riskier lane for a better score, the willingness
+                to launch into a corridor before you are certain it is clear. The game does not reward
+                hesitation. It rewards the kind of <span class="highlight">calibrated boldness</span> that Voyager's
+                navigators exercised when they aimed their spacecraft at a planet's shadow and trusted the
+                mathematics to carry them through.</p>
+
+            <h3>You are not the spacecraft. You are the navigator, and in space, those are not the same thing.</h3>
+
+            <p>The run ends when the chaos wins. It always will, eventually. The only question is how deep into
+                the solar system you get before it does.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2010-2026 Mathricks&trade;. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>

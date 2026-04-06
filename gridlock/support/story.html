@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Story of GridLock Numbers | Mathricks&trade;</title>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --bg: #140b0d;
+            --fg: #fff3f3;
+            --muted: #7a6165;
+            --crimson: #c95a61;
+            --rose: #efb6bb;
+            --warm: #d9776f;
+            --line: rgba(255, 255, 255, 0.12);
+            --line-strong: rgba(255, 255, 255, 0.30);
+            --accent: var(--crimson);
+            --container: 800px;
+        }
+
+        html,
+        body {
+            background: var(--bg);
+            color: var(--fg);
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--line);
+            background: rgba(20, 11, 13, 0.96);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .content {
+            padding: 60px 0;
+            min-height: 60vh;
+        }
+
+        article {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(201, 90, 97, 0.25);
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            border-bottom: 1px dashed var(--line-strong);
+            padding-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 50px;
+            margin-bottom: 15px;
+            color: var(--crimson);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: rgba(255, 243, 243, 0.85);
+            margin-bottom: 24px;
+        }
+
+        blockquote {
+            margin: 40px 0;
+            padding: 24px 30px;
+            border-left: 4px solid var(--warm);
+            background: rgba(217, 119, 111, 0.06);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #fff;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight {
+            color: var(--rose);
+            font-weight: 500;
+            text-shadow: 0 0 8px rgba(239, 182, 187, 0.3);
+        }
+
+        .formula {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-style: italic;
+            border: 1px solid var(--line);
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, rgba(201, 90, 97, 0.05), rgba(217, 119, 111, 0.05));
+            border: 1px solid var(--line-strong);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-family: monospace;
+            letter-spacing: 0.1em;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <!-- Mathricks Analytics (GA4 + click tracking) -->
+    <script src="/js/analytics.js"></script>
+    <script src="/js/consent.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="brand">GRIDLOCK NUMBERS</div>
+            <div>
+                <a href="./" style="margin-right: 20px;">Support</a>
+                <a href="../">Back to Game</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <article class="container">
+            <h1>The Story of GridLock Numbers</h1>
+            <div class="meta">DESIGN ORIGINS // COMBINATORIAL ROOTS // FILE: G-01</div>
+
+            <p>The most elegant puzzles are built on a single, unforgiving constraint. GridLock Numbers has one:
+                <span class="highlight">visit every cell exactly once, without ever getting trapped</span>. It sounds
+                like a rule a child could understand. The mathematics behind it occupied some of history's greatest
+                minds for centuries.
+            </p>
+
+            <h2>The Knight's Tour</h2>
+            <p>On a standard chessboard, a knight moves in an L-shape, two squares along one axis, one square
+                along the other. A <a href="https://en.wikipedia.org/wiki/Knight%27s_tour" target="_blank">Knight's
+                Tour</a> is a sequence of knight moves that visits every square on the board exactly once. The
+                question of whether such a tour exists, and how to find one, is one of the oldest problems in
+                recreational mathematics.</p>
+
+            <p>References to the knight's tour appear in Sanskrit manuscripts as early as the 9th century CE. The
+                Arab polymath <a href="https://en.wikipedia.org/wiki/Al-Adli_ar-Rumi" target="_blank">al-Adlī
+                    ar-Rūmī</a> described solutions around 840 CE. But it was <a
+                    href="https://en.wikipedia.org/wiki/Leonhard_Euler" target="_blank">Leonhard Euler</a> who
+                first treated it as a serious mathematical object in 1759, publishing a systematic method for
+                constructing tours, including <span class="highlight">closed tours</span>, where the knight ends
+                on a square one move away from where it began, forming a perfect loop.</p>
+
+            <blockquote>
+                "The knight's tour is not merely a curiosity of the chessboard. It is a window into the structure
+                of all path-finding problems."<br />
+                <span
+                    style="font-size: 0.9rem; color: var(--muted); font-style: normal; display: block; margin-top: 10px;">—
+                    Paraphrase of Euler's working notes, 1759</span>
+            </blockquote>
+
+            <h2>Hamiltonian Paths and the Cost of Completeness</h2>
+            <p>In 1857, the Irish mathematician <a href="https://en.wikipedia.org/wiki/William_Rowan_Hamilton"
+                    target="_blank">William Rowan Hamilton</a> generalized the idea. He defined what we now call a
+                <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank">Hamiltonian path</a>: a
+                path through a graph that visits every vertex exactly once. The knight's tour is one specific
+                instance, the graph is the chessboard, the vertices are squares, the edges are legal knight moves.
+            </p>
+
+            <p>Hamilton even sold a puzzle based on the concept, the <em>Icosian Game</em>, where players traced
+                paths along the edges of a dodecahedron. It was one of the first commercially sold mathematical
+                puzzles. It was also, by modern standards, <span class="highlight">NP-complete</span>: no
+                efficient general algorithm is known for deciding whether a Hamiltonian path exists in an arbitrary
+                graph, let alone for finding one.</p>
+
+            <div class="image-placeholder">
+                [ EULER TOUR: 8×8 BOARD // CLOSED PATH // 64 MOVES ]
+            </div>
+
+            <h2>The Geometry of Getting Stuck</h2>
+            <p>What makes these path problems so viscerally difficult is the way traps accumulate silently. Early
+                moves feel free, the board is open, options are plentiful. But each placement quietly forecloses
+                future routes. By the time a dead end becomes visible, the choices that caused it were made five or
+                ten moves ago. The board hasn't changed. Your opportunity to fix it has vanished.</p>
+
+            <p>This is the phenomenon that mathematicians call <span class="highlight">local versus global
+                    reasoning</span>. A locally optimal move, one that looks fine right now, can be globally
+                catastrophic. The notorious <a href="https://en.wikipedia.org/wiki/Warnsdorff%27s_rule"
+                    target="_blank">Warnsdorff's rule</a>, discovered in 1823, offers a heuristic for avoiding
+                this: always move to the square with the fewest onward options. By prioritizing the most constrained
+                positions early, you keep the rest of the board accessible. It works remarkably well and it
+                rewards exactly the kind of forward-looking play that GridLock demands.</p>
+
+            <h2>Translating the Tour into GridLock</h2>
+            <p><strong>GridLock Numbers</strong> is a direct descendant of the knight's tour in mechanic and spirit.
+                The movement rules, two cells for orthogonal moves, one cell for diagonals, encode the same
+                L-shaped leap in a more generalized form. The goal is the same: number every cell from 1 to the
+                board's total, visiting each exactly once, never retracing a step.</p>
+
+            <p>What GridLock adds is a scoring dimension the classical puzzle lacks. <span
+                    class="highlight">Bonus x2 cells</span> reward players who route high-value numbers through
+                specific positions, turning the path problem into a simultaneous optimization challenge. You are
+                not just looking for any valid tour. You are looking for a tour that passes through the right cells
+                at the right moment. The difficulty levels (Easy, Medium, Hard) tighten the board and raise the
+                stakes, until Hard mode becomes a genuine exercise in sustained spatial foresight.</p>
+
+            <p>The undo mechanic is also deliberate. Classical knight's tour solvers backtrack computationally,
+                they reverse bad decisions at negligible cost. GridLock gives you the same escape valve, but makes
+                it costly. Every undo is a small concession: the path was wrong, the foresight was incomplete.
+                Used sparingly, it rescues a run. Used freely, it erodes the score.</p>
+
+            <h3>Every number you place is a commitment. Every cell you skip past is a door you may never reopen.</h3>
+
+            <p>GridLock Numbers asks whether you can see the whole board from the very first move and find the
+                path that Euler, Hamilton and Warnsdorff spent lifetimes trying to describe.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2010-2026 Mathricks&trade;. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Story of Summit Numbers | Mathricks&trade;</title>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --bg: #0c1118;
+            --fg: #f7f9ff;
+            --muted: #6e7f90;
+            --gold: #f6a23c;
+            --gold-bright: #ffbe62;
+            --ice: #8bc9ff;
+            --line: rgba(255, 255, 255, 0.12);
+            --line-strong: rgba(255, 255, 255, 0.32);
+            --accent: var(--gold);
+            --container: 800px;
+        }
+
+        html,
+        body {
+            background: var(--bg);
+            color: var(--fg);
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--line);
+            background: rgba(12, 17, 24, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .content {
+            padding: 60px 0;
+            min-height: 60vh;
+        }
+
+        article {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(246, 162, 60, 0.2);
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            border-bottom: 1px dashed var(--line-strong);
+            padding-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 50px;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: rgba(247, 249, 255, 0.85);
+            margin-bottom: 24px;
+        }
+
+        blockquote {
+            margin: 40px 0;
+            padding: 24px 30px;
+            border-left: 4px solid var(--ice);
+            background: rgba(139, 201, 255, 0.05);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #fff;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight {
+            color: var(--gold-bright);
+            font-weight: 500;
+            text-shadow: 0 0 8px rgba(255, 190, 98, 0.3);
+        }
+
+        .formula {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-style: italic;
+            border: 1px solid var(--line);
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, rgba(246, 162, 60, 0.05), rgba(139, 201, 255, 0.05));
+            border: 1px solid var(--line-strong);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-family: monospace;
+            letter-spacing: 0.1em;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <!-- Mathricks Analytics (GA4 + click tracking) -->
+    <script src="/js/analytics.js"></script>
+    <script src="/js/consent.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="brand">SUMMIT NUMBERS</div>
+            <div>
+                <a href="./" style="margin-right: 20px;">Support</a>
+                <a href="../">Back to Game</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <article class="container">
+            <h1>The Story of Summit Numbers</h1>
+            <div class="meta">DESIGNER NOTES // PROBLEM ORIGINS // FILE: S-01</div>
+
+            <p>Every puzzle game has a mathematical soul. For Summit Numbers, that soul was forged in one of computer
+                science's oldest and most deceptively simple questions: <span class="highlight">can you find a
+                    combination of numbers that add up to exactly the right total?</span></p>
+
+            <h2>The Knapsack Problem</h2>
+            <p>Imagine you're a mountaineer preparing for an ascent. Your pack can carry a fixed weight. Spread before
+                you are supplies of varying bulk and value. Which ones do you bring? You want to maximize what you carry
+                without exceeding what you can bear. This is the
+                <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank">Knapsack Problem</a>, a
+                deceptively clean question that has occupied mathematicians and computer scientists for well over a
+                century.
+            </p>
+
+            <p>The formal version was studied as early as 1897 by <a
+                    href="https://en.wikipedia.org/wiki/Mathews_and_Knapsack_problem" target="_blank">W. J.
+                    Mathews</a>, and later popularized by <a href="https://en.wikipedia.org/wiki/George_Dantzig"
+                    target="_blank">George Dantzig</a>, the pioneer of linear programming. Strip away the optimization
+                layer, i.e. forget about maximizing value, and you arrive at the raw heart of the problem: the <span
+                    class="highlight">Subset Sum</span> question. Given a set of integers, can you find a subset that
+                sums to a specific target?</p>
+
+            <blockquote>
+                "A problem worthy of attack proves its worth by fighting back."<br />
+                <span
+                    style="font-size: 0.9rem; color: var(--muted); font-style: normal; display: block; margin-top: 10px;">—
+                    Piet Hein</span>
+            </blockquote>
+
+            <h2>Why It's So Hard</h2>
+            <p>The Subset Sum problem belongs to a notorious class of computational problems called
+                <span class="highlight">NP-complete</span>. This means there is no known algorithm that can efficiently
+                solve all instances of it as the numbers grow. With just 10 items, there are over a thousand possible
+                subsets. With 50 items, more than a quadrillion. The explosion is exponential.
+            </p>
+
+            <p><a href="https://en.wikipedia.org/wiki/Richard_Karp" target="_blank">Richard Karp</a> included it in
+                his landmark 1972 paper identifying 21 NP-complete problems, cementing its place in the pantheon of
+                hard problems. The difficulty is not that it's impossible to solve, for small, well-chosen numbers it
+                can feel almost trivial. The difficulty is that the hardness is unpredictable. The same structure that
+                makes one instance easy makes another brutally resistant.</p>
+
+            <div class="image-placeholder">
+                [ DECISION TREE: SUBSET SUM // DEPTH 4 // NODES: 16 ]
+            </div>
+
+            <h2>The Partition Beneath the Summit</h2>
+            <p>A closely related puzzle is the <a href="https://en.wikipedia.org/wiki/Partition_problem"
+                    target="_blank">Partition Problem</a>: split a set of numbers into two groups so that each group
+                sums to the same total. It sounds almost frivolous, dividing things equally, yet it is equally
+                NP-complete and surfaces everywhere, from load balancing in distributed computing to fairly dividing
+                assets in legal disputes.</p>
+
+            <p>What makes these problems so fertile for game design is their texture. Unlike a maze, which has a clear
+                topology, a subset sum puzzle offers no natural gradient to guide your intuition. You can feel equally
+                lost at move one as at move ten. And then, suddenly, you see it. The right combination of pieces
+                snapping into place with the satisfying click of inevitability. The solution was always there,
+                hiding in plain arithmetic.</p>
+
+            <h2>Forging a Game from the Problem</h2>
+            <p><strong>Summit Numbers</strong> was designed to bottle that specific feeling. The board wraps around.
+                Your pieces don't fall off edges, they reappear on the other side. Movement is chess-like and
+                deliberate. Each piece you place carries a value, and the four borders of the board keep a running tally
+                of everything passing through them: Top, Right, Bottom, Left.</p>
+
+            <p>Your goal is to hit all four targets simultaneously. Not one at a time, all at once. This constraint
+                turns a simple addition exercise into a genuine spatial reasoning challenge. You must think about
+                which pieces contribute to which sums, plan movement paths that serve multiple targets at once, and
+                merge identical values to consolidate your options. Every round is, at its core, a four-dimensional
+                subset sum problem encoded in motion.</p>
+
+            <p>The targets are not completely random. Each round is carefully <span class="highlight">generated so that a
+                    solution always exists</span>, the numbers are chosen with the partition structure in mind,
+                ensuring that what feels impossible is merely difficult. This is the design contract with the player:
+                the summit is always reachable. Whether you find the path is up to you.</p>
+
+            <h3>The moment all four targets click to zero is the moment the math becomes joy.</h3>
+
+            <p>That's the promise of Summit Numbers. Not a brute-force exercise in arithmetic, but a compact,
+                elegant duel with one of mathematics' most ancient hard problems, solved in rounds short enough to
+                fit in your pocket.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2010-2026 Mathricks&trade;. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>

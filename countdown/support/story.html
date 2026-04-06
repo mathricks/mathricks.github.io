@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Story of Countdown Numbers | Mathricks&trade;</title>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --bg: #0f0900;
+            --fg: #fff8ed;
+            --muted: #7a5c2e;
+            --amber: #ff9500;
+            --gold: #ffc940;
+            --red: #e84c3d;
+            --line: rgba(255, 255, 255, 0.10);
+            --line-strong: rgba(255, 255, 255, 0.28);
+            --accent: var(--amber);
+            --container: 800px;
+        }
+
+        html,
+        body {
+            background: var(--bg);
+            color: var(--fg);
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.6;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--line);
+            background: rgba(15, 9, 0, 0.96);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .content {
+            padding: 60px 0;
+            min-height: 60vh;
+        }
+
+        article {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            text-shadow: 0 0 24px rgba(255, 149, 0, 0.25);
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            border-bottom: 1px dashed var(--line-strong);
+            padding-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 50px;
+            margin-bottom: 15px;
+            color: var(--amber);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: rgba(255, 248, 237, 0.85);
+            margin-bottom: 24px;
+        }
+
+        blockquote {
+            margin: 40px 0;
+            padding: 24px 30px;
+            border-left: 4px solid var(--red);
+            background: rgba(232, 76, 61, 0.06);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #fff;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 500;
+            text-shadow: 0 0 8px rgba(255, 201, 64, 0.3);
+        }
+
+        .formula {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-style: italic;
+            border: 1px solid var(--line);
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, rgba(255, 149, 0, 0.05), rgba(232, 76, 61, 0.05));
+            border: 1px solid var(--line-strong);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-family: monospace;
+            letter-spacing: 0.1em;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <!-- Mathricks Analytics (GA4 + click tracking) -->
+    <script src="/js/analytics.js"></script>
+    <script src="/js/consent.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="brand">COUNTDOWN NUMBERS</div>
+            <div>
+                <a href="../">Back to Game</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <article class="container">
+            <h1>The Story of Countdown Numbers</h1>
+            <div class="meta">DESIGN NOTES // FORMAT ORIGINS // FILE: CD-01</div>
+
+            <p>Somewhere in France in 1965, a television producer named <a
+                    href="https://en.wikipedia.org/wiki/Armand_Jammot" target="_blank">Armand Jammot</a> asked a
+                simple question: what if arithmetic were a sport? The answer was <em>Des Chiffres et des
+                    Lettres</em>, "Numbers and Letters", a game show that put ordinary people in front of a camera
+                and gave them a pile of numbers, a target, and thirty seconds of silence in which to think.
+                <span class="highlight">No calculators. No second chances. Just arithmetic and nerve.</span>
+            </p>
+
+            <h2>Sixty Seconds on Television</h2>
+            <p>The numbers round of <em>Des Chiffres et des Lettres</em> was deceptively simple. Six numbers were
+                drawn at random, a mix of small values (1 through 10) and large ones (25, 50, 75, 100). A
+                three-digit target was generated. Contestants had thirty seconds to combine some or all of the six
+                numbers using addition, subtraction, multiplication, and division, reaching the target exactly if
+                possible, or as close as they could manage. Each number could be used at most once. The operations
+                were unlimited.</p>
+
+            <p>The show became one of the longest-running formats in television history. When Channel 4 adapted it
+                as <a href="https://en.wikipedia.org/wiki/Countdown_(game_show)" target="_blank">Countdown</a> in
+                November 1982, the very first programme broadcast on the channel, the numbers round crossed the
+                Channel and entered British cultural life permanently. Countdown has run, largely uninterrupted,
+                ever since. It holds the record as the <span class="highlight">longest-running game show in UK
+                    television history</span>.</p>
+
+            <blockquote>
+                "It's the nearest thing to pure thought that television has ever managed."<br />
+                <span
+                    style="font-size: 0.9rem; color: var(--muted); font-style: normal; display: block; margin-top: 10px;">—
+                    Richard Whiteley, Countdown host, on the numbers round</span>
+            </blockquote>
+
+            <h2>The Hidden Combinatorial Explosion</h2>
+            <p>What looks like a mental arithmetic quiz is, mathematically, a search through an enormous space.
+                Given six numbers, a solver must consider all possible ways to arrange them: which subset to use,
+                in which order, with which operations between each pair. The number of distinct
+                <span class="highlight">expression trees</span> that can be built from six values runs into the
+                hundreds of thousands. A human brain cannot enumerate them all in thirty seconds. It pattern-matches,
+                prunes, and intuition-leaps, often arriving at a solution without being able to fully explain how.
+            </p>
+
+            <p>A computer can solve it exhaustively. The standard approach is <a
+                    href="https://en.wikipedia.org/wiki/Reverse_Polish_notation" target="_blank">Reverse Polish
+                    Notation</a> combined with recursive search: at each step, pick two numbers from the current
+                pool, apply one of the four operations (where valid, no fractions, no negatives allowed in
+                intermediate steps), and replace them with the result. Repeat until one number remains, or the pool
+                is exhausted. This generates every reachable value for a given set of inputs. The solver for six
+                numbers runs in milliseconds. The human solver runs in thirty seconds. The gap between those two
+                timescales is where the game lives.</p>
+
+            <div class="image-placeholder">
+                [ EXPRESSION TREE: (75 × 6) + (50 − 25) + 3 = 478 // TARGET: 478 ]
+            </div>
+
+            <h2>When the Target Is Unreachable</h2>
+            <p>Not every target can be hit exactly. Given a particular draw of six numbers, some three-digit values
+                are simply outside reach, no combination of operations produces them. In competitive Countdown,
+                players score points for getting within ten of an unreachable target; the one closest wins.
+                But the theoretical question of <span class="highlight">which targets are unreachable</span> and
+                why is genuinely interesting mathematics.</p>
+
+            <p>It connects to a classical problem known as the <a
+                    href="https://en.wikipedia.org/wiki/Coin_problem" target="_blank">Frobenius coin problem</a>:
+                given a set of coin denominations with no common factor, what is the largest value that cannot be
+                formed by any non-negative combination of those coins? The answer for denominations 3 and 5, for
+                instance, is 7, you can make 8 (3+5), 9 (3+3+3), 10 (5+5), and every value above, but 7 has no
+                solution. For Countdown's broader operation set the structure is more complex, but the underlying
+                question: "<em>what is expressible, and what isn't?</em>" is the same one mathematicians have
+                studied since the 19th century.</p>
+
+            <h2>Stripping It to Essentials</h2>
+            <p><strong>Countdown Numbers</strong> inherits the format's purest instinct: numbers only, no letters,
+                no theatrics. The letters round of the original show is compelling in its own right, but the numbers
+                round is where mathematics actually lives on screen, undiluted. Jammot understood this in 1965.
+                The numbers round has survived every format revision, every host change, every cultural shift across
+                sixty years, because <span class="highlight">the pressure of arithmetic under a ticking clock
+                    needs no embellishment</span>.</p>
+
+            <p>The game you are about to play is the direct descendant of that thirty-second television silence.
+                The same numbers. The same target. The same moment where your brain either finds the path or
+                admits it cannot. What has changed is that you are no longer in a television studio, there is no
+                studio audience, and the clock does not stop.</p>
+
+            <h3>The numbers are waiting. The target is set. The clock is already running.</h3>
+
+            <p>The question Armand Jammot asked in 1965 has not changed in sixty years: <em>can you get
+                    there?</em></p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2010-2026 Mathricks&trade;. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>
