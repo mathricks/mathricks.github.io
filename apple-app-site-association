@@ -6,17 +6,17 @@
         "appID": "DGW5329756.com.mathricks.Summ-it",
         "components": [
           {
-            "/": "/summit/play",
-            "?": { "targets": "?*" }
+            "/": "/summit/play"
           },
           {
-            "/": "/summit/play/",
-            "?": { "targets": "?*" }
+            "/": "/summit/play/"
           }
         ],
         "paths": [
           "/summit/play",
-          "/summit/play/"
+          "/summit/play/",
+          "/summit/play?*",
+          "/summit/play/?*"
         ]
       }
     ]
