@@ -190,35 +190,6 @@
       color: var(--fg);
     }
 
-    .puzzle-context {
-      display: none;
-      margin-bottom: 36px;
-      padding: 14px 18px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      font-size: 13px;
-      color: var(--muted);
-      text-align: left;
-    }
-
-    .puzzle-context.visible {
-      display: block;
-    }
-
-    .puzzle-context .label {
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .puzzle-context .value {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 12px;
-      color: var(--fg);
-      word-break: break-all;
-    }
   </style>
   <script src="/js/analytics.js"></script>
   <script src="/js/consent.js"></script>
@@ -230,11 +201,6 @@
 
     <h1>Summit Numbers</h1>
     <p class="subtitle">Someone sent you a puzzle.</p>
-
-    <div class="puzzle-context" id="puzzle-context">
-      <div class="label">Puzzle</div>
-      <div class="value" id="puzzle-id"></div>
-    </div>
 
     <div class="actions">
       <a class="btn-open" id="open-in-app-btn" href="https://mathricks.com/summit/play">Open in app</a>
@@ -275,9 +241,6 @@
         btn.href = 'https://mathricks.com/summit/play?puzzle=' + encodeURIComponent(puzzle);
         document.getElementById('hint-default').style.display = 'none';
         document.getElementById('hint-puzzle').style.display = '';
-        var ctx = document.getElementById('puzzle-context');
-        ctx.classList.add('visible');
-        document.getElementById('puzzle-id').textContent = puzzle;
       } else if (targets) {
         btn.href = 'https://mathricks.com/summit/play?targets=' + encodeURIComponent(targets);
         document.getElementById('hint-default').style.display = 'none';
