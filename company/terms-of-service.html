@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Mathricks Terms of Service" />
+  <link rel="canonical" href="https://mathricks.com/company/terms-of-service.html" />
+
+  <title>Terms of Service | Mathricks&trade;</title>
+  <link rel="stylesheet" href="/css/catalog-pages.css">
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <style>
+    .policy-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .policy-content p {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: var(--text-color, #e0e0e0);
+    }
+
+    html[data-theme="light"] .policy-content p {
+      color: var(--text-color, #333333);
+    }
+
+    .policy-content h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .policy-content ul {
+      margin-bottom: 1.5rem;
+      color: var(--text-color, #e0e0e0);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    html[data-theme="light"] .policy-content ul {
+      color: var(--text-color, #333333);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="/">Home</a>
+        <a class="btn" href="/company/">Company</a>
+        <a class="btn" href="/games.html">Games</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner reveal">
+        <div class="eyebrow">Company</div>
+        <h1>Terms of Service</h1>
+        <p>The rules, guidelines, and legal agreements for using our games and services.</p>
+      </div>
+    </section>
+
+    <section class="section" id="policy-content">
+      <div class="container reveal policy-content">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By downloading, accessing, or using any games, applications, or websites created by Mathricks ("we", "us", or
+          "our"), you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions,
+          you must not use our services.</p>
+
+        <h2>2. Intellectual Property</h2>
+        <p>All content, features, and functionality of our games and website, including but not limited to code,
+          graphics, logos, algorithms, and puzzle mechanics, are the exclusive property of Mathricks Studio and are
+          protected by international copyright, trademark, and other intellectual property laws. You may not copy,
+          modify, distribute, or reverse-engineer our work without explicit written permission.</p>
+
+        <h2>3. User Conduct</h2>
+        <p>We build our games for fair and enjoyable competition. You agree not to engage in any of the following
+          activities:</p>
+        <ul>
+          <li>Using cheats, exploits, automation software, bots, hacks, or any unauthorized third-party software
+            designed to modify or interfere with the games.</li>
+          <li>Manipulating leaderboards or attempting to artificially inflate scores.</li>
+          <li>Attempting to gain unauthorized access to our servers or the accounts of others.</li>
+        </ul>
+        <p>We reserve the right to suspend or terminate your access to our games and leaderboards at our sole discretion
+          if we believe you have violated these rules.</p>
+
+        <h2>4. Disclaimer of Warranties</h2>
+        <p>Our games and services are provided on an "AS IS" and "AS AVAILABLE" basis. As an independent studio, we work
+          hard to provide a flawless experience, but we make no warranties, expressed or implied, that our services will
+          be completely free of errors, bugs, or uninterrupted.</p>
+
+        <h2>5. Limitation of Liability</h2>
+        <p>In no event shall Mathricks, nor its directors, employees, partners, or agents, be liable for any indirect,
+          incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data,
+          use, goodwill, or other intangible losses, resulting from your access to or use of (or inability to access or
+          use) our games and services.</p>
+
+        <h2>6. Changes to Terms</h2>
+        <p>We reserve the right to modify or replace these Terms at any time. We will provide notice of significant
+          changes on our website. Your continued use of our services following the posting of any changes constitutes
+          acceptance of those changes.</p>
+
+        <h2>7. Contact Us</h2>
+        <p>If you have any questions about these Terms, please contact us via our Support page.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="/support/">Support</a>
+        <a class="link" href="/">Home</a>
+      </div>
+    </div>
+    <div class="container legal">
+      &copy; 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (t) => {
+      if (t === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+
+</html>

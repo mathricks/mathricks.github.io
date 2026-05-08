@@ -504,6 +504,44 @@ footer {
   transform: none;
 }
 
+.card.resource-card {
+  --res-card-bg-start: rgba(18, 34, 57, .90);
+  --res-card-bg-end: rgba(10, 19, 34, .86);
+  --res-card-line-strong: rgba(255, 255, 255, .30);
+  --res-card-title: #f2f7ff;
+  --res-card-muted: #bfd1e8;
+  --res-card-hover: var(--accent);
+  border: 1px solid var(--res-card-line-strong);
+  background: linear-gradient(160deg, var(--res-card-bg-start), var(--res-card-bg-end));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .22);
+}
+
+.card.resource-card:hover {
+  border-color: var(--res-card-hover);
+}
+
+.card.resource-card h3 {
+  color: var(--res-card-title);
+}
+
+.card.resource-card p {
+  color: var(--res-card-muted);
+}
+
+.card.resource-card .pill {
+  border-color: var(--res-card-line-strong);
+  color: var(--res-card-title);
+}
+
+[data-theme="light"] .card.resource-card {
+  --res-card-bg-start: #ffffff;
+  --res-card-bg-end: #f4f8fc;
+  --res-card-line-strong: rgba(18, 39, 66, .2);
+  --res-card-title: #122742;
+  --res-card-muted: #5d7595;
+  box-shadow: 0 10px 26px rgba(12, 20, 34, .08);
+}
+
 @media (max-width: 960px) {
   .grid {
     grid-template-columns: 1fr 1fr;

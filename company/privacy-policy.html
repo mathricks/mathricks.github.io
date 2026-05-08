@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Mathricks Privacy Policy" />
+  <link rel="canonical" href="https://mathricks.com/company/privacy-policy.html" />
+
+  <title>Privacy Policy | Mathricks&trade;</title>
+  <link rel="stylesheet" href="/css/catalog-pages.css">
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <style>
+    .policy-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .policy-content p {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      color: var(--text-color, #e0e0e0);
+    }
+    html[data-theme="light"] .policy-content p {
+      color: var(--text-color, #333333);
+    }
+    .policy-content h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="/">Home</a>
+        <a class="btn" href="/company/">Company</a>
+        <a class="btn" href="/games.html">Games</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner reveal">
+        <div class="eyebrow">Company</div>
+        <h1>Privacy Policy</h1>
+        <p>How we handle, protect, and process your personal data and information.</p>
+      </div>
+    </section>
+
+    <section class="section" id="policy-content">
+      <div class="container reveal policy-content">
+        <h2>Data Collection</h2>
+        <p>At Mathricks, we believe in privacy by design. We only collect the minimal amount of data necessary to provide our services and improve our puzzle games. This typically includes basic analytics and crash reports which are anonymized.</p>
+        
+        <h2>How We Use Information</h2>
+        <p>The data we collect is solely used for improving the player experience. We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+        
+        <h2>Your Rights</h2>
+        <p>You have full control over your data. If you wish to request deletion of any data associated with your interactions with our games or site, please contact us through our support page.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="/support/">Support</a>
+        <a class="link" href="/">Home</a>
+      </div>
+    </div>
+    <div class="container legal">
+      &copy; 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (t) => {
+      if (t === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+
+</html>
