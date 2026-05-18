@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Read the Mathricks Studio blog. We share insights on puzzle design, math-inspired games, and game development." />
+  <link rel="canonical" href="https://mathricks.com/blog/" />
+
+  <title>Blog | Mathricks&trade;</title>
+  <link rel="stylesheet" href="/css/catalog-pages.css">
+  <!-- Mathricks Analytics -->
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="/">Home</a>
+        <a class="btn" href="/games.html">Games</a>
+        <a class="btn" href="/support/">Support</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="eyebrow">Thoughts &amp; Ideas</div>
+        <h1>Blog</h1>
+        <p>Insights on game design, puzzle mechanics and what makes a great game.</p>
+        <div class="hero-cta">
+          <a class="btn" href="/">Back Home</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="posts">
+      <div class="container">
+        <div class="grid">
+          <a class="card resource-card" href="/blog/why-simple-rules-create-hard-puzzles.html">
+            <span class="pill">Game Design</span>
+            <h3>Why Simple Rules Create Hard Puzzles</h3>
+            <p>The best puzzles often have tiny rulebooks and enormous depth. Here is why simple rules make games so
+              satisfying.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="/support/">Support</a>
+        <a class="link" href="/">Home</a>
+      </div>
+    </div>
+    <div class="container legal">
+      &copy; 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (t) => {
+      if (t === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+
+</html>

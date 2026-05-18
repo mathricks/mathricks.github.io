@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="The best puzzles often have tiny rulebooks and enormous depth. Here is why simple rules make games like Wordle, Sudoku, Tetris, Minesweeper and chess so satisfying." />
+  <link rel="canonical" href="https://mathricks.com/blog/why-simple-rules-create-hard-puzzles.html" />
+
+  <title>Why Simple Rules Create Hard Puzzles | Mathricks&trade;</title>
+  <link rel="stylesheet" href="/css/catalog-pages.css">
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <style>
+    .article-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .article-content h2 {
+      margin-top: 3.5rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.9rem;
+      letter-spacing: -0.01em;
+    }
+
+    .article-content p {
+      margin-bottom: 1.6rem;
+      line-height: 1.75;
+      font-size: 1.15rem;
+      color: var(--text-color, #e4e7ec);
+    }
+
+    .article-content strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    html[data-theme="light"] .article-content p {
+      color: var(--text-color, #334155);
+    }
+
+    .article-content ul {
+      margin-bottom: 1.6rem;
+      padding-left: 1.5rem;
+      color: var(--text-color, #e4e7ec);
+    }
+
+    html[data-theme="light"] .article-content ul {
+      color: var(--text-color, #334155);
+    }
+
+    .article-content li {
+      margin-bottom: 0.5rem;
+      line-height: 1.75;
+      font-size: 1.15rem;
+    }
+
+    .article-content article a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(255, 255, 255, 0.2);
+      text-underline-offset: 2px;
+    }
+
+    html[data-theme="light"] .article-content article a {
+      text-decoration-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .article-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .article-date {
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 3rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .back-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="/">Home</a>
+        <a class="btn" href="/blog/">Blog</a>
+        <a class="btn" href="/games.html">Games</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top: 80px;">
+      <div class="container article-content">
+        <div class="article-header">
+          <span class="article-date">May 18, 2026</span>
+          <h1
+            style="font-size: clamp(36px, 5vw, 56px); line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.02em;">
+            Why Simple Rules Create Hard Puzzles</h1>
+        </div>
+
+        <article>
+          <p>“The rules are simple.”</p>
+          <p>For a puzzle game, that sentence is rarely a promise that the game will be easy. More often, it is the
+            warning sign of something much more interesting: a small system that can generate a very large number of
+            consequences.</p>
+          <p><strong>Sudoku</strong> asks you to place the digits 1 to 9 without repetition. <strong>Wordle</strong>
+            gives you six attempts to identify a five-letter word. <strong>Tetris</strong> drops seven kinds of pieces
+            into a rectangular well. <strong>Minesweeper</strong> tells you how many hidden mines surround a square.
+            <strong>Chess</strong> begins with 32 pieces and a board of 64 squares.
+          </p>
+          <p>None of these games needs a long manual. Yet they have produced decades of obsession, study, competition,
+            software solvers, strategy guides and daily rituals. The important lesson is not simply that “simple things
+            can be fun.” It is more precise than that:</p>
+          <p><strong>A good puzzle does not get its depth from having many rules. It gets its depth from making a few
+              rules interact in many ways.</strong></p>
+
+          <h2>Small rules, huge possibility spaces</h2>
+          <p><strong>Sudoku</strong> is a clean example. Its core rule can be explained in one sentence: each row,
+            column and 3-by-3 box must contain the digits 1 through 9 exactly once. There is no arithmetic involved. The
+            digits could be replaced by letters or symbols and the puzzle would still work.</p>
+          <p>But that simple constraint produces an enormous possibility space. Bertram Felgenhauer and Frazer Jarvis
+            calculated that there are 6,670,903,752,021,072,936,960 possible completed <strong>Sudoku</strong> grids. If
+            you remove grids that are essentially the same under relabeling, rotation and other symmetries, there are
+            still 5,472,730,538 essentially different grids. (<a href="https://www.afjarvis.org.uk/sudoku/"
+              target="_blank" rel="noopener">afjarvis.org.uk</a>)</p>
+          <p>That is the first principle of good puzzle design: <strong>simplicity at the surface does not imply
+              simplicity underneath.</strong> The player sees a 9-by-9 grid. The designer is working with a vast
+            combinatorial system.</p>
+          <p>The same is true in <strong>chess</strong>. The rules of movement are simple enough for children to learn,
+            but the number of possible games is famously astronomical. Claude Shannon used an estimate of around 10^120
+            possible <strong>chess</strong> games to show why brute-force search was not a practical way to “solve”
+            <strong>chess</strong>. (<a href="https://en.wikipedia.org/wiki/Shannon_number" target="_blank"
+              rel="noopener">Wikipedia</a>)
+          </p>
+          <p>The exact number is less important than the design lesson: <strong>chess is not deep because its rules are
+              complicated. It is deep because every move changes the meaning of every future move.</strong></p>
+
+          <h2>Difficulty comes from interaction, not decoration</h2>
+          <p>Many weak puzzle designs try to create difficulty by adding more rules, more exceptions, more special cases
+            and more explanation. That can make a game harder to understand, but not necessarily more interesting.</p>
+          <p>The strongest puzzles often do the opposite. They keep the rule set small, then let the consequences become
+            difficult.</p>
+          <p><strong>Tetris</strong> is a perfect case. There are only seven tetrominoes. The player can move, rotate
+            and drop them. Completed lines disappear. That is basically the game.</p>
+          <p>But every piece changes the future shape of the board. One small compromise creates a bump. A bump creates
+            a gap. A gap forces a risky placement. A risky placement limits the next piece. <strong>The board becomes a
+              physical memory of earlier decisions.</strong></p>
+          <p>This is not just a poetic observation. Computer scientists have formally studied <strong>Tetris</strong>
+            and shown that even offline versions of the game, where the sequence of pieces is known in advance, are
+            computationally hard. Demaine, Hohenberger and Liben-Nowell proved that several optimization goals in
+            offline <strong>Tetris</strong>, such as maximizing cleared rows or surviving as long as possible, are
+            <strong>NP-complete</strong>. (<a href="https://arxiv.org/abs/cs/0210020" target="_blank"
+              rel="noopener">arXiv</a>)
+          </p>
+          <p>That does not mean a normal human game of <strong>Tetris</strong> is “an <strong>NP-complete</strong>
+            problem” in the casual sense. But it does show something important: under the friendly surface of falling
+            blocks is a system capable of producing genuinely hard planning problems.</p>
+
+          <h2>Constraints are the engine</h2>
+          <p>A puzzle is not made interesting by giving the player infinite freedom. It is made interesting by giving
+            the player meaningful constraints.</p>
+          <p><strong>Wordle</strong> has five-letter words, six guesses and three kinds of feedback: correct letter in
+            the correct position, correct letter in the wrong position and letter not present. That is a tiny design
+            space compared with most modern games. But the constraints are doing serious work.</p>
+          <p>The five-letter limit makes each guess compact. The six-guess limit creates pressure. The colored feedback
+            turns language into information. The daily puzzle format turns a solitary word game into a shared cultural
+            object.</p>
+          <p>That last point mattered enormously. <strong>Wordle</strong> was not just playable, it was explainable. The
+            New York Times acquired <strong>Wordle</strong> in January 2022 for a low seven-figure sum and later said
+            the acquisition brought in “tens of millions” of new users. (<a
+              href="https://techcrunch.com/2022/01/31/popular-puzzle-game-wordle-is-being-purchased-by-the-new-york-times/"
+              target="_blank" rel="noopener">TechCrunch</a>)</p>
+          <p>The design lesson is clear: <strong>a puzzle that can be explained quickly has a much better chance of
+              spreading. A puzzle that stays interesting after it has been explained has a chance of lasting.</strong>
+          </p>
+          <p>This is why so many successful puzzle games have a one-sentence pitch:</p>
+          <ul>
+            <li><strong>Sudoku:</strong> fill the grid so every row, column and box contains 1 to 9.</li>
+            <li><strong>Wordle:</strong> guess the five-letter word in six tries.</li>
+            <li><strong>Minesweeper:</strong> use the numbers to avoid the mines.</li>
+            <li><strong>2048:</strong> slide matching tiles together to make bigger numbers.</li>
+            <li><strong>Tetris:</strong> fit falling blocks together to clear lines.</li>
+          </ul>
+          <p>None of these pitches contains the real depth of the game. That is exactly why they work. The rules get you
+            in the door. The consequences keep you there.</p>
+          <p>We embrace this exact philosophy at Mathricks Studio. The core constraints of our own games can also be
+            summarized in just one sentence:</p>
+          <ul>
+            <li><a href="/gridlock/"><strong>Gridlock Numbers:</strong></a> Route-building number puzzle with strict
+              movement rules and x2 bonus optimization.</li>
+            <li><a href="/summit/"><strong>Summit Numbers:</strong></a> Wrap-around number tactics and target balancing
+              with shareable board challenges.</li>
+            <li><a href="/entropy/"><strong>Entropy: Zero:</strong></a> Place geometric repairs under pressure and
+              stabilize systems before corruption spreads.</li>
+            <li><a href="/bpq/"><strong>Bitcoin Puzzle Quest:</strong></a> Public puzzle challenge simulator with
+              offline key testing and progression controls.</li>
+            <li><a href="/astrovert/"><strong>Astrovert:</strong></a> High-focus cosmic runner centered on timing,
+              movement control and survival scoring.</li>
+          </ul>
+
+          <h2>Information is more satisfying than instruction</h2>
+          <p>The best puzzles do not constantly tell the player what to do. They give the player information and let
+            them make the discovery.</p>
+          <p><strong>Minesweeper</strong> is built almost entirely from this idea. A revealed number does not tell you
+            where to click next. It tells you how many mines touch that square. One clue is simple. Several overlapping
+            clues become a logic problem.</p>
+          <p>A “1” beside one covered square is obvious. A cluster of 1s, 2s and 3s around an irregular frontier can
+            force deduction, probability and risk management. You are not learning a new rule. <strong>You are learning
+              how much meaning the existing rule contains.</strong></p>
+          <p><strong>Minesweeper</strong> has also been studied formally. Richard Kaye showed that
+            <strong>Minesweeper</strong> is <strong>NP-complete</strong>, by connecting <strong>Minesweeper</strong>
+            consistency problems to classic computational complexity questions. (<a
+              href="https://link.springer.com/article/10.1007/BF03025367" target="_blank" rel="noopener">Springer</a>)
+          </p>
+          <p>Again, the design point is not that players need to know complexity theory. They do not. The point is that
+            a tiny local rule, “this number counts adjacent mines,” can scale into a hard global problem.</p>
+          <p>That is one of the signatures of a strong puzzle: <strong>the player always understands the rule, but not
+              always the implication.</strong></p>
+
+          <h2>The player should feel ownership of the solution</h2>
+          <p>A satisfying puzzle gives the player the feeling that the answer was earned, not handed over.</p>
+          <p>This is why simple rules are so powerful. When the rule set is clear, the player knows the solution came
+            from their own attention. A <strong>Sudoku</strong> digit falls into place because they noticed a
+            constraint. A <strong>Wordle</strong> answer appears because they interpreted the feedback well. A
+            <strong>Minesweeper</strong> square becomes safe because they understood the numbers. A
+            <strong>Tetris</strong> recovery works because they planned several pieces ahead.
+          </p>
+          <p>The pleasure is not just “winning.” It is the moment when confusion turns into structure.</p>
+          <p>That is the <strong>“aha” moment</strong> and it depends on clarity. If the rules are messy, the player may
+            think, “I finally understood what the game wanted.” If the rules are clean, the player thinks, “I finally
+            saw it.”</p>
+          <p><strong>That second feeling is much stronger.</strong></p>
+
+          <h2>Simple does not mean shallow</h2>
+          <p><strong>2048</strong> looks almost absurdly simple: swipe tiles, merge matching numbers, try to reach 2048.
+            But a 4-by-4 board fills quickly and every swipe affects the whole board. A move is not just a move. It is a
+            commitment to a future shape.</p>
+          <p>Researchers have shown that generalized versions of <strong>2048</strong> are computationally difficult
+            too. Rahul Mehta proved that a variant of <strong>2048</strong> on an n-by-n board is
+            <strong>PSPACE-complete</strong> under specific conditions. (<a href="https://arxiv.org/abs/1408.6315"
+              target="_blank" rel="noopener">arXiv</a>)
+          </p>
+          <p>For designers, this is useful because <strong>2048</strong> demonstrates a very economical kind of depth.
+            There are no enemies, levels, dialogue trees or special abilities. There is just a board, a movement rule
+            and a growth rule. Yet from those ingredients you get planning, greed, risk, recovery and failure.</p>
+          <p>A shallow puzzle runs out once the player understands the trick. <strong>A deep puzzle begins when the
+              player understands the trick.</strong></p>
+
+          <h2>Good puzzle design removes noise</h2>
+          <p>A hard puzzle does not need to look hard. In fact, it often works better when it looks approachable.</p>
+          <p>This is where many puzzle designs go wrong. They confuse complexity with clutter. They add symbols,
+            exceptions, modes, bonuses, edge cases and special rules, hoping that more material will create more depth.
+            Sometimes it does. Often it just makes the player tired.</p>
+          <p>Classic puzzles tend to be ruthless about removing noise. Crosswords are clues and a grid.
+            <strong>Sudoku</strong> is digits and constraints. <strong>Wordle</strong> is guesses and feedback.
+            <strong>Tetris</strong> is pieces and gravity. <strong>Minesweeper</strong> is numbers and hidden mines.
+          </p>
+          <p>That cleanliness matters because the player’s mental effort should go into the problem, not the
+            instructions. The puzzle should not say, “Look how many rules I have.” It should say, <strong>“You already
+              know enough. Now look closer.”</strong></p>
+
+          <h2>Why simple-rule puzzles last</h2>
+          <p>Simple-rule puzzles last because they are easy to re-enter.</p>
+          <p>You can leave <strong>Sudoku</strong> for a month and still remember how it works. You can explain
+            <strong>Wordle</strong> to someone in less than a minute. <strong>Tetris</strong> does not require lore.
+            <strong>Minesweeper</strong> does not need a tutorial campaign. <strong>Chess</strong> has centuries of
+            theory, but the basic object is still recognizable: protect your king, threaten theirs.
+          </p>
+          <p>This makes these puzzles unusually durable. They fit into daily life. They work during a commute, over
+            coffee, before bed or between meetings. They reward five minutes of attention, but they can also support
+            years of mastery.</p>
+          <p>That combination is rare. Many games are easy to start but easy to exhaust. Others are deep but hard to
+            enter. The best simple-rule puzzles hit the valuable middle:</p>
+          <p><strong>You can begin immediately, but you cannot master them immediately.</strong></p>
+
+          <h2>The real formula</h2>
+          <p>Simple rules create hard puzzles when three things are true.</p>
+          <p>First, the rule must be clear. The player should understand what is allowed, what is forbidden and what
+            success looks like.</p>
+          <p>Second, the rule must create consequences. A move should change the future state of the puzzle in a
+            meaningful way.</p>
+          <p>Third, the system must produce interaction. Clues, moves or constraints should overlap so that the whole
+            puzzle becomes more than a collection of separate parts.</p>
+          <p>That is why <strong>Wordle</strong>, <strong>Sudoku</strong>, <strong>Tetris</strong>,
+            <strong>Minesweeper</strong>, <strong>Chess</strong> and <strong>2048</strong> are not just “simple games.”
+            They are compact systems. Their rules are small enough to learn quickly, but strong enough to generate
+            surprise.
+          </p>
+          <p>A great puzzle does not need a thick rulebook. It needs a clear idea, strong constraints and room for
+            consequences to unfold.</p>
+          <p>The puzzle says: <strong>you know enough to begin.</strong></p>
+          <p>Then it waits to see how far you can think.</p>
+        </article>
+
+        <a href="/blog/" class="back-link">&larr; Back to Blog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="/support/">Support</a>
+        <a class="link" href="/">Home</a>
+      </div>
+    </div>
+    <div class="container legal">
+      &copy; 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (t) => {
+      if (t === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+
+</html>
