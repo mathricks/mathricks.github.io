@@ -69,9 +69,22 @@
       text-decoration-color: rgba(0, 0, 0, 0.2);
     }
 
+    .article-hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      display: block;
+    }
+
+    html[data-theme="light"] .article-hero-image {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
     .article-header {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
 
     .article-date {
@@ -122,6 +135,8 @@
             style="font-size: clamp(36px, 5vw, 56px); line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.02em;">
             Why Simple Rules Create Hard Puzzles</h1>
         </div>
+
+        <img src="/img/blog1.png" alt="Concept illustration representing simple rules and puzzles" class="article-hero-image">
 
         <article>
           <p>“The rules are simple.”</p>
@@ -211,16 +226,11 @@
           <p>We embrace this exact philosophy at Mathricks Studio. The core constraints of our own games can also be
             summarized in just one sentence:</p>
           <ul>
-            <li><a href="/gridlock/"><strong>Gridlock Numbers:</strong></a> Route-building number puzzle with strict
-              movement rules and x2 bonus optimization.</li>
-            <li><a href="/summit/"><strong>Summit Numbers:</strong></a> Wrap-around number tactics and target balancing
-              with shareable board challenges.</li>
-            <li><a href="/entropy/"><strong>Entropy: Zero:</strong></a> Place geometric repairs under pressure and
-              stabilize systems before corruption spreads.</li>
-            <li><a href="/bpq/"><strong>Bitcoin Puzzle Quest:</strong></a> Public puzzle challenge simulator with
-              offline key testing and progression controls.</li>
-            <li><a href="/astrovert/"><strong>Astrovert:</strong></a> High-focus cosmic runner centered on timing,
-              movement control and survival scoring.</li>
+            <li><a href="/gridlock/"><strong>Gridlock Numbers:</strong></a> build number routes using strict movement rules.</li>
+            <li><a href="/summit/"><strong>Summit Numbers:</strong></a> balance target values on a wrap-around board.</li>
+            <li><a href="/entropy/"><strong>Entropy: Zero:</strong></a> place geometric repairs to stop spreading corruption.</li>
+            <li><a href="/bpq/"><strong>Bitcoin Puzzle Quest:</strong></a> test offline keys in a public puzzle simulator.</li>
+            <li><a href="/astrovert/"><strong>Astrovert:</strong></a> time your moves to survive a cosmic run.</li>
           </ul>
 
           <h2>Information is more satisfying than instruction</h2>
