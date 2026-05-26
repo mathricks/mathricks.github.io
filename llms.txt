@@ -1,6 +1,6 @@
 # Mathricks
 
-> Mathricks is an independent game studio that creates math-inspired puzzle games and apps for iOS.
+> Mathricks is an independent game studio that creates math-inspired puzzle games and apps.
 
 ## About
 

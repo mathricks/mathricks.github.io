@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Privacy policy for Der Wortschatz by Mathricks." />
+  <link rel="canonical" href="https://mathricks.com/der-wortschatz/privacy/" />
+  <meta property="og:title" content="Der Wortschatz Privacy Policy | Mathricks" />
+  <meta property="og:description" content="Privacy information for Der Wortschatz on iOS." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mathricks.com/der-wortschatz/privacy/" />
+  <meta property="og:image" content="https://mathricks.com/img/der-wortschatz-icon.png" />
+  <title>Der Wortschatz Privacy Policy | Mathricks</title>
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app-pages-common.css">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="../">Overview</a>
+        <a class="btn" href="../details.html">Details</a>
+        <a class="btn" href="../support/">Support</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="detail-hero">
+      <div class="container">
+        <div class="eyebrow">Privacy</div>
+        <h1>Privacy Policy</h1>
+        <p>Last updated: May 25, 2026</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container doc-content">
+        <p>At Mathricks, we respect your privacy. This policy explains how Der Wortschatz handles information in the iOS
+          app.</p>
+
+        <h2>Data Collection</h2>
+        <p>Der Wortschatz does not require an account and does not collect personally identifiable information in the
+          app.</p>
+        <ul>
+          <li><strong>Vocabulary progress:</strong> selected level, play progress, practice coverage, known words,
+            bookmarks, appearance settings, and similar learning state are stored locally on your device.</li>
+          <li><strong>Speech playback:</strong> German pronunciation uses the device speech system. Mathricks does not
+            receive recordings or speech audio from this feature.</li>
+          <li><strong>In-app purchases:</strong> purchases and restores are processed by Apple through StoreKit.
+            Mathricks does not receive your payment card details.</li>
+          <li><strong>No account tracking:</strong> the app does not ask you to create a Mathricks account.</li>
+        </ul>
+
+        <h2>Support Messages</h2>
+        <p>If you contact support through this website, the information you submit is used to respond to your request.
+          The support form is handled by Formspree.</p>
+
+        <h2>Third Parties</h2>
+        <p>Apple may process information related to App Store purchases, restores, downloads, and device services under
+          Apple's own policies.</p>
+
+        <h2>Children's Privacy</h2>
+        <p>Der Wortschatz is a vocabulary learning tool. We do not knowingly collect personal information from children
+          in the app.</p>
+
+        <h2>Changes</h2>
+        <p>We may update this policy as the app changes. The latest version will be posted on this page.</p>
+
+        <h2>Contact</h2>
+        <p>If you have questions about this privacy policy, contact info [at] mathricks [dot] com or use the <a
+            href="../support/">support page</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="../">Overview</a>
+        <span class="link">|</span>
+        <a class="link" href="../support/">Support</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (theme) => {
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', theme);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+  </script>
+</body>
+
+</html>

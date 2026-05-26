@@ -329,6 +329,17 @@ header {
   --game-card-hover: #6effd9;
 }
 
+.card.game-card.game-card-wortschatz {
+  --game-card-bg-start: #221b11;
+  --game-card-bg-end: #101821;
+  --game-card-glow-main: rgba(232, 194, 107, .26);
+  --game-card-glow-alt: rgba(102, 183, 165, .16);
+  --game-card-line-strong: rgba(232, 194, 107, .38);
+  --game-card-title: #fff8e8;
+  --game-card-muted: #d8cfba;
+  --game-card-hover: #e8c26b;
+}
+
 [data-theme="light"] .card.game-card {
   box-shadow: 0 10px 26px rgba(12, 20, 34, .12);
 }
@@ -408,6 +419,17 @@ header {
   --game-card-title: #11322f;
   --game-card-muted: #446864;
   --game-card-hover: #12876f;
+}
+
+[data-theme="light"] .card.game-card.game-card-wortschatz {
+  --game-card-bg-start: #fff7e7;
+  --game-card-bg-end: #edf7f4;
+  --game-card-glow-main: rgba(183, 130, 33, .18);
+  --game-card-glow-alt: rgba(46, 136, 119, .14);
+  --game-card-line-strong: rgba(183, 130, 33, .40);
+  --game-card-title: #2b2214;
+  --game-card-muted: #665c49;
+  --game-card-hover: #a86f13;
 }
 
 .card:hover {
