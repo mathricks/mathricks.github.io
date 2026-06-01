@@ -246,12 +246,22 @@ startAuto();
     let gridOffset = 0;
     const gridSpeed = 80; // pixels per second, Dino-like scroll
 
+    function getCanvasTheme() {
+        const theme = document.documentElement.getAttribute('data-theme');
+        const bwTone = document.documentElement.getAttribute('data-bw-tone');
+        return {
+            isLight: theme === 'light',
+            isBw: theme === 'bw',
+            isBwLight: theme === 'bw' && bwTone === 'light'
+        };
+    }
+
     function drawGrid() {
         const spacing = 28;
         ctx.save();
         ctx.globalAlpha = 0.8;
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        ctx.strokeStyle = isLight ? 'rgba(20,33,43,0.16)' : 'rgba(255,255,255,0.14)';
+        const { isLight, isBw, isBwLight } = getCanvasTheme();
+        ctx.strokeStyle = isBw ? isBwLight ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.12)' : isLight ? 'rgba(20,33,43,0.16)' : 'rgba(255,255,255,0.14)';
         ctx.lineWidth = 1;
         const offset = gridOffset % spacing;
         // Vertical lines scroll to the left
@@ -273,12 +283,12 @@ startAuto();
 
     function drawWatermark() {
         if (!width || !height) return;
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const { isLight, isBw, isBwLight } = getCanvasTheme();
         const pad = Math.max(16, Math.min(width, height) * 0.06);
 
         ctx.save();
-        ctx.globalAlpha = isLight ? 0.30 : 0.22;
-        ctx.fillStyle = isLight ? 'rgba(20,33,43,0.65)' : 'rgba(255,255,255,0.55)';
+        ctx.globalAlpha = isBw ? 0.28 : isLight ? 0.30 : 0.22;
+        ctx.fillStyle = isBw ? isBwLight ? 'rgba(0,0,0,0.55)' : 'rgba(255,255,255,0.55)' : isLight ? 'rgba(20,33,43,0.65)' : 'rgba(255,255,255,0.55)';
         ctx.font = `600 ${Math.max(11, Math.min(width, height) * 0.035)}px -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif`;
         ctx.textAlign = 'right';
         ctx.textBaseline = 'alphabetic';
@@ -297,11 +307,11 @@ startAuto();
         const y1 = margin;
 
         ctx.save();
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const { isLight, isBw, isBwLight } = getCanvasTheme();
 
         // Thinner guide line + subtle moving dash for motion hint
         ctx.lineWidth = 1;
-        ctx.strokeStyle = isLight ? 'rgba(196,167,117,0.95)' : 'rgba(214,193,158,0.9)';
+        ctx.strokeStyle = isBw ? isBwLight ? 'rgba(0,0,0,0.82)' : 'rgba(255,255,255,0.86)' : isLight ? 'rgba(196,167,117,0.95)' : 'rgba(214,193,158,0.9)';
         const pathLength = Math.hypot(x1 - x0, y1 - y0);
         const dash = 8;
         const gap = 4;
@@ -345,7 +355,7 @@ startAuto();
         ctx.lineTo(-24, 0);
         ctx.lineTo(-26, 4);
         ctx.closePath();
-        ctx.fillStyle = isLight ? 'rgba(196,167,117,0.9)' : 'rgba(214,193,158,0.8)';
+        ctx.fillStyle = isBw ? isBwLight ? 'rgba(70,70,70,0.72)' : 'rgba(180,180,180,0.82)' : isLight ? 'rgba(196,167,117,0.9)' : 'rgba(214,193,158,0.8)';
         ctx.fill();
 
         // Body
@@ -354,13 +364,13 @@ startAuto();
         ctx.lineTo(-12, -10);
         ctx.lineTo(-12, 10);
         ctx.closePath();
-        ctx.fillStyle = isLight ? '#14212B' : '#FFFFFF';
+        ctx.fillStyle = isBw ? isBwLight ? '#000000' : '#FFFFFF' : isLight ? '#14212B' : '#FFFFFF';
         ctx.fill();
 
         // Window
         ctx.beginPath();
         ctx.arc(-4, 0, 4, 0, Math.PI * 2);
-        ctx.fillStyle = isLight ? '#EEF3F8' : '#14212B';
+        ctx.fillStyle = isBw ? isBwLight ? '#FFFFFF' : '#000000' : isLight ? '#EEF3F8' : '#14212B';
         ctx.fill();
 
         ctx.restore();
@@ -440,7 +450,7 @@ startAuto();
         const nx = dy / len;
         const ny = -dx / len;
         const minDim = Math.min(width, height);
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const { isLight, isBw, isBwLight } = getCanvasTheme();
 
         ctx.save();
         ctx.lineWidth = 1;
@@ -457,40 +467,42 @@ startAuto();
                 // Solid Astrovert-style asteroid chunk
                 ctx.beginPath();
                 ctx.arc(x, y, r, 0, Math.PI * 2);
-                ctx.fillStyle = isLight ? '#C4A775' : '#D6C19E';
+                ctx.fillStyle = isBw ? isBwLight ? '#2d2d2d' : '#cfcfcf' : isLight ? '#C4A775' : '#D6C19E';
                 ctx.fill();
-                ctx.strokeStyle = isLight ? 'rgba(20,33,43,0.6)' : 'rgba(0,0,0,0.55)';
+                ctx.strokeStyle = isBw ? isBwLight ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.8)' : isLight ? 'rgba(20,33,43,0.6)' : 'rgba(0,0,0,0.55)';
                 ctx.stroke();
 
                 // Add a little highlight notch
                 ctx.beginPath();
                 ctx.arc(x - r * 0.2, y - r * 0.2, r * 0.5, -0.6, 1.0 * Math.PI, false);
-                ctx.strokeStyle = isLight ? 'rgba(238,243,248,0.7)' : 'rgba(255,255,255,0.6)';
+                ctx.strokeStyle = isBw ? isBwLight ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.7)' : isLight ? 'rgba(238,243,248,0.7)' : 'rgba(255,255,255,0.6)';
                 ctx.stroke();
             } else if (o.type === 'ring') {
                 // Thin gravitational ring, echoing Astrovert's orbital arcs
                 ctx.beginPath();
                 ctx.arc(x, y, r * 1.3, 0, Math.PI * 2);
-                ctx.strokeStyle = isLight ? 'rgba(196,167,117,0.9)' : 'rgba(214,193,158,0.9)';
+                ctx.strokeStyle = isBw ? isBwLight ? 'rgba(0,0,0,0.78)' : 'rgba(255,255,255,0.78)' : isLight ? 'rgba(196,167,117,0.9)' : 'rgba(214,193,158,0.9)';
                 ctx.stroke();
 
                 ctx.beginPath();
                 ctx.arc(x, y, r * 0.55, 0, Math.PI * 2);
-                ctx.strokeStyle = isLight ? 'rgba(20,33,43,0.5)' : 'rgba(0,0,0,0.55)';
+                ctx.strokeStyle = isBw ? isBwLight ? 'rgba(0,0,0,0.34)' : 'rgba(255,255,255,0.34)' : isLight ? 'rgba(20,33,43,0.5)' : 'rgba(0,0,0,0.55)';
                 ctx.stroke();
             } else if (o.type === 'spike') {
                 // Astrovert-style spiky asterisk with a soft glow
                 const glowR = r * 0.7;
                 ctx.beginPath();
                 ctx.arc(x, y, glowR, 0, Math.PI * 2);
-                ctx.fillStyle = isLight
+                ctx.fillStyle = isBw
+                    ? isBwLight ? 'rgba(0,0,0,0.14)' : 'rgba(255,255,255,0.18)'
+                    : isLight
                     ? 'rgba(255,120,80,0.26)'
                     : 'rgba(255,80,40,0.32)';
                 ctx.fill();
 
                 ctx.save();
                 ctx.translate(x, y);
-                ctx.strokeStyle = isLight ? '#14212B' : '#000000';
+                ctx.strokeStyle = isBw ? isBwLight ? '#000000' : '#ffffff' : isLight ? '#14212B' : '#000000';
                 ctx.lineCap = 'round';
                 ctx.lineWidth = Math.max(2, r * 0.32);
 
@@ -581,7 +593,7 @@ startAuto();
         if (!width || !height || flashTimer <= 0 || !flashType) return;
 
         const t = flashTimer / (flashMax || 1);
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const { isLight, isBw, isBwLight } = getCanvasTheme();
 
         ctx.save();
         // Ease out so the flash fades smoothly
@@ -589,12 +601,14 @@ startAuto();
         let alpha;
         if (flashType === 'hit') {
             alpha = 0.26 * eased;
-            ctx.fillStyle = isLight
-                ? `rgba(255,255,255,${alpha})`
+            ctx.fillStyle = isBw && isBwLight
+                ? `rgba(0,0,0,${alpha})`
                 : `rgba(255,255,255,${alpha})`;
         } else {
             alpha = 0.22 * eased;
-            ctx.fillStyle = isLight
+            ctx.fillStyle = isBw
+                ? isBwLight ? `rgba(0,0,0,${alpha})` : `rgba(255,255,255,${alpha})`
+                : isLight
                 ? `rgba(196,167,117,${alpha})`
                 : `rgba(214,193,158,${alpha})`;
         }
@@ -605,7 +619,7 @@ startAuto();
     function drawHUD() {
         if (!width || !height) return;
 
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        const { isLight, isBw, isBwLight } = getCanvasTheme();
         const pad = Math.max(18, Math.min(width, height) * 0.05);
         const scoreNow = Math.floor(score);
         const hi = Math.floor(highScore);
@@ -617,7 +631,7 @@ startAuto();
         ctx.textBaseline = 'top';
         ctx.textAlign = 'right';
         ctx.font = `600 ${Math.max(12, Math.min(width, height) * 0.032)}px -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif`;
-        ctx.fillStyle = isLight ? 'rgba(20,33,43,0.7)' : 'rgba(255,255,255,0.82)';
+        ctx.fillStyle = isBw ? isBwLight ? 'rgba(0,0,0,0.82)' : 'rgba(255,255,255,0.86)' : isLight ? 'rgba(20,33,43,0.7)' : 'rgba(255,255,255,0.82)';
         ctx.globalAlpha = 0.9;
         ctx.fillText(`HI ${hiStr}  ${scoreStr}`, width - pad, pad);
 
@@ -626,11 +640,11 @@ startAuto();
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.font = `600 ${Math.max(20, Math.min(width, height) * 0.06)}px -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif`;
-            ctx.globalAlpha = isLight ? 0.85 : 0.9;
+            ctx.globalAlpha = isBw ? 0.92 : isLight ? 0.85 : 0.9;
             ctx.fillText('GAME OVER', width / 2, height / 2 - 24);
 
             ctx.font = `500 ${Math.max(11, Math.min(width, height) * 0.03)}px -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif`;
-            ctx.globalAlpha = isLight ? 0.75 : 0.8;
+            ctx.globalAlpha = isBw ? 0.82 : isLight ? 0.75 : 0.8;
             ctx.fillText('Press Space or Tap to restart', width / 2, height / 2 + 16);
         }
         ctx.restore();

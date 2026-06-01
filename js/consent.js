@@ -67,7 +67,7 @@
     banner.innerHTML =
         '<span class="cookie-banner__text">We use cookies for analytics to improve your experience.</span>' +
         '<div class="cookie-banner__actions">' +
-        '<button class="cookie-banner__btn" data-consent="rejected">Reject</button>' +
+        '<button class="cookie-banner__btn" data-consent="rejected">Opt Out</button>' +
         '<button class="cookie-banner__btn cookie-banner__btn--accept" data-consent="accepted">Accept</button>' +
         '</div>';
 
