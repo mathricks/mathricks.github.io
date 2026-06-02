@@ -13,6 +13,12 @@
     --accent-grad-end: #ff9f5f;
     --tint: rgba(255, 210, 95, .04);
     /* subtle gold tint */
+    --frame-junction-edge: var(--line-strong);
+    --frame-junction-bridge: rgba(255, 210, 95, .35);
+    --frame-junction-warm: rgba(255, 190, 95, .58);
+    --frame-junction-sheen: rgba(255, 236, 170, .74);
+    --frame-junction-core: var(--accent);
+    --frame-glow: drop-shadow(0 0 10px rgba(255, 230, 140, .35)) drop-shadow(0 0 3px rgba(255, 255, 255, .18));
     --container: 1200px;
     --header-start: rgba(5, 5, 9, .94);
     /* deep indigo‑black */
@@ -34,6 +40,12 @@
     --accent-grad-start: #F2E6D1;
     --accent-grad-end: #C4A775;
     --tint: rgba(196, 167, 117, .04);
+    --frame-junction-edge: var(--line-strong);
+    --frame-junction-bridge: rgba(83, 101, 116, .42);
+    --frame-junction-warm: rgba(174, 153, 111, .58);
+    --frame-junction-sheen: rgba(232, 216, 183, .86);
+    --frame-junction-core: #B78E4F;
+    --frame-glow: drop-shadow(0 0 10px rgba(183, 142, 79, .18)) drop-shadow(0 0 3px rgba(82, 101, 116, .28));
     --header-start: rgba(238, 243, 248, .95);
     /* very light steel */
     --header-end: rgba(238, 243, 248, .80);
@@ -619,7 +631,7 @@ h1 .studio {
     left: var(--frame-x);
     width: 30vw;
     height: 40vh;
-    filter: drop-shadow(0 0 6px rgba(255, 210, 95, 0.75));
+    filter: var(--frame-glow);
 }
 
 .corner-r {
@@ -627,7 +639,7 @@ h1 .studio {
     right: var(--frame-x);
     width: 30vw;
     height: 46vh;
-    filter: drop-shadow(0 0 6px rgba(255, 210, 95, 0.75));
+    filter: var(--frame-glow);
 }
 
 .corner::before {
@@ -640,12 +652,16 @@ h1 .studio {
     /* sleeve centred on junction = frame-extend-y from arm's start */
     background: linear-gradient(
         to bottom,
-        var(--line-strong)        calc(var(--frame-extend-y) - 60px),
-        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-y) - 44px),
-        var(--accent)             calc(var(--frame-extend-y) - 26px),
-        var(--accent)             calc(var(--frame-extend-y) + 26px),
-        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-y) + 44px),
-        var(--line-strong)        calc(var(--frame-extend-y) + 60px)
+        var(--frame-junction-edge)    calc(var(--frame-extend-y) - 72px),
+        var(--frame-junction-bridge)  calc(var(--frame-extend-y) - 52px),
+        var(--frame-junction-warm)    calc(var(--frame-extend-y) - 36px),
+        var(--frame-junction-sheen)   calc(var(--frame-extend-y) - 18px),
+        var(--frame-junction-core)    calc(var(--frame-extend-y) - 5px),
+        var(--frame-junction-core)    calc(var(--frame-extend-y) + 5px),
+        var(--frame-junction-sheen)   calc(var(--frame-extend-y) + 18px),
+        var(--frame-junction-warm)    calc(var(--frame-extend-y) + 36px),
+        var(--frame-junction-bridge)  calc(var(--frame-extend-y) + 52px),
+        var(--frame-junction-edge)    calc(var(--frame-extend-y) + 72px)
     );
     z-index: 0;
 }
@@ -660,12 +676,16 @@ h1 .studio {
     /* sleeve centred on junction = frame-extend-x from arm's start */
     background: linear-gradient(
         to right,
-        var(--line-strong)        calc(var(--frame-extend-x) - 60px),
-        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-x) - 44px),
-        var(--accent)             calc(var(--frame-extend-x) - 26px),
-        var(--accent)             calc(var(--frame-extend-x) + 26px),
-        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-x) + 44px),
-        var(--line-strong)        calc(var(--frame-extend-x) + 60px)
+        var(--frame-junction-edge)    calc(var(--frame-extend-x) - 72px),
+        var(--frame-junction-bridge)  calc(var(--frame-extend-x) - 52px),
+        var(--frame-junction-warm)    calc(var(--frame-extend-x) - 36px),
+        var(--frame-junction-sheen)   calc(var(--frame-extend-x) - 18px),
+        var(--frame-junction-core)    calc(var(--frame-extend-x) - 5px),
+        var(--frame-junction-core)    calc(var(--frame-extend-x) + 5px),
+        var(--frame-junction-sheen)   calc(var(--frame-extend-x) + 18px),
+        var(--frame-junction-warm)    calc(var(--frame-extend-x) + 36px),
+        var(--frame-junction-bridge)  calc(var(--frame-extend-x) + 52px),
+        var(--frame-junction-edge)    calc(var(--frame-extend-x) + 72px)
     );
     z-index: 0;
 }
@@ -680,12 +700,16 @@ h1 .studio {
     /* junction at bottom:0 of .corner-r box = frame-extend-y from arm's bottom end */
     background: linear-gradient(
         to top,
-        var(--line-strong)        calc(var(--frame-extend-y) - 60px),
-        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-y) - 44px),
-        var(--accent)             calc(var(--frame-extend-y) - 26px),
-        var(--accent)             calc(var(--frame-extend-y) + 26px),
-        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-y) + 44px),
-        var(--line-strong)        calc(var(--frame-extend-y) + 60px)
+        var(--frame-junction-edge)    calc(var(--frame-extend-y) - 72px),
+        var(--frame-junction-bridge)  calc(var(--frame-extend-y) - 52px),
+        var(--frame-junction-warm)    calc(var(--frame-extend-y) - 36px),
+        var(--frame-junction-sheen)   calc(var(--frame-extend-y) - 18px),
+        var(--frame-junction-core)    calc(var(--frame-extend-y) - 5px),
+        var(--frame-junction-core)    calc(var(--frame-extend-y) + 5px),
+        var(--frame-junction-sheen)   calc(var(--frame-extend-y) + 18px),
+        var(--frame-junction-warm)    calc(var(--frame-extend-y) + 36px),
+        var(--frame-junction-bridge)  calc(var(--frame-extend-y) + 52px),
+        var(--frame-junction-edge)    calc(var(--frame-extend-y) + 72px)
     );
     z-index: 0;
 }
@@ -700,24 +724,28 @@ h1 .studio {
     /* junction at right:0 of .corner-r box = frame-extend-x from arm's right end */
     background: linear-gradient(
         to left,
-        var(--line-strong)        calc(var(--frame-extend-x) - 60px),
-        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-x) - 44px),
-        var(--accent)             calc(var(--frame-extend-x) - 26px),
-        var(--accent)             calc(var(--frame-extend-x) + 26px),
-        rgba(255, 210, 95, 0.35)  calc(var(--frame-extend-x) + 44px),
-        var(--line-strong)        calc(var(--frame-extend-x) + 60px)
+        var(--frame-junction-edge)    calc(var(--frame-extend-x) - 72px),
+        var(--frame-junction-bridge)  calc(var(--frame-extend-x) - 52px),
+        var(--frame-junction-warm)    calc(var(--frame-extend-x) - 36px),
+        var(--frame-junction-sheen)   calc(var(--frame-extend-x) - 18px),
+        var(--frame-junction-core)    calc(var(--frame-extend-x) - 5px),
+        var(--frame-junction-core)    calc(var(--frame-extend-x) + 5px),
+        var(--frame-junction-sheen)   calc(var(--frame-extend-x) + 18px),
+        var(--frame-junction-warm)    calc(var(--frame-extend-x) + 36px),
+        var(--frame-junction-bridge)  calc(var(--frame-extend-x) + 52px),
+        var(--frame-junction-edge)    calc(var(--frame-extend-x) + 72px)
     );
     z-index: 0;
 }
 
 .corner-r.animate-down::before {
     height: 0;
-    animation: drawDown 1100ms ease-in-out forwards
+    animation: drawDown 1100ms ease-in-out forwards;
 }
 
 @keyframes drawDown {
     to {
-        height: calc(100% + (2 * var(--frame-extend-y)))
+        height: calc(100% + (2 * var(--frame-extend-y)));
     }
 }
 
