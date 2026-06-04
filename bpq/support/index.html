@@ -99,6 +99,31 @@
 
                 <li><strong>Q: How do I start playing Bitcoin Puzzle Quest?</strong>A: Open the app and start testing
                   keys by choosing your difficulty level and number of tries and hit the 'Go' button.
+                  Quest Overview also gives you a 3D map of the whole puzzle to jump in from (see below).
+                  <figure class="faq-screenshot">
+                    <img src="../../img/bitcoinpuzzlequest.png" alt="Bitcoin Puzzle Quest Quest Overview 3D map">
+                    <figcaption>Quest Overview 3D map</figcaption>
+                  </figure>
+                </li>
+
+                <li><strong>Q: What is the Quest Overview (3D view)?</strong>
+                  A: The Quest Overview is a 3D map of all puzzle ranges, added in version 2.2. At a glance you can see
+                  which puzzles are already solved, which have been tried, and which are still untouched, then tap a
+                  range to jump straight into your next hunt.
+                </li>
+
+                <li><strong>Q: What is Power Surge?</strong>
+                  A: Power Surge is our reward system that gives you temporary access to Continuous Mode, the
+                  auto-tapping, sequential-scanning fast lane, without a purchase. You earn free <em>Power Surge keys</em> two
+                  ways: by solving the Daily Chest mini-game and by inviting friends who go on to qualify.
+                  When you earn or spend them you'll see a quick reward toast confirming it.
+                </li>
+
+                <li><strong>Q: How do "Invite Friends" and referral rewards work?</strong>
+                  A: Every player that connects to Game Center gets a personal BPQ code. Share your code with a
+                  friend, or redeem a friend's code from the menu. When an invited friend qualifies, you both earn
+                  Power Surge keys as a thank-you. Invite codes are just short game codes—no names,
+                  emails, or contacts are collected or uploaded.
                 </li>
 
                 <li><strong>Q: What does “difficulty level” mean?</strong>
@@ -109,11 +134,19 @@
                   bigger needle in the haystack.
                 </li>
 
-                <li><strong>Q: Are there in-app purchases?</strong>A: Yes, there is an in-app purchase to run continuous
-                  scans, which also brings sequential scans.
+                <li><strong>Q: Are there in-app purchases?</strong>
+                  A: Yes, and they're all optional. The core game is free, and you can also earn Continuous Mode for free
+                  via Power Surge. There are two kinds of purchase:
+                  <ul style="margin-top: 0.5em;">
+                    <li><strong>Million-Key Packs</strong> (consumable): 10M, 50M, 100M or
+                      250M key packs. These top up your Continuous Mode key allowance.</li>
+                    <li><strong>Continuous Mode Unlock</strong> A one-time purchase for permanent, unlimited
+                      Continuous and sequential scanning.</li>
+                  </ul>
+                  Prices are set on App Store and may vary by region. There are no subscriptions.
                 </li>
 
-                <li><strong>Q: Are there ads?</strong>A: No, there is no ads at the moment. Enjoy the game without any
+                <li><strong>Q: Are there ads?</strong>A: No, there are no ads at the moment. Enjoy the game without any
                   distractions.
                 </li>
 
@@ -140,7 +173,7 @@
                   Managing private keys and moving cryptocurrency can be risky, so Bitcoin Puzzle Quest does not provide
                   financial, legal, or operational instructions.
                   We do offer a short, informational overview to explain the general concepts involved: <br><br>
-                  <a href="claim.html">→ <u>Understanding How BTC Can Be Claimed</a>.</u> <br><br>
+                  <a href="claim.html"><u>→ Understanding How BTC Can Be Claimed</u></a>. <br><br>
                   For broader community discussion, many puzzle hunters reference <a
                     href="https://bitcointalk.org/index.php?topic=1306983.0"><u>the long-running forum thread on
                       Bitcointalk</u></a>.
@@ -148,9 +181,10 @@
 
                 <li><strong>Q: How have some high-bit difficulty levels already been solved?</strong>
                   A: The puzzle creator(s) left a "small" clue by making an outgoing transaction from those addresses,
-                  which reveals the public key.
+                  which reveals the public key. Levels 75,80,85,90,95,100,105,110,115,120,125 and 130 have been solved this way.
                   That hint cuts the number of possible keys to try in half. Using this extra information, puzzle
-                  hunters apply specialized search techniques to recover the private keys more quickly.
+                  hunters apply specialized search techniques to recover the private keys more quickly for the remaining levels 135,140,145,150,155 and 160-bit. 
+                  The puzzle creator(s) have confirmed that no other clues or backdoors exist.
                 </li>
 
                 <li><strong>Q: Why can't BPQ keep scanning in the background?</strong>
@@ -161,9 +195,11 @@
                 </li>
 
                 <li><strong>Q: What is Continuous Mode and do I need it?</strong>
-                  A: Continuous Mode is a one-time in-app purchase that automates the “Go!” button and adds sequential
-                  scanning. Manual tapping and batch modes remain free—perfect if you prefer the DIY “robot
-                  finger.”<br><br>
+                  A: Continuous Mode automates the “Go!” button and adds sequential scanning. You don't need it, manual
+                  tapping and batch modes are always free, but it's perfect if you'd rather watch the numbers roll than
+                  the DIY “robot finger.” You can get it three ways: earn temporary access for free through
+                  Power Surge (Daily Chest + invites), top up with Million-Key Packs,
+                  or buy the Continuous Mode Unlock for permanent, unlimited use.<br><br>
                   <em>Features comparison:</em>
                   <table border="1">
                     <tr>
@@ -186,13 +222,20 @@
                       <td>—</td>
                       <td>✔️</td>
                     </tr>
+                    <tr>
+                      <td>Earn it free via Power Surge</td>
+                      <td>✔️</td>
+                      <td>✔️</td>
+                    </tr>
                   </table>
                   <br />
                 </li>
 
                 <li><strong>Q: Is Continuous Mode a subscription?</strong>
-                  A: No. Continuous Mode is a one-time in-app purchase that permanently unlocks continuous and
-                  sequential scanning on your Apple ID for this app, subject to Apple's usual App Store rules.
+                  A: No. Nothing in Bitcoin Puzzle Quest is a subscription. The Continuous Mode Unlock is a one-time
+                  purchase that permanently unlocks continuous and sequential scanning on your Apple ID for this app, and
+                  the Million-Key Packs are one-off consumable top-ups. Both are subject to Apple's usual App Store
+                  rules.
                 </li>
 
                 <li><strong>Q: I tried to upgrade to Continuous Mode but it does not work. What can I do?</strong>
@@ -212,13 +255,13 @@
 
                 <li><strong>Q: Is my data private?</strong>
                   A: Yes. Found keys and puzzle/key-attempt counters are stored locally in UserDefaults.
-                  Nothing leaves your device. If join Game Center to compete against the worlwide hunters, the attempt
-                  counts will be shared
-                  to rank you in global leaderboards.
+                  Nothing leaves your device. If you join Game Center to compete against worldwide hunters, the attempt
+                  counts will be shared to rank you on the global leaderboards and unlock achievements. Your BPQ invite
+                  code is a short game code only and no personal data is collected.
                 </li>
 
                 <li><strong>Q: Does BPQ use proprietary cryptography?</strong>
-                  A: No. Only open, standard algorithms—secp256k1 (ECDSA), SHA-256, and RIPEMD-160—as specified
+                  A: No. Only open, standard algorithms such as secp256k1 (ECDSA), SHA-256, and RIPEMD-160, as specified
                   by IETF/ISO are utilized to compute Bitcoin addresses from private keys.
                 </li>
 
@@ -228,16 +271,17 @@
                 </li>
 
                 <li><strong>Q: Does BPQ have a mini-game?</strong>
-                  A: Absolutely! Double-tap the treasure-chest icon on the main screen to unlock a cheeky sliding-puzzle
-                  Easter egg—because every epic quest deserves a hidden side quest.
+                  A: Absolutely! Double-tap the treasure-chest icon on the main screen to open the Daily Chest,
+                  a quick 3×3 sliding puzzle. It started life as a cheeky Easter egg, but solving it now rewards you with
+                  Power Surge keys, a free trial of Continuous Mode, once per day. Because every epic quest
+                  deserves a hidden side quest <em>and</em> a daily bonus.
                 </li>
 
                 <li><strong>Q: Can I run Bitcoin Puzzle Quest on Windows, Linux, or Android?</strong>
                   A: Today Bitcoin Puzzle Quest is built and supported for Apple platforms only, with the main focus on
-                  iOS.
-                  On macOS with Apple silicon, the game can run via the universal build in the App Store.
-                  We do not currently offer a Windows, Linux, or Android version, and we cannot promise if or when
-                  versions for other platforms will be available.
+                  iOS and iPadOS. It also runs on macOS (Apple silicon, via the universal build) and on Apple Vision
+                  (visionOS). We do not currently offer a Windows, Linux, or Android version, and we cannot promise if or
+                  when versions for other platforms will be available.
                 </li>
 
                 <li><strong>Q: Does BPQ use my GPU or support powerful desktop graphics cards?</strong>
@@ -247,8 +291,8 @@
                 </li>
 
                 <li><strong>Q: Will there be Android / macOS / Apple Watch versions?</strong>
-                  A: Android is under exploration (no ETA). macOS on Apple silicon works via the universal build. Apple
-                  Watch support is on our roadmap as a remote dashboard.
+                  A: macOS on Apple silicon and Apple Vision (visionOS) already work via the universal build. Android is
+                  under exploration (no ETA). Apple Watch support is on our roadmap as a remote dashboard.
                 </li>
 
                 <li><strong>Q: Will you add a cloud or “rented GPU” option for faster scanning?</strong>
@@ -263,8 +307,8 @@
                 <li><strong>Q: Can I play on multiple devices?</strong>A: Yes, you can play on as many devices as
                   you wish. However, any found keys are saved per device.</li>
 
-                <li><strong>Q: I found a bug or have a feature idea—how do I contact you?</strong>
-                  A: Email info @ mathricks.com</a> with your app version, iOS version, device model, and reproduction
+                <li><strong>Q: I found a bug or have a feature idea, how do I contact you?</strong>
+                  A: Email info @ mathricks.com with your app version, iOS version, device model, and reproduction
                   steps.
                   Screenshots help!
                 </li>
@@ -350,8 +394,8 @@
           option in the address bar or page menu.
         </p>
         <p style="font-size:.8rem;color:var(--muted);">
-          🌐 In-app languages: العربية, Deutsch, Español, Français, हिन्दी, Italiano, Nederlands, Português (Brasil,
-          Portugal), Русский, Türkçe, اردو, 日本語, 中文.
+          🌐 In-app languages: English, العربية, Deutsch, Español, Français, हिन्दी, Bahasa Indonesia, Italiano, 한국어,
+          Nederlands, Português (Brasil, Portugal), Русский, Türkçe, اردو, Tiếng Việt, 日本語, 简体中文, 繁體中文.
         </p>
       </div>
     </div>

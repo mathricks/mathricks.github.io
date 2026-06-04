@@ -132,6 +132,26 @@ li {
   margin: 0 0 2px;
 }
 
+.faq-screenshot {
+  margin: 16px 0 0;
+  max-width: min(100%, 560px);
+}
+
+.faq-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, .18);
+}
+
+.faq-screenshot figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
 /* Form styling in-theme */
 form {
   margin-top: 14px;
