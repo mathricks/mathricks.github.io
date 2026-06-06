@@ -21,7 +21,9 @@ toggle.addEventListener('click', () => {
 // Hero slider
 const slides = Array.from(document.querySelectorAll('.hero .slide'));
 const dots = Array.from(document.querySelectorAll('.slider-dots .dot'));
-let slideIndex = 0; let autoAdvance = true;
+const gameSlideIndex = slides.findIndex(slide => slide.classList.contains('game-slide'));
+const autoSlides = slides.map((_, i) => i).filter(i => i !== gameSlideIndex);
+let slideIndex = 0;
 let sliderPaused = false;
 function goSlide(i) {
     slides[slideIndex].classList.remove('active');
@@ -33,12 +35,13 @@ function goSlide(i) {
 let sliderTimer = null;
 let autoRestartTimeout = null;
 function startAuto() {
-    if (sliderPaused) return;
+    if (sliderPaused || autoSlides.length < 2) return;
     clearInterval(sliderTimer);
-    // Only auto-cycle between slides 0 and 1; slide 2 (game) stays hidden
     sliderTimer = setInterval(() => {
-        if (sliderPaused || slideIndex === 2) return;
-        const next = slideIndex === 0 ? 1 : 0;
+        if (sliderPaused || slideIndex === gameSlideIndex) return;
+        const currentAutoIndex = autoSlides.indexOf(slideIndex);
+        if (currentAutoIndex === -1) return;
+        const next = autoSlides[(currentAutoIndex + 1) % autoSlides.length];
         goSlide(next);
     }, 6000);
 }
@@ -52,9 +55,9 @@ dots.forEach((d, i) => d.addEventListener('click', () => {
     stopAuto();
     dots.forEach(dot => dot.classList.remove('paused'));
 
-    if (i === 2) { // Rocket game slide knob — pause everything
+    if (i === gameSlideIndex) { // Rocket game slide knob — pause everything
         sliderPaused = true;
-        if (dots[2]) dots[2].classList.add('paused');
+        if (dots[gameSlideIndex]) dots[gameSlideIndex].classList.add('paused');
     } else {
         sliderPaused = false;
         autoRestartTimeout = setTimeout(startAuto, 6000);
@@ -76,7 +79,7 @@ startAuto();
 
     slider.addEventListener('touchstart', function (e) {
         // Don't intercept touches on the game slide
-        if (slideIndex === 2) { touchStartX = 0; return; }
+        if (slideIndex === gameSlideIndex) { touchStartX = 0; return; }
         const touch = e.touches[0];
         touchStartX = touch.clientX;
         touchStartY = touch.clientY;
@@ -85,7 +88,7 @@ startAuto();
     }, { passive: true });
 
     slider.addEventListener('touchmove', function (e) {
-        if (!touchStartX || slideIndex === 2) return;
+        if (!touchStartX || slideIndex === gameSlideIndex) return;
         const touch = e.touches[0];
         const dx = touch.clientX - touchStartX;
         const dy = touch.clientY - touchStartY;
@@ -108,9 +111,15 @@ startAuto();
         const maxTime = 600; // max ms for a valid swipe
 
         if (elapsed < maxTime && Math.abs(dx) > threshold) {
-            // Only swipe between slides 0 and 1; game slide (2) is dot-only
-            let target = dx < 0 ? slideIndex + 1 : slideIndex - 1;
-            target = Math.max(0, Math.min(1, target));
+            // Only swipe among non-game slides; the game slide is dot-only.
+            const currentAutoIndex = autoSlides.indexOf(slideIndex);
+            if (currentAutoIndex === -1 || autoSlides.length < 2) {
+                touchStartX = 0;
+                isSwiping = false;
+                return;
+            }
+            const nextAutoIndex = currentAutoIndex + (dx < 0 ? 1 : -1);
+            const target = autoSlides[Math.max(0, Math.min(autoSlides.length - 1, nextAutoIndex))];
             if (target === slideIndex) { touchStartX = 0; isSwiping = false; return; }
 
             stopAuto();
@@ -183,7 +192,7 @@ startAuto();
     function pauseSliderOnGame() {
         stopAuto();
         sliderPaused = true;
-        if (dots[2]) dots[2].classList.add('paused');
+        if (dots[gameSlideIndex]) dots[gameSlideIndex].classList.add('paused');
     }
 
     function nudge(direction) {
@@ -753,7 +762,7 @@ startAuto();
         gameSlide.addEventListener('pointerdown', () => {
             stopAuto();
             sliderPaused = true;
-            if (dots[2]) dots[2].classList.add('paused');
+            if (dots[gameSlideIndex]) dots[gameSlideIndex].classList.add('paused');
         }, { passive: true });
     }
 

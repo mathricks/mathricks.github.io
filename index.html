@@ -58,86 +58,87 @@
     <div class="container nav">
       <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
       <nav class="nav-actions">
-        <a class="btn" href="#why">About</a>
+        <a class="btn" href="/games.html">Games</a>
         <a class="btn" href="#apps-list">Apps</a>
+        <a class="btn" href="/support/">Support</a>
         <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title-main">
       <div class="hero-slider" id="heroSlider">
 
-        <!-- Slide 1: Welcome to Mathricks (artistic cluster) -->
-        <div class="slide active" aria-labelledby="hero-title-main">
+        <!-- Slide 1: Featured game -->
+        <div class="slide active featured-slide featured-slide-summit" aria-labelledby="hero-title-main">
+          <video class="featured-hero-video" autoplay muted loop playsinline poster="/img/og-summit.png"
+            aria-hidden="true">
+            <source src="/summit/latest.mp4" type="video/mp4">
+          </video>
+          <div class="featured-video-scrim" aria-hidden="true"></div>
           <div class="corner draw" aria-hidden="true"></div>
           <div class="corner-r animate-down draw-right delay" aria-hidden="true"></div>
-          <!-- Decorative geometric shapes -->
-          <div class="geo-shapes" aria-hidden="true">
-            <!-- right-side blueprint cluster -->
-            <div class="geo-panel"></div>
-
-            <div class="arc geo-arc-1"></div>
-            <div class="ring ticks geo-ring-1"></div>
-            <div class="ring geo-ring-small-1"></div>
-
-            <div class="cube geo-cube-1"></div>
-            <div class="crosshair geo-crosshair-1"></div>
-
-            <!-- original primitives to echo the banner -->
-            <div class="shape sq geo-shape-sq-1"></div>
-            <div class="shape cir geo-shape-cir-1"></div>
-            <div class="shape tri geo-shape-tri-1"></div>
-          </div>
           <div class="container hero-inner">
-            <div class="hero-grid">
-              <div>
-                <h1 id="hero-title-main">Welcome to Mathricks</h1>
-                <p>Dive into a world of math‑inspired fun, challenging games &amp; powerful apps.</p>
-                <div class="hero-cta">
-                  <a class="cta" id="explore" href="#apps-list">Explore Apps</a>
+            <div class="featured-copy">
+              <div class="featured-label">Featured game</div>
+              <div class="featured-lockup">
+                <img src="/img/game4-logo.png" alt="Summit Numbers app icon" class="featured-app-icon">
+                <div>
+                  <span class="featured-studio">Mathricks Studio</span>
+                  <h1 id="hero-title-main">Summit Numbers</h1>
                 </div>
+              </div>
+              <p>Build clean number summits on a wrap-around board, protect your streak, and send the same climb to
+                friends.</p>
+              <div class="featured-actions">
+                <a class="cta" id="download-summit" href="https://apps.apple.com/app/id6753334821" rel="noopener">Get
+                  the App</a>
+                <a class="btn featured-secondary" href="/summit/support/story.html">Read the Story</a>
+                <a class="btn featured-secondary" href="/summit/support/">Support</a>
+              </div>
+              <div class="featured-facts" aria-label="Summit Numbers highlights">
+                <span>iOS</span>
+                <span>Shareable puzzles</span>
+                <span>Fast sessions</span>
               </div>
             </div>
           </div>
           <div class="signature">Mathricks<sup class="name-mark">&trade;</sup> Studio</div>
         </div>
 
-        <!-- Slide 2: Explore Our Apps (simpler cluster) -->
-        <div class="slide" aria-labelledby="hero-title-apps">
+        <!-- Slide 2: Bitcoin Puzzle Quest -->
+        <div class="slide featured-slide featured-slide-bpq" aria-labelledby="hero-title-bpq">
+          <video class="featured-hero-video" autoplay muted loop playsinline poster="/img/og-bpq.png"
+            aria-hidden="true">
+            <source src="/bpq/latest.mp4" type="video/mp4">
+          </video>
+          <div class="featured-video-scrim" aria-hidden="true"></div>
           <div class="corner draw" aria-hidden="true"></div>
           <div class="corner-r animate-down draw-right delay" aria-hidden="true"></div>
-          <!-- decorative, simplified blueprint cluster for apps -->
-          <div class="geo-shapes" aria-hidden="true">
-            <div class="geo-cluster"></div>
-            <!-- Subtler background hints -->
-            <div class="arc geo-arc-2"></div>
-            <div class="ring ticks geo-ring-2"></div>
-            <div class="grid3 geo-grid3-2"></div>
-
-            <!-- App Logos Stack -->
-            <div class="app-logo-stack" aria-hidden="false">
-              <div class="app-logo-row">
-                <a href="#apps-list" tabindex="-1"><img src="./img/game4-logo.png" alt="" /></a>
-                <a href="#apps-list" tabindex="-1"><img src="./img/game2-logo.png" alt="" /></a>
-                <a href="#" tabindex="-1"><img src="./img/der-wortschatz-icon.png" alt="" /></a>
-              </div>
-              <div class="app-logo-row">
-                <a href="#apps-list" tabindex="-1"><img src="./img/game5-logo.png" alt="" /></a>
-                <a href="#apps-list" tabindex="-1"><img src="./img/game1-logo.png" alt="" /></a>
-                <a href="#apps-list" tabindex="-1"><img src="./img/game3-logo.png" alt="" /></a>
-              </div>
-            </div>
-          </div>
           <div class="container hero-inner">
-            <div class="hero-grid">
-              <div>
-                <h1 id="hero-title-apps">Explore Our Apps</h1>
-                <p>Discover engaging, original games and powerful tools crafted with mathematical elegance.</p>
-                <div class="hero-cta">
-                  <a class="cta" id="browse" href="#apps-list">Browse&nbsp;Apps</a>
+            <div class="featured-copy">
+              <div class="featured-label">Featured quest</div>
+              <div class="featured-lockup">
+                <img src="/img/game2-logo.png" alt="Bitcoin Puzzle Quest app icon" class="featured-app-icon">
+                <div>
+                  <span class="featured-studio">Mathricks Studio</span>
+                  <h2 id="hero-title-bpq" class="featured-title">Bitcoin Puzzle Quest</h2>
                 </div>
+              </div>
+              <p>Hunt the legendary 1000 BTC cryptographic puzzle in an offline, private playground. Generate keys,
+                climb leaderboards, and celebrate big finds.</p>
+              <div class="featured-actions">
+                <a class="cta" id="download-bpq"
+                  href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" rel="noopener">Get the
+                  App</a>
+                <a class="btn featured-secondary" href="/bpq/details.html">Details</a>
+                <a class="btn featured-secondary" href="/bpq/support/">Support</a>
+              </div>
+              <div class="featured-facts" aria-label="Bitcoin Puzzle Quest highlights">
+                <span>iOS</span>
+                <span>Offline keys</span>
+                <span>Leaderboard hunt</span>
               </div>
             </div>
           </div>
@@ -149,6 +150,7 @@
           <div class="corner draw" aria-hidden="true"></div>
           <div class="corner-r animate-down draw-right delay" aria-hidden="true"></div>
           <div class="container hero-inner">
+            <h2 id="hero-title-game" class="sr-only">Rocket grid mini game</h2>
             <div class="hero-game-pane hero-game-pane-full">
               <div class="game-frame game-frame-bl" aria-hidden="true"></div>
               <div class="game-frame game-frame-tr" aria-hidden="true"></div>
@@ -164,8 +166,8 @@
 
         <!-- Slider dots -->
         <div class="slider-dots" role="tablist" aria-label="Hero slides">
-          <button class="dot active" type="button" aria-label="Show Welcome slide"></button>
-          <button class="dot" type="button" aria-label="Show Explore Apps slide"></button>
+          <button class="dot active" type="button" aria-label="Show Summit Numbers slide"></button>
+          <button class="dot" type="button" aria-label="Show Bitcoin Puzzle Quest slide"></button>
           <button class="dot" type="button" aria-label="Show Rocket game slide"></button>
         </div>
       </div>
