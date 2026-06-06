@@ -1,56 +1,132 @@
 # Mathricks
 
-> Mathricks is an independent game studio that creates math-inspired puzzle games and apps.
+> Mathricks is an independent game studio that creates math-inspired puzzle games and learning apps.
 
 ## About
 
-Mathricks (mathricks.com) is an independent studio focused on building original, math-inspired puzzle games and productivity apps. All titles are available on the Apple App Store. The studio has been active since 2010.
+Mathricks (mathricks.com) is an independent studio focused on building original, math-inspired puzzle games and apps. All titles are available on the Apple App Store. The studio has been active since 2010. The public site also includes a studio blog, company pages and app-specific support resources.
+
 
 Contact: info @ mathricks.com
-Support: https://mathricks.com/support/
+Home: https://mathricks.com/
+Games Catalog: https://mathricks.com/games.html
+Apps Catalog: https://mathricks.com/apps.html
+Blog: https://mathricks.com/blog/
+Company: https://mathricks.com/company/
+Support Center: https://mathricks.com/support/
 X/Twitter: https://x.com/mathricks
 GitHub: https://github.com/mathricks
 
 ## Games
 
 ### Bitcoin Puzzle Quest
-- Description: A cryptographic puzzle-hunt game. Generate keys offline, climb global leaderboards, and hunt the legendary 1000 BTC puzzle in a private playground.
+- Description: A cryptographic puzzle-hunt game. Generate keys offline, climb global leaderboards, and explore the legendary 1000 BTC puzzle in a private playground.
 - App Store: https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717
-- Page: https://mathricks.com/bpq/
+- Overview: https://mathricks.com/bpq/
+- Full Details: https://mathricks.com/bpq/details.html
+- Support FAQ: https://mathricks.com/bpq/support/
+- Match Explainer: https://mathricks.com/bpq/support/match.html
+- Claiming BTC Overview: https://mathricks.com/bpq/support/claim.html
+- Privacy: https://mathricks.com/bpq/privacy/
 - Platform: iOS
 
 ### Summit Numbers
 - Description: A fast number-summation puzzle. Build clean summits using wrap-around movement, keep your streak alive, and share the same climb with friends via social challenge play.
 - App Store: https://apps.apple.com/app/id6753334821
-- Page: https://mathricks.com/summit/
+- Overview: https://mathricks.com/summit/
+- Shared Puzzle Page: https://mathricks.com/summit/play/
+- Support: https://mathricks.com/summit/support/
+- Story: https://mathricks.com/summit/support/story.html
+- Privacy: https://mathricks.com/summit/privacy/
 - Platform: iOS
 
 ### Entropy: Zero
 - Description: A tactical grid repair puzzle. Restore corrupted systems by placing geometric shapes to repair damaged tiles. Every placement matters. Designed to replace doom-scrolling with focused flow-state play.
 - App Store: https://apps.apple.com/app/id6757635585
-- Page: https://mathricks.com/entropy/
+- Overview: https://mathricks.com/entropy/
+- Support: https://mathricks.com/entropy/support/
+- Story: https://mathricks.com/entropy/support/story.html
+- Privacy: https://mathricks.com/entropy/privacy/
 - Platform: iOS
 
 ### GridLock Numbers
-- Description: A strategy-first number-filling puzzle. Jump double for orthogonal moves, single for diagonals, and master x2 bonus cells to crush high scores.
+- Description: A strategy-first number-filling puzzle. Jump double for orthogonal moves, single for diagonals, and master x2 bonus cells to chase high scores.
 - App Store: https://apps.apple.com/us/app/gridlock-numbers/id912871295
-- Page: https://mathricks.com/gridlock/
+- Overview: https://mathricks.com/gridlock/
+- Support: https://mathricks.com/gridlock/support/
+- Story: https://mathricks.com/gridlock/support/story.html
+- Privacy: https://mathricks.com/gridlock/privacy/
 - Platform: iOS
 
 ### Astrovert
 - Description: A cosmic runner arcade game. Guide a cosmic baseball through asteroid belts and stormy atmospheres. Quick reflexes and timing-based gameplay with high-score runs.
 - App Store: https://apps.apple.com/gb/app/astrovert/id6502262535
-- Page: https://mathricks.com/astrovert/
+- Overview: https://mathricks.com/astrovert/
+- Support: https://mathricks.com/astrovert/support/
+- Story: https://mathricks.com/astrovert/support/story.html
+- Privacy: https://mathricks.com/astrovert/privacy/
 - Platform: iOS
 
 ### Countdown Numbers
-- Description: Upcoming number challenge inspired by classic arithmetic puzzle formats.
-- Page: https://mathricks.com/countdown/
+- Description: An upcoming arithmetic puzzle experience inspired by classic numbers-game formats.
+- Overview: https://mathricks.com/countdown/
+- Story: https://mathricks.com/countdown/support/story.html
 - Status: Coming soon
 
 ## Apps
+
+### Der Wortschatz
+- Description: A German vocabulary learning app with matching rounds, scrollable practice cards, CEFR levels, prepositions, and noun-verb combinations.
+- Overview: https://mathricks.com/der-wortschatz/
+- Curriculum Details: https://mathricks.com/der-wortschatz/details.html
+- Support: https://mathricks.com/der-wortschatz/support/
+- Privacy: https://mathricks.com/der-wortschatz/privacy/
+- Platform: iOS
 
 ### RMM
 - Description: Experimental workspace currently in active iteration.
 - Page: https://mathricks.com/rmm/
 - Status: Lab / In development
+
+## Editorial
+
+### Blog Index
+- Description: The Mathricks blog with essays on puzzle design, game mechanics, and development.
+- Page: https://mathricks.com/blog/
+
+### Why Simple Rules Create Hard Puzzles
+- Description: An essay on why puzzle depth comes from the interaction of a few rules, with examples from Sudoku, Wordle, Tetris, Minesweeper, and chess.
+- Page: https://mathricks.com/blog/why-simple-rules-create-hard-puzzles.html
+- Published: 2026-05-18
+
+## Company
+
+### Company Overview
+- Description: Studio overview, culture summary, and links to company resources.
+- Page: https://mathricks.com/company/
+
+### Workplace Policy
+- Description: Mathricks' remote-first operating model, values, and working principles.
+- Page: https://mathricks.com/company/workplace-policy.html
+
+### Privacy Policy
+- Description: Company-level privacy and data-handling policy for Mathricks.
+- Page: https://mathricks.com/company/privacy-policy.html
+
+### Terms of Service
+- Description: Terms, usage rules, intellectual property, conduct, and liability language for Mathricks games and services.
+- Page: https://mathricks.com/company/terms-of-service.html
+
+## Support
+
+### Support Center
+- Description: Main support hub for product feedback, bug reports, and account questions.
+- Page: https://mathricks.com/support/
+
+### App-Specific Support Pages
+- Bitcoin Puzzle Quest: https://mathricks.com/bpq/support/
+- Der Wortschatz: https://mathricks.com/der-wortschatz/support/
+- Summit Numbers: https://mathricks.com/summit/support/
+- Entropy: Zero: https://mathricks.com/entropy/support/
+- GridLock Numbers: https://mathricks.com/gridlock/support/
+- Astrovert: https://mathricks.com/astrovert/support/
