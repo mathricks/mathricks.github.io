@@ -323,6 +323,31 @@
                   solved levels, and tips. Reddit's <a href="https://www.reddit.com/r/Bitcoin">r/Bitcoin</a> and <a
                     href="https://www.reddit.com/r/cryptocurrency">r/cryptocurrency</a> also discuss current puzzles.
                 </li>
+
+                <li><strong>Q: When will this quest end?</strong>
+                  A: Honestly, no one knows and that's part of the fun. The hunt keeps going for as long as the puzzles
+                  stay unsolved and the underlying cryptography stays hard to reverse. A few things could change the
+                  picture over time:
+                  <ul style="margin-top: 0.5em;">
+                    <li><strong>The math holding up.</strong> The puzzle rests on the difficulty of working backward from
+                      a Bitcoin address to its private key (secp256k1 / ECDSA). As long as that stays computationally
+                      infeasible, brute-forcing a high-bit range remains astronomically unlikely, which is exactly why the
+                      bounties are still sitting there.</li>
+                    <li><strong>Puzzles getting solved.</strong> Hunters do crack ranges over time, especially when a
+                      public key is exposed. Each solved level shrinks the pool of remaining challenges, so the quest
+                      naturally winds down level by level.</li>
+                    <li><strong>Quantum computing.</strong> A sufficiently powerful quantum computer running Shor's
+                      algorithm could one day derive private keys from exposed public keys far faster than today's
+                      hardware. That technology isn't here yet and may be years away, but if it matures it could
+                      reshape, or end, this kind of hunt entirely.</li>
+                    <li><strong>The creator(s) moving the funds.</strong> The Bitcoin in the puzzle addresses belongs to
+                      whoever set up the challenge. They are free to withdraw, top up, or rearrange it at any time, which
+                      could shrink the prize pool or close the puzzle for good. This is outside our control, Bitcoin
+                      Puzzle Quest neither holds nor manages those funds.</li>
+                  </ul>
+                  Even if the prizes were one day claimed or moved, the app itself doesn't expire: it remains a private,
+                  offline playground for exploring cryptographic key-spaces and learning how Bitcoin addresses work.
+                </li>
               </ul>
             </td>
           </tr>
