@@ -119,11 +119,14 @@
                   When you earn or spend them you'll see a quick reward toast confirming it.
                 </li>
 
-                <li><strong>Q: How do "Invite Friends" and referral rewards work?</strong>
-                  A: Every player that connects to Game Center gets a personal BPQ code. Share your code with a
-                  friend, or redeem a friend's code from the menu. When an invited friend qualifies, you both earn
-                  Power Surge keys as a thank-you. Invite codes are just short game codes—no names,
-                  emails, or contacts are collected or uploaded.
+                <li><strong>Q: How do I invite friends and earn free Power Surge keys?</strong>
+                  A: Open the menu and choose <em>Invite Friends</em>. Once you're signed in to Game Center, BPQ shows
+                  your personal invite code and share link. Send that code or link to a friend; they can install Bitcoin
+                  Puzzle Quest, open <em>Invite Friends</em>, and redeem it from the same screen.<br><br>
+                  After your friend starts playing and tests at least 10,000 keys, both of you receive 1,000,000 promotional
+                  Power Surge keys. These are in-game bonus keys for Continuous Mode, not BTC, cash, or a financial
+                  reward. Invite codes are tied to Game Center profiles, you cannot redeem your own code, and eligibility
+                  checks or reward limits may apply. No names, emails, or contacts are collected or uploaded.
                 </li>
 
                 <li><strong>Q: What does “difficulty level” mean?</strong>
@@ -153,17 +156,19 @@
                 <li><strong>Q: Is this mining Bitcoin?</strong>
                   A: No. Mining secures the Bitcoin network by hashing block headers; our app merely guesses private
                   keys
-                  inside predefined ranges to see if any unlock the funded puzzle addresses. Think “lottery
-                  scratch-off,”
-                  not “industrial crypto mine.”
+                  inside predefined ranges to see if any unlock the funded puzzle addresses. This is a cryptographic
+                  search over public puzzle ranges, not an industrial crypto mine.
                 </li>
 
                 <li><strong>Q: How likely am I to win?</strong>
-                  A: The remaining puzzles are still astronomically hard. Low-bit ranges (e.g. 25 bits) can be
-                  replayed for experimenting and learning; high-bit ranges (100+ bits) are purely for the
-                  thrill. We highlight the lowest unsolved in the difficulty level picker — your “best bad odds,” so to
-                  speak. To estimate your personal chance, we've added the ratio of the number of keys tried by the
-                  total number of keys in that range for each puzzle.
+                  A: The remaining puzzles are still astronomically hard, but "almost zero" is not the same as zero.
+                  Each still-funded range has one private key that unlocks it; the challenge is that the key space is
+                  enormous. In a 71-bit range, for example, that means one winning key among about
+                  2<sup>70</sup> possible keys. Low-bit ranges (e.g. 25 bits) can be replayed for experimenting and
+                  learning; high-bit ranges (100+ bits) are purely for the thrill. We highlight the lowest unsolved in
+                  the difficulty level picker, your “best bad odds,” so to speak. To estimate your personal chance,
+                  we've added the ratio of the number of keys tried by the total number of keys in that range for each
+                  puzzle.
                 </li>
 
                 <li id="faq-claim"><strong>Q: How do I claim BTC if I find a winning key?</strong>
@@ -236,6 +241,18 @@
                   purchase that permanently unlocks continuous and sequential scanning on your Apple ID for this app, and
                   the Million-Key Packs are one-off consumable top-ups. Both are subject to Apple's usual App Store
                   rules.
+                </li>
+
+                <li><strong>Q: Can Continuous Mode pay for itself if I find a winning key?</strong>
+                  A: In theory, yes. If you ever found a private key for a still-funded puzzle address, the BTC value
+                  could be far larger than the cost of Continuous Mode, possibly tens of thousands of times larger.<br><br>
+                  In practice, you should not buy Continuous Mode as an investment. The remaining puzzle ranges are
+                  astronomically large, and the chance of finding a winning key is extremely small. Continuous Mode does
+                  not change the odds of any single key. It simply lets you scan more comfortably, continuously, and
+                  sequentially without tapping manually.<br><br>
+                  The best way to think about it: Continuous Mode is an optional upgrade for players who enjoy the hunt
+                  and want a more hands-off experience. Only spend what you would be comfortable treating as
+                  entertainment, not as financial advice or an expected return.
                 </li>
 
                 <li><strong>Q: I tried to upgrade to Continuous Mode but it does not work. What can I do?</strong>
@@ -313,8 +330,9 @@
                   Screenshots help!
                 </li>
                 <li><strong>Q: Is this legal?</strong>
-                  A: Solving public Bitcoin puzzles is legal in most jurisdictions. Be sure to check local laws on
-                  digital assets and taxes.
+                  A: Bitcoin Puzzle Quest is a local tool for exploring a publicly-known puzzle list, but laws and tax rules vary
+                  by jurisdiction. We cannot provide legal or financial advice, so check your local rules or consult a
+                  qualified professional if you are unsure.
                 </li>
                 <li><strong>Q: Where can I learn more about this Bitcoin Puzzle?</strong>
                   A: Visit the community forum topic at <a href="https://bitcointalk.org">bitcointalk.org</a> and the
@@ -331,8 +349,8 @@
                   <ul style="margin-top: 0.5em;">
                     <li><strong>The math holding up.</strong> The puzzle rests on the difficulty of working backward from
                       a Bitcoin address to its private key (secp256k1 / ECDSA). As long as that stays computationally
-                      infeasible, brute-forcing a high-bit range remains astronomically unlikely, which is exactly why the
-                      bounties are still sitting there.</li>
+                      infeasible, brute-forcing a high-bit range remains astronomically unlikely, which is why any
+                      still-funded unsolved ranges remain difficult to claim.</li>
                     <li><strong>Puzzles getting solved.</strong> Hunters do crack ranges over time, especially when a
                       public key is exposed. Each solved level shrinks the pool of remaining challenges, so the quest
                       naturally winds down level by level.</li>
