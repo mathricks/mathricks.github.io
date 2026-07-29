@@ -17,6 +17,26 @@
   <meta property="og:site_name" content="Mathricks" />
 
   <title>Bitcoin Puzzle Status | Mathricks</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Mathricks Bitcoin Puzzle Status Ledger",
+    "description": "Status, reward, address, solution date, and published-key data for Bitcoin puzzles 1 through 160.",
+    "url": "https://mathricks.com/bpq/puzzles/",
+    "dateModified": "2026-07-29",
+    "creator": {
+      "@type": "Organization",
+      "name": "Mathricks",
+      "url": "https://mathricks.com/"
+    },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://mathricks.com/bpq/puzzles/puzzles.json"
+    }
+  }
+  </script>
   <link rel="stylesheet" href="/css/app-pages-common.css" />
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="puzzles.css" />
@@ -65,11 +85,11 @@
           </article>
           <article class="metric-card metric-card-solved">
             <span class="metric-label">Verified solved</span>
-            <strong id="solvedCount">—</strong>
+            <strong id="solvedCount">83</strong>
           </article>
           <article class="metric-card">
             <span class="metric-label">Open</span>
-            <strong id="openCount">—</strong>
+            <strong id="openCount">77</strong>
           </article>
           <article class="metric-card">
             <span class="metric-label">Latest solve</span>
@@ -138,14 +158,760 @@
               </tr>
             </thead>
             <tbody id="puzzleRows">
-              <tr>
-                <td colspan="6" class="loading-cell">Loading the verified ledger…</td>
+              <!-- STATIC_SOLVED_ROWS_START -->
+              <tr id="puzzle-135">
+                <th scope="row" class="puzzle-number"><a href="/bpq/puzzles/135/">#135</a></th>
+                <td class="reward">13.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2026-07-28">2026-07-28</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/16RGFo6hjq9ym6Pj7N5H7L1NR1rVPJyw2v"
+                    rel="external noopener noreferrer">16RGFo6hjq9ym6Pj7N5H7L1NR1rVPJyw2v</a></td>
+                <td><span class="key-unpublished">Not published yet</span></td>
               </tr>
+              <tr id="puzzle-130">
+                <th scope="row" class="puzzle-number">#130</th>
+                <td class="reward">13.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2024-09-23">2024-09-23</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/16zRPnT8znwq42q7XeMkZUhb1bKqgRogyy"
+                    rel="external noopener noreferrer">16zRPnT8znwq42q7XeMkZUhb1bKqgRogyy</a></td>
+                <td><code class="key-value" title="1103873984953507439627945351144005829577">1103873984953507439627945351144005829577</code></td>
+              </tr>
+              <tr id="puzzle-125">
+                <th scope="row" class="puzzle-number">#125</th>
+                <td class="reward">12.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2023-07-09">2023-07-09</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1PXAyUB8ZoH3WD8n5zoAthYjN15yN5CVq5"
+                    rel="external noopener noreferrer">1PXAyUB8ZoH3WD8n5zoAthYjN15yN5CVq5</a></td>
+                <td><code class="key-value" title="37650549717742544505774009877315221420">37650549717742544505774009877315221420</code></td>
+              </tr>
+              <tr id="puzzle-120">
+                <th scope="row" class="puzzle-number">#120</th>
+                <td class="reward">12.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2023-02-27">2023-02-27</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/17s2b9ksz5y7abUm92cHwG8jEPCzK3dLnT"
+                    rel="external noopener noreferrer">17s2b9ksz5y7abUm92cHwG8jEPCzK3dLnT</a></td>
+                <td><code class="key-value" title="919343500840980333540511050618764323">919343500840980333540511050618764323</code></td>
+              </tr>
+              <tr id="puzzle-115">
+                <th scope="row" class="puzzle-number">#115</th>
+                <td class="reward">11.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2020-06-16">2020-06-16</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1NLbHuJebVwUZ1XqDjsAyfTRUPwDQbemfv"
+                    rel="external noopener noreferrer">1NLbHuJebVwUZ1XqDjsAyfTRUPwDQbemfv</a></td>
+                <td><code class="key-value" title="31464123230573852164273674364426950">31464123230573852164273674364426950</code></td>
+              </tr>
+              <tr id="puzzle-110">
+                <th scope="row" class="puzzle-number">#110</th>
+                <td class="reward">11.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2020-05-30">2020-05-30</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/12JzYkkN76xkwvcPT6AWKZtGX6w2LAgsJg"
+                    rel="external noopener noreferrer">12JzYkkN76xkwvcPT6AWKZtGX6w2LAgsJg</a></td>
+                <td><code class="key-value" title="1090246098153987172547740458951748">1090246098153987172547740458951748</code></td>
+              </tr>
+              <tr id="puzzle-105">
+                <th scope="row" class="puzzle-number">#105</th>
+                <td class="reward">10.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-09-23">2019-09-23</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1CMjscKB3QW7SDyQ4c3C3DEUHiHRhiZVib"
+                    rel="external noopener noreferrer">1CMjscKB3QW7SDyQ4c3C3DEUHiHRhiZVib</a></td>
+                <td><code class="key-value" title="29083230144918045706788529192435">29083230144918045706788529192435</code></td>
+              </tr>
+              <tr id="puzzle-100">
+                <th scope="row" class="puzzle-number">#100</th>
+                <td class="reward">10.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-07-08">2019-07-08</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1KCgMv8fo2TPBpddVi9jqmMmcne9uSNJ5F"
+                    rel="external noopener noreferrer">1KCgMv8fo2TPBpddVi9jqmMmcne9uSNJ5F</a></td>
+                <td><code class="key-value" title="868221233689326498340379183142">868221233689326498340379183142</code></td>
+              </tr>
+              <tr id="puzzle-95">
+                <th scope="row" class="puzzle-number">#95</th>
+                <td class="reward">9.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-07-06">2019-07-06</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/19eVSDuizydXxhohGh8Ki9WY9KsHdSwoQC"
+                    rel="external noopener noreferrer">19eVSDuizydXxhohGh8Ki9WY9KsHdSwoQC</a></td>
+                <td><code class="key-value" title="25525831956644113617013748212">25525831956644113617013748212</code></td>
+              </tr>
+              <tr id="puzzle-90">
+                <th scope="row" class="puzzle-number">#90</th>
+                <td class="reward">9.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-07-01">2019-07-01</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1L12FHH2FHjvTviyanuiFVfmzCy46RRATU"
+                    rel="external noopener noreferrer">1L12FHH2FHjvTviyanuiFVfmzCy46RRATU</a></td>
+                <td><code class="key-value" title="868012190417726402719548863">868012190417726402719548863</code></td>
+              </tr>
+              <tr id="puzzle-85">
+                <th scope="row" class="puzzle-number">#85</th>
+                <td class="reward">8.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-06-17">2019-06-17</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1Kh22PvXERd2xpTQk3ur6pPEqFeckCJfAr"
+                    rel="external noopener noreferrer">1Kh22PvXERd2xpTQk3ur6pPEqFeckCJfAr</a></td>
+                <td><code class="key-value" title="21090315766411506144426920">21090315766411506144426920</code></td>
+              </tr>
+              <tr id="puzzle-80">
+                <th scope="row" class="puzzle-number">#80</th>
+                <td class="reward">8.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-06-11">2019-06-11</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1BCf6rHUW6m3iH2ptsvnjgLruAiPQQepLe"
+                    rel="external noopener noreferrer">1BCf6rHUW6m3iH2ptsvnjgLruAiPQQepLe</a></td>
+                <td><code class="key-value" title="1105520030589234487939456">1105520030589234487939456</code></td>
+              </tr>
+              <tr id="puzzle-75">
+                <th scope="row" class="puzzle-number">#75</th>
+                <td class="reward">7.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-06-10">2019-06-10</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1J36UjUByGroXcCvmj13U6uwaVv9caEeAt"
+                    rel="external noopener noreferrer">1J36UjUByGroXcCvmj13U6uwaVv9caEeAt</a></td>
+                <td><code class="key-value" title="22538323240989823823367">22538323240989823823367</code></td>
+              </tr>
+              <tr id="puzzle-70">
+                <th scope="row" class="puzzle-number">#70</th>
+                <td class="reward">7.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-06-09">2019-06-09</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1PZzqtnymEbyRwFiYWLVKb33aM2K9Wi6Rx"
+                    rel="external noopener noreferrer">1PZzqtnymEbyRwFiYWLVKb33aM2K9Wi6Rx</a></td>
+                <td><code class="key-value" title="970436974005023690481">970436974005023690481</code></td>
+              </tr>
+              <tr id="puzzle-69">
+                <th scope="row" class="puzzle-number">#69</th>
+                <td class="reward">6.9 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2025-04-30">2025-04-30</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG"
+                    rel="external noopener noreferrer">19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG</a></td>
+                <td><code class="key-value" title="297274491920375905804">297274491920375905804</code></td>
+              </tr>
+              <tr id="puzzle-68">
+                <th scope="row" class="puzzle-number">#68</th>
+                <td class="reward">6.8 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2025-04-06">2025-04-06</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ"
+                    rel="external noopener noreferrer">1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ</a></td>
+                <td><code class="key-value" title="219898266213316039825">219898266213316039825</code></td>
+              </tr>
+              <tr id="puzzle-67">
+                <th scope="row" class="puzzle-number">#67</th>
+                <td class="reward">6.7 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2025-02-21">2025-02-21</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1BY8GQbnueYofwSuFAT3USAhGjPrkxDdW9"
+                    rel="external noopener noreferrer">1BY8GQbnueYofwSuFAT3USAhGjPrkxDdW9</a></td>
+                <td><code class="key-value" title="132656943602386256302">132656943602386256302</code></td>
+              </tr>
+              <tr id="puzzle-66">
+                <th scope="row" class="puzzle-number">#66</th>
+                <td class="reward">6.6 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2024-09-12">2024-09-12</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/13zb1hQbWVsc2S7ZTZnP2G4undNNpdh5so"
+                    rel="external noopener noreferrer">13zb1hQbWVsc2S7ZTZnP2G4undNNpdh5so</a></td>
+                <td><code class="key-value" title="46346217550346335726">46346217550346335726</code></td>
+              </tr>
+              <tr id="puzzle-65">
+                <th scope="row" class="puzzle-number">#65</th>
+                <td class="reward">6.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-06-07">2019-06-07</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/18ZMbwUFLMHoZBbfpCjUJQTCMCbktshgpe"
+                    rel="external noopener noreferrer">18ZMbwUFLMHoZBbfpCjUJQTCMCbktshgpe</a></td>
+                <td><code class="key-value" title="30568377312064202855">30568377312064202855</code></td>
+              </tr>
+              <tr id="puzzle-64">
+                <th scope="row" class="puzzle-number">#64</th>
+                <td class="reward">6.4 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2022-09-10">2022-09-10</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN"
+                    rel="external noopener noreferrer">16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN</a></td>
+                <td><code class="key-value" title="17799667357578236628">17799667357578236628</code></td>
+              </tr>
+              <tr id="puzzle-63">
+                <th scope="row" class="puzzle-number">#63</th>
+                <td class="reward">6.3 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-07-12">2019-07-12</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1NpYjtLira16LfGbGwZJ5JbDPh3ai9bjf4"
+                    rel="external noopener noreferrer">1NpYjtLira16LfGbGwZJ5JbDPh3ai9bjf4</a></td>
+                <td><code class="key-value" title="8993229949524469768">8993229949524469768</code></td>
+              </tr>
+              <tr id="puzzle-62">
+                <th scope="row" class="puzzle-number">#62</th>
+                <td class="reward">6.2 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-09-08">2019-09-08</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1Me6EfpwZK5kQziBwBfvLiHjaPGxCKLoJi"
+                    rel="external noopener noreferrer">1Me6EfpwZK5kQziBwBfvLiHjaPGxCKLoJi</a></td>
+                <td><code class="key-value" title="3908372542507822062">3908372542507822062</code></td>
+              </tr>
+              <tr id="puzzle-61">
+                <th scope="row" class="puzzle-number">#61</th>
+                <td class="reward">6.1 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-05-11">2019-05-11</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1AVJKwzs9AskraJLGHAZPiaZcrpDr1U6AB"
+                    rel="external noopener noreferrer">1AVJKwzs9AskraJLGHAZPiaZcrpDr1U6AB</a></td>
+                <td><code class="key-value" title="1425787542618654982">1425787542618654982</code></td>
+              </tr>
+              <tr id="puzzle-60">
+                <th scope="row" class="puzzle-number">#60</th>
+                <td class="reward">6.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-02-17">2019-02-17</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1Kn5h2qpgw9mWE5jKpk8PP4qvvJ1QVy8su"
+                    rel="external noopener noreferrer">1Kn5h2qpgw9mWE5jKpk8PP4qvvJ1QVy8su</a></td>
+                <td><code class="key-value" title="1135041350219496382">1135041350219496382</code></td>
+              </tr>
+              <tr id="puzzle-59">
+                <th scope="row" class="puzzle-number">#59</th>
+                <td class="reward">5.9 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2019-02-12">2019-02-12</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1HAX2n9Uruu9YDt4cqRgYcvtGvZj1rbUyt"
+                    rel="external noopener noreferrer">1HAX2n9Uruu9YDt4cqRgYcvtGvZj1rbUyt</a></td>
+                <td><code class="key-value" title="525070384258266191">525070384258266191</code></td>
+              </tr>
+              <tr id="puzzle-58">
+                <th scope="row" class="puzzle-number">#58</th>
+                <td class="reward">5.8 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2018-12-03">2018-12-03</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1Dn8NF8qDyyfHMktmuoQLGyjWmZXgvosXf"
+                    rel="external noopener noreferrer">1Dn8NF8qDyyfHMktmuoQLGyjWmZXgvosXf</a></td>
+                <td><code class="key-value" title="199976667976342049">199976667976342049</code></td>
+              </tr>
+              <tr id="puzzle-57">
+                <th scope="row" class="puzzle-number">#57</th>
+                <td class="reward">5.7 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2018-11-08">2018-11-08</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/15c9mPGLku1HuW9LRtBf4jcHVpBUt8txKz"
+                    rel="external noopener noreferrer">15c9mPGLku1HuW9LRtBf4jcHVpBUt8txKz</a></td>
+                <td><code class="key-value" title="138245758910846492">138245758910846492</code></td>
+              </tr>
+              <tr id="puzzle-56">
+                <th scope="row" class="puzzle-number">#56</th>
+                <td class="reward">5.6 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2018-09-08">2018-09-08</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/17aPYR1m6pVAacXg1PTDDU7XafvK1dxvhi"
+                    rel="external noopener noreferrer">17aPYR1m6pVAacXg1PTDDU7XafvK1dxvhi</a></td>
+                <td><code class="key-value" title="44218742292676575">44218742292676575</code></td>
+              </tr>
+              <tr id="puzzle-55">
+                <th scope="row" class="puzzle-number">#55</th>
+                <td class="reward">5.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2018-05-29">2018-05-29</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1LzhS3k3e9Ub8i2W1V8xQFdB8n2MYCHPCa"
+                    rel="external noopener noreferrer">1LzhS3k3e9Ub8i2W1V8xQFdB8n2MYCHPCa</a></td>
+                <td><code class="key-value" title="30045390491869460">30045390491869460</code></td>
+              </tr>
+              <tr id="puzzle-54">
+                <th scope="row" class="puzzle-number">#54</th>
+                <td class="reward">5.4 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2017-11-16">2017-11-16</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1KYUv7nSvXx4642TKeuC2SNdTk326uUpFy"
+                    rel="external noopener noreferrer">1KYUv7nSvXx4642TKeuC2SNdTk326uUpFy</a></td>
+                <td><code class="key-value" title="9974455244496707">9974455244496707</code></td>
+              </tr>
+              <tr id="puzzle-53">
+                <th scope="row" class="puzzle-number">#53</th>
+                <td class="reward">5.3 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2017-09-04">2017-09-04</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/15K1YKJMiJ4fpesTVUcByoz334rHmknxmT"
+                    rel="external noopener noreferrer">15K1YKJMiJ4fpesTVUcByoz334rHmknxmT</a></td>
+                <td><code class="key-value" title="6763683971478124">6763683971478124</code></td>
+              </tr>
+              <tr id="puzzle-52">
+                <th scope="row" class="puzzle-number">#52</th>
+                <td class="reward">5.2 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2017-04-21">2017-04-21</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/15z9c9sVpu6fwNiK7dMAFgMYSK4GqsGZim"
+                    rel="external noopener noreferrer">15z9c9sVpu6fwNiK7dMAFgMYSK4GqsGZim</a></td>
+                <td><code class="key-value" title="4216495639600700">4216495639600700</code></td>
+              </tr>
+              <tr id="puzzle-51">
+                <th scope="row" class="puzzle-number">#51</th>
+                <td class="reward">5.1 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2017-04-05">2017-04-05</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1NpnQyZ7x24ud82b7WiRNvPm6N8bqGQnaS"
+                    rel="external noopener noreferrer">1NpnQyZ7x24ud82b7WiRNvPm6N8bqGQnaS</a></td>
+                <td><code class="key-value" title="2058769515153876">2058769515153876</code></td>
+              </tr>
+              <tr id="puzzle-50">
+                <th scope="row" class="puzzle-number">#50</th>
+                <td class="reward">5.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-09-01">2015-09-01</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1MEzite4ReNuWaL5Ds17ePKt2dCxWEofwk"
+                    rel="external noopener noreferrer">1MEzite4ReNuWaL5Ds17ePKt2dCxWEofwk</a></td>
+                <td><code class="key-value" title="611140496167764">611140496167764</code></td>
+              </tr>
+              <tr id="puzzle-49">
+                <th scope="row" class="puzzle-number">#49</th>
+                <td class="reward">4.9 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-09-01">2015-09-01</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/12CiUhYVTTH33w3SPUBqcpMoqnApAV4WCF"
+                    rel="external noopener noreferrer">12CiUhYVTTH33w3SPUBqcpMoqnApAV4WCF</a></td>
+                <td><code class="key-value" title="409118905032525">409118905032525</code></td>
+              </tr>
+              <tr id="puzzle-48">
+                <th scope="row" class="puzzle-number">#48</th>
+                <td class="reward">4.8 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-09-01">2015-09-01</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1DFYhaB2J9q1LLZJWKTnscPWos9VBqDHzv"
+                    rel="external noopener noreferrer">1DFYhaB2J9q1LLZJWKTnscPWos9VBqDHzv</a></td>
+                <td><code class="key-value" title="191206974700443">191206974700443</code></td>
+              </tr>
+              <tr id="puzzle-47">
+                <th scope="row" class="puzzle-number">#47</th>
+                <td class="reward">4.7 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-09-01">2015-09-01</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1Pd8VvT49sHKsmqrQiP61RsVwmXCZ6ay7Z"
+                    rel="external noopener noreferrer">1Pd8VvT49sHKsmqrQiP61RsVwmXCZ6ay7Z</a></td>
+                <td><code class="key-value" title="119666659114170">119666659114170</code></td>
+              </tr>
+              <tr id="puzzle-46">
+                <th scope="row" class="puzzle-number">#46</th>
+                <td class="reward">4.6 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-30">2015-01-30</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1F3JRMWudBaj48EhwcHDdpeuy2jwACNxjP"
+                    rel="external noopener noreferrer">1F3JRMWudBaj48EhwcHDdpeuy2jwACNxjP</a></td>
+                <td><code class="key-value" title="51408670348612">51408670348612</code></td>
+              </tr>
+              <tr id="puzzle-45">
+                <th scope="row" class="puzzle-number">#45</th>
+                <td class="reward">4.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-30">2015-01-30</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1NtiLNGegHWE3Mp9g2JPkgx6wUg4TW7bbk"
+                    rel="external noopener noreferrer">1NtiLNGegHWE3Mp9g2JPkgx6wUg4TW7bbk</a></td>
+                <td><code class="key-value" title="19996463086597">19996463086597</code></td>
+              </tr>
+              <tr id="puzzle-44">
+                <th scope="row" class="puzzle-number">#44</th>
+                <td class="reward">4.4 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-30">2015-01-30</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1CkR2uS7LmFwc3T2jV8C1BhWb5mQaoxedF"
+                    rel="external noopener noreferrer">1CkR2uS7LmFwc3T2jV8C1BhWb5mQaoxedF</a></td>
+                <td><code class="key-value" title="15404761757071">15404761757071</code></td>
+              </tr>
+              <tr id="puzzle-43">
+                <th scope="row" class="puzzle-number">#43</th>
+                <td class="reward">4.3 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-30">2015-01-30</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1PiFuqGpG8yGM5v6rNHWS3TjsG6awgEGA1"
+                    rel="external noopener noreferrer">1PiFuqGpG8yGM5v6rNHWS3TjsG6awgEGA1</a></td>
+                <td><code class="key-value" title="7409811047825">7409811047825</code></td>
+              </tr>
+              <tr id="puzzle-42">
+                <th scope="row" class="puzzle-number">#42</th>
+                <td class="reward">4.2 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-30">2015-01-30</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1E32GPWgDyeyQac4aJxm9HVoLrrEYPnM4N"
+                    rel="external noopener noreferrer">1E32GPWgDyeyQac4aJxm9HVoLrrEYPnM4N</a></td>
+                <td><code class="key-value" title="2895374552463">2895374552463</code></td>
+              </tr>
+              <tr id="puzzle-41">
+                <th scope="row" class="puzzle-number">#41</th>
+                <td class="reward">4.1 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-30">2015-01-30</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1L5sU9qvJeuwQUdt4y1eiLmquFxKjtHr3E"
+                    rel="external noopener noreferrer">1L5sU9qvJeuwQUdt4y1eiLmquFxKjtHr3E</a></td>
+                <td><code class="key-value" title="1458252205147">1458252205147</code></td>
+              </tr>
+              <tr id="puzzle-40">
+                <th scope="row" class="puzzle-number">#40</th>
+                <td class="reward">4.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-30">2015-01-30</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1EeAxcprB2PpCnr34VfZdFrkUWuxyiNEFv"
+                    rel="external noopener noreferrer">1EeAxcprB2PpCnr34VfZdFrkUWuxyiNEFv</a></td>
+                <td><code class="key-value" title="1003651412950">1003651412950</code></td>
+              </tr>
+              <tr id="puzzle-39">
+                <th scope="row" class="puzzle-number">#39</th>
+                <td class="reward">3.9 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-21">2015-01-21</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/122AJhKLEfkFBaGAd84pLp1kfE7xK3GdT8"
+                    rel="external noopener noreferrer">122AJhKLEfkFBaGAd84pLp1kfE7xK3GdT8</a></td>
+                <td><code class="key-value" title="323724968937">323724968937</code></td>
+              </tr>
+              <tr id="puzzle-38">
+                <th scope="row" class="puzzle-number">#38</th>
+                <td class="reward">3.8 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-19">2015-01-19</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1HBtApAFA9B2YZw3G2YKSMCtb3dVnjuNe2"
+                    rel="external noopener noreferrer">1HBtApAFA9B2YZw3G2YKSMCtb3dVnjuNe2</a></td>
+                <td><code class="key-value" title="146971536592">146971536592</code></td>
+              </tr>
+              <tr id="puzzle-37">
+                <th scope="row" class="puzzle-number">#37</th>
+                <td class="reward">3.7 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-18">2015-01-18</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/14iXhn8bGajVWegZHJ18vJLHhntcpL4dex"
+                    rel="external noopener noreferrer">14iXhn8bGajVWegZHJ18vJLHhntcpL4dex</a></td>
+                <td><code class="key-value" title="100251560595">100251560595</code></td>
+              </tr>
+              <tr id="puzzle-36">
+                <th scope="row" class="puzzle-number">#36</th>
+                <td class="reward">3.6 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-17">2015-01-17</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1Be2UF9NLfyLFbtm3TCbmuocc9N1Kduci1"
+                    rel="external noopener noreferrer">1Be2UF9NLfyLFbtm3TCbmuocc9N1Kduci1</a></td>
+                <td><code class="key-value" title="42387769980">42387769980</code></td>
+              </tr>
+              <tr id="puzzle-35">
+                <th scope="row" class="puzzle-number">#35</th>
+                <td class="reward">3.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-17">2015-01-17</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1PWCx5fovoEaoBowAvF5k91m2Xat9bMgwb"
+                    rel="external noopener noreferrer">1PWCx5fovoEaoBowAvF5k91m2Xat9bMgwb</a></td>
+                <td><code class="key-value" title="20112871792">20112871792</code></td>
+              </tr>
+              <tr id="puzzle-34">
+                <th scope="row" class="puzzle-number">#34</th>
+                <td class="reward">3.4 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-17">2015-01-17</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1PWABE7oUahG2AFFQhhvViQovnCr4rEv7Q"
+                    rel="external noopener noreferrer">1PWABE7oUahG2AFFQhhvViQovnCr4rEv7Q</a></td>
+                <td><code class="key-value" title="14133072157">14133072157</code></td>
+              </tr>
+              <tr id="puzzle-33">
+                <th scope="row" class="puzzle-number">#33</th>
+                <td class="reward">3.3 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-16">2015-01-16</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/187swFMjz1G54ycVU56B7jZFHFTNVQFDiu"
+                    rel="external noopener noreferrer">187swFMjz1G54ycVU56B7jZFHFTNVQFDiu</a></td>
+                <td><code class="key-value" title="7137437912">7137437912</code></td>
+              </tr>
+              <tr id="puzzle-32">
+                <th scope="row" class="puzzle-number">#32</th>
+                <td class="reward">3.2 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-16">2015-01-16</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1FRoHA9xewq7DjrZ1psWJVeTer8gHRqEvR"
+                    rel="external noopener noreferrer">1FRoHA9xewq7DjrZ1psWJVeTer8gHRqEvR</a></td>
+                <td><code class="key-value" title="3093472814">3093472814</code></td>
+              </tr>
+              <tr id="puzzle-31">
+                <th scope="row" class="puzzle-number">#31</th>
+                <td class="reward">3.1 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-16">2015-01-16</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1LhE6sCTuGae42Axu1L1ZB7L96yi9irEBE"
+                    rel="external noopener noreferrer">1LhE6sCTuGae42Axu1L1ZB7L96yi9irEBE</a></td>
+                <td><code class="key-value" title="2102388551">2102388551</code></td>
+              </tr>
+              <tr id="puzzle-30">
+                <th scope="row" class="puzzle-number">#30</th>
+                <td class="reward">3.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-16">2015-01-16</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1LHtnpd8nU5VHEMkG2TMYYNUjjLc992bps"
+                    rel="external noopener noreferrer">1LHtnpd8nU5VHEMkG2TMYYNUjjLc992bps</a></td>
+                <td><code class="key-value" title="1033162084">1033162084</code></td>
+              </tr>
+              <tr id="puzzle-29">
+                <th scope="row" class="puzzle-number">#29</th>
+                <td class="reward">2.9 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/19EEC52krRUK1RkUAEZmQdjTyHT7Gp1TYT"
+                    rel="external noopener noreferrer">19EEC52krRUK1RkUAEZmQdjTyHT7Gp1TYT</a></td>
+                <td><code class="key-value" title="400708894">400708894</code></td>
+              </tr>
+              <tr id="puzzle-28">
+                <th scope="row" class="puzzle-number">#28</th>
+                <td class="reward">2.8 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/12jbtzBb54r97TCwW3G1gCFoumpckRAPdY"
+                    rel="external noopener noreferrer">12jbtzBb54r97TCwW3G1gCFoumpckRAPdY</a></td>
+                <td><code class="key-value" title="227634408">227634408</code></td>
+              </tr>
+              <tr id="puzzle-27">
+                <th scope="row" class="puzzle-number">#27</th>
+                <td class="reward">2.7 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/128z5d7nN7PkCuX5qoA4Ys6pmxUYnEy86k"
+                    rel="external noopener noreferrer">128z5d7nN7PkCuX5qoA4Ys6pmxUYnEy86k</a></td>
+                <td><code class="key-value" title="111949941">111949941</code></td>
+              </tr>
+              <tr id="puzzle-26">
+                <th scope="row" class="puzzle-number">#26</th>
+                <td class="reward">2.6 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1JVnST957hGztonaWK6FougdtjxzHzRMMg"
+                    rel="external noopener noreferrer">1JVnST957hGztonaWK6FougdtjxzHzRMMg</a></td>
+                <td><code class="key-value" title="54538862">54538862</code></td>
+              </tr>
+              <tr id="puzzle-25">
+                <th scope="row" class="puzzle-number">#25</th>
+                <td class="reward">2.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/15JhYXn6Mx3oF4Y7PcTAv2wVVAuCFFQNiP"
+                    rel="external noopener noreferrer">15JhYXn6Mx3oF4Y7PcTAv2wVVAuCFFQNiP</a></td>
+                <td><code class="key-value" title="33185509">33185509</code></td>
+              </tr>
+              <tr id="puzzle-24">
+                <th scope="row" class="puzzle-number">#24</th>
+                <td class="reward">2.4 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1rSnXMr63jdCuegJFuidJqWxUPV7AtUf7"
+                    rel="external noopener noreferrer">1rSnXMr63jdCuegJFuidJqWxUPV7AtUf7</a></td>
+                <td><code class="key-value" title="14428676">14428676</code></td>
+              </tr>
+              <tr id="puzzle-23">
+                <th scope="row" class="puzzle-number">#23</th>
+                <td class="reward">2.3 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1L2GM8eE7mJWLdo3HZS6su1832NX2txaac"
+                    rel="external noopener noreferrer">1L2GM8eE7mJWLdo3HZS6su1832NX2txaac</a></td>
+                <td><code class="key-value" title="5598802">5598802</code></td>
+              </tr>
+              <tr id="puzzle-22">
+                <th scope="row" class="puzzle-number">#22</th>
+                <td class="reward">2.2 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1CfZWK1QTQE3eS9qn61dQjV89KDjZzfNcv"
+                    rel="external noopener noreferrer">1CfZWK1QTQE3eS9qn61dQjV89KDjZzfNcv</a></td>
+                <td><code class="key-value" title="3007503">3007503</code></td>
+              </tr>
+              <tr id="puzzle-21">
+                <th scope="row" class="puzzle-number">#21</th>
+                <td class="reward">2.1 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/14oFNXucftsHiUMY8uctg6N487riuyXs4h"
+                    rel="external noopener noreferrer">14oFNXucftsHiUMY8uctg6N487riuyXs4h</a></td>
+                <td><code class="key-value" title="1811764">1811764</code></td>
+              </tr>
+              <tr id="puzzle-20">
+                <th scope="row" class="puzzle-number">#20</th>
+                <td class="reward">2.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1HsMJxNiV7TLxmoF6uJNkydxPFDog4NQum"
+                    rel="external noopener noreferrer">1HsMJxNiV7TLxmoF6uJNkydxPFDog4NQum</a></td>
+                <td><code class="key-value" title="863317">863317</code></td>
+              </tr>
+              <tr id="puzzle-19">
+                <th scope="row" class="puzzle-number">#19</th>
+                <td class="reward">1.9 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1NWmZRpHH4XSPwsW6dsS3nrNWfL1yrJj4w"
+                    rel="external noopener noreferrer">1NWmZRpHH4XSPwsW6dsS3nrNWfL1yrJj4w</a></td>
+                <td><code class="key-value" title="357535">357535</code></td>
+              </tr>
+              <tr id="puzzle-18">
+                <th scope="row" class="puzzle-number">#18</th>
+                <td class="reward">1.8 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1GnNTmTVLZiqQfLbAdp9DVdicEnB5GoERE"
+                    rel="external noopener noreferrer">1GnNTmTVLZiqQfLbAdp9DVdicEnB5GoERE</a></td>
+                <td><code class="key-value" title="198669">198669</code></td>
+              </tr>
+              <tr id="puzzle-17">
+                <th scope="row" class="puzzle-number">#17</th>
+                <td class="reward">1.7 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1HduPEXZRdG26SUT5Yk83mLkPyjnZuJ7Bm"
+                    rel="external noopener noreferrer">1HduPEXZRdG26SUT5Yk83mLkPyjnZuJ7Bm</a></td>
+                <td><code class="key-value" title="95823">95823</code></td>
+              </tr>
+              <tr id="puzzle-16">
+                <th scope="row" class="puzzle-number">#16</th>
+                <td class="reward">1.6 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1BDyrQ6WoF8VN3g9SAS1iKZcPzFfnDVieY"
+                    rel="external noopener noreferrer">1BDyrQ6WoF8VN3g9SAS1iKZcPzFfnDVieY</a></td>
+                <td><code class="key-value" title="51510">51510</code></td>
+              </tr>
+              <tr id="puzzle-15">
+                <th scope="row" class="puzzle-number">#15</th>
+                <td class="reward">1.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1QCbW9HWnwQWiQqVo5exhAnmfqKRrCRsvW"
+                    rel="external noopener noreferrer">1QCbW9HWnwQWiQqVo5exhAnmfqKRrCRsvW</a></td>
+                <td><code class="key-value" title="26867">26867</code></td>
+              </tr>
+              <tr id="puzzle-14">
+                <th scope="row" class="puzzle-number">#14</th>
+                <td class="reward">1.4 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1ErZWg5cFCe4Vw5BzgfzB74VNLaXEiEkhk"
+                    rel="external noopener noreferrer">1ErZWg5cFCe4Vw5BzgfzB74VNLaXEiEkhk</a></td>
+                <td><code class="key-value" title="10544">10544</code></td>
+              </tr>
+              <tr id="puzzle-13">
+                <th scope="row" class="puzzle-number">#13</th>
+                <td class="reward">1.3 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1Pie8JkxBT6MGPz9Nvi3fsPkr2D8q3GBc1"
+                    rel="external noopener noreferrer">1Pie8JkxBT6MGPz9Nvi3fsPkr2D8q3GBc1</a></td>
+                <td><code class="key-value" title="5216">5216</code></td>
+              </tr>
+              <tr id="puzzle-12">
+                <th scope="row" class="puzzle-number">#12</th>
+                <td class="reward">1.2 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1DBaumZxUkM4qMQRt2LVWyFJq5kDtSZQot"
+                    rel="external noopener noreferrer">1DBaumZxUkM4qMQRt2LVWyFJq5kDtSZQot</a></td>
+                <td><code class="key-value" title="2683">2683</code></td>
+              </tr>
+              <tr id="puzzle-11">
+                <th scope="row" class="puzzle-number">#11</th>
+                <td class="reward">1.1 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1PgQVLmst3Z314JrQn5TNiys8Hc38TcXJu"
+                    rel="external noopener noreferrer">1PgQVLmst3Z314JrQn5TNiys8Hc38TcXJu</a></td>
+                <td><code class="key-value" title="1155">1155</code></td>
+              </tr>
+              <tr id="puzzle-10">
+                <th scope="row" class="puzzle-number">#10</th>
+                <td class="reward">1.0 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1LeBZP5QCwwgXRtmVUvTVrraqPUokyLHqe"
+                    rel="external noopener noreferrer">1LeBZP5QCwwgXRtmVUvTVrraqPUokyLHqe</a></td>
+                <td><code class="key-value" title="514">514</code></td>
+              </tr>
+              <tr id="puzzle-9">
+                <th scope="row" class="puzzle-number">#9</th>
+                <td class="reward">0.9 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1CQFwcjw1dwhtkVWBttNLDtqL7ivBonGPV"
+                    rel="external noopener noreferrer">1CQFwcjw1dwhtkVWBttNLDtqL7ivBonGPV</a></td>
+                <td><code class="key-value" title="467">467</code></td>
+              </tr>
+              <tr id="puzzle-8">
+                <th scope="row" class="puzzle-number">#8</th>
+                <td class="reward">0.8 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1M92tSqNmQLYw33fuBvjmeadirh1ysMBxK"
+                    rel="external noopener noreferrer">1M92tSqNmQLYw33fuBvjmeadirh1ysMBxK</a></td>
+                <td><code class="key-value" title="224">224</code></td>
+              </tr>
+              <tr id="puzzle-7">
+                <th scope="row" class="puzzle-number">#7</th>
+                <td class="reward">0.7 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1McVt1vMtCC7yn5b9wgX1833yCcLXzueeC"
+                    rel="external noopener noreferrer">1McVt1vMtCC7yn5b9wgX1833yCcLXzueeC</a></td>
+                <td><code class="key-value" title="76">76</code></td>
+              </tr>
+              <tr id="puzzle-6">
+                <th scope="row" class="puzzle-number">#6</th>
+                <td class="reward">0.6 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1PitScNLyp2HCygzadCh7FveTnfmpPbfp8"
+                    rel="external noopener noreferrer">1PitScNLyp2HCygzadCh7FveTnfmpPbfp8</a></td>
+                <td><code class="key-value" title="49">49</code></td>
+              </tr>
+              <tr id="puzzle-5">
+                <th scope="row" class="puzzle-number">#5</th>
+                <td class="reward">0.5 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1E6NuFjCi27W5zoXg8TRdcSRq84zJeBW3k"
+                    rel="external noopener noreferrer">1E6NuFjCi27W5zoXg8TRdcSRq84zJeBW3k</a></td>
+                <td><code class="key-value" title="21">21</code></td>
+              </tr>
+              <tr id="puzzle-4">
+                <th scope="row" class="puzzle-number">#4</th>
+                <td class="reward">0.4 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1EhqbyUMvvs7BfL8goY6qcPbD6YKfPqb7e"
+                    rel="external noopener noreferrer">1EhqbyUMvvs7BfL8goY6qcPbD6YKfPqb7e</a></td>
+                <td><code class="key-value" title="8">8</code></td>
+              </tr>
+              <tr id="puzzle-3">
+                <th scope="row" class="puzzle-number">#3</th>
+                <td class="reward">0.3 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/19ZewH8Kk1PDbSNdJ97FP4EiCjTRaZMZQA"
+                    rel="external noopener noreferrer">19ZewH8Kk1PDbSNdJ97FP4EiCjTRaZMZQA</a></td>
+                <td><code class="key-value" title="7">7</code></td>
+              </tr>
+              <tr id="puzzle-2">
+                <th scope="row" class="puzzle-number">#2</th>
+                <td class="reward">0.2 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1CUNEBjYrCn2y1SdiUMohaKUi4wpP326Lb"
+                    rel="external noopener noreferrer">1CUNEBjYrCn2y1SdiUMohaKUi4wpP326Lb</a></td>
+                <td><code class="key-value" title="3">3</code></td>
+              </tr>
+              <tr id="puzzle-1">
+                <th scope="row" class="puzzle-number">#1</th>
+                <td class="reward">0.1 BTC</td>
+                <td><span class="status-pill status-solved">Solved</span></td>
+                <td class="date-cell"><time datetime="2015-01-15">2015-01-15</time></td>
+                <td><a class="mono-link" href="https://mempool.space/address/1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH"
+                    rel="external noopener noreferrer">1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH</a></td>
+                <td><code class="key-value" title="1">1</code></td>
+              </tr>
+              <!-- STATIC_SOLVED_ROWS_END -->
             </tbody>
           </table>
         </div>
         <p id="loadError" class="load-error" hidden>
-          The ledger could not be loaded. Please refresh the page in a moment.
+          The interactive ledger could not be refreshed. The crawlable solved records below remain available.
         </p>
       </div>
     </section>

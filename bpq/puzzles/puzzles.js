@@ -203,7 +203,18 @@
       const row = document.createElement('tr');
       row.id = `puzzle-${bit}`;
 
-      row.appendChild(makeCell('puzzle-number', `#${bit}`));
+      const puzzleCell = document.createElement('th');
+      puzzleCell.scope = 'row';
+      puzzleCell.className = 'puzzle-number';
+      if (bit === 135) {
+        const recordLink = document.createElement('a');
+        recordLink.href = '/bpq/puzzles/135/';
+        recordLink.textContent = `#${bit}`;
+        puzzleCell.appendChild(recordLink);
+      } else {
+        puzzleCell.textContent = `#${bit}`;
+      }
+      row.appendChild(puzzleCell);
       row.appendChild(makeCell('reward', rewardFor(bit)));
 
       const statusCell = makeCell();
@@ -327,9 +338,8 @@
       }
     })
     .catch(() => {
-      rowsElement.replaceChildren();
       loadErrorElement.hidden = false;
-      resultCountElement.textContent = '';
+      resultCountElement.textContent = '83 solved puzzles';
     });
 
   searchElement.addEventListener('input', render);

@@ -256,6 +256,14 @@ tbody tr {
   transition: background .18s ease;
 }
 
+tbody th {
+  background: transparent;
+  color: var(--fg);
+  font-size: 1.05rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
 tbody tr:hover {
   background: var(--tint);
 }
