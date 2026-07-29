@@ -19,8 +19,9 @@ const rows = Object.entries(data)
   .sort((a, b) => b.number - a.number)
   .map(({ number, entry }) => {
     const puzzleLabel = `#${number}`;
-    const puzzleContent = number === 135
-      ? `<a href="/bpq/puzzles/135/">${puzzleLabel}</a>`
+    const hasRecordPage = number === 69 || number === 135;
+    const puzzleContent = hasRecordPage
+      ? `<a href="/bpq/puzzles/${number}/">${puzzleLabel}</a>`
       : puzzleLabel;
     const date = entry.solvedDate
       ? `<time datetime="${escapeHTML(entry.solvedDate)}">${escapeHTML(entry.solvedDate)}</time>`

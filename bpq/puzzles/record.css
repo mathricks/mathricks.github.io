@@ -3,7 +3,7 @@
 }
 
 .record-hero::after {
-  content: "135";
+  content: attr(data-puzzle);
 }
 
 .record-hero h1 {

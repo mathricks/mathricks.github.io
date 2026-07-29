@@ -206,9 +206,9 @@
       const puzzleCell = document.createElement('th');
       puzzleCell.scope = 'row';
       puzzleCell.className = 'puzzle-number';
-      if (bit === 135) {
+      if (bit === 69 || bit === 135) {
         const recordLink = document.createElement('a');
-        recordLink.href = '/bpq/puzzles/135/';
+        recordLink.href = `/bpq/puzzles/${bit}/`;
         recordLink.textContent = `#${bit}`;
         puzzleCell.appendChild(recordLink);
       } else {
