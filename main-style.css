@@ -624,6 +624,10 @@ header {
         linear-gradient(180deg, rgba(8, 8, 4, .10), rgba(8, 8, 4, .72));
 }
 
+.featured-slide-bpq h1 {
+    font-size: clamp(44px, 7.4vw, 92px);
+}
+
 .featured-hero-video,
 .featured-video-scrim {
     position: absolute;
@@ -700,9 +704,32 @@ header {
     font-weight: 600;
 }
 
+.featured-slide h1 a,
+.featured-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .featured-slide p {
     max-width: 650px;
     color: var(--featured-body);
+}
+
+.featured-slide .featured-announcement {
+    max-width: 700px;
+    margin-bottom: 22px;
+    line-height: 1.55;
+}
+
+.featured-announcement strong {
+    color: var(--featured-heading);
+    font-weight: 700;
+}
+
+.featured-announcement a {
+    text-decoration: underline;
+    text-decoration-color: var(--featured-accent);
+    text-underline-offset: 4px;
 }
 
 .featured-actions {
@@ -1855,5 +1882,16 @@ footer {
 
     .app-logo-row {
         gap: 10px;
+    }
+}
+
+@media (max-width: 520px) {
+    .nav .logo {
+        display: none;
+    }
+
+    .nav-actions {
+        width: 100%;
+        justify-content: center;
     }
 }

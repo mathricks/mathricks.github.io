@@ -70,8 +70,42 @@
     <section class="hero" aria-labelledby="hero-title-main">
       <div class="hero-slider" id="heroSlider">
 
-        <!-- Slide 1: Featured game -->
-        <div class="slide active featured-slide featured-slide-summit" aria-labelledby="hero-title-main">
+        <!-- Slide 1: Bitcoin Puzzle Quest -->
+        <div class="slide active featured-slide featured-slide-bpq" aria-labelledby="hero-title-main">
+          <video class="featured-hero-video" autoplay muted loop playsinline poster="/img/og-bpq.png"
+            aria-hidden="true">
+            <source src="/bpq/latest.mp4" type="video/mp4">
+          </video>
+          <div class="featured-video-scrim" aria-hidden="true"></div>
+          <div class="corner draw" aria-hidden="true"></div>
+          <div class="corner-r animate-down draw-right delay" aria-hidden="true"></div>
+          <div class="container hero-inner">
+            <div class="featured-copy">
+              <div class="featured-label">The hunt just moved</div>
+              <div class="featured-lockup">
+                <img src="/img/game2-logo.png" alt="Bitcoin Puzzle Quest app icon" class="featured-app-icon">
+                <div>
+                  <h1 id="hero-title-main"><a href="/bpq/">Bitcoin Puzzle Quest</a></h1>
+                </div>
+              </div>
+              <p class="featured-announcement">
+                <strong><a href="/bpq/puzzles/135/">Puzzle 135 has just been solved.</a></strong>
+                13.5 BTC (worth $870,966 at publication) was claimed.
+                There are still <strong>903 BTC across 77 open puzzles</strong>.
+                Do you want to find the next key?
+              </p>
+              <div class="featured-actions">
+                <a class="cta" id="download-bpq"
+                  href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" rel="noopener">Get the App</a>
+                <a class="btn featured-secondary" href="/bpq/">Explore the Quest</a>
+              </div>
+            </div>
+          </div>
+          <div class="signature">Mathricks<sup class="name-mark">&trade;</sup> Studio</div>
+        </div>
+
+        <!-- Slide 2: Summit Numbers -->
+        <div class="slide featured-slide featured-slide-summit" aria-labelledby="hero-title-summit">
           <video class="featured-hero-video" autoplay muted loop playsinline poster="/img/og-summit.png"
             aria-hidden="true">
             <source src="/summit/latest.mp4" type="video/mp4">
@@ -85,8 +119,7 @@
               <div class="featured-lockup">
                 <img src="/img/game4-logo.png" alt="Summit Numbers app icon" class="featured-app-icon">
                 <div>
-                  <span class="featured-studio">Mathricks Studio</span>
-                  <h1 id="hero-title-main">Summit Numbers</h1>
+                  <h2 id="hero-title-summit" class="featured-title"><a href="/summit/">Summit Numbers</a></h2>
                 </div>
               </div>
               <p>Build clean number summits on a wrap-around board, protect your streak, and send the same climb to
@@ -101,44 +134,6 @@
                 <span>iOS</span>
                 <span>Shareable puzzles</span>
                 <span>Fast sessions</span>
-              </div>
-            </div>
-          </div>
-          <div class="signature">Mathricks<sup class="name-mark">&trade;</sup> Studio</div>
-        </div>
-
-        <!-- Slide 2: Bitcoin Puzzle Quest -->
-        <div class="slide featured-slide featured-slide-bpq" aria-labelledby="hero-title-bpq">
-          <video class="featured-hero-video" autoplay muted loop playsinline poster="/img/og-bpq.png"
-            aria-hidden="true">
-            <source src="/bpq/latest.mp4" type="video/mp4">
-          </video>
-          <div class="featured-video-scrim" aria-hidden="true"></div>
-          <div class="corner draw" aria-hidden="true"></div>
-          <div class="corner-r animate-down draw-right delay" aria-hidden="true"></div>
-          <div class="container hero-inner">
-            <div class="featured-copy">
-              <div class="featured-label">Featured quest</div>
-              <div class="featured-lockup">
-                <img src="/img/game2-logo.png" alt="Bitcoin Puzzle Quest app icon" class="featured-app-icon">
-                <div>
-                  <span class="featured-studio">Mathricks Studio</span>
-                  <h2 id="hero-title-bpq" class="featured-title">Bitcoin Puzzle Quest</h2>
-                </div>
-              </div>
-              <p>Hunt the legendary 1000 BTC cryptographic puzzle in an offline, private playground. Generate keys,
-                climb leaderboards, and celebrate big finds.</p>
-              <div class="featured-actions">
-                <a class="cta" id="download-bpq"
-                  href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" rel="noopener">Get the
-                  App</a>
-                <a class="btn featured-secondary" href="/bpq/details.html">Details</a>
-                <a class="btn featured-secondary" href="/bpq/support/">Support</a>
-              </div>
-              <div class="featured-facts" aria-label="Bitcoin Puzzle Quest highlights">
-                <span>iOS</span>
-                <span>Offline keys</span>
-                <span>Leaderboard hunt</span>
               </div>
             </div>
           </div>
@@ -166,8 +161,8 @@
 
         <!-- Slider dots -->
         <div class="slider-dots" role="tablist" aria-label="Hero slides">
-          <button class="dot active" type="button" aria-label="Show Summit Numbers slide"></button>
-          <button class="dot" type="button" aria-label="Show Bitcoin Puzzle Quest slide"></button>
+          <button class="dot active" type="button" aria-label="Show Bitcoin Puzzle Quest slide"></button>
+          <button class="dot" type="button" aria-label="Show Summit Numbers slide"></button>
           <button class="dot" type="button" aria-label="Show Rocket game slide"></button>
         </div>
       </div>

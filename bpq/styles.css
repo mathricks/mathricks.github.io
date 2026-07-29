@@ -647,6 +647,17 @@ section {
     line-height: 1.6;
 }
 
+.status-callout .status-release {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-left: 2px solid var(--accent);
+    background: rgba(244, 194, 54, .06);
+}
+
+.status-release strong {
+    color: var(--accent);
+}
+
 .status-update-previous {
     margin-top: 28px;
     padding-top: 28px;
