@@ -1,3 +1,151 @@
+.puzzle-news {
+  position: relative;
+  height: 38px;
+  overflow: hidden;
+  perspective: 800px;
+  color: #fff;
+  background: #7d0000;
+  border-bottom: 1px solid rgba(255, 255, 255, .22);
+}
+
+.puzzle-news-row {
+  position: absolute;
+  inset: 0;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  backface-visibility: hidden;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.puzzle-news-row-latest {
+  background: #b80000;
+  animation: puzzle-news-latest 12s infinite cubic-bezier(.65, 0, .35, 1);
+}
+
+.puzzle-news-row-previous {
+  background: #830000;
+  animation: puzzle-news-previous 12s infinite cubic-bezier(.65, 0, .35, 1);
+}
+
+.puzzle-news:hover .puzzle-news-row,
+.puzzle-news:focus-within .puzzle-news-row {
+  animation-play-state: paused;
+}
+
+@keyframes puzzle-news-latest {
+  0%,
+  42% {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) rotateX(0);
+  }
+
+  50% {
+    opacity: 0;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-100%) rotateX(-65deg);
+  }
+
+  50.01%,
+  92% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(100%) rotateX(65deg);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+@keyframes puzzle-news-previous {
+  0%,
+  42% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(100%) rotateX(65deg);
+  }
+
+  50%,
+  92% {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) rotateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-100%) rotateX(-65deg);
+  }
+}
+
+.puzzle-news-inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.puzzle-news-kicker {
+  display: flex;
+  align-items: center;
+  padding: 9px 16px 9px 0;
+  font-size: .7rem;
+  font-weight: 750;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  border-right: 1px solid rgba(255, 255, 255, .28);
+}
+
+.puzzle-news-link {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  padding: 8px 0 8px 18px;
+  font-size: .82rem;
+  line-height: 1.35;
+}
+
+.puzzle-news-link:hover .puzzle-news-headline,
+.puzzle-news-link:focus-visible .puzzle-news-headline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.puzzle-news-link:focus-visible {
+  outline-color: #fff;
+  outline-offset: -2px;
+}
+
+.puzzle-news-headline {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.puzzle-news-action {
+  color: rgba(255, 255, 255, .82);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .status-hero {
   position: relative;
   overflow: hidden;
@@ -416,6 +564,35 @@ tbody tr:last-child td {
 }
 
 @media (max-width: 560px) {
+  .puzzle-news,
+  .puzzle-news-row {
+    height: 54px;
+  }
+
+  .puzzle-news-inner {
+    grid-template-columns: 74px minmax(0, 1fr);
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .puzzle-news-kicker {
+    padding-right: 10px;
+    font-size: .62rem;
+  }
+
+  .puzzle-news-link {
+    padding-left: 12px;
+    font-size: .75rem;
+  }
+
+  .puzzle-news-headline {
+    white-space: normal;
+  }
+
+  .puzzle-news-action {
+    display: none;
+  }
+
   .status-hero {
     min-height: 470px;
   }
@@ -444,5 +621,27 @@ tbody tr:last-child td {
 
   .result-count {
     grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .puzzle-news {
+    height: auto;
+    overflow: visible;
+  }
+
+  .puzzle-news-row {
+    position: relative;
+    height: auto;
+    min-height: 38px;
+    animation: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .puzzle-news-row-previous {
+    border-top: 1px solid rgba(255, 255, 255, .18);
   }
 }
