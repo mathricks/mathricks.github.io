@@ -37,6 +37,10 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mathricks.com/bpq/puzzles/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://mathricks.com/bpq/support/</loc>
     <priority>0.5</priority>
   </url>

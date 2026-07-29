@@ -30,7 +30,8 @@ header p {
   scroll-margin-top: 120px;
 }
 
-#faq-claim {
+#faq-claim,
+#faq-high-bit-solves {
   scroll-margin-top: 140px;
 }
 

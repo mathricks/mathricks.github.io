@@ -613,6 +613,63 @@ section {
 }
 
 /* ----- Footer ----- */
+.status-callout-section {
+    padding: 40px 0 12px;
+}
+
+.status-callout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 32px;
+    align-items: center;
+    padding: clamp(24px, 4vw, 42px);
+    border-color: rgba(244, 194, 54, .35);
+    background:
+        radial-gradient(circle at 85% 15%, rgba(244, 194, 54, .12), transparent 32%),
+        var(--bg);
+}
+
+.status-callout h2,
+.status-callout h3 {
+    margin: 8px 0 12px;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1;
+}
+
+.status-callout h3 {
+    font-size: clamp(24px, 3vw, 38px);
+}
+
+.status-callout p {
+    max-width: 680px;
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.status-update-previous {
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+}
+
+.status-text-link {
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-color: rgba(244, 194, 54, .55);
+    text-underline-offset: 4px;
+    transition: color .18s ease, text-decoration-color .18s ease;
+}
+
+.status-text-link:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+}
+
+.status-callout .cta {
+    white-space: nowrap;
+}
+
 footer {
     padding: 60px 0
 }
@@ -697,6 +754,14 @@ footer {
 
     .hero-cta {
         flex-wrap: wrap
+    }
+
+    .status-callout {
+        grid-template-columns: 1fr;
+    }
+
+    .status-callout .cta {
+        justify-self: start;
     }
 }
 

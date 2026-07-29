@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="The Mathricks source of truth for Bitcoin Puzzle Quest statuses, verified solution dates, addresses, rewards, and published keys." />
+  <link rel="canonical" href="https://mathricks.com/bpq/puzzles/" />
+
+  <meta property="og:title" content="Bitcoin Puzzle Status | Mathricks" />
+  <meta property="og:description"
+    content="Verified Bitcoin Puzzle statuses, solution dates, addresses, rewards, and published keys." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mathricks.com/bpq/puzzles/" />
+  <meta property="og:image" content="https://mathricks.com/img/og-bpq.png" />
+  <meta property="og:site_name" content="Mathricks" />
+
+  <title>Bitcoin Puzzle Status | Mathricks</title>
+  <link rel="stylesheet" href="/css/app-pages-common.css" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="puzzles.css" />
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <script src="/js/theme.js" defer></script>
+  <script src="puzzles.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <nav class="nav-actions" aria-label="Primary navigation">
+        <a class="btn" href="/bpq/">Bitcoin Puzzle Quest</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="status-hero">
+      <div class="status-grid" aria-hidden="true"></div>
+      <div class="container status-hero-inner">
+        <div class="eyebrow">Canonical puzzle data</div>
+        <h1>Bitcoin Puzzle<br><span>Status Ledger</span></h1>
+        <p class="status-lede">
+          A clean, independently maintained record of all 160 puzzle addresses.
+          This is the source used by Bitcoin Puzzle Quest.
+        </p>
+        <div class="status-meta">
+          <span class="live-dot" aria-hidden="true"></span>
+          Last verified <time datetime="2026-07-29">29 July 2026</time>
+        </div>
+      </div>
+    </section>
+
+    <section class="section status-summary" aria-labelledby="summary-title">
+      <div class="container">
+        <div class="eyebrow">At a glance</div>
+        <h2 id="summary-title">The current field.</h2>
+        <div class="summary-grid" aria-live="polite">
+          <article class="metric-card">
+            <span class="metric-label">Puzzles tracked</span>
+            <strong id="totalCount">160</strong>
+          </article>
+          <article class="metric-card metric-card-solved">
+            <span class="metric-label">Verified solved</span>
+            <strong id="solvedCount">—</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Open</span>
+            <strong id="openCount">—</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Latest solve</span>
+            <strong><a id="latestSolve" class="metric-link" href="#puzzle-135">#135</a></strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Previous solve</span>
+            <strong><a id="previousSolve" class="metric-link" href="#puzzle-69">#69</a></strong>
+          </article>
+          <article class="metric-card metric-card-rewards">
+            <span class="metric-label">Rewards remaining</span>
+            <strong id="remainingRewards">—</strong>
+            <span id="remainingRewardsUSD" class="metric-subvalue" hidden></span>
+          </article>
+          <article class="metric-card metric-card-solved metric-card-rewards">
+            <span class="metric-label">Rewards claimed</span>
+            <strong id="claimedRewards">—</strong>
+            <span id="claimedRewardsUSD" class="metric-subvalue" hidden></span>
+          </article>
+          <article class="metric-card metric-card-rewards">
+            <span class="metric-label">Total rewards</span>
+            <strong id="totalRewards">—</strong>
+            <span id="totalRewardsUSD" class="metric-subvalue" hidden></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section ledger-section" aria-labelledby="ledger-title">
+      <div class="container">
+        <div class="ledger-heading">
+          <div>
+            <div class="eyebrow">Puzzle ledger</div>
+            <h2 id="ledger-title">Verified status, one row at a time.</h2>
+          </div>
+          <p class="section-note">Rewards are shown in BTC. Keys appear only after they have been independently verified.</p>
+        </div>
+
+        <div class="ledger-controls" role="search">
+          <label class="search-field">
+            <span class="sr-only">Search puzzles</span>
+            <input id="puzzleSearch" type="search" placeholder="Search puzzle, address, date, or key"
+              autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="128" />
+          </label>
+          <label class="filter-field">
+            <span class="sr-only">Filter by status</span>
+            <select id="statusFilter">
+              <option value="all">All statuses</option>
+              <option value="solved">Solved</option>
+              <option value="open">Open</option>
+            </select>
+          </label>
+          <span id="resultCount" class="result-count" aria-live="polite"></span>
+        </div>
+
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Puzzle</th>
+                <th scope="col">Reward</th>
+                <th scope="col">Status</th>
+                <th scope="col">Solved</th>
+                <th scope="col">Address</th>
+                <th scope="col">Published key</th>
+              </tr>
+            </thead>
+            <tbody id="puzzleRows">
+              <tr>
+                <td colspan="6" class="loading-cell">Loading the verified ledger…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="loadError" class="load-error" hidden>
+          The ledger could not be loaded. Please refresh the page in a moment.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="/bpq/">Bitcoin Puzzle Quest</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="/bpq/support/">Support</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="/bpq/privacy/">Privacy</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+</body>
+
+</html>
