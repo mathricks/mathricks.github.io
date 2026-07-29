@@ -24,6 +24,7 @@ GitHub: https://github.com/mathricks
 - App Store: https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717
 - Overview: https://mathricks.com/bpq/
 - Full Details: https://mathricks.com/bpq/details.html
+- Bitcoin Puzzle Explainer: https://mathricks.com/bpq/what-is-a-bitcoin-puzzle/
 - Canonical Puzzle Status Ledger: https://mathricks.com/bpq/puzzles/
 - Support FAQ: https://mathricks.com/bpq/support/
 - Match Explainer: https://mathricks.com/bpq/support/match.html

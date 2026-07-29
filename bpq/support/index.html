@@ -82,6 +82,13 @@
                   offline, on your own iOS device.
                 </li>
 
+                <li id="faq-what-is-bitcoin-puzzle"><strong>Q: What is a Bitcoin Puzzle, or BTC Puzzle?</strong>
+                  A: A Bitcoin puzzle is a public cryptographic challenge in which bitcoin was placed at addresses whose
+                  private keys were deliberately chosen from limited, known ranges. Solving one means finding the
+                  private key for a funded puzzle address; it does not mean that Bitcoin itself has been broken.
+                  <a href="../what-is-a-bitcoin-puzzle/">Read our plain-English guide to the 1000 BTC Challenge</a>.
+                </li>
+
                 <li><strong>Q: How are the puzzle levels structured?</strong>
                   A: The challenge is divided into 160 levels (originally 256), with each level using a key range that
                   is twice as large as the previous one. For example:
@@ -187,9 +194,11 @@
                 <li id="faq-high-bit-solves"><strong>Q: How have some high-bit difficulty levels already been solved?</strong>
                   A: The puzzle creator(s) left a "small" clue by making an outgoing transaction from those addresses,
                   which reveals the public key. Levels 75,80,85,90,95,100,105,110,115,120,125,130 and 135 have been solved this way.
-                  That hint cuts the number of possible keys to try in half. Using this extra information, puzzle
-                  hunters apply specialized search techniques (such as Pollard's kangaroo or baby-step giant-step)
-                  to recover the private keys more quickly for the remaining levels 140,145,150,155 and 160-bit.
+                  A known public key allows puzzle hunters to use square-root search techniques such as Pollard's
+                  kangaroo or baby-step giant-step. For Puzzle 135, that changes the generic work from searching an
+                  interval of 2<sup>134</sup> candidates to roughly 2<sup>67</sup> curve operations, before
+                  implementation-specific factors. The remaining public-key-exposed levels are 140,145,150,155 and
+                  160-bit. <a href="../what-is-a-bitcoin-puzzle/#search-title">See the two search cases explained</a>.
                   The puzzle creator(s) have confirmed that no other clues or backdoors exist.
                 </li>
 
@@ -336,8 +345,9 @@
                   qualified professional if you are unsure.
                 </li>
                 <li><strong>Q: Where can I learn more about this Bitcoin Puzzle?</strong>
-                  A: Start with the <a href="https://mathricks.com/bpq/puzzles/">BPQ puzzle status ledger</a> for our
-                  verified puzzle data and win-announcement sources. The community forum at
+                  A: Start with our <a href="../what-is-a-bitcoin-puzzle/">plain-English Bitcoin Puzzle guide</a>, then
+                  use the <a href="https://mathricks.com/bpq/puzzles/">BPQ puzzle status ledger</a> for verified puzzle
+                  data and win-announcement sources. The community forum at
                   <a href="https://bitcointalk.org">bitcointalk.org</a> and
                   <a href="https://btcpuzzle.info">btcpuzzle.info</a> also offer historical discussion and tools.
                   Reddit's <a href="https://www.reddit.com/r/Bitcoin">r/Bitcoin</a> and <a

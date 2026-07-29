@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="A Bitcoin puzzle, or BTC puzzle, is a public cryptographic challenge with funded addresses and deliberately limited private-key ranges. Learn how the 1000 BTC Challenge works." />
+  <link rel="canonical" href="https://mathricks.com/bpq/what-is-a-bitcoin-puzzle/" />
+
+  <meta property="og:title" content="What Is a Bitcoin Puzzle? The 1000 BTC Challenge Explained" />
+  <meta property="og:description"
+    content="A plain-English guide to Bitcoin puzzle ranges, rewards, brute-force searches, exposed public keys, and why the challenge does not break Bitcoin." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://mathricks.com/bpq/what-is-a-bitcoin-puzzle/" />
+  <meta property="og:image" content="https://mathricks.com/img/og-bitcoin-puzzle-explainer.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Mathricks" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Is a Bitcoin Puzzle?" />
+  <meta name="twitter:description" content="The 1000 BTC Challenge explained in plain English." />
+  <meta name="twitter:image" content="https://mathricks.com/img/og-bitcoin-puzzle-explainer.png" />
+
+  <title>What Is a Bitcoin Puzzle? 1000 BTC Challenge Explained | Mathricks</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What is a Bitcoin Puzzle? The 1000 BTC Challenge Explained",
+    "description": "A plain-English guide to the public cryptographic challenge commonly called the Bitcoin Puzzle or 1000 BTC Challenge.",
+    "datePublished": "2026-07-29",
+    "dateModified": "2026-07-29",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://mathricks.com/bpq/what-is-a-bitcoin-puzzle/"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Mathricks",
+      "url": "https://mathricks.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mathricks",
+      "url": "https://mathricks.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mathricks.com/img/og-mathricks.png"
+      }
+    },
+    "image": "https://mathricks.com/img/og-bitcoin-puzzle-explainer.png"
+  }
+  </script>
+  <link rel="stylesheet" href="/css/app-pages-common.css" />
+  <link rel="stylesheet" href="/bpq/styles.css" />
+  <link rel="stylesheet" href="/bpq/puzzles/puzzles.css" />
+  <link rel="stylesheet" href="/bpq/puzzles/record.css" />
+  <link rel="stylesheet" href="/bpq/what-is-a-bitcoin-puzzle/explainer.css" />
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <script src="/js/theme.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo logo-muted"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions" aria-label="Primary navigation">
+        <a class="btn" href="/bpq/puzzles/">Puzzle Status</a>
+        <a class="btn" href="/bpq/">Bitcoin Puzzle Quest</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="status-hero record-hero explainer-hero" data-puzzle="2ⁿ">
+      <div class="status-grid" aria-hidden="true"></div>
+      <div class="container status-hero-inner">
+        <div class="record-kicker">Plain-English guide</div>
+        <h1>What Is a<br><span>Bitcoin Puzzle?</span></h1>
+        <p class="status-lede">
+          The numbered Bitcoin/BTC puzzles are public, funded cryptographic challenges built from deliberately limited
+          private-key ranges. They are a demonstration of scale, not a flaw in Bitcoin.
+        </p>
+        <p class="update-meta">
+          <span>Published <time datetime="2026-07-29">29 July 2026</time></span>
+          <span>About 7 minutes to read</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section record-section" aria-labelledby="concise-answer">
+      <div class="container record-layout">
+        <article class="record-copy">
+          <div class="eyebrow">The concise answer</div>
+          <h2 id="concise-answer">A public hunt for deliberately constrained keys.</h2>
+          <p class="explainer-definition">
+            <strong>A Bitcoin puzzle, often called a BTC puzzle, is a public cryptographic challenge in which bitcoin was
+              placed at addresses whose private keys were deliberately chosen from limited, known ranges.</strong>
+            Anyone can test candidate keys. Solving a puzzle means finding the private key that controls one of those
+            funded addresses.
+          </p>
+          <p>
+            Each numbered level has one target address and one defined interval. If the target is Puzzle
+            <code>n</code>, its private key <code>k</code> lies in the range:
+          </p>
+          <div class="formula" role="img"
+            aria-label="Two to the power of n minus one is less than or equal to k, and k is less than two to the power of n">
+            2<sup>n−1</sup> ≤ k &lt; 2<sup>n</sup>
+          </div>
+          <p>
+            There is no word riddle or hidden clue to decode. The challenge is to locate one unknown number inside a
+            known but rapidly expanding interval, derive its Bitcoin address, and match that address to the published
+            target.
+          </p>
+          <p class="record-note">
+            The name “puzzle” has stuck, but “bounded private-key search challenge” is the more literal description.
+          </p>
+          <div class="record-actions">
+            <a class="cta" href="/bpq/puzzles/">See every puzzle’s status</a>
+            <a class="btn" href="/bpq/puzzles/135/">Explore Puzzle 135</a>
+          </div>
+        </article>
+
+        <aside aria-label="Bitcoin Puzzle facts">
+          <dl class="record-facts">
+            <div>
+              <dt>Common names</dt>
+              <dd>Bitcoin Puzzle, BTC Puzzle, ~1000 BTC Challenge, mysterious "Bitcoin puzzle transaction ~32 BTC"</dd>
+            </div>
+            <div>
+              <dt>Launched</dt>
+              <dd>2015</dd>
+            </div>
+            <div>
+              <dt>Creator</dt>
+              <dd>Anonymous</dd>
+            </div>
+            <div>
+              <dt>Original structure</dt>
+              <dd>256 numbered addresses</dd>
+            </div>
+            <div>
+              <dt>Actively tracked prize set</dt>
+              <dd>Levels 1–160</dd>
+            </div>
+            <div>
+              <dt>Level n range size</dt>
+              <dd>2<sup>n−1</sup> candidate keys</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section record-section" aria-labelledby="levels-title">
+      <div class="container">
+        <div class="eyebrow">The level system</div>
+        <h2 id="levels-title">Why every number gets harder.</h2>
+        <p class="section-intro">
+          A level number describes the size of its private-key interval. Moving up one level doubles the number of
+          candidates, so the difficulty grows exponentially rather than in equal steps.
+        </p>
+        <div class="explanation-grid">
+          <article class="explanation-card">
+            <span class="card-number">01</span>
+            <h3>A fixed interval</h3>
+            <p>Puzzle 1 contains one candidate. Puzzle 2 contains two. Puzzle 3 contains four. The same rule continues
+              through the higher levels.</p>
+          </article>
+          <article class="explanation-card">
+            <span class="card-number">02</span>
+            <h3>Twice the search space</h3>
+            <p>Puzzle 71 contains 2<sup>70</sup> candidates—about 1.18 sextillion. Puzzle 72 contains twice as many.</p>
+          </article>
+          <article class="explanation-card">
+            <span class="card-number">03</span>
+            <h3>A funded target</h3>
+            <p>The creator distributed ~32 BTC in bitcoin across the published target addresses initially. 
+              Later their top-ups raised the total to ~1000 BTC, which is why the challenge became known as the "~1000 BTC challenge" rather than the original "~32 BTC."</p>
+          </article>
+        </div>
+        <div class="range-table-wrap">
+          <table class="range-table">
+            <caption>How selected puzzle ranges grow</caption>
+            <thead>
+              <tr>
+                <th scope="col">Puzzle</th>
+                <th scope="col">Private-key interval</th>
+                <th scope="col">Candidates in the interval</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">#1</th>
+                <td><code>2⁰ ≤ k &lt; 2¹</code></td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th scope="row">#3</th>
+                <td><code>2² ≤ k &lt; 2³</code></td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <th scope="row">#71</th>
+                <td><code>2⁷⁰ ≤ k &lt; 2⁷¹</code></td>
+                <td>2<sup>70</sup></td>
+              </tr>
+              <tr>
+                <th scope="row">#135</th>
+                <td><code>2¹³⁴ ≤ k &lt; 2¹³⁵</code></td>
+                <td>2<sup>134</sup></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section record-section" aria-labelledby="search-title">
+      <div class="container">
+        <div class="eyebrow">How puzzles are searched</div>
+        <h2 id="search-title">One challenge, two very different cases.</h2>
+        <p class="section-intro">
+          The available public information determines which kind of search is possible. This is why some higher-numbered
+          puzzles can be more practical targets than lower-numbered ones.
+        </p>
+        <div class="search-comparison">
+          <article class="search-card">
+            <div class="search-label">Address known</div>
+            <h3>Candidate-by-candidate search</h3>
+            <p>
+              When only a Bitcoin address and its interval are known, hunters generate candidate private keys, derive
+              their addresses, and compare the results with the target. No generally useful shortcut is known for these
+              deliberately random-looking ranges.
+            </p>
+            <div class="complexity">
+              <span>Work grows with the range</span>
+              <strong>approximately 2<sup>n−1</sup></strong>
+            </div>
+          </article>
+          <article class="search-card search-card-accent">
+            <div class="search-label">Public key exposed</div>
+            <h3>Square-root discrete-log search</h3>
+            <p>
+              Spending from a traditional puzzle address reveals its public key. Once that happens, interval algorithms
+              such as Pollard’s kangaroo can search for the corresponding private key in roughly the square root of the
+              interval size.
+            </p>
+            <div class="complexity">
+              <span>Work grows with the square root</span>
+              <strong>approximately 2<sup>(n−1)/2</sup></strong>
+            </div>
+          </article>
+        </div>
+        <p class="record-note correction-note">
+          Revealing a public key does not merely cut the work “in half.” For Puzzle 135, the interval contains
+          2<sup>134</sup> candidates, while a generic square-root search is on the order of 2<sup>67</sup> curve
+          operations, before implementation-specific factors. That is an enormous reduction, though still a formidable
+          computation.
+        </p>
+      </div>
+    </section>
+
+    <section class="section record-section" aria-labelledby="not-title">
+      <div class="container">
+        <div class="eyebrow">Important distinctions</div>
+        <h2 id="not-title">This is not mining and it does not break Bitcoin.</h2>
+        <div class="explanation-grid distinction-grid">
+          <article class="explanation-card">
+            <h3>Not Bitcoin mining</h3>
+            <p>Mining repeatedly hashes block headers to secure the network and order transactions. Puzzle hunting tests
+              private keys against a fixed list of challenge addresses.</p>
+          </article>
+          <article class="explanation-card">
+            <h3>Not an ordinary wallet attack</h3>
+            <p>Normal Bitcoin keys are not advertised as belonging to one of these small, numbered intervals. The
+              challenge deliberately discards almost all of the normal private-key space.</p>
+          </article>
+          <article class="explanation-card">
+            <h3>Not proof of a backdoor</h3>
+            <p>A solved puzzle demonstrates that a constrained interval can eventually be searched. It does not reveal
+              a shortcut for reversing ordinary Bitcoin addresses or public keys.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section record-section case-study" aria-labelledby="case-title">
+      <div class="container record-layout">
+        <article class="record-copy">
+          <div class="eyebrow">A recent example</div>
+          <h2 id="case-title">What happened with Puzzle 135?</h2>
+          <p>
+            Puzzle 135 held 13.5 BTC and had a known public key, making a square-root interval search possible.
+            The discoverer publicly reported a five-month search using approximately 200 GPUs. On 28 July 2026, a confirmed
+            transaction swept the puzzle address’s 13.5 BTC balance.
+          </p>
+          <p>
+            We independently checked the transaction, block, funding inputs, destination amount, and public key
+            revealed by the spending signatures. The result is preserved in our permanent evidence record.
+          </p>
+          <div class="record-actions">
+            <a class="cta" href="/bpq/puzzles/135/">Read the verified record</a>
+            <a class="btn" href="/bpq/updates/bitcoin-puzzle-135-solved/">Read the announcement</a>
+          </div>
+        </article>
+        <aside aria-label="Puzzle 135 summary">
+          <dl class="record-facts">
+            <div>
+              <dt>Puzzle</dt>
+              <dd>#135</dd>
+            </div>
+            <div>
+              <dt>Interval size</dt>
+              <dd>2<sup>134</sup> candidate keys</dd>
+            </div>
+            <div>
+              <dt>Public key</dt>
+              <dd>Known before the solve</dd>
+            </div>
+            <div>
+              <dt>Reward swept</dt>
+              <dd>13.5 BTC</dd>
+            </div>
+            <div>
+              <dt>Solved</dt>
+              <dd><time datetime="2026-07-28">28 July 2026</time></dd>
+            </div>
+            <div>
+              <dt>Solver</dt>
+              <dd>RetiredCoder</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section record-section" aria-labelledby="bpq-title">
+      <div class="container record-copy">
+        <div class="eyebrow">Where Bitcoin Puzzle Quest fits</div>
+        <h2 id="bpq-title">An independent, offline playground.</h2>
+        <p>
+          <a href="/bpq/"><strong>Bitcoin Puzzle Quest</strong></a> is a Mathricks app for exploring this public
+          challenge. It generates candidate keys locally on an iPhone or iPad, derives their Bitcoin addresses, and
+          checks them against an offline copy of the published puzzle list.
+        </p>
+        <p>
+          Mathricks did not create the Bitcoin Puzzle, is not affiliated with its anonymous creator, and does not
+          control, sponsor, or administer its funds. Candidate keys and matches stay on your device.
+        </p>
+        <p>
+          The remaining intervals are astronomically large. The app is best understood as an educational cryptography
+          game that makes the scale of private-key searches tangible, not as an expectation of financial reward.
+        </p>
+        <div class="record-actions">
+          <a class="btn" href="/bpq/support/match.html">How a key “match” works</a>
+          <a class="btn" href="/bpq/support/">Read the support FAQ</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section record-section faq-section" aria-labelledby="questions-title">
+      <div class="container">
+        <div class="eyebrow">Common questions</div>
+        <h2 id="questions-title">Bitcoin Puzzle FAQ.</h2>
+        <div class="question-list">
+          <details>
+            <summary>Why is it called a puzzle if there is no riddle?</summary>
+            <p>The challenge asks participants to recover an unknown private key from a defined numerical interval. It
+              is closer to a cryptographic search problem than a traditional riddle, but the “Bitcoin Puzzle” name
+              became the community shorthand.</p>
+          </details>
+          <details>
+            <summary>Is a BTC puzzle the same thing as Bitcoin mining?</summary>
+            <p>No. Mining helps secure Bitcoin by hashing block headers. Puzzle hunting derives addresses from candidate
+              private keys and compares them with a published target.</p>
+          </details>
+          <details>
+            <summary>Does solving one mean Bitcoin has been cracked?</summary>
+            <p>No. The puzzle keys were deliberately restricted to public, much smaller intervals. Ordinary wallet keys
+              do not come with that advantage.</p>
+          </details>
+          <details>
+            <summary>What happens when someone solves a funded puzzle?</summary>
+            <p>The matching private key can authorize a transaction from that address. Any practical claim depends on
+              the address still holding funds and on the solver safely managing the key and transaction. Mathricks does
+              not administer the funds.</p>
+          </details>
+          <details>
+            <summary>Which Bitcoin puzzles are still unsolved?</summary>
+            <p>Status changes over time. Use the <a href="/bpq/puzzles/">Mathricks Bitcoin Puzzle Status Ledger</a> for
+              the current, source-linked list rather than relying on a static answer here.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section record-section" aria-labelledby="sources-title">
+      <div class="container record-copy">
+        <div class="eyebrow">Sources and further reading</div>
+        <h2 id="sources-title">Follow the evidence.</h2>
+        <ul class="source-list">
+          <li><a href="https://bitcointalk.org/index.php?topic=1306983.0"
+              rel="external noopener noreferrer">The long-running Bitcoin Puzzle community thread on Bitcointalk</a></li>
+          <li><a href="/bpq/puzzles/">Mathricks Bitcoin Puzzle Status Ledger</a></li>
+          <li><a href="/bpq/puzzles/135/">Independently verified Puzzle 135 record</a></li>
+          <li><a href="https://bitcointalk.org/index.php?topic=5517607.msg66986617#msg66986617"
+              rel="external noopener noreferrer">Puzzle 135 announcement</a></li>
+          <li><a href="https://mempool.space/tx/817535430c600810080662dd425a2e335f771effd950d28fc443bce4a92fa812"
+              rel="external noopener noreferrer">Puzzle 135 solution transaction</a></li>
+        </ul>
+        <p class="update-meta">
+          <span>Last reviewed <time datetime="2026-07-29">29 July 2026</time></span>
+          <span>Corrections: info [at] mathricks [dot] com</span>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo logo-muted"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="/bpq/">Bitcoin Puzzle Quest</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="/bpq/puzzles/">Puzzle Status</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="/bpq/support/">Support</a>
+      </div>
+    </div>
+    <div class="container legal">© 2010-2026, Mathricks&trade;. All rights reserved.</div>
+  </footer>
+</body>
+
+</html>
