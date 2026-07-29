@@ -262,7 +262,7 @@
       } else if (status === 'solved') {
         const unpublished = document.createElement('span');
         unpublished.className = 'key-unpublished';
-        unpublished.textContent = 'Not independently published';
+        unpublished.textContent = 'Not published yet';
         keyCell.appendChild(unpublished);
       } else {
         const empty = document.createElement('span');

@@ -27,7 +27,7 @@ const rows = Object.entries(data)
       : '—';
     const key = entry.solvedKey
       ? `<code class="key-value" title="${escapeHTML(entry.solvedKey)}">${escapeHTML(entry.solvedKey)}</code>`
-      : '<span class="key-unpublished">Not independently published</span>';
+      : '<span class="key-unpublished">Not published yet</span>';
 
     return [
       `              <tr id="puzzle-${number}">`,
