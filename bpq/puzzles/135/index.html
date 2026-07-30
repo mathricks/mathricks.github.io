@@ -5,12 +5,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Bitcoin Puzzle 135 was solved on 28 July 2026. The 13.5 BTC claim was verified using the confirmed spending transaction in block 959946." />
+    content="Bitcoin Puzzle 135 was solved on 28 July 2026. The 13.5 BTC claim was verified using the published private key and the confirmed spending transaction in block 959946." />
   <link rel="canonical" href="https://mathricks.com/bpq/puzzles/135/" />
 
   <meta property="og:title" content="Bitcoin Puzzle 135 Has Been Solved | Mathricks" />
   <meta property="og:description"
-    content="The permanent, independently verified record for Bitcoin Puzzle 135, including its address, reward, transaction, block, and verification method." />
+    content="The permanent, independently verified record for Bitcoin Puzzle 135, including its address, reward, transaction, block, published private key, and verification method." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://mathricks.com/bpq/puzzles/135/" />
   <meta property="og:image" content="https://mathricks.com/img/og-bpq.png" />
@@ -47,8 +47,8 @@
         <p class="status-lede">
           The 13.5 BTC reward was swept on
           <time datetime="2026-07-28T08:20:16Z">28 July 2026 at 08:20:16 UTC</time>.
-          On-chain evidence was independently verified on
-          <time datetime="2026-07-29">29 July 2026</time>.
+          The transaction and published private key were independently verified on
+          <time datetime="2026-07-30">30 July 2026</time>.
         </p>
       </div>
     </section>
@@ -60,12 +60,15 @@
           <h2>The concise answer.</h2>
           <p>
             <strong>Bitcoin Puzzle 135 is solved.</strong> A confirmed transaction spent the puzzle address’s
-            accumulated 13.5 BTC balance in block 959946. The solver publicly <a href="https://bitcointalk.org/index.php?topic=5517607.msg66986617#msg66986617">announced the solve</a>
-            shortly afterward. The spending signature reveals a public key that resolves to the known Puzzle 135
-            address.
+            accumulated 13.5 BTC balance in block 959946. The solver publicly
+            <a href="https://bitcointalk.org/index.php?topic=5517607.msg66986617#msg66986617"
+              rel="external noopener noreferrer">announced the solve</a> shortly afterward and later
+            <a href="https://bitcointalk.org/index.php?topic=5517607.msg66992071#msg66992071"
+              rel="external noopener noreferrer">published the private key</a>. That key derives the same public key
+            revealed by the spending transaction and the exact known Puzzle 135 address.
           </p>
           <p class="record-note">
-            The private key has not been publicly released yet.
+            The published private key independently verifies the result.
           </p>
 
           <h3>Verification method</h3>
@@ -74,7 +77,9 @@
             <li>Confirm that its inputs spend all three known funding outputs for the Puzzle 135 address.</li>
             <li>Confirm that those inputs total 13.5 BTC and send 13.499515 BTC after a 0.000485 BTC fee.</li>
             <li>Extract the revealed compressed public key and confirm that it corresponds to the Puzzle 135 address.</li>
-            <li>Cross-check the result against RetiredCoder’s timestamped public announcement.</li>
+            <li>Derive the compressed secp256k1 public key from the published private key and confirm an exact match.</li>
+            <li>Derive the Bitcoin address from that public key and confirm that it is the Puzzle 135 address.</li>
+            <li>Cross-check the result against the published timestamped public posts.</li>
           </ol>
 
           <div class="record-actions">
@@ -126,7 +131,12 @@
             </div>
             <div>
               <dt>Published private key</dt>
-              <dd>Not published as of 29 July 2026</dd>
+              <dd><code>37286935858852539926448623437930621337266</code></dd>
+            </div>
+            <div>
+              <dt>Key published</dt>
+              <dd><a href="https://bitcointalk.org/index.php?topic=5517607.msg66992071#msg66992071"
+                  rel="external noopener noreferrer"><time datetime="2026-07-29T20:13:35Z">29 July 2026, 20:13:35 UTC</time></a></dd>
             </div>
           </dl>
         </aside>
@@ -152,6 +162,20 @@
             <code class="evidence-code">02145d2611c823a396ef6712ce0f712f09b9b4f3135e3e0aa3230fb9b6d08d1e16</code>
           </article>
         </div>
+        <div class="evidence-grid">
+          <article class="evidence-item">
+            <span>Private key (decimal)</span>
+            <code class="evidence-code">37286935858852539926448623437930621337266</code>
+          </article>
+          <article class="evidence-item">
+            <span>Private key (64-character hexadecimal)</span>
+            <code class="evidence-code">0000000000000000000000000000006d9392a16883f90903d5f78da57af07eb2</code>
+          </article>
+          <article class="evidence-item">
+            <span>Derived address</span>
+            <code class="evidence-code">16RGFo6hjq9ym6Pj7N5H7L1NR1rVPJyw2v</code>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -159,11 +183,14 @@
       <div class="container record-copy">
         <div class="eyebrow">Record maintenance</div>
         <h2 id="updates-title">Updates and corrections.</h2>
+        <p>
+          <strong>30 July 2026:</strong> The published private key was independently verified and added
+          to this record and the canonical ledger.
+        </p>
         <p><strong>29 July 2026:</strong> Initial record published after independent blockchain verification.</p>
         <p>
-          If the private key is later published and independently checked, this page and the
-          <a href="/bpq/puzzles/">canonical ledger</a> will be updated. Factual corrections are dated here; the
-          canonical URL remains unchanged. Corrections can be reported to info [at] mathricks [dot] com.
+          Factual corrections are dated here; the canonical URL remains unchanged. Corrections can be reported to
+          info [at] mathricks [dot] com.
         </p>
       </div>
     </section>

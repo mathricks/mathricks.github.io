@@ -5,12 +5,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Mathricks confirms that Bitcoin Puzzle 135 was solved on 28 July 2026 and independently verified from its confirmed spending transaction." />
+    content="Mathricks confirms that Bitcoin Puzzle 135 was solved on 28 July 2026 and independently verified from its confirmed transaction and published private key." />
   <link rel="canonical" href="https://mathricks.com/bpq/updates/bitcoin-puzzle-135-solved/" />
 
   <meta property="og:title" content="Bitcoin Puzzle 135 Solved and Independently Verified" />
   <meta property="og:description"
-    content="Mathricks confirms the Puzzle 135 solve with its transaction, block, timestamp, and verification method." />
+    content="Mathricks confirms the Puzzle 135 solve with its transaction, block, published private key, and reproducible verification method." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://mathricks.com/bpq/updates/bitcoin-puzzle-135-solved/" />
   <meta property="og:image" content="https://mathricks.com/img/og-bpq.png" />
@@ -22,9 +22,9 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Bitcoin Puzzle 135 Solved and Independently Verified",
-    "description": "Mathricks confirms that Bitcoin Puzzle 135 was solved on 28 July 2026.",
+    "description": "Mathricks confirms that Bitcoin Puzzle 135 was solved on 28 July 2026 and verifies the published private key.",
     "datePublished": "2026-07-29",
-    "dateModified": "2026-07-29",
+    "dateModified": "2026-07-30",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://mathricks.com/bpq/updates/bitcoin-puzzle-135-solved/"
@@ -75,11 +75,12 @@
         <h1>Bitcoin Puzzle 135<br><span>Solved and Verified</span></h1>
         <p class="status-lede">
           Bitcoin Puzzle 135 was solved on 28 July 2026. The result was independently verified from the
-          confirmed transaction that swept the address’s 13.5 BTC balance.
+          confirmed transaction that swept the address’s 13.5 BTC balance and from the subsequently published
+          private key.
         </p>
         <p class="update-meta">
           <span>Published <time datetime="2026-07-29">29 July 2026</time></span>
-          <span>Last updated <time datetime="2026-07-29">29 July 2026</time></span>
+          <span>Last updated <time datetime="2026-07-30">30 July 2026</time></span>
         </p>
       </div>
     </section>
@@ -102,16 +103,22 @@
           </p>
           <p>
             The solver, RetiredCoder, publicly <a href="https://bitcointalk.org/index.php?topic=5517607.msg66986617#msg66986617">announced the solve</a> at 08:39:40 UTC and described a five-month search using
-            approximately 200 GPUs. The announcement also stated that the private key would be published later.
-            It remains unpublished at the time of this update.
+            approximately 200 GPUs. At
+            <a href="https://bitcointalk.org/index.php?topic=5517607.msg66992071#msg66992071"
+              rel="external noopener noreferrer"><time datetime="2026-07-29T20:13:35Z">20:13:35 UTC on 29 July 2026</time></a>,
+            RetiredCoder published the Puzzle 135 private key.
           </p>
 
           <h3>What could be verified</h3>
           <p>
             We checked the confirmed transaction, block height and block timestamp; traced its inputs to the known
             Puzzle 135 funding outputs; confirmed the total input and destination amount; and checked the public key
-            disclosed by the spending signatures against the puzzle address. This confirms control of the address and
-            the claim of its accumulated reward.
+            disclosed by the spending signatures against the puzzle address. We then derived the compressed
+            secp256k1 public key from the published private key and obtained an exact match:
+            <code>02145d2611c823a396ef6712ce0f712f09b9b4f3135e3e0aa3230fb9b6d08d1e16</code>.
+            That public key derives the known Puzzle 135 address,
+            <code>16RGFo6hjq9ym6Pj7N5H7L1NR1rVPJyw2v</code>. Together, these checks independently confirm
+            the published key, control of the address, and the reward claim.
           </p>
 
           <h3>Primary sources</h3>
@@ -120,15 +127,16 @@
                 rel="external noopener noreferrer">Confirmed solution transaction on mempool.space</a></li>
             <li><a href="https://bitcointalk.org/index.php?topic=5517607.msg66986617#msg66986617"
                 rel="external noopener noreferrer">RetiredCoder’s public announcement on Bitcointalk</a></li>
+            <li><a href="https://bitcointalk.org/index.php?topic=5517607.msg66992071#msg66992071"
+                rel="external noopener noreferrer">RetiredCoder’s published private key on Bitcointalk</a></li>
             <li><a href="/bpq/puzzles/135/">Permanent Puzzle 135 evidence record</a></li>
             <li><a href="/bpq/puzzles/">Complete Bitcoin Puzzle status ledger</a></li>
           </ul>
 
           <h3>Correction policy</h3>
           <p>
-            Material corrections are dated on the permanent record. When additional primary evidence becomes public,
-            including the private key, it will independently be checked before changing the ledger. Corrections
-            can be reported to info [at] mathricks [dot] com.
+            Material corrections are dated on the permanent record. Additional primary evidence is independently
+            checked before the ledger changes. Corrections can be reported to info [at] mathricks [dot] com.
           </p>
 
           <div class="record-actions">
@@ -150,7 +158,7 @@
             </div>
             <div>
               <dt>Verified on</dt>
-              <dd><time datetime="2026-07-29">29 July 2026</time></dd>
+              <dd><time datetime="2026-07-30">30 July 2026</time></dd>
             </div>
             <div>
               <dt>Reward swept</dt>
@@ -162,7 +170,12 @@
             </div>
             <div>
               <dt>Private key</dt>
-              <dd>Not yet published</dd>
+              <dd><code>37286935858852539926448623437930621337266</code></dd>
+            </div>
+            <div>
+              <dt>Key published</dt>
+              <dd><a href="https://bitcointalk.org/index.php?topic=5517607.msg66992071#msg66992071"
+                  rel="external noopener noreferrer"><time datetime="2026-07-29T20:13:35Z">29 July 2026, 20:13:35 UTC</time></a></dd>
             </div>
           </dl>
         </aside>

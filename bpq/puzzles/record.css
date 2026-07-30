@@ -75,6 +75,10 @@
   color: var(--fg);
 }
 
+.record-copy code {
+  overflow-wrap: anywhere;
+}
+
 .record-copy a,
 .record-section a,
 .record-facts a {
