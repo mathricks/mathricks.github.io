@@ -77,6 +77,14 @@ GitHub: https://github.com/mathricks
 
 ## Apps
 
+### World of Words
+- Description: A playful, offline-first vocabulary app. Spin an interactive globe, discover translations across countries, hear available pronunciations, and build a daily learning streak.
+- Overview: https://mathricks.com/world-of-words/
+- Support: https://mathricks.com/world-of-words/support/
+- Privacy: https://mathricks.com/world-of-words/privacy/
+- Platform: iOS, iPadOS, macOS
+- Status: In development
+
 ### Der Wortschatz
 - Description: A German vocabulary learning app with matching rounds, scrollable practice cards, CEFR levels, prepositions, and noun-verb combinations.
 - Overview: https://mathricks.com/der-wortschatz/
@@ -126,6 +134,7 @@ GitHub: https://github.com/mathricks
 - Page: https://mathricks.com/support/
 
 ### App-Specific Support Pages
+- World of Words: https://mathricks.com/world-of-words/support/
 - Bitcoin Puzzle Quest: https://mathricks.com/bpq/support/
 - Der Wortschatz: https://mathricks.com/der-wortschatz/support/
 - Summit Numbers: https://mathricks.com/summit/support/
