@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Zweitwohnung by Mathricks is an iOS app for organizing German double-household records: days, trips, expenses, allowances, checks, and CSV export." />
+  <meta name="keywords"
+    content="Zweitwohnung, double household app, doppelte Haushaltsfuehrung, German tax records, travel expenses, meal allowance, Mathricks, iOS" />
+  <link rel="canonical" href="https://mathricks.com/zweitwohnung/" />
+
+  <meta property="og:title" content="Zweitwohnung | Mathricks" />
+  <meta property="og:description"
+    content="Organize days, trips, expenses, configurable allowance assumptions, and CSV export for a German second home used for work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mathricks.com/zweitwohnung/" />
+  <meta property="og:image" content="https://mathricks.com/img/zweitwohnung-icon.png" />
+  <meta property="og:site_name" content="Mathricks" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@mathricks" />
+  <meta name="twitter:title" content="Zweitwohnung | Mathricks" />
+  <meta name="twitter:description"
+    content="A local iOS organizer for German second-home work records, annual estimates, and CSV export." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Zweitwohnung",
+    "operatingSystem": "iOS",
+    "applicationCategory": "FinanceApplication",
+    "description": "An iOS app for organizing German double-household records: days, trips, expenses, configurable allowance assumptions, checks, and CSV export.",
+    "url": "https://mathricks.com/zweitwohnung/",
+    "author": {
+      "@type": "Organization",
+      "name": "Mathricks",
+      "url": "https://mathricks.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <title>Zweitwohnung | Mathricks</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app-pages-common.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <script src="/js/theme.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="#records">Records</a>
+        <a class="btn" href="#estimate">Estimate</a>
+        <a class="btn" href="support/">Support</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Second Home Records</div>
+            <h1 id="hero-title">Zweitwohnung</h1>
+            <p>Keep the practical records for a work-related second home in one local iOS app: calendar days, trips,
+              meal allowances, accommodation costs, furnishing, moving expenses, review checks, and export.</p>
+            <div class="hero-cta">
+              <a class="cta" href="details.html">View Details</a>
+              <a class="btn" href="privacy/">Privacy</a>
+            </div>
+            <div class="hero-stats" aria-label="Zweitwohnung highlights">
+              <div class="stat">
+                <span class="stat-label">Data</span>
+                <span class="stat-value">Local Only</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Views</span>
+                <span class="stat-value">4 Tabs</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Export</span>
+                <span class="stat-value">CSV</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone-wrap" aria-label="Zweitwohnung app preview">
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="app-title-row">
+                  <img src="/img/zweitwohnung-icon.png" alt="Zweitwohnung app icon">
+                  <div>
+                    <strong>Zweitwohnung</strong>
+                    <span>Tax year 2026</span>
+                  </div>
+                </div>
+                <div class="app-card-preview">
+                  <div class="summary-value">
+                    <span>Estimated deduction</span>
+                    <strong>2,184 EUR</strong>
+                  </div>
+                  <div class="preview-row">
+                    <div class="preview-icon">D</div>
+                    <div>
+                      <strong>Days</strong>
+                      <div class="preview-label">Arrival, full day, departure</div>
+                    </div>
+                    <div class="preview-value">18</div>
+                  </div>
+                  <div class="preview-row">
+                    <div class="preview-icon">T</div>
+                    <div>
+                      <strong>Trips home</strong>
+                      <div class="preview-label">One eligible trip each week</div>
+                    </div>
+                    <div class="preview-value">5</div>
+                  </div>
+                  <div class="preview-row">
+                    <div class="preview-icon">E</div>
+                    <div>
+                      <strong>Expenses</strong>
+                      <div class="preview-label">Rent, receipts, moving</div>
+                    </div>
+                    <div class="preview-value">7</div>
+                  </div>
+                  <div class="chips">
+                    <span>Deutsch</span>
+                    <span>English</span>
+                    <span>No account</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="band" aria-hidden="true">
+      <div class="ticker">days - trips - meal allowances - accommodation - furnishings - moving costs - checks - CSV export - days - trips - meal allowances - accommodation - </div>
+    </div>
+
+    <section class="section" id="records">
+      <div class="container reveal">
+        <div class="eyebrow">Daily Records</div>
+        <h2>A calendar for the events that matter at tax time.</h2>
+        <p class="section-lead">Tap a date and record what happened: arrival, full day, departure, a trip home, a
+          return trip to the second home, provided meals, ticket costs, and notes.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Calendar entries</h3>
+            <p>Each day can hold meal allowance state, travel direction, optional purchased travel cost, provided meals,
+              and a note.</p>
+          </div>
+          <div class="card">
+            <h3>Expense categories</h3>
+            <p>Track accommodation, furnishings, moving costs, travel receipts, and other work-related expenses in a
+              separate expenses view.</p>
+          </div>
+          <div class="card">
+            <h3>Address setup</h3>
+            <p>Save main-home and second-home addresses, then use Apple MapKit route lookup to estimate the one-way
+              distance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="estimate">
+      <div class="container reveal">
+        <div class="eyebrow">Annual Overview</div>
+        <h2>Turn scattered records into a reviewable yearly estimate.</h2>
+        <p class="section-lead">The result view brings meal allowances, family trips home, accommodation caps, recorded
+          costs, and plausibility checks into one place before you review everything for your tax return.</p>
+        <div class="steps">
+          <div class="step">
+            <h3>Configure assumptions</h3>
+            <p>Default rates for meal allowances, family-trip distance, and accommodation cap are visible and editable.
+            </p>
+          </div>
+          <div class="step">
+            <h3>Review checks</h3>
+            <p>The app flags missing distance, missing three-month meal period setup, and extra trips in the same
+              calendar week.</p>
+          </div>
+          <div class="step">
+            <h3>Export the year</h3>
+            <p>Share all calendar entries and expenses as CSV for Numbers, Excel, or another tax workflow.</p>
+          </div>
+        </div>
+        <p class="inline-actions" style="margin-top: 28px;">
+          <a class="btn" href="details.html">Read Feature Details</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="eyebrow">Privacy First</div>
+        <h2>No account, no server database, no cloud requirement.</h2>
+        <div class="two-grid">
+          <div class="card">
+            <h3>Stored on device</h3>
+            <p>Your calendar records, expenses, settings, language, and appearance preference are stored locally on your
+              iPhone.</p>
+          </div>
+          <div class="card">
+            <h3>Organization aid</h3>
+            <p>Zweitwohnung helps organize inputs and estimates. It does not replace tax advice, official forms, or a
+              review of your personal circumstances.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container reveal">
+        <div class="eyebrow">Support</div>
+        <h2>Questions about setup, records, export, or privacy?</h2>
+        <p class="section-lead">Use the support and privacy pages for contact details and data handling information.</p>
+        <div class="inline-actions" style="justify-content: center;">
+          <a class="cta" href="support/">Get Support</a>
+          <a class="btn" href="privacy/">Privacy</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="details.html">Details</a>
+        <span class="link">|</span>
+        <a class="link" href="support/">Support</a>
+        <span class="link">|</span>
+        <a class="link" href="privacy/">Privacy</a>
+      </div>
+    </div>
+    <div class="container legal">
+      &copy; 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (theme) => {
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', theme);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+
+</html>
