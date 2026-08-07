@@ -5,7 +5,35 @@
     'use strict';
 
     var STORAGE_KEY = 'cookie-consent';
-    if (localStorage.getItem(STORAGE_KEY)) return; // already answered
+    var existingChoice = localStorage.getItem(STORAGE_KEY);
+
+    function clearAnalyticsCookies() {
+        var rootDomain = window.location.hostname.replace(/^www\./, '');
+        document.cookie.split(';').forEach(function (entry) {
+            var name = entry.split('=')[0].trim();
+            if (name === '_ga' || name.indexOf('_ga_') === 0) {
+                document.cookie = name + '=; Max-Age=0; path=/; SameSite=Lax';
+                document.cookie = name + '=; Max-Age=0; path=/; domain=.' + rootDomain + '; SameSite=Lax';
+            }
+        });
+    }
+
+    window.MathricksConsent = {
+        choice: function () {
+            return localStorage.getItem(STORAGE_KEY);
+        },
+        reset: function () {
+            localStorage.removeItem(STORAGE_KEY);
+            window.location.reload();
+        },
+        reject: function () {
+            localStorage.setItem(STORAGE_KEY, 'rejected');
+            clearAnalyticsCookies();
+            window.location.reload();
+        }
+    };
+
+    if (existingChoice) return;
 
     /* ── Inline styles (theme-aware via CSS vars with safe fallbacks) ── */
     var style = document.createElement('style');
@@ -64,15 +92,24 @@
     banner.className = 'cookie-banner';
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Cookie consent');
+    var privacyHref = window.location.pathname.indexOf('/zweitwohnung/') === 0
+        ? '/zweitwohnung/privacy/#website-privacy'
+        : '/company/privacy-policy.html';
     banner.innerHTML =
-        '<span class="cookie-banner__text">We use cookies for analytics to improve your experience.</span>' +
+        '<span class="cookie-banner__text">Optional analytics are loaded only after consent. ' +
+        '<a href="' + privacyHref + '"><u>Privacy details</u></a>.</span>' +
         '<div class="cookie-banner__actions">' +
-        '<button class="cookie-banner__btn" data-consent="rejected">Opt Out</button>' +
-        '<button class="cookie-banner__btn cookie-banner__btn--accept" data-consent="accepted">Accept</button>' +
+        '<button class="cookie-banner__btn" data-consent="rejected">Reject analytics</button>' +
+        '<button class="cookie-banner__btn cookie-banner__btn--accept" data-consent="accepted">Allow analytics</button>' +
         '</div>';
 
     function dismiss(choice) {
         localStorage.setItem(STORAGE_KEY, choice);
+        if (choice === 'accepted') {
+            window.dispatchEvent(new CustomEvent('mathricks:analytics-consent'));
+        } else {
+            clearAnalyticsCookies();
+        }
         banner.classList.add('cookie-hidden');
         setTimeout(function () { banner.remove(); }, 400);
     }

@@ -340,6 +340,17 @@ header {
   --game-card-hover: #e8c26b;
 }
 
+.card.game-card.game-card-zweitwohnung {
+  --game-card-bg-start: #12221b;
+  --game-card-bg-end: #0d1518;
+  --game-card-glow-main: rgba(113, 174, 137, .26);
+  --game-card-glow-alt: rgba(122, 167, 199, .16);
+  --game-card-line-strong: rgba(113, 174, 137, .38);
+  --game-card-title: #effcf3;
+  --game-card-muted: #bdd3c6;
+  --game-card-hover: #71ae89;
+}
+
 [data-theme="light"] .card.game-card {
   box-shadow: 0 10px 26px rgba(12, 20, 34, .12);
 }
@@ -430,6 +441,17 @@ header {
   --game-card-title: #2b2214;
   --game-card-muted: #665c49;
   --game-card-hover: #a86f13;
+}
+
+[data-theme="light"] .card.game-card.game-card-zweitwohnung {
+  --game-card-bg-start: #e8f7ec;
+  --game-card-bg-end: #f4f7f5;
+  --game-card-glow-main: rgba(68, 137, 95, .18);
+  --game-card-glow-alt: rgba(50, 109, 155, .14);
+  --game-card-line-strong: rgba(68, 137, 95, .40);
+  --game-card-title: #173024;
+  --game-card-muted: #4c6758;
+  --game-card-hover: #35734e;
 }
 
 .card:hover {
