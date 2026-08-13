@@ -19,7 +19,14 @@
     <div class="container header-flex">
       <a href="https://mathricks.com/bpq/" class="logo">MATHRICKS</a>
       <h1>Bitcoin Puzzle Quest&nbsp;Support</h1>
-      <button id="themeToggle" class="toggle" aria-label="Toggle theme"></button>
+      <!-- js/theme.js injects the black-and-white toggle after #themeToggle, so both live in here. -->
+      <nav class="nav-actions" aria-label="Primary navigation">
+        <a class="btn" href="../">Back to Game</a>
+        <a class="btn" href="../puzzles/">Puzzle Status</a>
+        <span class="header-toggles">
+          <button id="themeToggle" class="toggle" aria-label="Toggle theme"></button>
+        </span>
+      </nav>
     </div>
     <div class="container">
       <p style="margin-top:10px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;"><a href="#faq">Jump to

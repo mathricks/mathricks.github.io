@@ -20,7 +20,38 @@ header p {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 18px 0;
+  /* padding-block, not `18px 0` — the latter wipes .container's horizontal padding
+     and lets the header run flush to the viewport edges below 1200px. */
+  padding-block: 18px;
+}
+
+/* Holds #themeToggle plus the black-and-white toggle theme.js injects next to it,
+   so the pair never gets split across lines when the nav wraps. */
+.header-toggles {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Keep the title from crowding the nav once both toggles are in. */
+@media (max-width: 860px) {
+  .header-flex {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+
+  .header-flex h1 {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .header-flex .nav-actions {
+    margin-left: auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    /* Without this the nav keeps its max-content width and overflows the container. */
+    min-width: 0;
+  }
 }
 
 /* Sections + crossing frames */
