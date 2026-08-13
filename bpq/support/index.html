@@ -71,337 +71,451 @@
     <div class="cross-bottom">
       <div class="container">
         <h2>Frequently Asked Questions (FAQs)</h2>
-        <table>
-          <tr>
-            <td align="left">
-              <ul>
-                <li><strong>Q: What is Bitcoin Puzzle Quest?</strong>
-                  A: Bitcoin Puzzle Quest (BPQ for short) is a puzzle-hunting app that lets you generate random (or
-                  sequential) keys and test and <a href="match.html">match</a> them against the famous <em>Bitcoin
-                    Puzzle</em> address list - entirely
-                  offline, on your own iOS device.
-                </li>
+        <div class="faq-controls">
+          <p class="faq-hint">Select a question to reveal its answer.</p>
+          <button type="button" id="faqToggleAll" class="faq-toggle-all" aria-expanded="false">Expand all</button>
+        </div>
+        <!-- <span class="faq-badge">New</span> marks recently added questions; drop it once they age out. -->
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What is Bitcoin Puzzle Quest?</summary>
+            <div class="faq-answer">
+              Bitcoin Puzzle Quest (BPQ for short) is a puzzle-hunting app that lets you generate random (or
+              sequential) keys and test and <a href="match.html">match</a> them against the famous <em>Bitcoin
+                Puzzle</em> address list - entirely
+              offline, on your own iOS device.
+            </div>
+          </details>
 
-                <li id="faq-what-is-bitcoin-puzzle"><strong>Q: What is a Bitcoin Puzzle, or BTC Puzzle?</strong>
-                  A: A Bitcoin puzzle is a public cryptographic challenge in which bitcoin was placed at addresses whose
-                  private keys were deliberately chosen from limited, known ranges. Solving one means finding the
-                  private key for a funded puzzle address; it does not mean that Bitcoin itself has been broken.
-                  <a href="../what-is-a-bitcoin-puzzle/">Read our plain-English guide to the 1000 BTC Challenge</a>.
-                </li>
+          <details class="faq-item" id="faq-what-is-bitcoin-puzzle">
+            <summary>What is a Bitcoin Puzzle, or BTC Puzzle?<span class="faq-badge">New</span></summary>
+            <div class="faq-answer">
+              A Bitcoin puzzle is a public cryptographic challenge in which bitcoin was placed at addresses whose
+              private keys were deliberately chosen from limited, known ranges. Solving one means finding the
+              private key for a funded puzzle address; it does not mean that Bitcoin itself has been broken.
+              <a href="../what-is-a-bitcoin-puzzle/">Read our plain-English guide to the 1000 BTC Challenge</a>.
+            </div>
+          </details>
 
-                <li><strong>Q: How are the puzzle levels structured?</strong>
-                  A: The challenge is divided into 160 levels (originally 256), with each level using a key range that
-                  is twice as large as the previous one. For example:
-                  <ul style="margin-top: 0.5em;">
-                    <li>Level 1: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>2⁰ ≤ key &lt; 2¹</code> (only 1 possible key)</li>
-                    <li>Level 2: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>2¹ ≤ key &lt; 2²</code></li>
-                    <li>Level 3: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>2² ≤ key &lt; 2³</code></li>
-                    <li>...</li>
-                    <li>Level 160: &nbsp;&nbsp;&nbsp;<code>2¹⁵⁹ ≤ key &lt; 2¹⁶⁰</code></li>
-                  </ul>
-                  Each higher level doubles the size of the key space, making it exponentially harder to solve. To
-                  reflect this, the puzzle creator(s) placed increasing amounts of Bitcoin in higher levels as added
-                  incentive.
-                </li>
-
-                <li><strong>Q: How do I start playing Bitcoin Puzzle Quest?</strong>A: Open the app and start testing
-                  keys by choosing your difficulty level and number of tries and hit the 'Go' button.
-                  Quest Overview also gives you a 3D map of the whole puzzle to jump in from (see below).
-                  <figure class="faq-screenshot">
-                    <img src="../../img/bitcoinpuzzlequest.png" alt="Bitcoin Puzzle Quest Quest Overview 3D map">
-                    <figcaption>Quest Overview 3D map</figcaption>
-                  </figure>
-                </li>
-
-                <li><strong>Q: What is the Quest Overview (3D view)?</strong>
-                  A: The Quest Overview is a 3D map of all puzzle ranges, added in version 2.2. At a glance you can see
-                  which puzzles are already solved, which have been tried, and which are still untouched, then tap a
-                  range to jump straight into your next hunt.
-                </li>
-
-                <li><strong>Q: What is Power Surge?</strong>
-                  A: Power Surge is our reward system that gives you temporary access to Continuous Mode, the
-                  auto-tapping, sequential-scanning fast lane, without a purchase. You earn free <em>Power Surge keys</em> two
-                  ways: by solving the Daily Chest mini-game and by inviting friends who go on to qualify.
-                  When you earn or spend them you'll see a quick reward toast confirming it.
-                </li>
-
-                <li><strong>Q: How do I invite friends and earn free Power Surge keys?</strong>
-                  A: Open the menu and choose <em>Invite Friends</em>. Once you're signed in to Game Center, BPQ shows
-                  your personal invite code and share link. Send that code or link to a friend; they can install Bitcoin
-                  Puzzle Quest, open <em>Invite Friends</em>, and redeem it from the same screen.<br><br>
-                  After your friend starts playing and tests at least 10,000 keys, both of you receive 1,000,000 promotional
-                  Power Surge keys. These are in-game bonus keys for Continuous Mode, not BTC, cash, or a financial
-                  reward. Invite codes are tied to Game Center profiles, you cannot redeem your own code, and eligibility
-                  checks or reward limits may apply. No names, emails, or contacts are collected or uploaded.
-                </li>
-
-                <li><strong>Q: What does “difficulty level” mean?</strong>
-                  A: The difficulty level defines the bit-size, i.e. the bit-length of the secret key. The 26-bit puzzle
-                  contains 2<sup>25</sup> possible
-                  keys (≈33 million); the 160-bit puzzle, the "beast", contains 2<sup>159</sup> (≈7.3 x
-                  10<sup>47</sup>). Bigger bits =
-                  bigger needle in the haystack.
-                </li>
-
-                <li><strong>Q: Are there in-app purchases?</strong>
-                  A: Yes, and they're all optional. The core game is free, and you can also earn Continuous Mode for free
-                  via Power Surge. There are two kinds of purchase:
-                  <ul style="margin-top: 0.5em;">
-                    <li><strong>Million-Key Packs</strong> (consumable): 10M, 50M, 100M or
-                      250M key packs. These top up your Continuous Mode key allowance.</li>
-                    <li><strong>Continuous Mode Unlock</strong> A one-time purchase for permanent, unlimited
-                      Continuous and sequential scanning.</li>
-                  </ul>
-                  Prices are set on App Store and may vary by region. There are no subscriptions.
-                </li>
-
-                <li><strong>Q: Are there ads?</strong>
-                  A: Yes. The free version may show Google AdMob banner ads and occasional full-screen ad breaks. It may
-                  also offer an optional rewarded ad for Power Surge keys in eligible situations. Ads require an internet
-                  connection, never affect scan speed, candidate keys, or puzzle outcomes, and are removed for players
-                  with the permanent Continuous Mode Unlock. Where required, the app presents Google's consent choices;
-                  you can review them later from <em>Privacy choices</em> in the app menu when that option is available.
-                  See our <a href="../privacy/">Privacy Policy</a> for details.
-                </li>
-
-                <li><strong>Q: Is this mining Bitcoin?</strong>
-                  A: No. Mining secures the Bitcoin network by hashing block headers; our app merely guesses private
-                  keys
-                  inside predefined ranges to see if any unlock the funded puzzle addresses. This is a cryptographic
-                  search over public puzzle ranges, not an industrial crypto mine.
-                </li>
-
-                <li><strong>Q: How likely am I to win?</strong>
-                  A: The remaining puzzles are still astronomically hard, but "almost zero" is not the same as zero.
-                  Each still-funded range has one private key that unlocks it; the challenge is that the key space is
-                  enormous. In a 71-bit range, for example, that means one winning key among about
-                  2<sup>70</sup> possible keys. Low-bit ranges (e.g. 25 bits) can be replayed for experimenting and
-                  learning; high-bit ranges (100+ bits) are purely for the thrill. We highlight the lowest unsolved in
-                  the difficulty level picker, your “best bad odds,” so to speak. To estimate your personal chance,
-                  we've added the ratio of the number of keys tried by the total number of keys in that range for each
-                  puzzle.
-                </li>
-
-                <li id="faq-claim"><strong>Q: How do I claim BTC if I find a winning key?</strong>
-                  A: Congratulations! If you have successfully generated a private key that <a
-                    href="match.html"><u>matches</u></a> one of the publicly known and still-funded puzzle addresses,
-                  you have solved a legendary cryptographic challenge!<br>
-                  Managing private keys and moving cryptocurrency can be risky, so Bitcoin Puzzle Quest does not provide
-                  financial, legal, or operational instructions.
-                  We do offer a short, informational overview to explain the general concepts involved: <br><br>
-                  <a href="claim.html"><u>→ Understanding How BTC Can Be Claimed</u></a>. <br><br>
-                  For broader community discussion, many puzzle hunters reference <a
-                    href="https://bitcointalk.org/index.php?topic=1306983.0"><u>the long-running forum thread on
-                      Bitcointalk</u></a>.
-                </li>
-
-                <li id="faq-high-bit-solves"><strong>Q: How have some high-bit difficulty levels already been solved?</strong>
-                  A: The puzzle creator(s) left a "small" clue by making an outgoing transaction from those addresses,
-                  which reveals the public key. Levels 75,80,85,90,95,100,105,110,115,120,125,130 and 135 have been solved this way.
-                  A known public key allows puzzle hunters to use square-root search techniques such as Pollard's
-                  kangaroo or baby-step giant-step. For Puzzle 135, that changes the generic work from searching an
-                  interval of 2<sup>134</sup> candidates to roughly 2<sup>67</sup> curve operations, before
-                  implementation-specific factors. The remaining public-key-exposed levels are 140,145,150,155 and
-                  160-bit. <a href="../what-is-a-bitcoin-puzzle/#search-title">See the two search cases explained</a>.
-                  The puzzle creator(s) have confirmed that no other clues or backdoors exist.
-                </li>
-
-                <li><strong>Q: Why can't BPQ keep scanning in the background?</strong>
-                  A: Your device suspends nearly all CPU-intensive work when an app is backgrounded or the screen locks.
-                  Continuous Mode runs only while the app is in the foreground and the device is awake (e.g., charging
-                  with
-                  Auto-Lock disabled).
-                </li>
-
-                <li><strong>Q: What is Continuous Mode and do I need it?</strong>
-                  A: Continuous Mode automates the “Go!” button and adds sequential scanning. You don't need it, manual
-                  tapping and batch modes are always free, but it's perfect if you'd rather watch the numbers roll than
-                  the DIY “robot finger.” You can get it three ways: earn temporary access for free through
-                  Power Surge (Daily Chest + invites), top up with Million-Key Packs,
-                  or buy the Continuous Mode Unlock for permanent, unlimited use.<br><br>
-                  <em>Features comparison:</em>
-                  <table border="1">
-                    <tr>
-                      <th>Scenario</th>
-                      <th>Free Mode</th>
-                      <th>Continuous Mode</th>
-                    </tr>
-                    <tr>
-                      <td>Single/batch taps</td>
-                      <td>✔️</td>
-                      <td>✔️</td>
-                    </tr>
-                    <tr>
-                      <td>Sequential scanning</td>
-                      <td>—</td>
-                      <td>✔️</td>
-                    </tr>
-                    <tr>
-                      <td>Auto‑tapping while you sip coffee</td>
-                      <td>—</td>
-                      <td>✔️</td>
-                    </tr>
-                    <tr>
-                      <td>Earn it free via Power Surge</td>
-                      <td>✔️</td>
-                      <td>✔️</td>
-                    </tr>
-                  </table>
-                  <br />
-                </li>
-
-                <li><strong>Q: Is Continuous Mode a subscription?</strong>
-                  A: No. Nothing in Bitcoin Puzzle Quest is a subscription. The Continuous Mode Unlock is a one-time
-                  purchase that permanently unlocks continuous and sequential scanning on your Apple ID for this app, and
-                  the Million-Key Packs are one-off consumable top-ups. Both are subject to Apple's usual App Store
-                  rules.
-                </li>
-
-                <li><strong>Q: Can Continuous Mode pay for itself if I find a winning key?</strong>
-                  A: In theory, yes. If you ever found a private key for a still-funded puzzle address, the BTC value
-                  could be far larger than the cost of Continuous Mode, possibly tens of thousands of times larger.<br><br>
-                  In practice, you should not buy Continuous Mode as an investment. The remaining puzzle ranges are
-                  astronomically large, and the chance of finding a winning key is extremely small. Continuous Mode does
-                  not change the odds of any single key. It simply lets you scan more comfortably, continuously, and
-                  sequentially without tapping manually.<br><br>
-                  The best way to think about it: Continuous Mode is an optional upgrade for players who enjoy the hunt
-                  and want a more hands-off experience. Only spend what you would be comfortable treating as
-                  entertainment, not as financial advice or an expected return.
-                </li>
-
-                <li><strong>Q: I tried to upgrade to Continuous Mode but it does not work. What can I do?</strong>
-                  A: Continuous Mode is sold through Apple's in-app purchase system. If the upgrade button does not
-                    work, or the purchase fails, please try the following:
-                  <ul style="margin-top: 0.5em;">
-                    <li>Make sure you are signed in with a valid Apple ID and that your payment method is up to date.
-                    </li>
-                    <li>Check that in-app purchases are allowed in Settings on your device.</li>
-                    <li>Ensure you have a stable internet connection and try again after a few minutes.</li>
-                    <li>If the App Store shows a specific error message, follow the link in that message or visit Apple
-                      Support and check your purchase history.</li>
-                  </ul>
-                  If you still cannot complete the purchase, please contact us with screenshots of any error messages so
-                  we can help you investigate.
-                </li>
-
-                <li id="faq-restore-purchases"><strong>Q: I got a new iPhone. How do I restore my purchase?</strong>
-                  A: Make sure you are signed in with the same Apple Account used for the original purchase. Then open
-                  Bitcoin Puzzle Quest and tap <em>Restore Purchases</em> on the Continuous Mode unlock screen. This
-                  restores the permanent, one-time Continuous Mode Unlock. Power Surge key packs (10M, 50M, 100M, and
-                  250M keys) are consumable purchases, so they cannot be restored with Apple's Restore Purchases feature
-                  when you move to a new device.
-                  <figure class="faq-screenshot">
-                    <img src="../../img/bpq-restore-purchases.png"
-                      alt="Bitcoin Puzzle Quest Unlock Continuous Mode prompt with Buy, Restore, and Cancel buttons">
-                    <figcaption>Tap Restore on this Continuous Mode unlock prompt.</figcaption>
-                  </figure>
-                </li>
-
-                <li><strong>Q: Is my data private?</strong>
-                  A: Candidate private keys, matches, and found numbers stay on your device. Puzzle and key-attempt
-                  counters are also stored locally, except that attempt counts may be sent to Apple if you opt into Game
-                  Center leaderboards and achievements. The invite feature exchanges anonymous BPQ codes and eligibility
-                  information, including privacy-hardened device or vendor hashes, with Mathricks services, while Google
-                  AdMob may process device and ad-interaction data for free-version advertising. Neither service receives
-                  your candidate private keys or matches. See our <a href="../privacy/">Privacy Policy</a> for details.
-                </li>
-
-                <li><strong>Q: Does BPQ use proprietary cryptography?</strong>
-                  A: No. Only open, standard algorithms such as secp256k1 (ECDSA), SHA-256, and RIPEMD-160, as specified
-                  by IETF/ISO are utilized to compute Bitcoin addresses from private keys.
-                </li>
-
-                <li><strong>Q: Why is my device heating up?</strong>
-                  A: Generating tons of keys per minute taxes the CPU. For marathon runs, keep your device on a charger,
-                  use Low Power Mode (it only affects screen refresh), and give it breaks if it gets too warm.
-                </li>
-
-                <li><strong>Q: Does BPQ have a mini-game?</strong>
-                  A: Absolutely! Double-tap the treasure-chest icon on the main screen to open the Daily Chest,
-                  a quick 3×3 sliding puzzle. It started life as a cheeky Easter egg, but solving it now rewards you with
-                  Power Surge keys, a free trial of Continuous Mode, once per day. Because every epic quest
-                  deserves a hidden side quest <em>and</em> a daily bonus.
-                </li>
-
-                <li><strong>Q: Can I run Bitcoin Puzzle Quest on Windows, Linux, or Android?</strong>
-                  A: Today Bitcoin Puzzle Quest is built and supported for Apple platforms only, with the main focus on
-                  iOS and iPadOS. It also runs on macOS (Apple silicon, via the universal build) and on Apple Vision
-                  (visionOS). We do not currently offer a Windows, Linux, or Android version, and we cannot promise if or
-                  when versions for other platforms will be available.
-                </li>
-
-                <li><strong>Q: Does BPQ use my GPU or support powerful desktop graphics cards?</strong>
-                  A: No. BPQ currently runs on the CPU of your iOS or Apple silicon device and is designed as an
-                  offline, on-device puzzle experience.
-                  There is no support for external GPUs, desktop GPUs, or dedicated mining hardware.
-                </li>
-
-                <li><strong>Q: Will there be Android / macOS / Apple Watch versions?</strong>
-                  A: macOS on Apple silicon and Apple Vision (visionOS) already work via the universal build. Android is
-                  under exploration (no ETA). Apple Watch support is on our roadmap as a remote dashboard.
-                </li>
-
-                <li><strong>Q: Will you add a cloud or “rented GPU” option for faster scanning?</strong>
-                  A: No, not at this time. Bitcoin Puzzle Quest is designed as a local, offline game that runs on your
-                  own Apple device. We do not provide remote GPU servers or cloud computing resources, and we cannot
-                  offer a timeline or promise for such a feature in the future.
-                </li>
-
-                <li><strong>Q: What do I do if the game crashes?</strong>A: Restart the game and ensure your
-                  device's OS is up to date. Your discovered keys are saved on your device.</li>
-
-                <li><strong>Q: Can I play on multiple devices?</strong>A: Yes, you can play on as many devices as
-                  you wish. However, any found keys are saved per device.</li>
-
-                <li><strong>Q: I found a bug or have a feature idea, how do I contact you?</strong>
-                  A: Email info @ mathricks.com with your app version, iOS version, device model, and reproduction
-                  steps.
-                  Screenshots help!
-                </li>
-                <li><strong>Q: Is this legal?</strong>
-                  A: Bitcoin Puzzle Quest is a local tool for exploring a publicly-known puzzle list, but laws and tax rules vary
-                  by jurisdiction. We cannot provide legal or financial advice, so check your local rules or consult a
-                  qualified professional if you are unsure.
-                </li>
-                <li><strong>Q: Where can I learn more about this Bitcoin Puzzle?</strong>
-                  A: Start with our <a href="../what-is-a-bitcoin-puzzle/">plain-English Bitcoin Puzzle guide</a>, then
-                  use the <a href="https://mathricks.com/bpq/puzzles/">BPQ puzzle status ledger</a> for verified puzzle
-                  data and win-announcement sources. The community forum at
-                  <a href="https://bitcointalk.org">bitcointalk.org</a> and
-                  <a href="https://btcpuzzle.info">btcpuzzle.info</a> also offer historical discussion and tools.
-                  Reddit's <a href="https://www.reddit.com/r/Bitcoin">r/Bitcoin</a> and <a
-                    href="https://www.reddit.com/r/cryptocurrency">r/cryptocurrency</a> also discuss current puzzles.
-                </li>
-
-                <li><strong>Q: When will this quest end?</strong>
-                  A: Honestly, no one knows and that's part of the fun. The hunt keeps going for as long as the puzzles
-                  stay unsolved and the underlying cryptography stays hard to reverse. A few things could change the
-                  picture over time:
-                  <ul style="margin-top: 0.5em;">
-                    <li><strong>The math holding up.</strong> The puzzle rests on the difficulty of working backward from
-                      a Bitcoin address to its private key (secp256k1 / ECDSA). As long as that stays computationally
-                      infeasible, brute-forcing a high-bit range remains astronomically unlikely, which is why any
-                      still-funded unsolved ranges remain difficult to claim.</li>
-                    <li><strong>Puzzles getting solved.</strong> Hunters do crack ranges over time, especially when a
-                      public key is exposed. Each solved level shrinks the pool of remaining challenges, so the quest
-                      naturally winds down level by level.</li>
-                    <li><strong>Quantum computing.</strong> A sufficiently powerful quantum computer running Shor's
-                      algorithm could one day derive private keys from exposed public keys far faster than today's
-                      hardware. That technology isn't here yet and may be years away, but if it matures it could
-                      reshape, or end, this kind of hunt entirely.</li>
-                    <li><strong>The creator(s) moving the funds.</strong> The Bitcoin in the puzzle addresses belongs to
-                      whoever set up the challenge. They are free to withdraw, top up, or rearrange it at any time, which
-                      could shrink the prize pool or close the puzzle for good. This is outside our control, Bitcoin
-                      Puzzle Quest neither holds nor manages those funds.</li>
-                  </ul>
-                  Even if the prizes were one day claimed or moved, the app itself doesn't expire: it remains a private,
-                  offline playground for exploring cryptographic key-spaces and learning how Bitcoin addresses work.
-                </li>
+          <details class="faq-item">
+            <summary>How are the puzzle levels structured?</summary>
+            <div class="faq-answer">
+              The challenge is divided into 160 levels (originally 256), with each level using a key range that
+              is twice as large as the previous one. For example:
+              <ul style="margin-top: 0.5em;">
+                <li>Level 1: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>2⁰ ≤ key &lt; 2¹</code> (only 1 possible key)</li>
+                <li>Level 2: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>2¹ ≤ key &lt; 2²</code></li>
+                <li>Level 3: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>2² ≤ key &lt; 2³</code></li>
+                <li>...</li>
+                <li>Level 160: &nbsp;&nbsp;&nbsp;<code>2¹⁵⁹ ≤ key &lt; 2¹⁶⁰</code></li>
               </ul>
-            </td>
-          </tr>
-        </table>
+              Each higher level doubles the size of the key space, making it exponentially harder to solve. To
+              reflect this, the puzzle creator(s) placed increasing amounts of Bitcoin in higher levels as added
+              incentive.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I start playing Bitcoin Puzzle Quest?</summary>
+            <div class="faq-answer">
+              Open the app and start testing
+              keys by choosing your difficulty level and number of tries and hit the 'Go' button.
+              Quest Overview also gives you a 3D map of the whole puzzle to jump in from (see below).
+              <figure class="faq-screenshot">
+                <img src="../../img/bitcoinpuzzlequest.png" alt="Bitcoin Puzzle Quest Quest Overview 3D map"
+                  loading="lazy">
+                <figcaption>Quest Overview 3D map</figcaption>
+              </figure>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is the Quest Overview (3D view)?</summary>
+            <div class="faq-answer">
+              The Quest Overview is a 3D map of all puzzle ranges, added in version 2.2. At a glance you can see
+              which puzzles are already solved, which have been tried, and which are still untouched, then tap a
+              range to jump straight into your next hunt.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is Power Surge?</summary>
+            <div class="faq-answer">
+              Power Surge is our reward system that gives you temporary access to Continuous Mode, the
+              auto-tapping, sequential-scanning fast lane, without a purchase. You earn free <em>Power Surge keys</em>
+              two
+              ways: by solving the Daily Chest mini-game and by inviting friends who go on to qualify.
+              When you earn or spend them you'll see a quick reward toast confirming it.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I invite friends and earn free Power Surge keys?</summary>
+            <div class="faq-answer">
+              Open the menu and choose <em>Invite Friends</em>. Once you're signed in to Game Center, BPQ shows
+              your personal invite code and share link. Send that code or link to a friend; they can install Bitcoin
+              Puzzle Quest, open <em>Invite Friends</em>, and redeem it from the same screen.<br><br>
+              After your friend starts playing and tests at least 10,000 keys, both of you receive 1,000,000
+              promotional
+              Power Surge keys. These are in-game bonus keys for Continuous Mode, not BTC, cash, or a financial
+              reward. Invite codes are tied to Game Center profiles, you cannot redeem your own code, and eligibility
+              checks or reward limits may apply. No names, emails, or contacts are collected or uploaded.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What does “difficulty level” mean?</summary>
+            <div class="faq-answer">
+              The difficulty level defines the bit-size, i.e. the bit-length of the secret key. The 26-bit puzzle
+              contains 2<sup>25</sup> possible
+              keys (≈33 million); the 160-bit puzzle, the "beast", contains 2<sup>159</sup> (≈7.3 x
+              10<sup>47</sup>). Bigger bits =
+              bigger needle in the haystack.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Are there in-app purchases?</summary>
+            <div class="faq-answer">
+              Yes, and they're all optional. The core game is free, and you can also earn Continuous Mode for free
+              via Power Surge. There are two kinds of purchase:
+              <ul style="margin-top: 0.5em;">
+                <li><strong>Million-Key Packs</strong> (consumable): 10M, 50M, 100M or
+                  250M key packs. These top up your Continuous Mode key allowance.</li>
+                <li><strong>Continuous Mode Unlock</strong> A one-time purchase for permanent, unlimited
+                  Continuous and sequential scanning.</li>
+              </ul>
+              Prices are set on App Store and may vary by region. There are no subscriptions.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Are there ads?<span class="faq-badge">New</span></summary>
+            <div class="faq-answer">
+              Yes. The free version may show Google AdMob banner ads and occasional full-screen ad breaks. It may
+              also offer an optional rewarded ad for Power Surge keys in eligible situations. Ads require an internet
+              connection, never affect scan speed, candidate keys, or puzzle outcomes, and are removed for players
+              with the permanent Continuous Mode Unlock. Where required, the app presents Google's consent choices;
+              you can review them later from <em>Privacy choices</em> in the app menu when that option is available.
+              See our <a href="../privacy/">Privacy Policy</a> for details.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is this mining Bitcoin?</summary>
+            <div class="faq-answer">
+              No. Mining secures the Bitcoin network by hashing block headers; our app merely guesses private
+              keys
+              inside predefined ranges to see if any unlock the funded puzzle addresses. This is a cryptographic
+              search over public puzzle ranges, not an industrial crypto mine.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How likely am I to win?</summary>
+            <div class="faq-answer">
+              The remaining puzzles are still astronomically hard, but "almost zero" is not the same as zero.
+              Each still-funded range has one private key that unlocks it; the challenge is that the key space is
+              enormous. In a 71-bit range, for example, that means one winning key among about
+              2<sup>70</sup> possible keys. Low-bit ranges (e.g. 25 bits) can be replayed for experimenting and
+              learning; high-bit ranges (100+ bits) are purely for the thrill. We highlight the lowest unsolved in
+              the difficulty level picker, your “best bad odds,” so to speak. To estimate your personal chance,
+              we've added the ratio of the number of keys tried by the total number of keys in that range for each
+              puzzle.
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-claim">
+            <summary>How do I claim BTC if I find a winning key?</summary>
+            <div class="faq-answer">
+              Congratulations! If you have successfully generated a private key that <a
+                href="match.html"><u>matches</u></a> one of the publicly known and still-funded puzzle addresses,
+              you have solved a legendary cryptographic challenge!<br>
+              Managing private keys and moving cryptocurrency can be risky, so Bitcoin Puzzle Quest does not provide
+              financial, legal, or operational instructions.
+              We do offer a short, informational overview to explain the general concepts involved: <br><br>
+              <a href="claim.html"><u>→ Understanding How BTC Can Be Claimed</u></a>. <br><br>
+              For broader community discussion, many puzzle hunters reference <a
+                href="https://bitcointalk.org/index.php?topic=1306983.0"><u>the long-running forum thread on
+                  Bitcointalk</u></a>.
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-high-bit-solves">
+            <summary>How have some high-bit difficulty levels already been solved?<span class="faq-badge">New</span></summary>
+            <div class="faq-answer">
+              The puzzle creator(s) left a "small" clue by making an outgoing transaction from those addresses,
+              which reveals the public key. Levels 75,80,85,90,95,100,105,110,115,120,125,130 and 135 have been solved
+              this way.
+              A known public key allows puzzle hunters to use square-root search techniques such as Pollard's
+              kangaroo or baby-step giant-step. For Puzzle 135, that changes the generic work from searching an
+              interval of 2<sup>134</sup> candidates to roughly 2<sup>67</sup> curve operations, before
+              implementation-specific factors. The remaining public-key-exposed levels are 140,145,150,155 and
+              160-bit. <a href="../what-is-a-bitcoin-puzzle/#search-title">See the two search cases explained</a>.
+              The puzzle creator(s) have confirmed that no other clues or backdoors exist.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Why can't BPQ keep scanning in the background?</summary>
+            <div class="faq-answer">
+              Your device suspends nearly all CPU-intensive work when an app is backgrounded or the screen locks.
+              Continuous Mode runs only while the app is in the foreground and the device is awake (e.g., charging
+              with
+              Auto-Lock disabled).
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is Continuous Mode and do I need it?</summary>
+            <div class="faq-answer">
+              Continuous Mode automates the “Go!” button and adds sequential scanning. You don't need it, manual
+              tapping and batch modes are always free, but it's perfect if you'd rather watch the numbers roll than
+              the DIY “robot finger.” You can get it three ways: earn temporary access for free through
+              Power Surge (Daily Chest + invites), top up with Million-Key Packs,
+              or buy the Continuous Mode Unlock for permanent, unlimited use.<br><br>
+              <em>Features comparison:</em>
+              <table border="1">
+                <tr>
+                  <th>Scenario</th>
+                  <th>Free Mode</th>
+                  <th>Continuous Mode</th>
+                </tr>
+                <tr>
+                  <td>Single/batch taps</td>
+                  <td>✔️</td>
+                  <td>✔️</td>
+                </tr>
+                <tr>
+                  <td>Sequential scanning</td>
+                  <td>—</td>
+                  <td>✔️</td>
+                </tr>
+                <tr>
+                  <td>Auto‑tapping while you sip coffee</td>
+                  <td>—</td>
+                  <td>✔️</td>
+                </tr>
+                <tr>
+                  <td>Earn it free via Power Surge</td>
+                  <td>✔️</td>
+                  <td>✔️</td>
+                </tr>
+              </table>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is Continuous Mode a subscription?</summary>
+            <div class="faq-answer">
+              No. Nothing in Bitcoin Puzzle Quest is a subscription. The Continuous Mode Unlock is a one-time
+              purchase that permanently unlocks continuous and sequential scanning on your Apple ID for this app, and
+              the Million-Key Packs are one-off consumable top-ups. Both are subject to Apple's usual App Store
+              rules.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can Continuous Mode pay for itself if I find a winning key?</summary>
+            <div class="faq-answer">
+              In theory, yes. If you ever found a private key for a still-funded puzzle address, the BTC value
+              could be far larger than the cost of Continuous Mode, possibly tens of thousands of times
+              larger.<br><br>
+              In practice, you should not buy Continuous Mode as an investment. The remaining puzzle ranges are
+              astronomically large, and the chance of finding a winning key is extremely small. Continuous Mode does
+              not change the odds of any single key. It simply lets you scan more comfortably, continuously, and
+              sequentially without tapping manually.<br><br>
+              The best way to think about it: Continuous Mode is an optional upgrade for players who enjoy the hunt
+              and want a more hands-off experience. Only spend what you would be comfortable treating as
+              entertainment, not as financial advice or an expected return.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>I tried to upgrade to Continuous Mode but it does not work. What can I do?</summary>
+            <div class="faq-answer">
+              Continuous Mode is sold through Apple's in-app purchase system. If the upgrade button does not
+              work, or the purchase fails, please try the following:
+              <ul style="margin-top: 0.5em;">
+                <li>Make sure you are signed in with a valid Apple ID and that your payment method is up to date.
+                </li>
+                <li>Check that in-app purchases are allowed in Settings on your device.</li>
+                <li>Ensure you have a stable internet connection and try again after a few minutes.</li>
+                <li>If the App Store shows a specific error message, follow the link in that message or visit Apple
+                  Support and check your purchase history.</li>
+              </ul>
+              If you still cannot complete the purchase, please contact us with screenshots of any error messages so
+              we can help you investigate.
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-restore-purchases">
+            <summary>I got a new iPhone. How do I restore my purchase?<span class="faq-badge">New</span></summary>
+            <div class="faq-answer">
+              Make sure you are signed in with the same Apple Account used for the original purchase. Then open
+              Bitcoin Puzzle Quest and tap <em>Restore Purchases</em> on the Continuous Mode unlock screen. This
+              restores the permanent, one-time Continuous Mode Unlock. Power Surge key packs (10M, 50M, 100M, and
+              250M keys) are consumable purchases, so they cannot be restored with Apple's Restore Purchases feature
+              when you move to a new device.
+              <figure class="faq-screenshot">
+                <img src="../../img/bpq-restore-purchases.png"
+                  alt="Bitcoin Puzzle Quest Unlock Continuous Mode prompt with Buy, Restore, and Cancel buttons"
+                  loading="lazy">
+                <figcaption>Tap Restore on this Continuous Mode unlock prompt.</figcaption>
+              </figure>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is my data private?</summary>
+            <div class="faq-answer">
+              Candidate private keys, matches, and found numbers stay on your device. Puzzle and key-attempt
+              counters are also stored locally, except that attempt counts may be sent to Apple if you opt into Game
+              Center leaderboards and achievements. The invite feature exchanges anonymous BPQ codes and eligibility
+              information, including privacy-hardened device or vendor hashes, with Mathricks services, while Google
+              AdMob may process device and ad-interaction data for free-version advertising. Neither service receives
+              your candidate private keys or matches. See our <a href="../privacy/">Privacy Policy</a> for details.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does BPQ use proprietary cryptography?</summary>
+            <div class="faq-answer">
+              No. Only open, standard algorithms such as secp256k1 (ECDSA), SHA-256, and RIPEMD-160, as specified
+              by IETF/ISO are utilized to compute Bitcoin addresses from private keys.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Why is my device heating up?</summary>
+            <div class="faq-answer">
+              Generating tons of keys per minute taxes the CPU. For marathon runs, keep your device on a charger,
+              use Low Power Mode (it only affects screen refresh), and give it breaks if it gets too warm.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does BPQ have a mini-game?</summary>
+            <div class="faq-answer">
+              Absolutely! Double-tap the treasure-chest icon on the main screen to open the Daily Chest,
+              a quick 3×3 sliding puzzle. It started life as a cheeky Easter egg, but solving it now rewards you with
+              Power Surge keys, a free trial of Continuous Mode, once per day. Because every epic quest
+              deserves a hidden side quest <em>and</em> a daily bonus.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I run Bitcoin Puzzle Quest on Windows, Linux, or Android?</summary>
+            <div class="faq-answer">
+              Today Bitcoin Puzzle Quest is built and supported for Apple platforms only, with the main focus on
+              iOS and iPadOS. It also runs on macOS (Apple silicon, via the universal build) and on Apple Vision
+              (visionOS). We do not currently offer a Windows, Linux, or Android version, and we cannot promise if or
+              when versions for other platforms will be available.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does BPQ use my GPU or support powerful desktop graphics cards?</summary>
+            <div class="faq-answer">
+              No. BPQ currently runs on the CPU of your iOS or Apple silicon device and is designed as an
+              offline, on-device puzzle experience.
+              There is no support for external GPUs, desktop GPUs, or dedicated mining hardware.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Will there be Android / macOS / Apple Watch versions?</summary>
+            <div class="faq-answer">
+              macOS on Apple silicon and Apple Vision (visionOS) already work via the universal build. Android is
+              under exploration (no ETA). Apple Watch support is on our roadmap as a remote dashboard.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Will you add a cloud or “rented GPU” option for faster scanning?</summary>
+            <div class="faq-answer">
+              No, not at this time. Bitcoin Puzzle Quest is designed as a local, offline game that runs on your
+              own Apple device. We do not provide remote GPU servers or cloud computing resources, and we cannot
+              offer a timeline or promise for such a feature in the future.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What do I do if the game crashes?</summary>
+            <div class="faq-answer">
+              Restart the game and ensure your
+              device's OS is up to date. Your discovered keys are saved on your device.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I play on multiple devices?</summary>
+            <div class="faq-answer">
+              Yes, you can play on as many devices as
+              you wish. However, any found keys are saved per device.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>I found a bug or have a feature idea, how do I contact you?</summary>
+            <div class="faq-answer">
+              Email info @ mathricks.com with your app version, iOS version, device model, and reproduction
+              steps.
+              Screenshots help!
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is this legal?</summary>
+            <div class="faq-answer">
+              Bitcoin Puzzle Quest is a local tool for exploring a publicly-known puzzle list, but laws and tax rules
+              vary
+              by jurisdiction. We cannot provide legal or financial advice, so check your local rules or consult a
+              qualified professional if you are unsure.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Where can I learn more about this Bitcoin Puzzle?</summary>
+            <div class="faq-answer">
+              Start with our <a href="../what-is-a-bitcoin-puzzle/">plain-English Bitcoin Puzzle guide</a>, then
+              use the <a href="https://mathricks.com/bpq/puzzles/">BPQ puzzle status ledger</a> for verified puzzle
+              data and win-announcement sources. The community forum at
+              <a href="https://bitcointalk.org">bitcointalk.org</a> and
+              <a href="https://btcpuzzle.info">btcpuzzle.info</a> also offer historical discussion and tools.
+              Reddit's <a href="https://www.reddit.com/r/Bitcoin">r/Bitcoin</a> and <a
+                href="https://www.reddit.com/r/cryptocurrency">r/cryptocurrency</a> also discuss current puzzles.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>When will this quest end?</summary>
+            <div class="faq-answer">
+              Honestly, no one knows and that's part of the fun. The hunt keeps going for as long as the puzzles
+              stay unsolved and the underlying cryptography stays hard to reverse. A few things could change the
+              picture over time:
+              <ul style="margin-top: 0.5em;">
+                <li><strong>The math holding up.</strong> The puzzle rests on the difficulty of working backward from
+                  a Bitcoin address to its private key (secp256k1 / ECDSA). As long as that stays computationally
+                  infeasible, brute-forcing a high-bit range remains astronomically unlikely, which is why any
+                  still-funded unsolved ranges remain difficult to claim.</li>
+                <li><strong>Puzzles getting solved.</strong> Hunters do crack ranges over time, especially when a
+                  public key is exposed. Each solved level shrinks the pool of remaining challenges, so the quest
+                  naturally winds down level by level.</li>
+                <li><strong>Quantum computing.</strong> A sufficiently powerful quantum computer running Shor's
+                  algorithm could one day derive private keys from exposed public keys far faster than today's
+                  hardware. That technology isn't here yet and may be years away, but if it matures it could
+                  reshape, or end, this kind of hunt entirely.</li>
+                <li><strong>The creator(s) moving the funds.</strong> The Bitcoin in the puzzle addresses belongs to
+                  whoever set up the challenge. They are free to withdraw, top up, or rearrange it at any time, which
+                  could shrink the prize pool or close the puzzle for good. This is outside our control, Bitcoin
+                  Puzzle Quest neither holds nor manages those funds.</li>
+              </ul>
+              Even if the prizes were one day claimed or moved, the app itself doesn't expire: it remains a private,
+              offline playground for exploring cryptographic key-spaces and learning how Bitcoin addresses work.
+            </div>
+          </details>
+        </div>
         <p style="margin-top:24px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;">
           <a href="#page-top">Back to top ↑</a>
         </p>
@@ -513,6 +627,60 @@
         applyTheme(current === 'light' ? 'dark' : 'light');
       });
     }
+  </script>
+  <script>
+    // FAQ accordion: collapsed by default, deep links still open their answer.
+    (function () {
+      const items = Array.from(document.querySelectorAll('.faq-item'));
+      if (!items.length) return;
+
+      const toggleAll = document.getElementById('faqToggleAll');
+
+      function syncToggleAll() {
+        if (!toggleAll) return;
+        const allOpen = items.every(item => item.open);
+        toggleAll.textContent = allOpen ? 'Collapse all' : 'Expand all';
+        toggleAll.setAttribute('aria-expanded', allOpen ? 'true' : 'false');
+      }
+
+      items.forEach(item => item.addEventListener('toggle', syncToggleAll));
+
+      if (toggleAll) {
+        toggleAll.addEventListener('click', () => {
+          const shouldOpen = !items.every(item => item.open);
+          items.forEach(item => { item.open = shouldOpen; });
+          syncToggleAll();
+        });
+      }
+
+      // Open (and reveal) the answer a #hash points at, e.g. ../support/#faq-claim
+      function itemFromHash() {
+        const hash = window.location.hash;
+        if (!hash || hash.length < 2) return null;
+        let target;
+        try {
+          target = document.querySelector(hash);
+        } catch (e) {
+          return null;
+        }
+        return target ? target.closest('.faq-item') : null;
+      }
+
+      function revealFromHash(behavior) {
+        const item = itemFromHash();
+        if (!item) return;
+        item.open = true;
+        syncToggleAll();
+        // Expanding the answer reflows the page, so scroll on the next frame.
+        requestAnimationFrame(() => item.scrollIntoView({ behavior: behavior, block: 'start' }));
+      }
+
+      revealFromHash('auto');
+      // Late-loading assets can shift the layout again; re-align once everything is in.
+      window.addEventListener('load', () => revealFromHash('auto'));
+      window.addEventListener('hashchange', () => revealFromHash('smooth'));
+      syncToggleAll();
+    })();
   </script>
 </body>
 
