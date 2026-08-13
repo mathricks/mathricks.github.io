@@ -34,7 +34,7 @@
         <p>For any support issues, feedback and new feature requests, please don't hesitate to contact:</p>
         <p>&nbsp;</p>
         <h2>Get in Touch</h2>
-        <form action="https://formspree.io/f/xqkrjjva" method="POST">
+        <form action="https://formspree.io/f/xyegjvev" method="POST">
           <label for="email-address">Your email:
             <input type="email" name="email" id="email-address" placeholder="email@domain.tld" required=""></label>
           <label for="message">Your message:
@@ -156,8 +156,13 @@
                   Prices are set on App Store and may vary by region. There are no subscriptions.
                 </li>
 
-                <li><strong>Q: Are there ads?</strong>A: No, there are no ads at the moment. Enjoy the game without any
-                  distractions.
+                <li><strong>Q: Are there ads?</strong>
+                  A: Yes. The free version may show Google AdMob banner ads and occasional full-screen ad breaks. It may
+                  also offer an optional rewarded ad for Power Surge keys in eligible situations. Ads require an internet
+                  connection, never affect scan speed, candidate keys, or puzzle outcomes, and are removed for players
+                  with the permanent Continuous Mode Unlock. Where required, the app presents Google's consent choices;
+                  you can review them later from <em>Privacy choices</em> in the app menu when that option is available.
+                  See our <a href="../privacy/">Privacy Policy</a> for details.
                 </li>
 
                 <li><strong>Q: Is this mining Bitcoin?</strong>
@@ -267,7 +272,7 @@
 
                 <li><strong>Q: I tried to upgrade to Continuous Mode but it does not work. What can I do?</strong>
                   A: Continuous Mode is sold through Apple's in-app purchase system. If the upgrade button does not
-                  work, or the purchase fails, please try the following:
+                    work, or the purchase fails, please try the following:
                   <ul style="margin-top: 0.5em;">
                     <li>Make sure you are signed in with a valid Apple ID and that your payment method is up to date.
                     </li>
@@ -280,11 +285,26 @@
                   we can help you investigate.
                 </li>
 
+                <li id="faq-restore-purchases"><strong>Q: I got a new iPhone. How do I restore my purchase?</strong>
+                  A: Make sure you are signed in with the same Apple Account used for the original purchase. Then open
+                  Bitcoin Puzzle Quest and tap <em>Restore Purchases</em> on the Continuous Mode unlock screen. This
+                  restores the permanent, one-time Continuous Mode Unlock. Power Surge key packs (10M, 50M, 100M, and
+                  250M keys) are consumable purchases, so they cannot be restored with Apple's Restore Purchases feature
+                  when you move to a new device.
+                  <figure class="faq-screenshot">
+                    <img src="../../img/bpq-restore-purchases.png"
+                      alt="Bitcoin Puzzle Quest Unlock Continuous Mode prompt with Buy, Restore, and Cancel buttons">
+                    <figcaption>Tap Restore on this Continuous Mode unlock prompt.</figcaption>
+                  </figure>
+                </li>
+
                 <li><strong>Q: Is my data private?</strong>
-                  A: Yes. Found keys and puzzle/key-attempt counters are stored locally in UserDefaults.
-                  Nothing leaves your device. If you join Game Center to compete against worldwide hunters, the attempt
-                  counts will be shared to rank you on the global leaderboards and unlock achievements. Your BPQ invite
-                  code is a short game code only and no personal data is collected.
+                  A: Candidate private keys, matches, and found numbers stay on your device. Puzzle and key-attempt
+                  counters are also stored locally, except that attempt counts may be sent to Apple if you opt into Game
+                  Center leaderboards and achievements. The invite feature exchanges anonymous BPQ codes and eligibility
+                  information, including privacy-hardened device or vendor hashes, with Mathricks services, while Google
+                  AdMob may process device and ad-interaction data for free-version advertising. Neither service receives
+                  your candidate private keys or matches. See our <a href="../privacy/">Privacy Policy</a> for details.
                 </li>
 
                 <li><strong>Q: Does BPQ use proprietary cryptography?</strong>
