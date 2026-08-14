@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Testing as many random keys as a key-space holds does not cover it. Where the 63.2 percent figure comes from, why it is a floor rather than an estimate, and what it means for honest progress indicators." />
+  <link rel="canonical" href="https://mathricks.com/blog/why-random-search-leaves-gaps.html" />
+
+  <title>Why Random Search Leaves Gaps | Mathricks</title>
+  <link rel="stylesheet" href="/css/catalog-pages.css">
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <style>
+    /* Palette lifted from /bpq/styles.css so this post reads as part of the
+       Bitcoin Puzzle Quest set rather than the blue studio catalog pages. */
+    :root {
+      --bg: #0e1111;
+      --fg: #ffffff;
+      --muted: #9aa6b2;
+      --line: rgba(255, 255, 255, .12);
+      --line-strong: rgba(255, 255, 255, .30);
+      --accent: #F4C236;
+      --accent-grad-start: #F4D35E;
+      --accent-grad-end: #E8B02E;
+      --tint: rgba(244, 194, 54, .04);
+      --header-start: rgba(14, 17, 17, .94);
+      --header-end: rgba(14, 17, 17, .74);
+      --card-bg: rgba(28, 32, 32, .62);
+      --body-text: #ded9d1;
+      --rule: rgba(244, 194, 54, .26);
+      --panel: rgba(244, 194, 54, .06);
+      --panel-strong: rgba(244, 194, 54, .13);
+      --accent-text: #F4C236;
+    }
+
+    html[data-theme="light"] {
+      --bg: #F4F1EC;
+      --fg: #0e1111;
+      --muted: #6d6d6d;
+      --line: rgba(14, 17, 17, .12);
+      --line-strong: rgba(14, 17, 17, .34);
+      --accent: #E8B02E;
+      --accent-grad-start: #FFE37A;
+      --accent-grad-end: #E8B02E;
+      --tint: rgba(232, 176, 46, .05);
+      --header-start: rgba(244, 241, 236, .95);
+      --header-end: rgba(244, 241, 236, .80);
+      --card-bg: rgba(255, 255, 255, .84);
+      --body-text: #3b3936;
+      --rule: rgba(14, 17, 17, .18);
+      --panel: rgba(232, 176, 46, .12);
+      --panel-strong: rgba(232, 176, 46, .22);
+      --accent-text: #7d5c0d;
+    }
+
+    .article-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .article-content h2 {
+      margin-top: 3.5rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.9rem;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+    }
+
+    .article-content p {
+      margin-bottom: 1.6rem;
+      line-height: 1.75;
+      font-size: 1.15rem;
+      color: var(--body-text);
+    }
+
+    .article-content strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    .article-content ul {
+      margin-bottom: 1.6rem;
+      padding-left: 1.5rem;
+      color: var(--body-text);
+    }
+
+    .article-content li {
+      margin-bottom: 0.5rem;
+      line-height: 1.75;
+      font-size: 1.15rem;
+    }
+
+    .article-content article a {
+      color: var(--accent-text);
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--accent-text) 45%, transparent);
+      text-underline-offset: 2px;
+    }
+
+    .article-hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      display: block;
+    }
+
+    html[data-theme="light"] .article-hero-image {
+      box-shadow: 0 8px 30px rgba(14, 17, 17, 0.12);
+    }
+
+    .article-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .article-date {
+      font-size: 0.9rem;
+      color: var(--accent-text);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 3rem;
+      font-weight: 600;
+      color: var(--accent-text);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .back-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    /* Display formula, echoing the .formula block on the BPQ explainer page */
+    .formula {
+      margin: 0 0 1.6rem;
+      padding: 1.4rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 16px;
+      background: var(--panel);
+      text-align: center;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 1.3rem;
+      line-height: 1.55;
+      color: var(--accent-text);
+      overflow-x: auto;
+    }
+
+    .formula strong {
+      color: var(--accent-text);
+      font-weight: 700;
+    }
+
+    .formula .note {
+      display: block;
+      margin-top: 0.8rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* Data tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin-bottom: 1.6rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table.data {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 1rem;
+      color: var(--body-text);
+    }
+
+    table.data th,
+    table.data td {
+      padding: 0.6rem 0.7rem;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    table.data th {
+      color: var(--accent-text);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      border-bottom-color: var(--line-strong);
+    }
+
+    table.data td.num {
+      font-variant-numeric: tabular-nums;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9rem;
+    }
+
+    table.data tr.hi td {
+      background: var(--panel-strong);
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+    /* Pull quote */
+    .keyline {
+      margin: 2.4rem 0;
+      padding: 1.2rem 1.4rem;
+      border-left: 3px solid var(--accent);
+      background: var(--panel);
+      border-radius: 0 12px 12px 0;
+      font-size: 1.2rem;
+      line-height: 1.65;
+      color: var(--fg);
+    }
+  </style>
+  <script src="/js/theme.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="/">Home</a>
+        <a class="btn" href="/blog/">Blog</a>
+        <a class="btn" href="/games.html">Games</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top: 80px;">
+      <div class="container article-content">
+        <div class="article-header">
+          <span class="article-date">August 14, 2026</span>
+          <h1
+            style="font-size: clamp(36px, 5vw, 56px); line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.02em;">
+            Why Random Search Leaves Gaps</h1>
+        </div>
+
+        <img src="/img/blog-random-coverage.svg"
+          alt="Chart of hit probability against the number of random draws, marked at 63.2 percent after one key-space"
+          class="article-hero-image">
+
+        <article>
+          <p>There is a moment in <a href="/bpq/"><strong>Bitcoin Puzzle Quest</strong></a> that quietly breaks most
+            people's intuition about probability.</p>
+          <p>You pick a puzzle. The app tells you how many candidate private keys its range contains. You start testing,
+            and the counter climbs. Eventually the counter passes that number. You have now tested as many keys as the
+            range holds.</p>
+          <p>So you are done, correct? Every key must have been tried at least once?</p>
+          <p>No. You have a <strong>63.2 percent</strong> chance of having touched the one that matters, and a
+            <strong>36.8 percent</strong> chance of never having seen it at all.
+          </p>
+          <p>This is not a quirk of one app. It is the central fact about searching by random sampling, and it has a
+            clean derivation with a surprising amount of structure underneath it. Let us work through it.</p>
+
+          <h2>The one line of algebra</h2>
+          <p>Set up the problem precisely. There are <strong>N</strong> candidate keys in the range. Exactly one of them
+            is the target. Each guess is drawn uniformly at random from all N candidates, independently of every guess
+            before it. This is what statisticians call <strong>sampling with replacement</strong>: nothing stops you
+            from drawing the same candidate twice, and nothing remembers that you already tried it.</p>
+          <p>A single draw misses the target with probability 1 &minus; 1/N. Draws are independent, so the probability
+            that <em>all</em> of n draws miss is that quantity raised to the n:</p>
+          <div class="formula">
+            P(miss after n draws) = (1 &minus; 1/N)<sup>n</sup>
+            <span class="note">and therefore P(hit) = 1 &minus; (1 &minus; 1/N)<sup>n</sup></span>
+          </div>
+          <p>That is the entire model. Everything else in this article is a consequence of that expression.</p>
+          <p>Now substitute the interesting case, the one that trips people up. Set <strong>n = N</strong>. You have
+            spent exactly as many guesses as the range has candidates.</p>
+          <div class="formula">
+            P(miss) = (1 &minus; 1/N)<sup>N</sup>
+          </div>
+
+          <h2>Where 63.2 percent comes from</h2>
+          <p>That expression is one of the classic definitions of <strong>e</strong>, the base of the natural logarithm.
+            As N grows, (1 &minus; 1/N)<sup>N</sup> converges to 1/e.</p>
+          <div class="formula">
+            1/e = 0.367879441&hellip;<br>
+            1 &minus; 1/e = <strong>0.632120558&hellip;</strong>
+          </div>
+          <p>So spending a full key-space worth of random guesses buys you a 63.2 percent chance of success, not 100
+            percent. The missing 36.8 percent is the probability mass that went into <strong>repeats</strong>. Every
+            time a draw lands on a candidate you already tested, that guess bought you nothing. Those wasted draws have
+            to come out of somewhere, and where they come out of is your coverage.</p>
+          <div class="keyline">
+            The number is not an artifact of large key-spaces or floating-point rounding. It is what happens when you
+            search without memory. A memoryless search cannot spend all of its effort on new ground, because it has no
+            way to know which ground is new.
+          </div>
+
+          <h2>It is a floor, not an approximation</h2>
+          <p>Here is a detail that matters more than it first appears, and that most write-ups skip.</p>
+          <p>1 &minus; 1/e is the <em>limit</em> as N goes to infinity. But the approach to that limit is
+            <strong>monotone</strong>. The miss probability (1 &minus; 1/N)<sup>N</sup> increases with N, which means
+            the hit probability decreases with N, converging on 63.212 percent from above and never dipping below it.
+          </p>
+          <p>Work the smallest case by hand to see why. Take <strong>N = 2</strong>: two candidates, one of which is
+            the target, and you are allowed two draws. A single draw misses with probability 1/2. Two draws both miss
+            with probability 1/2 &times; 1/2 = 1/4, because the draws are independent. So the chance of having hit the
+            target is 1 &minus; 1/4 = <strong>3/4</strong>, or 75 percent. The 25 percent you lose is precisely the
+            chance you drew the same wrong candidate twice.</p>
+          <p>Every row below is that same calculation with different numbers. Substitute N into (1 &minus; 1/N)<sup>N</sup>
+            to get the miss probability, then subtract from 1.</p>
+          <div class="table-wrap">
+            <table class="data">
+              <thead>
+                <tr>
+                  <th>Key-space N</th>
+                  <th>Miss = (1 &minus; 1/N)<sup>N</sup></th>
+                  <th>P(hit) = 1 &minus; miss</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="num">2</td>
+                  <td class="num">(1/2)<sup>2</sup> = 0.250000</td>
+                  <td class="num">75.0000%</td>
+                </tr>
+                <tr>
+                  <td class="num">4</td>
+                  <td class="num">(3/4)<sup>4</sup> = 0.316406</td>
+                  <td class="num">68.3594%</td>
+                </tr>
+                <tr>
+                  <td class="num">16</td>
+                  <td class="num">(15/16)<sup>16</sup> = 0.356074</td>
+                  <td class="num">64.3926%</td>
+                </tr>
+                <tr>
+                  <td class="num">1,024</td>
+                  <td class="num">(1023/1024)<sup>1024</sup> = 0.367700</td>
+                  <td class="num">63.2300%</td>
+                </tr>
+                <tr>
+                  <td class="num">1,048,576</td>
+                  <td class="num">(1 &minus; 1/2<sup>20</sup>)<sup>2<sup>20</sup></sup> = 0.367879</td>
+                  <td class="num">63.2121%</td>
+                </tr>
+                <tr class="hi">
+                  <td class="num">N &rarr; &infin;</td>
+                  <td class="num">1/e = 0.367879&hellip;</td>
+                  <td class="num">63.2121%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Reading down the middle column shows the convergence directly: 0.25, 0.316, 0.356, 0.3677, 0.36788, each
+            one closer to 1/e than the last and none of them past it.</p>
+          <p>This is why the correct thing to tell a user is <strong>"at least 63 percent"</strong> rather than
+            "about 63 percent". For any finite key-space, from a two-candidate toy range up to the 2<sup>134</sup>
+            candidates of <a href="/bpq/puzzles/">Puzzle 135</a>, the statement holds exactly. It is a proven bound, not
+            a rounded estimate, and bounds are much better things to put in a user interface than estimates.</p>
+
+          <h2>The whole curve</h2>
+          <p>Nothing forces you to stop at one key-space worth of guesses. Write n = cN, where c is how many times over
+            you have covered the range, and the expression collapses into something clean:</p>
+          <div class="formula">
+            P(hit) = 1 &minus; (1 &minus; 1/N)<sup>cN</sup> &asymp; 1 &minus; e<sup>&minus;c</sup>
+            <span class="note">the approximation is excellent for any N above a few thousand</span>
+          </div>
+          <p>There is a second, equivalent way to reach the same formula, and it is worth knowing because it generalises
+            better. The number of times your n draws land on the target follows a binomial distribution with n trials
+            and success probability 1/N. When n is large and 1/N is small, that binomial converges to a <strong>Poisson
+              distribution</strong> with mean &lambda; = n/N = c. The Poisson probability of zero events is
+            e<sup>&minus;&lambda;</sup>, which is exactly the miss probability above. Random key search is a Poisson
+            process, and the 63.2 percent figure is just P(at least one event) when the expected count is 1.</p>
+
+          <p>That is the curve at the top of this article, and its shape is the whole story: the steep part is over
+            almost immediately, and the flat part goes on forever. Here it is as numbers.</p>
+
+          <div class="table-wrap">
+            <table class="data">
+              <thead>
+                <tr>
+                  <th>Keys tested</th>
+                  <th>P(hit) = 1 &minus; e<sup>&minus;c</sup></th>
+                  <th>Still missed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="num">0.5 &times; N</td>
+                  <td class="num">39.35%</td>
+                  <td class="num">60.65%</td>
+                </tr>
+                <tr class="hi">
+                  <td class="num">1 &times; N</td>
+                  <td class="num">63.21%</td>
+                  <td class="num">36.79%</td>
+                </tr>
+                <tr>
+                  <td class="num">2 &times; N</td>
+                  <td class="num">86.47%</td>
+                  <td class="num">13.53%</td>
+                </tr>
+                <tr>
+                  <td class="num">3 &times; N</td>
+                  <td class="num">95.02%</td>
+                  <td class="num">4.98%</td>
+                </tr>
+                <tr>
+                  <td class="num">5 &times; N</td>
+                  <td class="num">99.33%</td>
+                  <td class="num">0.67%</td>
+                </tr>
+                <tr>
+                  <td class="num">10 &times; N</td>
+                  <td class="num">99.995%</td>
+                  <td class="num">0.005%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>The decay is exactly exponential, and that is the problem</h2>
+          <p>Look at the "still missed" column. Each additional key-space worth of work multiplies it by the same
+            constant:</p>
+          <div class="formula">
+            1/e &asymp; 0.3679
+            <span class="note">every extra N draws removes 63.2 percent of the <em>remaining</em> doubt, never more</span>
+          </div>
+          <p>This is the same structure as radioactive decay or a half-life, and it has the same consequence. The
+            quantity approaches zero, but it has no last step. There is no number of random draws, however large, that
+            makes the miss probability zero. A random search over a finite space is an infinite process.</p>
+          <p>That is a strange thing to say about a search of a <em>finite</em> set. Search the same set methodically
+            and you are guaranteed to finish. Search it randomly and you are guaranteed never to finish. The set did not
+            change. Only the memory did.</p>
+
+          <h2>Coverage and hit probability are the same number</h2>
+          <p>A pleasant identity falls out here. Ask a different question: after n random draws, how many
+            <em>distinct</em> candidates have you actually seen?</p>
+          <p>Each individual candidate escapes all n draws with probability (1 &minus; 1/N)<sup>n</sup>. By linearity of
+            expectation, summing over all N candidates:</p>
+          <div class="formula">
+            E[distinct keys seen] = N &sdot; (1 &minus; e<sup>&minus;c</sup>)
+          </div>
+          <p>Which is the same factor as before. So "you have a 63.2 percent chance of having hit the target" and "you
+            have seen 63.2 percent of the range" are not two facts that happen to share a number. They are one fact
+            stated twice. The target is not special. It is an arbitrary member of the set, and your chance of having
+            found it is precisely the fraction of the set you managed to cover.</p>
+          <p>This is why <strong>coverage</strong> is the honest progress metric for a random search, and why any
+            display built on "keys tested" alone will eventually mislead. Keys tested is an input. Coverage is the
+            output, and after the first key-space they diverge badly.</p>
+
+          <h2>Your first repeat arrives absurdly early</h2>
+          <p>People assume repeats are a late-stage problem, something that only starts to bite once you have covered a
+            meaningful fraction of the range. The opposite is true, and the relevant result is the
+            <strong>birthday problem</strong>.</p>
+          <p>The expected number of draws before you see your <em>first</em> collision is not proportional to N. It is
+            proportional to the square root of N:</p>
+          <div class="formula">
+            E[draws to first repeat] &asymp; &radic;(&pi;N / 2)
+          </div>
+          <p><a href="/bpq/puzzles/">Puzzle 71</a> has an interval of 2<sup>70</sup> candidates, roughly 1.18
+            sextillion. The square root term puts your first duplicate key at around <strong>43 billion draws</strong>.
+            That is about one part in 27 billion of the range: for all practical purposes, the very beginning of the
+            search. You will be drawing keys you have already drawn long before you have covered any noticeable slice of
+            the space. (<a href="https://en.wikipedia.org/wiki/Birthday_problem" target="_blank"
+              rel="noopener">Wikipedia</a>)</p>
+          <p>Individually, each repeat is harmless. Collectively, they are the entire reason the curve flattens.</p>
+
+          <h2>What actually finishing would cost</h2>
+          <p>If repeats are the obstacle, the natural question is how many random draws it would take to see every
+            candidate at least once. This is the <strong>coupon collector's problem</strong>, and its answer is
+            famously worse than people expect:</p>
+          <div class="formula">
+            E[draws to see all N] = N &sdot; (ln N + &gamma;) + &frac12;
+            <span class="note">&gamma; &asymp; 0.5772, the Euler&ndash;Mascheroni constant</span>
+          </div>
+          <p>The <strong>ln N</strong> factor is the sting. For Puzzle 71, ln(2<sup>70</sup>) is about 48.5, so full
+            coverage by random sampling would take roughly <strong>49 key-spaces</strong> of work, about 5.8 &times;
+            10<sup>22</sup> draws. (<a href="https://en.wikipedia.org/wiki/Coupon_collector%27s_problem" target="_blank"
+              rel="noopener">Wikipedia</a>)</p>
+          <p>And because the factor is logarithmic in N, it grows with the puzzle number. At Puzzle 135 the multiplier is
+            not 49 but about 93. Random search does not just fail to finish. The margin by which it fails gets steadily
+            worse as the problem gets harder.</p>
+
+          <h2>The factor of two nobody mentions</h2>
+          <p>Put the two search strategies side by side, and ask how long each takes to find the key on average.</p>
+          <p>For random sampling with replacement, the number of draws until the first hit is geometrically distributed
+            with success probability 1/N, so the expected number of draws is <strong>N</strong>.</p>
+          <p>For a sequential sweep with no repeats, the target sits at a uniformly random position in the sweep, so the
+            expected number of draws is <strong>(N + 1) / 2</strong>.</p>
+          <div class="keyline">
+            A methodical sweep finds the key in half the work, on average, and comes with a guaranteed finish. Random
+            sampling costs twice as much and guarantees nothing.
+          </div>
+          <p>A sweep asks for two things a hand-tapped random guess does not: a starting point you choose deliberately,
+            and a run that keeps going without you. In <strong>Bitcoin Puzzle Quest</strong> those arrive together in
+            <a href="/bpq/details.html">Continuous Mode</a>, which takes a start key and scans deterministically upward
+            from it while the app does the tapping. Worth being clear about the ceiling, though: halving the work on a
+            range of 2<sup>70</sup> still leaves 2<sup>69</sup>, so no strategy makes the high puzzles tractable on a
+            phone. The factor of two is worth having at the scale where finishing is genuinely on the table.</p>
+          <p>Stated that baldly, random sampling still looks indefensible for everyone else. So why does it remain the
+            default in <strong>Bitcoin Puzzle Quest</strong>, and in serious distributed key-search efforts generally?
+          </p>
+
+          <h2>Why random anyway</h2>
+          <p>Because the assumption behind the comparison is wrong. There is not one searcher.</p>
+          <p>A sequential sweep is only efficient if every participant sweeps a <em>different</em> stretch. The instant
+            two searchers start from the same place, all of the second one's work is duplicated, and its efficiency
+            advantage becomes an efficiency disaster. Keeping sweeps disjoint requires assigning ranges, tracking which
+            ranges are claimed, detecting abandoned ranges and reissuing them. In other words, it requires a coordinator,
+            shared state and trust that participants report honestly.</p>
+          <p>Random sampling needs none of that. It is stateless. Two players who never communicate, on opposite sides
+            of the planet, overlap only by chance, and their combined coverage still follows the same curve with n as
+            the pooled total. You can add a searcher, or ten thousand, with no registration and no bookkeeping.</p>
+          <p>The factor of two is the price of needing no coordinator. For a permissionless, offline, uncoordinated
+            search, that is usually a bargain, which is why random draws are what you get by default and why they are
+            the right tool when you are hunting alone and unannounced.</p>
+          <p>The moment you stop being alone, the arithmetic flips. Two friends who agree that one starts at the bottom
+            of a range and the other at the midpoint have solved the overlap problem with a single sentence, no server
+            required, and between them they cover the range without a single duplicated draw. Two random searchers,
+            pooling the same effort, are back on the 1 &minus; e<sup>&minus;c</sup> curve and its repeats. That is the
+            case a <a href="/bpq/details.html">deterministic sweep</a> is built for: pick your stretch, say so, and let
+            it run.</p>
+
+          <h2>Two different questions, two different numbers</h2>
+          <p>Almost every misunderstanding in this area comes from mixing up two quantities that both get called
+            "the odds".</p>
+          <ul>
+            <li><strong>The odds on the next draw.</strong> This is 1/N. It was 1/N on your first guess and it is
+              still 1/N on your trillionth. It never improves. Not by one part in a billion.</li>
+            <li><strong>The odds accumulated so far.</strong> This is 1 &minus; e<sup>&minus;c</sup>. It rises with
+              every guess, quickly at first and then barely at all.</li>
+          </ul>
+          <p>The geometric distribution is <strong>memoryless</strong>, which is the formal statement of the fact that
+            the first number never moves. A long streak of failures does not mean you are "due". The key-space does not
+            know how long you have been trying, and the sampler does not either. What your effort buys is entirely
+            captured by the second number, and the second number is the one worth displaying.</p>
+
+          <h2>The takeaway</h2>
+          <p>Randomness is a remarkable tool for search. It parallelises without coordination, needs no memory, cannot
+            be gamed by an adversary who knows your strategy, and requires no infrastructure whatsoever. Those
+            properties are why it shows up everywhere from Monte Carlo integration to load balancing to cryptographic
+            key hunts.</p>
+          <p>But it buys those properties with a specific, quantifiable inefficiency, and 1/e is the exchange rate.
+            Spend a key-space, keep 36.8 percent of your doubt. Spend another, keep 13.5 percent. Spend forever, keep
+            something.</p>
+          <p>A methodical search ends. A random search only fades.</p>
+          <p>If you want to watch the curve behave in the wild, <a href="/bpq/">Bitcoin Puzzle Quest</a> is an offline
+            simulator for exactly this process. Tap a key and you are sampling; the odds above are the odds you are
+            playing. If the arithmetic has left you preferring the other half of the trade, sweeping over sampling,
+            that is what <a href="/bpq/details.html">Continuous Mode</a> does: you name the starting key and it walks
+            the range from there, no repeats and no tapping.</p>
+          <p>Our <a href="/bpq/what-is-a-bitcoin-puzzle/">plain-English explainer</a> covers where the puzzles came from
+            and how the ranges are defined. For a broader look at how small rule sets generate hard problems, see
+            <a href="/blog/why-simple-rules-create-hard-puzzles.html">Why Simple Rules Create Hard Puzzles</a>.</p>
+        </article>
+
+        <a href="/blog/" class="back-link">&larr; Back to Blog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="/support/">Support</a>
+        <a class="link" href="/">Home</a>
+      </div>
+    </div>
+    <div class="container legal">
+      &copy; 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (t) => {
+      if (t === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+
+</html>

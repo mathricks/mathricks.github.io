@@ -96,6 +96,11 @@ GitHub: https://github.com/mathricks
 - Description: The Mathricks blog with essays on puzzle design, game mechanics, and development.
 - Page: https://mathricks.com/blog/
 
+### Why Random Search Leaves Gaps
+- Description: An explainer on sampling with replacement, deriving why a full key-space of random guesses gives only a 63.2 percent chance of success, covering the coupon collector and birthday problems and the implications for progress indicators.
+- Page: https://mathricks.com/blog/why-random-search-leaves-gaps.html
+- Published: 2026-08-14
+
 ### Why Simple Rules Create Hard Puzzles
 - Description: An essay on why puzzle depth comes from the interaction of a few rules, with examples from Sudoku, Wordle, Tetris, Minesweeper, and chess.
 - Page: https://mathricks.com/blog/why-simple-rules-create-hard-puzzles.html
