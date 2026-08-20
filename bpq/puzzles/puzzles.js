@@ -4,7 +4,7 @@
   const MAX_QUERY_LENGTH = 128;
   const EXPECTED_PUZZLE_COUNT = 160;
   const HUNT_PATHS = new Map([
-    [71, '/bpq/hunt/'],
+    [71, '/bpq/hunt/71/'],
     [72, '/bpq/hunt/72/'],
     [73, '/bpq/hunt/73/'],
     [74, '/bpq/hunt/74/']
@@ -33,8 +33,10 @@
   const claimedRewardsUSDElement = document.getElementById('claimedRewardsUSD');
   const totalRewardsElement = document.getElementById('totalRewards');
   const totalRewardsUSDElement = document.getElementById('totalRewardsUSD');
+  const sortButtons = [...document.querySelectorAll('[data-sort-key]')];
 
   let puzzles = [];
+  let sort = { key: 'puzzle', direction: 'desc' };
 
   const statusFor = (entry) => entry.solvedDate || entry.solvedKey ? 'solved' : 'open';
   const rewardFor = (bit) => `${(bit / 10).toFixed(1)} BTC`;
@@ -173,6 +175,33 @@
     if (row) row.scrollIntoView({ behavior, block: 'start' });
   };
 
+  const compareRows = (left, right) => {
+    const direction = sort.direction === 'asc' ? 1 : -1;
+    if (sort.key === 'solved') {
+      const leftDate = left.entry.solvedDate;
+      const rightDate = right.entry.solvedDate;
+      if (!leftDate || !rightDate) {
+        if (!leftDate && !rightDate) return direction * (left.bit - right.bit);
+        return leftDate ? -1 : 1;
+      }
+      const dateComparison = leftDate.localeCompare(rightDate);
+      return direction * (dateComparison || left.bit - right.bit);
+    }
+    return direction * (left.bit - right.bit);
+  };
+
+  const updateSortButtons = () => {
+    sortButtons.forEach((button) => {
+      const active = button.dataset.sortKey === sort.key;
+      const direction = active ? sort.direction : 'none';
+      button.closest('th').setAttribute('aria-sort', direction === 'none' ? 'none' : direction === 'asc' ? 'ascending' : 'descending');
+      button.setAttribute('aria-label', active
+        ? `Sort by ${button.dataset.sortLabel} ${direction === 'asc' ? 'descending' : 'ascending'}`
+        : `Sort by ${button.dataset.sortLabel} ascending`);
+      button.dataset.direction = direction;
+    });
+  };
+
   const render = () => {
     if (searchElement.value.length > MAX_QUERY_LENGTH) {
       searchElement.value = searchElement.value.slice(0, MAX_QUERY_LENGTH);
@@ -190,10 +219,11 @@
         entry.solvedKey || '',
         status
       ].some((value) => normalizeQuery(value).includes(query));
-    });
+    }).sort(compareRows);
 
     rowsElement.replaceChildren();
     resultCountElement.textContent = `${visible.length} ${visible.length === 1 ? 'puzzle' : 'puzzles'}`;
+    updateSortButtons();
 
     if (!visible.length) {
       const row = document.createElement('tr');
@@ -359,6 +389,16 @@
 
   searchElement.addEventListener('input', render);
   filterElement.addEventListener('change', render);
+  sortButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const key = button.dataset.sortKey;
+      sort = {
+        key,
+        direction: sort.key === key && sort.direction === 'asc' ? 'desc' : 'asc'
+      };
+      render();
+    });
+  });
   [latestSolveElement, previousSolveElement].forEach((element) => {
     element.addEventListener('click', (event) => {
       const match = element.hash.match(/^#puzzle-(\d{1,3})$/);
