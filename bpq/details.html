@@ -271,6 +271,10 @@
       padding: 0 32px;
     }
 
+    #continuous-mode {
+      scroll-margin-top: 88px;
+    }
+
     .footnote {
       font-size: .75rem;
       line-height: 1.4;
@@ -295,6 +299,31 @@
       font-size: clamp(28px, 4.6vw, 52px);
       margin: 0 0 22px;
       line-height: 1.06
+    }
+
+    /* Keep the details page typography aligned with the main BPQ page. */
+    .section h3 {
+      margin: 30px 0 12px;
+      font-size: 1rem;
+      line-height: 1.3;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .section p,
+    .section li {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .section p {
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+
+    .section li {
+      margin-bottom: .65rem;
     }
 
     .principles {
@@ -494,6 +523,8 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="/css/app-pages-common.css" />
+  <link rel="stylesheet" href="styles.css" />
   <!-- Mathricks Analytics (GA4 + click tracking) -->
   <script src="/js/analytics.js"></script>
   <script src="/js/consent.js"></script>
@@ -558,14 +589,14 @@
               converted locally to a Bitcoin address and checked against the official puzzle list —<em>all offline</em>.
               Keep tapping until you find the correct number (or your thumbs tap out… pro tip: a DIY “robot finger” is
               totally fair game).</li>
-            <li><strong>Continuous Mode.</strong> Let the app press the button for you. No
+            <li id="continuous-mode"><strong>Continuous Mode.</strong> Let the app press the button for you. No
               tapping required. Perfect for committed puzzle hunters who’d rather watch the numbers roll than their
               fingers ache.
-              Enter a starting number for deterministic, sequential scans—perfect for targeting specific ranges or
+              Enter a starting number for deterministic, sequential scans, perfect for targeting specific ranges or
               coordinating community efforts. Earn it free with Power Surge, top up with Million-Key Packs, or unlock it
               permanently with a one-time purchase.</li>
             <li><strong>Daily Chest mini-game.</strong> Double-tap the treasure-chest icon to play a quick 3×3 sliding
-              puzzle. Solve it daily to earn Power Surge keys—a free trial of Continuous Mode. Because every great
+              puzzle. Solve it daily to earn Power Surge keys, a free trial of Continuous Mode. Because every great
               quest deserves a hidden side quest!</li>
           </ul>
 
