@@ -3,7 +3,12 @@
 
   const MAX_QUERY_LENGTH = 128;
   const EXPECTED_PUZZLE_COUNT = 160;
-  const PUZZLE_71_HUNT_PATH = '/bpq/hunt/';
+  const HUNT_PATHS = new Map([
+    [71, '/bpq/hunt/'],
+    [72, '/bpq/hunt/72/'],
+    [73, '/bpq/hunt/73/'],
+    [74, '/bpq/hunt/74/']
+  ]);
   const ANNOUNCEMENT_HOSTS = new Set([
     'bitcointalk.org',
     'github.com',
@@ -207,14 +212,14 @@
       const puzzleCell = document.createElement('th');
       puzzleCell.scope = 'row';
       puzzleCell.className = 'puzzle-number';
-      if (bit === 71) {
+      if (HUNT_PATHS.has(bit)) {
         puzzleCell.textContent = `#${bit} `;
         const huntLink = document.createElement('a');
         huntLink.className = 'hunt-link';
-        huntLink.href = PUZZLE_71_HUNT_PATH;
+        huntLink.href = HUNT_PATHS.get(bit);
         huntLink.textContent = 'Join Hunt ↗';
-        huntLink.title = 'Choose a private Puzzle 71 range and scan it in your browser';
-        huntLink.setAttribute('aria-label', 'Join the browser hunt for Bitcoin Puzzle 71');
+        huntLink.title = `Choose a private Puzzle ${bit} range and scan it in your browser`;
+        huntLink.setAttribute('aria-label', `Join the browser hunt for Bitcoin Puzzle ${bit}`);
         puzzleCell.appendChild(huntLink);
       } else if (bit === 69 || bit === 135) {
         const recordLink = document.createElement('a');
