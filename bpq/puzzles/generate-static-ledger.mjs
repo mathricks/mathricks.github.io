@@ -13,6 +13,10 @@ const escapeHTML = (value) => String(value)
   .replaceAll("'", '&#39;');
 
 const data = JSON.parse(await readFile(dataPath, 'utf8'));
+const formatBTC = (amount) => `${new Intl.NumberFormat('en-US', {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 3
+}).format(amount)} BTC`;
 const rows = Object.entries(data)
   .map(([number, entry]) => ({ number: Number(number), entry }))
   .filter(({ entry }) => entry.solvedDate || entry.solvedKey)
@@ -33,7 +37,7 @@ const rows = Object.entries(data)
     return [
       `              <tr id="puzzle-${number}">`,
       `                <th scope="row" class="puzzle-number">${puzzleContent}</th>`,
-      `                <td class="reward">${(number / 10).toFixed(1)} BTC</td>`,
+      `                <td class="reward">${formatBTC(entry.rewardBTC)}</td>`,
       '                <td><span class="status-pill status-solved">Solved</span></td>',
       `                <td class="date-cell">${date}</td>`,
       `                <td><a class="mono-link" href="https://mempool.space/address/${encodeURIComponent(entry.address)}"`,

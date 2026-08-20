@@ -40,11 +40,10 @@
   let sort = { key: 'puzzle', direction: 'desc' };
 
   const statusFor = (entry) => entry.solvedDate || entry.solvedKey ? 'solved' : 'open';
-  const rewardFor = (bit) => `${(bit / 10).toFixed(1)} BTC`;
   const formatBTC = (amount) =>
     `${new Intl.NumberFormat('en-US', {
       minimumFractionDigits: 1,
-      maximumFractionDigits: 1
+      maximumFractionDigits: 3
     }).format(amount)} BTC`;
   const isPlausibleBTCPrice = (value) =>
     Number.isFinite(value) && value > 0 && value < 100000000;
@@ -79,6 +78,12 @@
       throw new Error(`Invalid puzzle address: ${bit}`);
     }
 
+    const rewardBTC = rawEntry.rewardBTC;
+    if (typeof rewardBTC !== 'number' || !Number.isFinite(rewardBTC) ||
+        rewardBTC <= 0 || rewardBTC > 21_000_000) {
+      throw new Error(`Invalid puzzle reward: ${bit}`);
+    }
+
     const solvedDate = rawEntry.solvedDate;
     if (solvedDate !== null &&
         (typeof solvedDate !== 'string' || !ISO_DATE_PATTERN.test(solvedDate))) {
@@ -100,6 +105,7 @@
 
     return Object.freeze({
       address,
+      rewardBTC,
       solvedDate,
       solvedKey,
       announcementURL: trustedAnnouncementURL(rawEntry.announcementURL)
@@ -178,6 +184,9 @@
 
   const compareRows = (left, right) => {
     const direction = sort.direction === 'asc' ? 1 : -1;
+    if (sort.key === 'reward') {
+      return direction * (left.entry.rewardBTC - right.entry.rewardBTC || left.bit - right.bit);
+    }
     if (sort.key === 'solved') {
       const leftDate = left.entry.solvedDate;
       const rightDate = right.entry.solvedDate;
@@ -266,7 +275,7 @@
         puzzleCell.textContent = `#${bit}`;
       }
       row.appendChild(puzzleCell);
-      row.appendChild(makeCell('reward', rewardFor(bit)));
+      row.appendChild(makeCell('reward', formatBTC(entry.rewardBTC)));
 
       const statusCell = makeCell();
       const pill = document.createElement('span');
@@ -337,9 +346,9 @@
     const previous = solvesByDate[1];
     const remainingBTC = puzzles
       .filter(({ status }) => status === 'open')
-      .reduce((total, { bit }) => total + bit / 10, 0);
-    const claimedBTC = solved.reduce((total, { bit }) => total + bit / 10, 0);
-    const totalBTC = puzzles.reduce((total, { bit }) => total + bit / 10, 0);
+      .reduce((total, { entry }) => total + entry.rewardBTC, 0);
+    const claimedBTC = solved.reduce((total, { entry }) => total + entry.rewardBTC, 0);
+    const totalBTC = puzzles.reduce((total, { entry }) => total + entry.rewardBTC, 0);
 
     document.getElementById('totalCount').textContent = puzzles.length;
     document.getElementById('solvedCount').textContent = solved.length;
