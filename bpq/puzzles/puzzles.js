@@ -4,6 +4,7 @@
   const MAX_QUERY_LENGTH = 128;
   const EXPECTED_PUZZLE_COUNT = 160;
   const HUNT_PATHS = new Map([
+    [30, '/bpq/hunt/30/'],
     [71, '/bpq/hunt/71/'],
     [72, '/bpq/hunt/72/'],
     [73, '/bpq/hunt/73/'],
@@ -247,9 +248,14 @@
         const huntLink = document.createElement('a');
         huntLink.className = 'hunt-link';
         huntLink.href = HUNT_PATHS.get(bit);
-        huntLink.textContent = 'Join Hunt ↗';
-        huntLink.title = `Choose a private Puzzle ${bit} range and scan it in your browser`;
-        huntLink.setAttribute('aria-label', `Join the browser hunt for Bitcoin Puzzle ${bit}`);
+        const isValidationHunt = bit === 30;
+        huntLink.textContent = isValidationHunt ? 'Test Hunt ↗' : 'Join Hunt ↗';
+        huntLink.title = isValidationHunt
+          ? 'Test the browser scanner with Puzzle 30’s known public solution'
+          : `Choose a private Puzzle ${bit} range and scan it in your browser`;
+        huntLink.setAttribute('aria-label', isValidationHunt
+          ? 'Test the browser hunt scanner with Bitcoin Puzzle 30'
+          : `Join the browser hunt for Bitcoin Puzzle ${bit}`);
         puzzleCell.appendChild(huntLink);
       } else if (bit === 69 || bit === 135) {
         const recordLink = document.createElement('a');
