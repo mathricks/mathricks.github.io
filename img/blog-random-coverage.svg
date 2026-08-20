@@ -24,8 +24,8 @@
   </defs>
 
   <rect width="1200" height="630" rx="24" class="bg"/>
-  <text x="120" y="62" class="title">Random draws never finish the job</text>
-  <text x="120" y="97" class="sub">Chance of having hit the key after n random guesses, n measured in key-spaces</text>
+  <text x="120" y="62" class="title">How random coverage grows</text>
+  <text x="120" y="97" class="sub">Cumulative chance after n random guesses, measured in key-spaces</text>
 
   <g>
     <line x1="120" y1="120" x2="120" y2="500" class="grid"/>

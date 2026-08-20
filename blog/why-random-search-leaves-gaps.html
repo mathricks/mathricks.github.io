@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Testing as many random keys as a key-space holds does not cover it. Where the 63.2 percent figure comes from, why it is a floor rather than an estimate, and what it means for honest progress indicators." />
+    content="After one key-space worth of random draws, expected coverage reaches at least 63.2 percent. Here is where that number comes from and how it helps make every search easier to understand." />
   <link rel="canonical" href="https://mathricks.com/blog/why-random-search-leaves-gaps.html" />
 
   <title>Why Random Search Leaves Gaps | Mathricks</title>
@@ -262,8 +262,8 @@
             and the counter climbs. Eventually the counter passes that number. You have now tested as many keys as the
             range holds.</p>
           <p>So you are done, correct? Every key must have been tried at least once?</p>
-          <p>No. You have a <strong>63.2 percent</strong> chance of having touched the one that matters, and a
-            <strong>36.8 percent</strong> chance of never having seen it at all.
+          <p>Not quite. You have a <strong>63.2 percent</strong> chance of having touched the one that matters, while
+            <strong>36.8 percent</strong> of the probability remains open for the next round of exploration.
           </p>
           <p>This is not a quirk of one app. It is the central fact about searching by random sampling, and it has a
             clean derivation with a surprising amount of structure underneath it. Let us work through it.</p>
@@ -293,14 +293,13 @@
             1/e = 0.367879441&hellip;<br>
             1 &minus; 1/e = <strong>0.632120558&hellip;</strong>
           </div>
-          <p>So spending a full key-space worth of random guesses buys you a 63.2 percent chance of success, not 100
-            percent. The missing 36.8 percent is the probability mass that went into <strong>repeats</strong>. Every
-            time a draw lands on a candidate you already tested, that guess bought you nothing. Those wasted draws have
-            to come out of somewhere, and where they come out of is your coverage.</p>
+          <p>So a full key-space worth of random guesses gives you a 63.2 percent chance of success. The remaining 36.8
+            percent comes from <strong>repeats</strong>. When a draw revisits a candidate, it confirms earlier ground
+            instead of extending coverage to a new key.</p>
           <div class="keyline">
             The number is not an artifact of large key-spaces or floating-point rounding. It is what happens when you
-            search without memory. A memoryless search cannot spend all of its effort on new ground, because it has no
-            way to know which ground is new.
+            search without memory. That independence is what lets random exploration begin anywhere, while the coverage
+            curve tells us exactly how much new ground to expect.
           </div>
 
           <h2>It is a floor, not an approximation</h2>
@@ -312,8 +311,8 @@
           <p>Work the smallest case by hand to see why. Take <strong>N = 2</strong>: two candidates, one of which is
             the target, and you are allowed two draws. A single draw misses with probability 1/2. Two draws both miss
             with probability 1/2 &times; 1/2 = 1/4, because the draws are independent. So the chance of having hit the
-            target is 1 &minus; 1/4 = <strong>3/4</strong>, or 75 percent. The 25 percent you lose is precisely the
-            chance you drew the same wrong candidate twice.</p>
+            target is 1 &minus; 1/4 = <strong>3/4</strong>, or 75 percent. The remaining 25 percent is precisely the
+            chance that both draws revisited the other candidate.</p>
           <p>Every row below is that same calculation with different numbers. Substitute N into (1 &minus; 1/N)<sup>N</sup>
             to get the miss probability, then subtract from 1.</p>
           <div class="table-wrap">
@@ -380,8 +379,8 @@
             e<sup>&minus;&lambda;</sup>, which is exactly the miss probability above. Random key search is a Poisson
             process, and the 63.2 percent figure is just P(at least one event) when the expected count is 1.</p>
 
-          <p>That is the curve at the top of this article, and its shape is the whole story: the steep part is over
-            almost immediately, and the flat part goes on forever. Here it is as numbers.</p>
+          <p>That is the curve at the top of this article. It rises quickly at first, then continues upward in smaller,
+            predictable steps. Here it is as numbers.</p>
 
           <div class="table-wrap">
             <table class="data">
@@ -427,19 +426,18 @@
             </table>
           </div>
 
-          <h2>The decay is exactly exponential, and that is the problem</h2>
+          <h2>What the exponential curve teaches us</h2>
           <p>Look at the "still missed" column. Each additional key-space worth of work multiplies it by the same
             constant:</p>
           <div class="formula">
             1/e &asymp; 0.3679
-            <span class="note">every extra N draws removes 63.2 percent of the <em>remaining</em> doubt, never more</span>
+            <span class="note">every extra N draws removes 63.2 percent of the <em>remaining</em> uncertainty</span>
           </div>
-          <p>This is the same structure as radioactive decay or a half-life, and it has the same consequence. The
-            quantity approaches zero, but it has no last step. There is no number of random draws, however large, that
-            makes the miss probability zero. A random search over a finite space is an infinite process.</p>
-          <p>That is a strange thing to say about a search of a <em>finite</em> set. Search the same set methodically
-            and you are guaranteed to finish. Search it randomly and you are guaranteed never to finish. The set did not
-            change. Only the memory did.</p>
+          <p>This is the same structure as a half-life. Each additional round reduces the uncertainty by the same
+            proportion, so confidence keeps rising in a smooth and measurable way.</p>
+          <p>A methodical sweep and random exploration answer different needs. A sweep is designed for complete
+            coverage of a chosen range. Random starts are designed for independent exploration without shared state or
+            coordination. The curve lets us describe that trade clearly.</p>
 
           <h2>Coverage and hit probability are the same number</h2>
           <p>A pleasant identity falls out here. Ask a different question: after n random draws, how many
@@ -453,14 +451,12 @@
             have seen 63.2 percent of the range" are not two facts that happen to share a number. They are one fact
             stated twice. The target is not special. It is an arbitrary member of the set, and your chance of having
             found it is precisely the fraction of the set you managed to cover.</p>
-          <p>This is why <strong>coverage</strong> is the honest progress metric for a random search, and why any
-            display built on "keys tested" alone will eventually mislead. Keys tested is an input. Coverage is the
-            output, and after the first key-space they diverge badly.</p>
+          <p>This is why <strong>coverage</strong> is the most informative progress metric for a random search. Keys
+            tested describes the effort; coverage translates that effort into the expected share of new ground explored.</p>
 
-          <h2>Your first repeat arrives absurdly early</h2>
-          <p>People assume repeats are a late-stage problem, something that only starts to bite once you have covered a
-            meaningful fraction of the range. The opposite is true, and the relevant result is the
-            <strong>birthday problem</strong>.</p>
+          <h2>Why repeats appear earlier than intuition suggests</h2>
+          <p>Repeats can feel like a late-stage phenomenon, but the <strong>birthday problem</strong> shows why they can
+            appear much earlier than intuition suggests.</p>
           <p>The expected number of draws before you see your <em>first</em> collision is not proportional to N. It is
             proportional to the square root of N:</p>
           <div class="formula">
@@ -468,27 +464,24 @@
           </div>
           <p><a href="/bpq/puzzles/">Puzzle 71</a> has an interval of 2<sup>70</sup> candidates, roughly 1.18
             sextillion. The square root term puts your first duplicate key at around <strong>43 billion draws</strong>.
-            That is about one part in 27 billion of the range: for all practical purposes, the very beginning of the
-            search. You will be drawing keys you have already drawn long before you have covered any noticeable slice of
-            the space. (<a href="https://en.wikipedia.org/wiki/Birthday_problem" target="_blank"
+            That is about one part in 27 billion of the range. Repeats can therefore appear while the explored share is
+            still tiny, even though almost every draw continues to reach new ground at that stage of
+            the search. (<a href="https://en.wikipedia.org/wiki/Birthday_problem" target="_blank"
               rel="noopener">Wikipedia</a>)</p>
-          <p>Individually, each repeat is harmless. Collectively, they are the entire reason the curve flattens.</p>
+          <p>Each repeat is harmless. Together, they explain the graceful bend in the coverage curve.</p>
 
-          <h2>What actually finishing would cost</h2>
-          <p>If repeats are the obstacle, the natural question is how many random draws it would take to see every
-            candidate at least once. This is the <strong>coupon collector's problem</strong>, and its answer is
-            famously worse than people expect:</p>
+          <h2>The mathematics of complete coverage</h2>
+          <p>If the goal is to see every candidate at least once, the relevant model is the <strong>coupon collector's
+              problem</strong>:</p>
           <div class="formula">
             E[draws to see all N] = N &sdot; (ln N + &gamma;) + &frac12;
             <span class="note">&gamma; &asymp; 0.5772, the Euler&ndash;Mascheroni constant</span>
           </div>
-          <p>The <strong>ln N</strong> factor is the sting. For Puzzle 71, ln(2<sup>70</sup>) is about 48.5, so full
-            coverage by random sampling would take roughly <strong>49 key-spaces</strong> of work, about 5.8 &times;
-            10<sup>22</sup> draws. (<a href="https://en.wikipedia.org/wiki/Coupon_collector%27s_problem" target="_blank"
+          <p>The <strong>ln N</strong> factor explains why random sampling is best understood through growing coverage,
+            while a sequential sweep is the natural choice when complete coverage of a chosen range is the goal. It is
+            a useful distinction between two exploration modes, not a verdict on either one. (<a
+              href="https://en.wikipedia.org/wiki/Coupon_collector%27s_problem" target="_blank"
               rel="noopener">Wikipedia</a>)</p>
-          <p>And because the factor is logarithmic in N, it grows with the puzzle number. At Puzzle 135 the multiplier is
-            not 49 but about 93. Random search does not just fail to finish. The margin by which it fails gets steadily
-            worse as the problem gets harder.</p>
 
           <h2>The factor of two nobody mentions</h2>
           <p>Put the two search strategies side by side, and ask how long each takes to find the key on average.</p>
@@ -497,32 +490,28 @@
           <p>For a sequential sweep with no repeats, the target sits at a uniformly random position in the sweep, so the
             expected number of draws is <strong>(N + 1) / 2</strong>.</p>
           <div class="keyline">
-            A methodical sweep finds the key in half the work, on average, and comes with a guaranteed finish. Random
-            sampling costs twice as much and guarantees nothing.
+            A methodical sweep reaches each key once. Random starts trade some coverage efficiency for the freedom to
+            explore independently, anywhere in the range.
           </div>
           <p>A sweep asks for two things a hand-tapped random guess does not: a starting point you choose deliberately,
             and a run that keeps going without you. In <strong>Bitcoin Puzzle Quest</strong> those arrive together in
             <a href="/bpq/details.html">Continuous Mode</a>, which takes a start key and scans deterministically upward
-            from it while the app does the tapping. Worth being clear about the ceiling, though: halving the work on a
-            range of 2<sup>70</sup> still leaves 2<sup>69</sup>, so no strategy makes the high puzzles tractable on a
-            phone. The factor of two is worth having at the scale where finishing is genuinely on the table.</p>
-          <p>Stated that baldly, random sampling still looks indefensible for everyone else. So why does it remain the
-            default in <strong>Bitcoin Puzzle Quest</strong>, and in serious distributed key-search efforts generally?
-          </p>
+            from it while the app does the tapping. It is ideal when you want to explore a specific stretch or
+            coordinate a range with friends.</p>
+          <p>Random starts serve a different purpose, which is why they remain valuable in <strong>Bitcoin Puzzle
+              Quest</strong> and in distributed key-search experiments generally.</p>
 
           <h2>Why random anyway</h2>
-          <p>Because the assumption behind the comparison is wrong. There is not one searcher.</p>
+          <p>The comparison becomes more interesting as soon as there is more than one searcher.</p>
           <p>A sequential sweep is only efficient if every participant sweeps a <em>different</em> stretch. The instant
-            two searchers start from the same place, all of the second one's work is duplicated, and its efficiency
-            advantage becomes an efficiency disaster. Keeping sweeps disjoint requires assigning ranges, tracking which
+            two searchers start from the same place, their work overlaps. Keeping sweeps disjoint requires assigning ranges, tracking which
             ranges are claimed, detecting abandoned ranges and reissuing them. In other words, it requires a coordinator,
             shared state and trust that participants report honestly.</p>
           <p>Random sampling needs none of that. It is stateless. Two players who never communicate, on opposite sides
             of the planet, overlap only by chance, and their combined coverage still follows the same curve with n as
             the pooled total. You can add a searcher, or ten thousand, with no registration and no bookkeeping.</p>
-          <p>The factor of two is the price of needing no coordinator. For a permissionless, offline, uncoordinated
-            search, that is usually a bargain, which is why random draws are what you get by default and why they are
-            the right tool when you are hunting alone and unannounced.</p>
+          <p>The factor of two is the trade for needing no coordinator. For a permissionless, offline search, that
+            flexibility is often exactly what you want.</p>
           <p>The moment you stop being alone, the arithmetic flips. Two friends who agree that one starts at the bottom
             of a range and the other at the midpoint have solved the overlap problem with a single sentence, no server
             required, and between them they cover the range without a single duplicated draw. Two random searchers,
@@ -534,10 +523,10 @@
           <p>Almost every misunderstanding in this area comes from mixing up two quantities that both get called
             "the odds".</p>
           <ul>
-            <li><strong>The odds on the next draw.</strong> This is 1/N. It was 1/N on your first guess and it is
-              still 1/N on your trillionth. It never improves. Not by one part in a billion.</li>
+            <li><strong>The odds on the next draw.</strong> This is 1/N on every guess because each random draw is a
+              fresh event.</li>
             <li><strong>The odds accumulated so far.</strong> This is 1 &minus; e<sup>&minus;c</sup>. It rises with
-              every guess, quickly at first and then barely at all.</li>
+              every guess according to the coverage curve.</li>
           </ul>
           <p>The geometric distribution is <strong>memoryless</strong>, which is the formal statement of the fact that
             the first number never moves. A long streak of failures does not mean you are "due". The key-space does not
@@ -549,15 +538,13 @@
             be gamed by an adversary who knows your strategy, and requires no infrastructure whatsoever. Those
             properties are why it shows up everywhere from Monte Carlo integration to load balancing to cryptographic
             key hunts.</p>
-          <p>But it buys those properties with a specific, quantifiable inefficiency, and 1/e is the exchange rate.
-            Spend a key-space, keep 36.8 percent of your doubt. Spend another, keep 13.5 percent. Spend forever, keep
-            something.</p>
-          <p>A methodical search ends. A random search only fades.</p>
-          <p>If you want to watch the curve behave in the wild, <a href="/bpq/">Bitcoin Puzzle Quest</a> is an offline
-            simulator for exactly this process. Tap a key and you are sampling; the odds above are the odds you are
-            playing. If the arithmetic has left you preferring the other half of the trade, sweeping over sampling,
-            that is what <a href="/bpq/details.html">Continuous Mode</a> does: you name the starting key and it walks
-            the range from there, no repeats and no tapping.</p>
+          <p>The 1/e curve gives those properties a precise, useful progress model. After one key-space of random
+            exploration the expected coverage is at least 63.2 percent; after two it is about 86.5 percent; after three
+            it is about 95 percent.</p>
+          <p><a href="/bpq/">Bitcoin Puzzle Quest</a> now combines both ideas. Random mode chooses where a block starts,
+            then walks through that block without repeats. <a href="/bpq/details.html">Continuous Mode</a> lets you
+            choose the starting key yourself and explore a specific range. One offers serendipity, the other structure,
+            and both make the mathematics visible as you play.</p>
           <p>Our <a href="/bpq/what-is-a-bitcoin-puzzle/">plain-English explainer</a> covers where the puzzles came from
             and how the ranges are defined. For a broader look at how small rule sets generate hard problems, see
             <a href="/blog/why-simple-rules-create-hard-puzzles.html">Why Simple Rules Create Hard Puzzles</a>.</p>
