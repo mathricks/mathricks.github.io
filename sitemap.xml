@@ -17,16 +17,27 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mathricks.com/blog/why-adding-beats-multiplying.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mathricks.com/blog/why-random-search-leaves-gaps.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mathricks.com/blog/why-simple-rules-create-hard-puzzles.html</loc>
+    <lastmod>2026-05-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mathricks.com/company/terms-of-service.html</loc>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://mathricks.com/support/</loc>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://mathricks.com/rmm/</loc>
-    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://mathricks.com/bpq/</loc>
@@ -99,11 +110,6 @@
     <loc>https://mathricks.com/zweitwohnung/</loc>
     <lastmod>2026-08-02</lastmod>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mathricks.com/zweitwohnung/details.html</loc>
-    <lastmod>2026-08-02</lastmod>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://mathricks.com/zweitwohnung/support/</loc>
