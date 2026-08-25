@@ -46,7 +46,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="main-style.css?v=20260729">
+  <link rel="stylesheet" href="main-style.css?v=20260824b">
   <title>Mathricks - Math-Inspired Puzzle Games &amp; Apps</title>
   <!-- Mathricks Analytics (GA4 + click tracking) -->
   <script src="/js/analytics.js"></script>
@@ -83,7 +83,7 @@
                 </div>
               </div>
               <p class="featured-announcement">
-                <strong><a href="/bpq/puzzles/135/">Puzzle 135 has just been solved.</a></strong>
+                <strong><a href="/bpq/puzzles/135/">Puzzle 135 has been solved.</a></strong>
                 13.5 BTC (worth $870,966 at publication) was claimed.
                 There are still <strong>903 BTC across 77 open puzzles</strong>.
                 Do you want to find the next key?
@@ -173,94 +173,125 @@
         <div class="apps-grid">
           <!-- Bitcoin Puzzle Quest -->
           <article class="card app-card app-card-bpq">
-            <img src="./img/game2-logo.png" alt="Bitcoin Puzzle Quest logo" class="app-logo">
-            <h3>Bitcoin Puzzle Quest<sup class="name-mark">&trade;</sup></h3>
-            <p>Hunt the legendary 1000 BTC cryptographic puzzle in an offline, private playground. Tap to generate keys,
-              climb global leaderboards, and celebrate big finds. <a href="https://mathricks.com/bpq/" class="read-more"
-                rel="noopener">Learn more</a></p>
-            <div class="app-qr">
-              <div class="qr-wrap" id="qr-bpq"></div>
-              <div class="qr-text">
-                <span class="qr-hint">Scan to<br>download</span>
-                <a href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" rel="noopener"
-                  aria-label="Download on App Store">
-                  <img src="img/app-store.png" alt="Download on the App Store" class="qr-app-store">
+            <a class="app-media" href="/bpq/" tabindex="-1" aria-hidden="true">
+              <video class="app-media-el" poster="/img/preview-bpq.jpg" data-src="/bpq/gameplay.mp4"
+                muted loop playsinline preload="none" aria-hidden="true"></video>
+            </a>
+            <div class="app-body">
+              <div class="app-head">
+                <img src="/img/game2-logo.png" alt="Bitcoin Puzzle Quest app icon" class="app-logo" width="46" height="46">
+                <h3>Bitcoin Puzzle Quest<sup class="name-mark">&trade;</sup></h3>
+              </div>
+              <p>Hunt the legendary 1000 BTC cryptographic puzzle in an offline, private playground. Tap to generate keys,
+              climb global leaderboards, and celebrate big finds. <a href="/bpq/" class="read-more">Learn more</a></p>
+              <div class="app-actions">
+                <a class="app-store-link" href="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717" rel="noopener"
+                  aria-label="Download Bitcoin Puzzle Quest on the App Store">
+                  <img src="/img/app-store.png" alt="Download on the App Store" class="app-store-badge">
                 </a>
+                <div class="app-qr">
+                  <div class="qr-wrap" title="Scan to download" aria-label="QR code linking to the App Store" data-qr="https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717"></div>
+                </div>
               </div>
             </div>
           </article>
 
           <!-- Summit Numbers -->
           <article class="card app-card app-card-summit">
-            <img src="./img/game4-logo.png" alt="Summit Numbers Game logo" class="app-logo">
-            <h3>Summit Numbers<sup class="name-mark">&trade;</sup></h3>
-            <p>A fast number-summation puzzle. Build clean summits, keep your streak alive, and share the same climb
-              with
-              friends. <a href="https://mathricks.com/summit/" class="read-more" rel="noopener">Learn more</a></p>
-            <div class="app-qr">
-              <div class="qr-wrap" id="qr-summit"></div>
-              <div class="qr-text">
-                <span class="qr-hint">Scan to<br>download</span>
-                <a href="https://apps.apple.com/app/id6753334821" rel="noopener" aria-label="Download on App Store">
-                  <img src="img/app-store.png" alt="Download on the App Store" class="qr-app-store">
+            <a class="app-media app-media-art" href="/summit/" tabindex="-1" aria-hidden="true">
+              <img class="app-media-el" src="/img/preview-summit.jpg" alt="" width="640" height="640"
+                loading="lazy" decoding="async">
+            </a>
+            <div class="app-body">
+              <div class="app-head">
+                <img src="/img/game4-logo.png" alt="Summit Numbers app icon" class="app-logo" width="46" height="46">
+                <h3>Summit Numbers<sup class="name-mark">&trade;</sup></h3>
+              </div>
+              <p>A fast number-summation puzzle. Build clean summits, keep your streak alive, and share the same climb
+              with friends. <a href="/summit/" class="read-more">Learn more</a></p>
+              <div class="app-actions">
+                <a class="app-store-link" href="https://apps.apple.com/app/id6753334821" rel="noopener"
+                  aria-label="Download Summit Numbers on the App Store">
+                  <img src="/img/app-store.png" alt="Download on the App Store" class="app-store-badge">
                 </a>
+                <div class="app-qr">
+                  <div class="qr-wrap" title="Scan to download" aria-label="QR code linking to the App Store" data-qr="https://apps.apple.com/app/id6753334821"></div>
+                </div>
               </div>
             </div>
           </article>
 
           <!-- Entropy: Zero -->
           <article class="card app-card app-card-entropy">
-            <img src="./img/game5-logo.png" alt="Entropy: Zero logo" class="app-logo">
-            <h3>Entropy: Zero<sup class="name-mark">&trade;</sup></h3>
-            <p>Social media dilutes focus; Entropy: Zero sharpens it. Stop the doom scroll. Switch to a puzzle that
-              pulls your brain from fog into flow state.
-              <a href="./entropy/" class="read-more" rel="noopener">Learn more</a>
-            </p>
-            <div class="app-qr">
-              <div class="qr-wrap" id="qr-entropy"></div>
-              <div class="qr-text">
-                <span class="qr-hint">Scan to<br>download</span>
-                <a href="https://apps.apple.com/app/id6757635585" rel="noopener" aria-label="Download on App Store">
-                  <img src="img/app-store.png" alt="Download on the App Store" class="qr-app-store">
+            <a class="app-media app-media-art" href="/entropy/" tabindex="-1" aria-hidden="true">
+              <img class="app-media-el" src="/img/preview-entropy.jpg" alt="" width="640" height="640"
+                loading="lazy" decoding="async">
+            </a>
+            <div class="app-body">
+              <div class="app-head">
+                <img src="/img/game5-logo.png" alt="Entropy: Zero app icon" class="app-logo" width="46" height="46">
+                <h3>Entropy: Zero<sup class="name-mark">&trade;</sup></h3>
+              </div>
+              <p>Social media dilutes focus; Entropy: Zero sharpens it. Stop the doom scroll. Switch to a puzzle that
+              pulls your brain from fog into flow state. <a href="/entropy/" class="read-more">Learn more</a></p>
+              <div class="app-actions">
+                <a class="app-store-link" href="https://apps.apple.com/app/id6757635585" rel="noopener"
+                  aria-label="Download Entropy: Zero on the App Store">
+                  <img src="/img/app-store.png" alt="Download on the App Store" class="app-store-badge">
                 </a>
+                <div class="app-qr">
+                  <div class="qr-wrap" title="Scan to download" aria-label="QR code linking to the App Store" data-qr="https://apps.apple.com/app/id6757635585"></div>
+                </div>
               </div>
             </div>
           </article>
 
           <!-- GridLock Numbers -->
           <article class="card app-card app-card-gridlock">
-            <img src="https://mathricks.com/img/game1-logo.png" alt="GridLock Numbers logo" class="app-logo">
-            <h3>GridLock Numbers<sup class="name-mark">&trade;</sup></h3>
-            <p>A deceptively simple number‑filling puzzle. Jump double for orthogonal moves, single for diagonals, and
-              master x2 bonus cells to crush high scores. <a href="https://mathricks.com/gridlock/" class="read-more"
-                rel="noopener">Learn more</a></p>
-            <div class="app-qr">
-              <div class="qr-wrap" id="qr-gridlock"></div>
-              <div class="qr-text">
-                <span class="qr-hint">Scan to<br>download</span>
-                <a href="https://apps.apple.com/us/app/gridlock-numbers/id912871295" rel="noopener"
-                  aria-label="Download on App Store">
-                  <img src="img/app-store.png" alt="Download on the App Store" class="qr-app-store">
+            <a class="app-media app-media-art" href="/gridlock/" tabindex="-1" aria-hidden="true">
+              <img class="app-media-el" src="/img/preview-gridlock.jpg" alt="" width="640" height="640"
+                loading="lazy" decoding="async">
+            </a>
+            <div class="app-body">
+              <div class="app-head">
+                <img src="/img/game1-logo.png" alt="GridLock Numbers app icon" class="app-logo" width="46" height="46">
+                <h3>GridLock Numbers<sup class="name-mark">&trade;</sup></h3>
+              </div>
+              <p>A deceptively simple number-filling puzzle. Jump double for orthogonal moves, single for diagonals, and
+              master x2 bonus cells to crush high scores. <a href="/gridlock/" class="read-more">Learn more</a></p>
+              <div class="app-actions">
+                <a class="app-store-link" href="https://apps.apple.com/us/app/gridlock-numbers/id912871295" rel="noopener"
+                  aria-label="Download GridLock Numbers on the App Store">
+                  <img src="/img/app-store.png" alt="Download on the App Store" class="app-store-badge">
                 </a>
+                <div class="app-qr">
+                  <div class="qr-wrap" title="Scan to download" aria-label="QR code linking to the App Store" data-qr="https://apps.apple.com/us/app/gridlock-numbers/id912871295"></div>
+                </div>
               </div>
             </div>
           </article>
 
           <!-- Astrovert -->
           <article class="card app-card app-card-astrovert">
-            <img src="https://mathricks.com/img/game3-logo.png" alt="Astrovert logo" class="app-logo">
-            <h3>Astrovert<sup class="name-mark">&trade;</sup></h3>
-            <p>Break free from gravity and guide a cosmic baseball through asteroid belts and stormy atmospheres. A
-              metaphorical journey about stepping outside your comfort zone. <a href="https://mathricks.com/astrovert/"
-                class="read-more" rel="noopener">Learn more</a></p>
-            <div class="app-qr">
-              <div class="qr-wrap" id="qr-astrovert"></div>
-              <div class="qr-text">
-                <span class="qr-hint">Scan to<br>download</span>
-                <a href="https://apps.apple.com/gb/app/astrovert/id6502262535" rel="noopener"
-                  aria-label="Download on App Store">
-                  <img src="img/app-store.png" alt="Download on the App Store" class="qr-app-store">
+            <a class="app-media app-media-art" href="/astrovert/" tabindex="-1" aria-hidden="true">
+              <img class="app-media-el" src="/img/preview-astrovert.jpg" alt="" width="640" height="640"
+                loading="lazy" decoding="async">
+            </a>
+            <div class="app-body">
+              <div class="app-head">
+                <img src="/img/game3-logo.png" alt="Astrovert app icon" class="app-logo" width="46" height="46">
+                <h3>Astrovert<sup class="name-mark">&trade;</sup></h3>
+              </div>
+              <p>Break free from gravity and guide a cosmic baseball through asteroid belts and stormy atmospheres. A
+              metaphorical journey about stepping outside your comfort zone. <a href="/astrovert/" class="read-more">Learn more</a></p>
+              <div class="app-actions">
+                <a class="app-store-link" href="https://apps.apple.com/gb/app/astrovert/id6502262535" rel="noopener"
+                  aria-label="Download Astrovert on the App Store">
+                  <img src="/img/app-store.png" alt="Download on the App Store" class="app-store-badge">
                 </a>
+                <div class="app-qr">
+                  <div class="qr-wrap" title="Scan to download" aria-label="QR code linking to the App Store" data-qr="https://apps.apple.com/gb/app/astrovert/id6502262535"></div>
+                </div>
               </div>
             </div>
           </article>
@@ -290,21 +321,16 @@
   <script src="js/main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
+    // QR codes are declared on the markup (data-qr) so cards stay self-describing.
     (function () {
-      var qrOpts = {
-        width: 96, height: 96, correctLevel: QRCode.CorrectLevel.M,
-        colorDark: '#0e1111', colorLight: '#ffffff'
-      };
-      var codes = [
-        { id: 'qr-bpq', url: 'https://itunes.apple.com/us/app/bitcoin-puzzle-quest/id6744828717' },
-        { id: 'qr-entropy', url: 'https://apps.apple.com/app/id6757635585' },
-        { id: 'qr-gridlock', url: 'https://apps.apple.com/us/app/gridlock-numbers/id912871295' },
-        { id: 'qr-astrovert', url: 'https://apps.apple.com/gb/app/astrovert/id6502262535' },
-        { id: 'qr-summit', url: 'https://apps.apple.com/app/id6753334821' }
-      ];
-      codes.forEach(function (c) {
-        var el = document.getElementById(c.id);
-        if (el) new QRCode(el, Object.assign({}, qrOpts, { text: c.url }));
+      if (typeof QRCode === 'undefined') return;
+      document.querySelectorAll('.qr-wrap[data-qr]').forEach(function (el) {
+        new QRCode(el, {
+          text: el.dataset.qr,
+          width: 96, height: 96,
+          correctLevel: QRCode.CorrectLevel.M,
+          colorDark: '#0e1111', colorLight: '#ffffff'
+        });
       });
     })();
   </script>
