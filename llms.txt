@@ -29,6 +29,7 @@ GitHub: https://github.com/mathricks
 - Support FAQ: https://mathricks.com/bpq/support/
 - Match Explainer: https://mathricks.com/bpq/support/match.html
 - Claiming BTC Overview: https://mathricks.com/bpq/support/claim.html
+- Changelog: https://mathricks.com/bpq/changelog/
 - Privacy: https://mathricks.com/bpq/privacy/
 - Platform: iOS
 
@@ -39,6 +40,7 @@ GitHub: https://github.com/mathricks
 - Shared Puzzle Page: https://mathricks.com/summit/play/
 - Support: https://mathricks.com/summit/support/
 - Story: https://mathricks.com/summit/support/story.html
+- Changelog: https://mathricks.com/summit/changelog/
 - Privacy: https://mathricks.com/summit/privacy/
 - Platform: iOS
 
@@ -48,6 +50,7 @@ GitHub: https://github.com/mathricks
 - Overview: https://mathricks.com/entropy/
 - Support: https://mathricks.com/entropy/support/
 - Story: https://mathricks.com/entropy/support/story.html
+- Changelog: https://mathricks.com/entropy/changelog/
 - Privacy: https://mathricks.com/entropy/privacy/
 - Platform: iOS
 
@@ -57,6 +60,7 @@ GitHub: https://github.com/mathricks
 - Overview: https://mathricks.com/gridlock/
 - Support: https://mathricks.com/gridlock/support/
 - Story: https://mathricks.com/gridlock/support/story.html
+- Changelog: https://mathricks.com/gridlock/changelog/
 - Privacy: https://mathricks.com/gridlock/privacy/
 - Platform: iOS
 
@@ -66,6 +70,7 @@ GitHub: https://github.com/mathricks
 - Overview: https://mathricks.com/astrovert/
 - Support: https://mathricks.com/astrovert/support/
 - Story: https://mathricks.com/astrovert/support/story.html
+- Changelog: https://mathricks.com/astrovert/changelog/
 - Privacy: https://mathricks.com/astrovert/privacy/
 - Platform: iOS
 
@@ -82,7 +87,17 @@ GitHub: https://github.com/mathricks
 - Overview: https://mathricks.com/der-wortschatz/
 - Curriculum Details: https://mathricks.com/der-wortschatz/details.html
 - Support: https://mathricks.com/der-wortschatz/support/
+- Changelog: https://mathricks.com/der-wortschatz/changelog/
 - Privacy: https://mathricks.com/der-wortschatz/privacy/
+- Platform: iOS
+
+### Zweitwohnung
+- Description: Local iOS app for German double-household tax records, days, trips, meal allowances, accommodation expenses, PDF reports, and CSV export.
+- App Store: https://apps.apple.com/us/app/zweitwohnung/id6796437637
+- Overview: https://mathricks.com/zweitwohnung/
+- Changelog: https://mathricks.com/zweitwohnung/changelog/
+- Support: https://mathricks.com/zweitwohnung/support/
+- Privacy: https://mathricks.com/zweitwohnung/privacy/
 - Platform: iOS
 
 ### RMM

@@ -1,0 +1,337 @@
+/* Mathricks App Changelog Shared Stylesheet */
+
+.changelog-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+/* Hero & App Summary */
+.changelog-hero {
+  margin-bottom: 48px;
+}
+
+.changelog-hero .eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.changelog-header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--card-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 28px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.changelog-app-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.changelog-app-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+}
+
+.changelog-app-title h1 {
+  margin: 0 0 6px 0;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.changelog-app-title p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.changelog-hero-actions {
+  flex-shrink: 0;
+}
+
+.appstore-badge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 12px 20px;
+  border-radius: 999px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.appstore-badge-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.appstore-badge-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Stats Row */
+.changelog-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.changelog-stat-item {
+  background: var(--card-bg, rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+
+.changelog-stat-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.changelog-stat-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+/* Timeline Layout */
+.timeline {
+  position: relative;
+  padding-left: 36px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  bottom: 24px;
+  left: 11px;
+  width: 2px;
+  background: var(--line);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -36px;
+  top: 16px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: border-color 0.2s ease;
+}
+
+.timeline-item.is-latest .timeline-marker {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.timeline-item.is-latest .timeline-marker::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Version Card */
+.changelog-card {
+  background: var(--card-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px 30px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-item.is-latest .changelog-card {
+  border-color: var(--line-strong);
+  background: linear-gradient(180deg, var(--tint, rgba(255, 255, 255, 0.04)) 0%, var(--card-bg, rgba(255, 255, 255, 0.02)) 100%);
+}
+
+.version-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.version-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.version-tag {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+
+.badge-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--line);
+  color: var(--muted);
+}
+
+.badge-pill.pill-latest {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.release-date {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.changelog-notes {
+  color: var(--fg);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.changelog-notes p {
+  margin: 0 0 14px 0;
+  color: var(--fg);
+}
+
+.changelog-notes p:last-child {
+  margin-bottom: 0;
+}
+
+.changelog-notes p.intro-highlight {
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.changelog-notes h3,
+.changelog-notes h4 {
+  font-size: 1.05rem;
+  margin: 18px 0 10px 0;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.changelog-notes ul {
+  margin: 10px 0 16px 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.changelog-notes li {
+  margin-bottom: 8px;
+  line-height: 1.55;
+  color: var(--fg);
+}
+
+.changelog-notes li:last-child {
+  margin-bottom: 0;
+}
+
+.changelog-notes strong {
+  color: var(--fg);
+}
+
+/* Empty state / initial release note */
+.initial-release-note {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 720px) {
+  .changelog-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+  }
+
+  .changelog-app-info {
+    width: 100%;
+  }
+
+  .changelog-hero-actions {
+    width: 100%;
+  }
+
+  .appstore-badge-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .timeline {
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline-marker {
+    left: -28px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .changelog-card {
+    padding: 18px 20px;
+  }
+
+  .version-tag {
+    font-size: 1.15rem;
+  }
+}
