@@ -81,6 +81,7 @@ a {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
+select:focus-visible,
 textarea:focus-visible {
   outline: 3px solid var(--sun);
   outline-offset: 3px;
@@ -579,7 +580,8 @@ header {
   text-transform: uppercase;
 }
 
-.support-form input,
+.support-form input:not([type="checkbox"]):not([type="radio"]),
+.support-form select,
 .support-form textarea {
   width: 100%;
   padding: 16px;
@@ -588,6 +590,73 @@ header {
   background: var(--card-bg);
   color: var(--fg);
   font: inherit;
+}
+
+.support-form select {
+  appearance: auto;
+}
+
+.support-form input[type="file"] {
+  padding: 12px;
+}
+
+.support-form fieldset {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.support-form legend {
+  margin-bottom: 3px;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.support-form .choice,
+.support-form .consent-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.support-form .choice {
+  padding: 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: var(--card-bg);
+  cursor: pointer;
+}
+
+.support-form .choice input,
+.support-form .consent-choice input {
+  width: auto;
+  margin-top: 3px;
+  flex: 0 0 auto;
+}
+
+.recording-panel {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(36, 200, 169, .06);
+}
+
+.recording-panel .form-note {
+  margin-top: -10px;
 }
 
 .support-form textarea {
@@ -761,6 +830,7 @@ footer {
   .hero-cta { flex-direction: column; align-items: stretch; }
   .form-actions { align-items: stretch; flex-direction: column; }
   .form-actions .cta { width: 100%; }
+  .choice-grid { grid-template-columns: 1fr; }
   .hero-visual { min-height: 540px; }
   .app-icon { width: 106px; height: 106px; left: 5px; bottom: 48px; border-radius: 24px; }
   .section { padding: 72px 0; }
