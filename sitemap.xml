@@ -118,8 +118,13 @@
   </url>
   <url>
     <loc>https://mathricks.com/zweitwohnung/</loc>
-    <lastmod>2026-08-02</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mathricks.com/zweitwohnung/en/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mathricks.com/zweitwohnung/changelog/</loc>
@@ -127,8 +132,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mathricks.com/zweitwohnung/en/changelog/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mathricks.com/zweitwohnung/support/</loc>
-    <lastmod>2026-08-02</lastmod>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mathricks.com/zweitwohnung/en/support/</loc>
+    <lastmod>2026-09-15</lastmod>
     <priority>0.5</priority>
   </url>
   <url>

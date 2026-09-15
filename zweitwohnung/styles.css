@@ -111,6 +111,37 @@ header {
   justify-content: flex-end;
 }
 
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--panel);
+}
+
+.language-option {
+  min-width: 34px;
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 750;
+  letter-spacing: .08em;
+  transition: background .18s ease, color .18s ease;
+}
+
+.language-option:hover {
+  color: var(--fg);
+}
+
+.language-option[aria-current="page"] {
+  background: var(--accent);
+  color: #102016;
+}
+
 .btn,
 .cta,
 button[type="submit"] {
@@ -496,6 +527,65 @@ p {
   letter-spacing: .18em;
 }
 
+.sample-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: clamp(32px, 7vw, 84px);
+  align-items: center;
+}
+
+.sample-copy .section-lead {
+  margin-bottom: 24px;
+}
+
+.sample-note,
+.sample-caption {
+  color: var(--muted);
+}
+
+.sample-contents {
+  max-width: 620px;
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.sample-note {
+  max-width: 64ch;
+  margin: 18px 0 0;
+  font-size: .88rem;
+  line-height: 1.6;
+}
+
+.sample-preview {
+  display: block;
+  margin: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  padding: 14px;
+  background: var(--panel);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .2);
+}
+
+.sample-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.sample-caption {
+  display: block;
+  padding: 12px 2px 0;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .band {
   border-block: 1px solid var(--line);
   overflow: hidden;
@@ -688,8 +778,14 @@ footer {
   .grid,
   .two-grid,
   .steps,
+  .sample-grid,
   .support-layout {
     grid-template-columns: 1fr;
+  }
+
+  .sample-preview {
+    width: min(100%, 420px);
+    justify-self: center;
   }
 
   .phone {
