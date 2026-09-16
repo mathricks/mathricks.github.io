@@ -822,3 +822,28 @@ const obs = new IntersectionObserver(entries => {
     }
 }, { threshold: .15 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// App card previews: fetch and play the muted clip only while the card is on
+(function () {
+    const previews = Array.from(document.querySelectorAll('.app-media-el[data-src]'));
+    if (!previews.length) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = navigator.connection && navigator.connection.saveData;
+    if (reduceMotion || saveData) return;
+
+    const io = new IntersectionObserver(entries => {
+        for (const e of entries) {
+            const video = e.target;
+            if (e.isIntersecting) {
+                if (!video.getAttribute('src')) video.setAttribute('src', video.dataset.src);
+                const played = video.play();
+                if (played) played.catch(() => { /* autoplay refused; poster stays */ });
+            } else if (!video.paused) {
+                video.pause();
+            }
+        }
+    }, { threshold: .35 });
+
+    previews.forEach(v => io.observe(v));
+})();

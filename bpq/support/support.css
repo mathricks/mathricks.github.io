@@ -20,7 +20,38 @@ header p {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 18px 0;
+  /* padding-block, not `18px 0` — the latter wipes .container's horizontal padding
+     and lets the header run flush to the viewport edges below 1200px. */
+  padding-block: 18px;
+}
+
+/* Holds #themeToggle plus the black-and-white toggle theme.js injects next to it,
+   so the pair never gets split across lines when the nav wraps. */
+.header-toggles {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Keep the title from crowding the nav once both toggles are in. */
+@media (max-width: 860px) {
+  .header-flex {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+
+  .header-flex h1 {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .header-flex .nav-actions {
+    margin-left: auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    /* Without this the nav keeps its max-content width and overflows the container. */
+    min-width: 0;
+  }
 }
 
 /* Sections + crossing frames */
@@ -28,11 +59,6 @@ header p {
   position: relative;
   padding: 60px 0;
   scroll-margin-top: 120px;
-}
-
-#faq-claim,
-#faq-high-bit-solves {
-  scroll-margin-top: 140px;
 }
 
 .section+.section {
@@ -117,25 +143,151 @@ li {
   line-height: 1.6;
 }
 
-/* FAQ list spacing */
-#faq ul {
+/* FAQ accordion */
+.faq-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 8px;
+}
+
+.faq-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.faq-toggle-all {
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color .25s ease, color .25s ease;
+}
+
+.faq-toggle-all:hover,
+.faq-toggle-all:focus-visible {
+  border-color: var(--accent);
+  color: var(--fg);
+}
+
+.faq-list {
+  border-top: 1px solid var(--line);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 140px;
+}
+
+.faq-item>summary {
+  position: relative;
+  padding: 18px 54px 18px 0;
+  color: var(--fg);
+  cursor: pointer;
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  font-weight: 650;
+  line-height: 1.45;
+  list-style: none;
+}
+
+.faq-item>summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item>summary:hover {
+  color: var(--accent);
+}
+
+.faq-item>summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.faq-item>summary::after {
+  content: "+";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.faq-item[open]>summary::after {
+  content: "−";
+}
+
+/* "New" marker for recently added questions */
+.faq-badge {
+  display: inline-block;
+  vertical-align: 2px;
+  margin-left: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* In the light theme --bg is cream, which is unreadable on the gold pill. */
+[data-theme="light"] .faq-badge {
+  color: var(--fg);
+}
+
+.faq-answer {
+  max-width: 820px;
+  margin: -4px 0 24px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.faq-answer ul {
   list-style-position: outside;
   margin: 0;
   padding-left: 1.2em;
 }
 
-#faq li {
-  margin: 22px 0;
+.faq-answer li {
+  margin: 6px 0;
 }
 
-#faq li strong {
-  display: block;
-  margin: 0 0 2px;
+@media (prefers-reduced-motion: no-preference) {
+  .faq-item[open]>.faq-answer {
+    animation: faq-reveal .22s ease;
+  }
+}
+
+@keyframes faq-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .faq-screenshot {
   margin: 16px 0 0;
-  max-width: min(100%, 560px);
+  max-width: min(100%, 360px);
 }
 
 .faq-screenshot img {

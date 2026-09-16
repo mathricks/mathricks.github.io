@@ -3,6 +3,13 @@
 
   const MAX_QUERY_LENGTH = 128;
   const EXPECTED_PUZZLE_COUNT = 160;
+  const HUNT_PATHS = new Map([
+    [30, '/bpq/hunt/30/'],
+    [71, '/bpq/hunt/71/'],
+    [72, '/bpq/hunt/72/'],
+    [73, '/bpq/hunt/73/'],
+    [74, '/bpq/hunt/74/']
+  ]);
   const ANNOUNCEMENT_HOSTS = new Set([
     'bitcointalk.org',
     'github.com',
@@ -27,15 +34,16 @@
   const claimedRewardsUSDElement = document.getElementById('claimedRewardsUSD');
   const totalRewardsElement = document.getElementById('totalRewards');
   const totalRewardsUSDElement = document.getElementById('totalRewardsUSD');
+  const sortButtons = [...document.querySelectorAll('[data-sort-key]')];
 
   let puzzles = [];
+  let sort = { key: 'puzzle', direction: 'desc' };
 
   const statusFor = (entry) => entry.solvedDate || entry.solvedKey ? 'solved' : 'open';
-  const rewardFor = (bit) => `${(bit / 10).toFixed(1)} BTC`;
   const formatBTC = (amount) =>
     `${new Intl.NumberFormat('en-US', {
       minimumFractionDigits: 1,
-      maximumFractionDigits: 1
+      maximumFractionDigits: 3
     }).format(amount)} BTC`;
   const isPlausibleBTCPrice = (value) =>
     Number.isFinite(value) && value > 0 && value < 100000000;
@@ -70,6 +78,12 @@
       throw new Error(`Invalid puzzle address: ${bit}`);
     }
 
+    const rewardBTC = rawEntry.rewardBTC;
+    if (typeof rewardBTC !== 'number' || !Number.isFinite(rewardBTC) ||
+        rewardBTC <= 0 || rewardBTC > 21_000_000) {
+      throw new Error(`Invalid puzzle reward: ${bit}`);
+    }
+
     const solvedDate = rawEntry.solvedDate;
     if (solvedDate !== null &&
         (typeof solvedDate !== 'string' || !ISO_DATE_PATTERN.test(solvedDate))) {
@@ -91,6 +105,7 @@
 
     return Object.freeze({
       address,
+      rewardBTC,
       solvedDate,
       solvedKey,
       announcementURL: trustedAnnouncementURL(rawEntry.announcementURL)
@@ -167,6 +182,36 @@
     if (row) row.scrollIntoView({ behavior, block: 'start' });
   };
 
+  const compareRows = (left, right) => {
+    const direction = sort.direction === 'asc' ? 1 : -1;
+    if (sort.key === 'reward') {
+      return direction * (left.entry.rewardBTC - right.entry.rewardBTC || left.bit - right.bit);
+    }
+    if (sort.key === 'solved') {
+      const leftDate = left.entry.solvedDate;
+      const rightDate = right.entry.solvedDate;
+      if (!leftDate || !rightDate) {
+        if (!leftDate && !rightDate) return direction * (left.bit - right.bit);
+        return leftDate ? -1 : 1;
+      }
+      const dateComparison = leftDate.localeCompare(rightDate);
+      return direction * (dateComparison || left.bit - right.bit);
+    }
+    return direction * (left.bit - right.bit);
+  };
+
+  const updateSortButtons = () => {
+    sortButtons.forEach((button) => {
+      const active = button.dataset.sortKey === sort.key;
+      const direction = active ? sort.direction : 'none';
+      button.closest('th').setAttribute('aria-sort', direction === 'none' ? 'none' : direction === 'asc' ? 'ascending' : 'descending');
+      button.setAttribute('aria-label', active
+        ? `Sort by ${button.dataset.sortLabel} ${direction === 'asc' ? 'descending' : 'ascending'}`
+        : `Sort by ${button.dataset.sortLabel} ascending`);
+      button.dataset.direction = direction;
+    });
+  };
+
   const render = () => {
     if (searchElement.value.length > MAX_QUERY_LENGTH) {
       searchElement.value = searchElement.value.slice(0, MAX_QUERY_LENGTH);
@@ -184,10 +229,11 @@
         entry.solvedKey || '',
         status
       ].some((value) => normalizeQuery(value).includes(query));
-    });
+    }).sort(compareRows);
 
     rowsElement.replaceChildren();
     resultCountElement.textContent = `${visible.length} ${visible.length === 1 ? 'puzzle' : 'puzzles'}`;
+    updateSortButtons();
 
     if (!visible.length) {
       const row = document.createElement('tr');
@@ -206,7 +252,21 @@
       const puzzleCell = document.createElement('th');
       puzzleCell.scope = 'row';
       puzzleCell.className = 'puzzle-number';
-      if (bit === 69 || bit === 135) {
+      if (HUNT_PATHS.has(bit)) {
+        puzzleCell.textContent = `#${bit} `;
+        const huntLink = document.createElement('a');
+        huntLink.className = 'hunt-link';
+        huntLink.href = HUNT_PATHS.get(bit);
+        const isValidationHunt = bit === 30;
+        huntLink.textContent = isValidationHunt ? 'Test Hunt ↗' : 'Join Hunt ↗';
+        huntLink.title = isValidationHunt
+          ? 'Test the browser scanner with Puzzle 30’s known public solution'
+          : `Choose a private Puzzle ${bit} range and scan it in your browser`;
+        huntLink.setAttribute('aria-label', isValidationHunt
+          ? 'Test the browser hunt scanner with Bitcoin Puzzle 30'
+          : `Join the browser hunt for Bitcoin Puzzle ${bit}`);
+        puzzleCell.appendChild(huntLink);
+      } else if (bit === 69 || bit === 135) {
         const recordLink = document.createElement('a');
         recordLink.href = `/bpq/puzzles/${bit}/`;
         recordLink.textContent = `#${bit}`;
@@ -215,7 +275,7 @@
         puzzleCell.textContent = `#${bit}`;
       }
       row.appendChild(puzzleCell);
-      row.appendChild(makeCell('reward', rewardFor(bit)));
+      row.appendChild(makeCell('reward', formatBTC(entry.rewardBTC)));
 
       const statusCell = makeCell();
       const pill = document.createElement('span');
@@ -286,9 +346,9 @@
     const previous = solvesByDate[1];
     const remainingBTC = puzzles
       .filter(({ status }) => status === 'open')
-      .reduce((total, { bit }) => total + bit / 10, 0);
-    const claimedBTC = solved.reduce((total, { bit }) => total + bit / 10, 0);
-    const totalBTC = puzzles.reduce((total, { bit }) => total + bit / 10, 0);
+      .reduce((total, { entry }) => total + entry.rewardBTC, 0);
+    const claimedBTC = solved.reduce((total, { entry }) => total + entry.rewardBTC, 0);
+    const totalBTC = puzzles.reduce((total, { entry }) => total + entry.rewardBTC, 0);
 
     document.getElementById('totalCount').textContent = puzzles.length;
     document.getElementById('solvedCount').textContent = solved.length;
@@ -344,6 +404,16 @@
 
   searchElement.addEventListener('input', render);
   filterElement.addEventListener('change', render);
+  sortButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const key = button.dataset.sortKey;
+      sort = {
+        key,
+        direction: sort.key === key && sort.direction === 'asc' ? 'desc' : 'asc'
+      };
+      render();
+    });
+  });
   [latestSolveElement, previousSolveElement].forEach((element) => {
     element.addEventListener('click', (event) => {
       const match = element.hash.match(/^#puzzle-(\d{1,3})$/);

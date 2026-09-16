@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Zweitwohnung ist eine iOS-App für die lückenlose Dokumentation einer doppelten Haushaltsführung: Tage, Fahrten, Ausgaben, Nachweise, Prüfhilfen sowie PDF- und CSV-Export." />
+  <meta name="keywords"
+    content="Zweitwohnung, doppelte Haushaltsführung, Steuerakte, Verpflegungsmehraufwand, Familienheimfahrten, Unterkunftskosten, Steuerunterlagen, iOS" />
+  <link rel="canonical" href="https://mathricks.com/zweitwohnung/" />
+  <link rel="alternate" hreflang="de" href="https://mathricks.com/zweitwohnung/" />
+  <link rel="alternate" hreflang="en" href="https://mathricks.com/zweitwohnung/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://mathricks.com/zweitwohnung/" />
+
+  <meta property="og:title" content="Zweitwohnung – Steuerakte für doppelte Haushaltsführung | Mathricks" />
+  <meta property="og:description"
+    content="Tage, Fahrten, Ausgaben und Nachweise für die doppelte Haushaltsführung laufend erfassen und als prüfbare Steuerakte exportieren." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mathricks.com/zweitwohnung/" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:image" content="https://mathricks.com/img/og-zweitwohnung.png" />
+  <meta property="og:site_name" content="Mathricks" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@mathricks" />
+  <meta name="twitter:title" content="Zweitwohnung – Steuerakte für doppelte Haushaltsführung | Mathricks" />
+  <meta name="twitter:description"
+    content="Eine lokale iOS-App für die laufende Dokumentation der doppelten Haushaltsführung mit PDF-Steuerakte und CSV-Export." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Zweitwohnung",
+    "operatingSystem": "iOS",
+    "applicationCategory": "FinanceApplication",
+    "description": "Eine iOS-App für die lückenlose Dokumentation der doppelten Haushaltsführung mit Tagen, Fahrten, Ausgaben, Nachweisen, Prüfhilfen sowie PDF- und CSV-Export.",
+    "inLanguage": "de",
+    "url": "https://mathricks.com/zweitwohnung/",
+    "author": {
+      "@type": "Organization",
+      "name": "Mathricks",
+      "url": "https://mathricks.com"
+    }
+  }
+  </script>
+
+  <title>Zweitwohnung – Steuerakte für doppelte Haushaltsführung | Mathricks</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app-pages-common.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <script src="/js/theme.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="#records">Erfassung</a>
+        <a class="btn" href="#estimate">Jahresübersicht</a>
+        <a class="btn" href="support/">Hilfe</a>
+        <div class="language-switch" aria-label="Sprache">
+          <a class="language-option" href="./" lang="de" hreflang="de" aria-current="page" title="Deutsch">DE</a>
+          <a class="language-option" href="en/" lang="en" hreflang="en" title="English">EN</a>
+        </div>
+        <button class="toggle" id="themeToggle" aria-label="Hell- oder Dunkelmodus wechseln"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Steuerakte für die Zweitwohnung</div>
+            <h1 id="hero-title">Zweitwohnung</h1>
+            <p>Halte alle Nachweise für eine beruflich bedingte Zweitwohnung in einer lokalen iOS-App zusammen:
+              Kalendertage, Fahrten, Verpflegungsmehraufwand, Unterkunftskosten, Einrichtung, Umzugskosten,
+              Prüfhilfen, PDF-Steuerakte und CSV-Export.
+            </p>
+            <div class="hero-cta">
+              <a class="cta" href="#sample-report">Musterexport ansehen</a>
+              <a class="btn" href="privacy/">Datenschutz</a>
+            </div>
+            <div class="hero-stats" aria-label="Zweitwohnung auf einen Blick">
+              <div class="stat">
+                <span class="stat-label">Daten</span>
+                <span class="stat-value">Auf dem Gerät</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Bereiche</span>
+                <span class="stat-value">4 Tabs</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Export</span>
+                <span class="stat-value">PDF + CSV</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone-wrap" aria-label="Vorschau der Zweitwohnung-App">
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="app-title-row">
+                  <img src="/img/zweitwohnung-icon.png" alt="App-Symbol von Zweitwohnung">
+                  <div>
+                    <strong>Zweitwohnung</strong>
+                    <span>Steuerjahr 2026</span>
+                  </div>
+                </div>
+                <div class="app-card-preview">
+                  <div class="summary-value">
+                    <span>Ermittelter Gesamtbetrag</span>
+                    <strong>2.184 EUR</strong>
+                  </div>
+                  <div class="preview-row">
+                    <div class="preview-icon">D</div>
+                    <div>
+                      <strong>Tage</strong>
+                      <div class="preview-label">Anreise, ganzer Tag, Abreise</div>
+                    </div>
+                    <div class="preview-value">18</div>
+                  </div>
+                  <div class="preview-row">
+                    <div class="preview-icon">T</div>
+                    <div>
+                      <strong>Heimfahrten</strong>
+                      <div class="preview-label">Höchstens eine je Kalenderwoche</div>
+                    </div>
+                    <div class="preview-value">5</div>
+                  </div>
+                  <div class="preview-row">
+                    <div class="preview-icon">E</div>
+                    <div>
+                      <strong>Ausgaben</strong>
+                      <div class="preview-label">Miete, Belege, Umzug</div>
+                    </div>
+                    <div class="preview-value">7</div>
+                  </div>
+                  <div class="chips">
+                    <span>Deutsch</span>
+                    <span>English</span>
+                    <span>Kein Konto</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="band" aria-hidden="true">
+      <div class="ticker">Tage - Heimfahrten - Verpflegung - Unterkunft - Einrichtung - Umzugskosten - Prüfhilfen - PDF-Steuerakte - CSV-Export - Tage - Heimfahrten - Verpflegung - </div>
+    </div>
+
+    <section class="section" id="records">
+      <div class="container reveal">
+        <div class="eyebrow">Laufende Erfassung</div>
+        <h2>Ein Kalender für alles, was bei der Steuererklärung zählt.</h2>
+        <p class="section-lead">Tippe auf ein Datum und halte fest, was passiert ist: Anreise, ganzer Tag, Abreise, Heimfahrt,
+          Rückfahrt zur Zweitwohnung, gestellte Mahlzeiten, Ticketkosten und Notizen.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Kalendereinträge</h3>
+            <p>Jeder Tag kann Verpflegung, Fahrtrichtung, optionale Ticketkosten, gestellte Mahlzeiten und eine
+              Notiz enthalten.</p>
+          </div>
+          <div class="card">
+            <h3>Ausgabenkategorien</h3>
+            <p>Erfasse Unterkunft, Einrichtung, Umzugskosten, Fahrtbelege und weitere beruflich bedingte
+              Ausgaben in einer eigenen Übersicht.</p>
+          </div>
+          <div class="card">
+            <h3>Adressen und Entfernung</h3>
+            <p>Speichere Hauptwohnsitz und Zweitwohnung und ermittle anschließend mit Apple MapKit die einfache
+              Entfernung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="estimate">
+      <div class="container reveal">
+        <div class="eyebrow">Jahresübersicht</div>
+        <h2>Aus verstreuten Aufzeichnungen wird eine jederzeit prüfbare Jahresakte.</h2>
+        <p class="section-lead">Die Ergebnisansicht führt Verpflegungsmehraufwand, Familienheimfahrten, Unterkunftsgrenzen,
+          erfasste Kosten und Plausibilitätsprüfungen zusammen, damit du das Steuerjahr jederzeit überblickst.</p>
+        <div class="steps">
+          <div class="step">
+            <h3>Grundlagen festlegen</h3>
+            <p>Verpflegungspauschalen, zeitraumspezifische Entfernungen, Kilometersätze des Steuerjahres und die Unterkunftsgrenze bleiben nachvollziehbar.
+            </p>
+          </div>
+          <div class="step">
+            <h3>Fehlendes prüfen</h3>
+            <p>Die App weist auf eine fehlende Entfernung, einen ungeprüften Dreimonatszeitraum und zusätzliche
+              Heimfahrten in derselben Kalenderwoche hin.</p>
+          </div>
+          <div class="step">
+            <h3>Steuerjahr übergeben</h3>
+            <p>Erstelle eine PDF-Steuerakte für die Steuererklärung oder übergib die Kalender- und Ausgabendaten
+              als CSV an Numbers, Excel oder einen anderen Arbeitsablauf.</p>
+          </div>
+        </div>
+        <p class="inline-actions" style="margin-top: 28px;">
+          <a class="btn" href="legal/">Berechnungsgrenzen</a>
+        </p>
+        <p class="section-lead">Die angezeigten Beträge sind geschätzte abzugsfähige Aufwendungen auf Grundlage deiner Eingaben
+          und der hinterlegten Regeln. Sie stellen keine Steuererstattung dar, ersetzen keine Steuerberatung und
+          garantieren keine Anerkennung durch das Finanzamt.</p>
+      </div>
+    </section>
+
+    <section class="section sample-report" id="sample-report" aria-labelledby="sample-report-title">
+      <div class="container reveal">
+        <div class="sample-grid">
+          <div class="sample-copy">
+            <div class="eyebrow">Musterexport</div>
+            <h2 id="sample-report-title">So sieht die fertige Steuerakte aus.</h2>
+            <p class="section-lead">Die Vorschau zeigt die erste Seite eines fiktiven Exports. Eine vollständige Steuerakte kann diese
+              Unterlagen für Prüfung und Übergabe zusammenführen:</p>
+            <ul class="sample-contents">
+              <li>Jahres- und Monatsübersicht</li>
+              <li>Kalender- und Fahrtaufzeichnungen</li>
+              <li>Ausgaben und angehängte Nachweise</li>
+              <li>Nicht berücksichtigte Einträge transparent ausgewiesen</li>
+              <li>Optionale Berechnungsgrundlagen</li>
+            </ul>
+            <p class="sample-note">Inhalt und Seitenzahl richten sich nach deinen Aufzeichnungen und den gewählten Exportoptionen.</p>
+          </div>
+          <figure class="sample-preview">
+            <img src="assets/muster-steuerakte-zweitwohnung-2026-preview.webp"
+              alt="Erste Seite einer fiktiven Zweitwohnung-Steuerakte mit dem Wasserzeichen Muster" width="720" height="1018"
+              loading="lazy">
+            <figcaption class="sample-caption">Musterexport · fiktive Daten</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="eyebrow">Datenschutz zuerst</div>
+        <h2>Kein Konto und keine Steuerdatenbank bei Mathricks.</h2>
+        <div class="two-grid">
+          <div class="card">
+            <h3>Auf dem Gerät gespeichert</h3>
+            <p>Deine Aufzeichnungen und ausgewählten Belegkopien werden im App-Container auf deinem iPhone
+              gespeichert. Eine optionale Sicherung in deiner eigenen iCloud hilft bei einem Geräteverlust. Sie bleibt
+              ausgeschaltet, bis du sie aktivierst, und kann jederzeit wieder gelöscht werden. Abhängig von deinen
+              Einstellungen können die Daten außerdem in einem Apple-Geräte- oder iCloud-Backup enthalten sein.</p>
+          </div>
+          <div class="card">
+            <h3>Begleiter für die Steuererklärung</h3>
+            <p>Zweitwohnung schätzt potenziell abzugsfähige Aufwendungen. Die App berechnet keine Erstattung,
+              ersetzt weder Steuerberatung noch amtliche Formulare und prüft nicht sämtliche rechtlichen Voraussetzungen
+              deines Einzelfalls.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container reveal">
+        <div class="eyebrow">Hilfe</div>
+        <h2>Fragen zu Einrichtung, Erfassung, Export oder Datenschutz?</h2>
+        <p class="section-lead">Auf den Hilfe- und Datenschutzseiten findest du Kontaktmöglichkeiten und Informationen zur Datenverarbeitung.</p>
+        <div class="inline-actions" style="justify-content: center;">
+          <a class="cta" href="support/">Hilfe öffnen</a>
+          <a class="btn" href="privacy/">Datenschutz</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo"><a class="link" href="/">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="changelog/">Versionshinweise</a>
+        <span class="link">|</span>
+        <a class="link" href="support/">Hilfe</a>
+        <span class="link">|</span>
+        <a class="link" href="privacy/">Datenschutz</a>
+        <span class="link">|</span>
+        <a class="link" href="legal/">Rechtliches</a>
+      </div>
+    </div>
+    <div class="container legal">
+      &copy; 2010-2026, Mathricks&trade;. Alle Rechte vorbehalten.<br>
+      Kontakt: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (theme) => {
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', theme);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+
+</html>

@@ -326,7 +326,9 @@ header {
     --line: var(--app-card-line);
     --line-strong: var(--app-card-line-strong);
     --muted: var(--app-card-muted);
-    padding: 48px 32px 36px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--app-card-line-strong);
     background:
         radial-gradient(circle at 82% 12%, var(--app-card-glow-main), transparent 46%),
@@ -336,7 +338,64 @@ header {
     overflow: hidden;
 }
 
+/* Media band: a real preview of the app, full-bleed at the top of the card */
+.app-card .app-media {
+    position: relative;
+    display: block;
+    height: 208px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--app-card-line);
+    background:
+        radial-gradient(120% 90% at 50% 0%, var(--app-card-glow-main), transparent 72%),
+        linear-gradient(180deg, var(--app-card-bg-start), var(--app-card-bg-end));
+}
+
+.app-card .app-media-el {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform .5s ease;
+}
+
+/* Illustrated cover art reads better centred than top-anchored */
+.app-card .app-media-art .app-media-el {
+    object-position: center;
+}
+
+.app-card .app-media::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 72px;
+    background: linear-gradient(180deg, transparent, var(--app-card-bg-end));
+    pointer-events: none;
+}
+
+.app-card:hover .app-media-el,
+.app-card:focus-within .app-media-el {
+    transform: scale(1.045);
+}
+
+.app-card .app-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 22px 30px 28px;
+}
+
+.app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
 .app-card h3 {
+    margin: 0;
+    /* Tighter tracking than .card h3: the icon now shares this row */
+    letter-spacing: .06em;
     color: var(--app-card-text);
 }
 
@@ -346,15 +405,25 @@ header {
 }
 
 .app-card .app-logo {
-    width: 96px;
+    width: 46px;
     height: auto;
-    margin-bottom: 18px;
+    flex-shrink: 0;
     border-radius: 12px;
     box-shadow: 0 0 4px rgba(0, 0, 0, .2)
 }
 
 .app-card .read-more {
     color: var(--app-card-link);
+}
+
+/* Actions pinned to the bottom so every card's buttons line up */
+.app-card .app-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+    padding-top: 22px;
 }
 
 .card.app-card.app-card-bpq {
@@ -494,16 +563,15 @@ header {
 }
 
 .app-qr {
-    margin-top: 24px;
     display: flex;
     align-items: center;
     gap: 14px;
 }
 
 .app-qr .qr-wrap {
-    width: 112px;
-    height: 112px;
-    padding: 6px;
+    width: 84px;
+    height: 84px;
+    padding: 5px;
     background: #fff;
     border-radius: 8px;
     line-height: 0;
@@ -525,23 +593,22 @@ header {
     justify-content: center;
 }
 
-.app-qr .qr-hint {
-    font-size: .85rem;
-    color: var(--muted);
-    line-height: 1.3;
-    font-weight: 500;
+.app-store-link {
+    display: block;
+    flex-shrink: 0;
 }
 
-.app-qr .qr-app-store {
-    height: 32px;
+.app-store-badge {
+    height: 36px;
     width: auto;
     display: block;
     filter: brightness(1.5);
-    opacity: 0.85;
+    opacity: .85;
     transition: opacity .15s ease;
 }
 
-.app-qr .qr-app-store:hover {
+.app-store-link:hover .app-store-badge,
+.app-store-link:focus-visible .app-store-badge {
     opacity: 1;
 }
 
@@ -1761,8 +1828,22 @@ footer {
         gap: 10px 14px;
     }
 
+    /* The QR code is desktop-only - you cannot scan your own screen.
+       The App Store badge is a sibling of .app-qr so it survives here. */
     .app-qr {
         display: none;
+    }
+
+    .app-card .app-media {
+        height: 178px;
+    }
+
+    .app-card .app-body {
+        padding: 20px 22px 24px;
+    }
+
+    .app-card .app-actions {
+        padding-top: 18px;
     }
 
     .app-logo-stack {
@@ -1786,5 +1867,18 @@ footer {
     .nav-actions {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+
+    .app-card:hover .app-media-el,
+    .app-card:focus-within .app-media-el {
+        transform: none;
+    }
+
+    .app-card .app-media-el {
+        transition: none;
     }
 }
