@@ -349,6 +349,7 @@ header {
   --game-card-title: #f4fbff;
   --game-card-muted: #b9d9f1;
   --game-card-hover: #19c5ff;
+}
 
 .card.game-card.game-card-zweitwohnung {
   --game-card-bg-start: #12221b;
@@ -462,6 +463,7 @@ header {
   --game-card-title: #07183c;
   --game-card-muted: #47667f;
   --game-card-hover: #007cb8;
+}
 
 [data-theme="light"] .card.game-card.game-card-zweitwohnung {
   --game-card-bg-start: #e8f7ec;

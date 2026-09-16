@@ -99,7 +99,7 @@
         '<span class="cookie-banner__text">Optional analytics are loaded only after consent. ' +
         '<a href="' + privacyHref + '"><u>Privacy details</u></a>.</span>' +
         '<div class="cookie-banner__actions">' +
-        '<button class="cookie-banner__btn" data-consent="rejected">Reject analytics</button>' +
+        '<button class="cookie-banner__btn" data-consent="rejected">Opt out</button>' +
         '<button class="cookie-banner__btn cookie-banner__btn--accept" data-consent="accepted">Allow analytics</button>' +
         '</div>';
 
