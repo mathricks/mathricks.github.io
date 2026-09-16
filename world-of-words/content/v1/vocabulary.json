@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "packageID": "a1-web-additions",
+  "revision": 1,
+  "publishedAt": "2026-09-04T12:00:00Z",
+  "minimumLanguageCoverage": 5,
+  "requiredLanguageIDs": [
+    "english",
+    "french",
+    "german",
+    "portuguese",
+    "spanish"
+  ],
+  "concepts": [],
+  "translations": {},
+  "audio": {}
+}

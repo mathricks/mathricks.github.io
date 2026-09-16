@@ -117,6 +117,18 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://mathricks.com/world-of-words/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mathricks.com/world-of-words/support/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mathricks.com/world-of-words/privacy/</loc>
+    <lastmod>2026-09-06</lastmod>
     <loc>https://mathricks.com/zweitwohnung/</loc>
     <lastmod>2026-09-15</lastmod>
     <priority>0.8</priority>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Report a pronunciation problem or contribute a native-speaker recording to World of Words." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests" />
+  <meta name="referrer" content="same-origin" />
+  <link rel="canonical" href="https://mathricks.com/world-of-words/report-audio/" />
+  <title>Report Audio - World of Words | Mathricks</title>
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app-pages-common.css">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="/js/theme.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+  <script src="report-audio.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo logo-soft"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <nav class="nav-actions" aria-label="Audio report navigation">
+        <a class="btn" href="../">Back to App</a>
+        <a class="btn" href="../support/">Support</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container request-layout">
+        <div>
+          <div class="eyebrow">Help us sound right</div>
+          <h1 class="request-title">Report a pronunciation</h1>
+          <p class="section-intro">Tell us when a word is silent or sounds wrong. Native speakers can also send a short recording for possible credit in a future update.</p>
+
+          <form id="audio-request-form" class="support-form" enctype="multipart/form-data" novalidate>
+            <fieldset>
+              <legend>What happened?</legend>
+              <div class="choice-grid">
+                <label class="choice">
+                  <input type="radio" name="reason" value="mispronounced" required>
+                  <span>The pronunciation sounds wrong</span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="reason" value="silent" required>
+                  <span>No sound plays</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <label for="audio-word">Word or phrase
+              <input type="text" name="word" id="audio-word" autocomplete="off" maxlength="80" required>
+            </label>
+
+            <label for="audio-language">Language
+              <input type="text" name="language" id="audio-language" autocomplete="off" maxlength="80" placeholder="Swiss German" required>
+            </label>
+
+            <label for="audio-locale">Locale <span class="field-optional">Optional</span>
+              <input type="text" name="locale" id="audio-locale" autocomplete="off" maxlength="35" pattern="[A-Za-z0-9_-]+" placeholder="de-CH" aria-describedby="locale-help">
+            </label>
+            <p class="form-note" id="locale-help">If known, use a language or regional code such as de-CH.</p>
+
+            <label for="audio-origin">Audio source <span class="field-optional">Optional</span>
+              <select name="origin" id="audio-origin">
+                <option value="">Not sure</option>
+                <option value="system">Device voice</option>
+                <option value="bundled">Included with the app</option>
+                <option value="downloaded">Downloaded audio</option>
+              </select>
+            </label>
+
+            <label for="audio-details">What should we know? <span class="field-optional">Optional</span>
+              <textarea name="details" id="audio-details" maxlength="1000" placeholder="Describe what sounds wrong or how it should be pronounced."></textarea>
+            </label>
+
+            <section class="recording-panel" aria-labelledby="recording-title">
+              <div>
+                <div class="eyebrow" id="recording-title">Native-speaker contribution</div>
+                <p class="form-note">Optionally attach one clear recording of this word or phrase. M4A, WebM, Ogg, or WAV; maximum 5 MB.</p>
+              </div>
+
+              <label for="audio-recording">Your recording <span class="field-optional">Optional</span>
+                <input type="file" name="recording" id="audio-recording" accept=".m4a,.mp4,.webm,.ogg,.wav,audio/mp4,audio/x-m4a,audio/webm,audio/ogg,audio/wav,audio/x-wav" aria-describedby="recording-help">
+              </label>
+              <p class="form-note" id="recording-help">Only send your own voice. Recordings are reviewed privately and are never published automatically.</p>
+
+              <label for="credit-name">Preferred credit name <span class="field-optional">Optional</span>
+                <input type="text" name="creditName" id="credit-name" autocomplete="name" maxlength="80" placeholder="Your name, or leave blank for Anonymous">
+              </label>
+
+              <label for="audio-email">Contact email <span class="field-optional">Required with a recording</span>
+                <input type="email" name="email" id="audio-email" autocomplete="email" maxlength="254" placeholder="speaker@example.com" aria-describedby="audio-email-help">
+              </label>
+              <p class="form-note" id="audio-email-help">For a report alone, email is optional. With a recording, we need it to confirm any future use and credit.</p>
+
+              <label class="consent-choice" for="recording-consent">
+                <input type="checkbox" name="recordingConsent" id="recording-consent" value="accepted">
+                <span>I confirm this is my voice and agree that Mathricks may securely store it and contact me about possible use. Mathricks will confirm publication permission and credit before using it.</span>
+              </label>
+            </section>
+
+            <div class="form-trap" aria-hidden="true">
+              <label for="audio-website">Website
+                <input type="text" name="website" id="audio-website" autocomplete="off" tabindex="-1">
+              </label>
+            </div>
+
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAEqdfvCnc2InW7HY" data-action="request_audio" data-theme="auto"></div>
+
+            <div class="form-actions">
+              <button type="submit" class="cta" id="audio-submit">Send audio report</button>
+              <p class="form-status" id="audio-status" role="status" aria-live="polite"></p>
+            </div>
+
+            <p class="form-privacy">Only the fields you submit are sent. Reports and recordings are scheduled for automatic deletion once they are 30 days old. See our <a class="inline-link" href="../privacy/">privacy policy</a>.</p>
+          </form>
+        </div>
+
+        <aside class="request-aside" aria-labelledby="audio-process-title">
+          <div class="feature-icon" aria-hidden="true">♫</div>
+          <h2 id="audio-process-title">What happens next?</h2>
+          <ol>
+            <li>We check the report against the exact word, language, and audio source.</li>
+            <li>Any recording stays private while it is manually reviewed.</li>
+            <li>If it may suit the app, we contact you to confirm permission and credit before publication.</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="../support/">Support</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="../privacy/">Privacy</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+</body>
+
+</html>

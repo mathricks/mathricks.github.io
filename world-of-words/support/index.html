@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Support and frequently asked questions for The World of Words by Mathricks." />
+  <link rel="canonical" href="https://mathricks.com/world-of-words/support/" />
+  <title>Support - The World of Words | Mathricks</title>
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app-pages-common.css">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <script src="/js/theme.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo logo-soft"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <nav class="nav-actions" aria-label="Support navigation">
+        <a class="btn" href="../">Back to App</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container reveal">
+        <div class="eyebrow">The World of Words</div>
+        <h2>Support Center</h2>
+        <p class="section-intro">Answers to common questions about the current app, plus a direct line for feedback, accessibility notes, and bug reports.</p>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Which words are currently supported?</h3>
+            <p class="faq-answer">The current catalog contains 1,000 A1 learning concepts: 907 standalone words and 93 contextual travel expressions, with common aliases recognized in search.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How do I explore translations?</h3>
+            <p class="faq-answer">Drag the globe to rotate it, pinch to zoom, and tap a translation. Tap the selected translation again to close it.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Why does a translation sometimes have no audio?</h3>
+            <p class="faq-answer">The app uses verified recorded audio where available and can fall back to a matching Apple speech voice. You can also download pronunciation packs by language for offline listening. If no accurate option is available, the app stays silent rather than teaching the wrong sound.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Where is my progress stored?</h3>
+            <p class="faq-answer">Discoveries, daily completions, and streak information are stored locally on your device. The app does not require an account.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What is the difference between World Sprint and Daily Sprint?</h3>
+            <p class="faq-answer">World Sprint is a replayable two-minute vocabulary challenge. Daily Sprint is one shared three-minute challenge per day, with optional Game Center scores and spoiler-free result sharing.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I request a word or report a pronunciation?</h3>
+            <p class="faq-answer">Yes. The app can open our separate word-request and audio-report forms with the relevant details filled in. Nothing is sent until you choose to submit the form.</p>
+          </div>
+        </div>
+
+        <div class="eyebrow">Contact us</div>
+        <h2>Tell us what you found.</h2>
+        <p class="section-intro">Please include your device model and operating-system version when reporting a technical issue.</p>
+
+        <form action="https://formspree.io/f/xqkrjjva" method="POST" class="support-form">
+          <label for="email-address">Email Address
+            <input type="email" name="email" id="email-address" autocomplete="email" placeholder="user@example.com" required>
+          </label>
+          <label for="message">Message
+            <textarea name="message" id="message" placeholder="Describe your issue, feedback, or testing interest..." required></textarea>
+          </label>
+          <input type="hidden" name="product" value="The World of Words">
+          <button type="submit" class="cta">Submit Ticket</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="../privacy/">Privacy</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="../">Back to App</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (theme) => {
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', theme);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      applyTheme(current === 'light' ? 'dark' : 'light');
+    });
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</body>
+
+</html>
