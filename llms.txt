@@ -92,6 +92,7 @@ GitHub: https://github.com/mathricks
 
 ### Der Wortschatz
 - Description: A German vocabulary learning app with matching rounds, scrollable practice cards, CEFR levels, prepositions, and noun-verb combinations.
+- App Store: https://apps.apple.com/us/app/der-wortschatz/id6758740763
 - Overview: https://mathricks.com/der-wortschatz/
 - Curriculum Details: https://mathricks.com/der-wortschatz/details.html
 - Support: https://mathricks.com/der-wortschatz/support/
