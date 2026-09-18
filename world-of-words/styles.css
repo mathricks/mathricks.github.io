@@ -556,6 +556,14 @@ header {
   margin-top: 28px;
 }
 
+.section-center .cta-inline-actions {
+  margin-top: 28px;
+}
+
+.section-center .cta-inline-actions .cta {
+  margin-top: 0;
+}
+
 .legal-content {
   max-width: 840px;
   margin: 0 auto;

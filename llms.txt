@@ -84,11 +84,11 @@ GitHub: https://github.com/mathricks
 
 ### The World of Words
 - Description: A playful, offline-first A1 vocabulary app. Explore 1,000 words and travel phrases across 195 countries and 79 languages, hear available pronunciations, and test recall in World Sprint and a shared Daily Sprint.
+- App Store: https://apps.apple.com/us/app/the-world-of-words/id6796671627
 - Overview: https://mathricks.com/world-of-words/
 - Support: https://mathricks.com/world-of-words/support/
 - Privacy: https://mathricks.com/world-of-words/privacy/
 - Platform: iOS, iPadOS, macOS
-- Status: In review
 
 ### Der Wortschatz
 - Description: A German vocabulary learning app with matching rounds, scrollable practice cards, CEFR levels, prepositions, and noun-verb combinations.
