@@ -101,13 +101,13 @@ GitHub: https://github.com/mathricks
 - Platform: iOS
 
 ### Zweitwohnung
-- Description: Local iOS app for German double-household tax records, days, trips, meal allowances, accommodation expenses, PDF reports, and CSV export.
+- Description: Private iPhone and iPad app for German second-household tax records, evidence checks, Anlage N figures, PDF reports, and CSV export.
 - App Store: https://apps.apple.com/us/app/zweitwohnung/id6796437637
 - Overview: https://mathricks.com/zweitwohnung/
 - Changelog: https://mathricks.com/zweitwohnung/changelog/
 - Support: https://mathricks.com/zweitwohnung/support/
 - Privacy: https://mathricks.com/zweitwohnung/privacy/
-- Platform: iOS
+- Platform: iOS, iPadOS
 
 ### RMM
 - Description: Experimental workspace currently in active iteration.
