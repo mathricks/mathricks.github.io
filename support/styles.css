@@ -333,6 +333,8 @@ header {
   --support-card-title: #f2f7ff;
   --support-card-muted: #bfd1e8;
   --support-card-hover: #7ec0ff;
+  /* Brackets follow the card's own accent so they stay visible on any card theme. */
+  --frame-color: var(--support-card-hover);
   display: block;
   border-color: var(--support-card-line-strong);
   background:
@@ -417,6 +419,50 @@ header {
   --support-card-hover: #ffbe62;
 }
 
+.card.support-card.support-card-fcq {
+  --support-card-bg-start: #24141a;
+  --support-card-bg-end: #120d0f;
+  --support-card-glow-main: rgba(200, 106, 120, .26);
+  --support-card-glow-alt: rgba(217, 144, 155, .14);
+  --support-card-line-strong: rgba(200, 106, 120, .38);
+  --support-card-title: #fff1f3;
+  --support-card-muted: #dcc0c5;
+  --support-card-hover: #d9909b;
+}
+
+.card.support-card.support-card-wortschatz {
+  --support-card-bg-start: #221b11;
+  --support-card-bg-end: #101821;
+  --support-card-glow-main: rgba(232, 194, 107, .26);
+  --support-card-glow-alt: rgba(102, 183, 165, .16);
+  --support-card-line-strong: rgba(232, 194, 107, .38);
+  --support-card-title: #fff8e8;
+  --support-card-muted: #d8cfba;
+  --support-card-hover: #e8c26b;
+}
+
+.card.support-card.support-card-zweitwohnung {
+  --support-card-bg-start: #12221b;
+  --support-card-bg-end: #0d1518;
+  --support-card-glow-main: rgba(113, 174, 137, .26);
+  --support-card-glow-alt: rgba(122, 167, 199, .16);
+  --support-card-line-strong: rgba(113, 174, 137, .38);
+  --support-card-title: #effcf3;
+  --support-card-muted: #bdd3c6;
+  --support-card-hover: #71ae89;
+}
+
+.card.support-card.support-card-world {
+  --support-card-bg-start: #073668;
+  --support-card-bg-end: #041a37;
+  --support-card-glow-main: rgba(25, 197, 255, .28);
+  --support-card-glow-alt: rgba(255, 194, 26, .18);
+  --support-card-line-strong: rgba(25, 197, 255, .38);
+  --support-card-title: #f4fbff;
+  --support-card-muted: #b9d9f1;
+  --support-card-hover: #19c5ff;
+}
+
 [data-theme="light"] .support-card {
   box-shadow: 0 10px 26px rgba(12, 20, 34, .12);
 }
@@ -474,6 +520,50 @@ header {
   --support-card-title: #1d2734;
   --support-card-muted: #5e6f80;
   --support-card-hover: #d26f17;
+}
+
+[data-theme="light"] .card.support-card.support-card-fcq {
+  --support-card-bg-start: #fbecef;
+  --support-card-bg-end: #f4f0ec;
+  --support-card-glow-main: rgba(123, 30, 56, .14);
+  --support-card-glow-alt: rgba(176, 69, 95, .12);
+  --support-card-line-strong: rgba(123, 30, 56, .36);
+  --support-card-title: #2d1119;
+  --support-card-muted: #6e5057;
+  --support-card-hover: #7b1e38;
+}
+
+[data-theme="light"] .card.support-card.support-card-wortschatz {
+  --support-card-bg-start: #fff7e7;
+  --support-card-bg-end: #edf7f4;
+  --support-card-glow-main: rgba(183, 130, 33, .18);
+  --support-card-glow-alt: rgba(46, 136, 119, .14);
+  --support-card-line-strong: rgba(183, 130, 33, .40);
+  --support-card-title: #2b2214;
+  --support-card-muted: #665c49;
+  --support-card-hover: #a86f13;
+}
+
+[data-theme="light"] .card.support-card.support-card-zweitwohnung {
+  --support-card-bg-start: #e8f7ec;
+  --support-card-bg-end: #f4f7f5;
+  --support-card-glow-main: rgba(68, 137, 95, .18);
+  --support-card-glow-alt: rgba(50, 109, 155, .14);
+  --support-card-line-strong: rgba(68, 137, 95, .40);
+  --support-card-title: #173024;
+  --support-card-muted: #4c6758;
+  --support-card-hover: #35734e;
+}
+
+[data-theme="light"] .card.support-card.support-card-world {
+  --support-card-bg-start: #e4f7ff;
+  --support-card-bg-end: #f5fbff;
+  --support-card-glow-main: rgba(0, 151, 221, .18);
+  --support-card-glow-alt: rgba(232, 159, 0, .15);
+  --support-card-line-strong: rgba(0, 142, 210, .40);
+  --support-card-title: #07183c;
+  --support-card-muted: #47667f;
+  --support-card-hover: #007cb8;
 }
 
 .section-center {
