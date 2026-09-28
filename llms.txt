@@ -33,7 +33,7 @@ GitHub: https://github.com/mathricks
 - Privacy: https://mathricks.com/bpq/privacy/
 - Platform: iOS
 
-### Factoring Quest: RSA numbers
+### Factoring Quest: RSA Numbers
 - Description: Real factoring attempts against every official RSA Factoring Challenge number, from RSA-100 to RSA-2048. Shows the exact search range for the smaller prime, live throughput, and honest odds. Free, no ads, no in-app purchases.
 - App Store: coming soon
 - Overview: https://mathricks.com/fcq/
@@ -167,7 +167,7 @@ GitHub: https://github.com/mathricks
 ### App-Specific Support Pages
 - The World of Words: https://mathricks.com/world-of-words/support/
 - Bitcoin Puzzle Quest: https://mathricks.com/bpq/support/
-- Factoring Quest: RSA numbers: https://mathricks.com/fcq/support/
+- Factoring Quest: RSA Numbers: https://mathricks.com/fcq/support/
 - Der Wortschatz: https://mathricks.com/der-wortschatz/support/
 - Summit Numbers: https://mathricks.com/summit/support/
 - Entropy: Zero: https://mathricks.com/entropy/support/

@@ -67,7 +67,7 @@ const updated = [
 await writeFile(htmlPath, updated);
 console.log(`Rendered ${rows ? rows.split('<tr id=').length - 1 : 0} solved puzzle rows.`);
 
-// Figures for the Bitcoin Puzzle Quest card inside Factoring Quest: RSA numbers,
+// Figures for the Bitcoin Puzzle Quest card inside Factoring Quest: RSA Numbers,
 // which reads /bpq/promo.json once a day. Only the two figures are rewritten:
 // `active` (the kill switch) and any optional `headline`/`message` copy
 // overrides are kept. Overrides may use {btc} and {puzzles} placeholders.
