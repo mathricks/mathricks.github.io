@@ -73,6 +73,7 @@
   --accent: var(--gold);
   --accent-grad-start: var(--gold);
   --accent-grad-end: var(--gold-deep);
+  --accent-contrast: #14212B; /* text on a gold surface, both themes */
   --tint: rgba(255, 210, 95, .04);
   --card-bg: rgba(16, 16, 30, .62);
   --header-start: rgba(5, 5, 9, .94);

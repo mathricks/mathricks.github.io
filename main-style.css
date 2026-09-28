@@ -833,7 +833,7 @@ html[data-theme="bw"][data-bw-tone="light"] .featured-slide {
 
 .cta:hover {
     background: linear-gradient(90deg, var(--accent-grad-start), var(--accent-grad-end));
-    color: var(--bg);
+    color: var(--accent-contrast);
     filter: none;
 }
 
