@@ -27,6 +27,7 @@
   <!-- Mathricks Analytics (GA4 + click tracking) -->
   <script src="/js/analytics.js"></script>
   <script src="/js/consent.js"></script>
+  <script src="/js/theme-init.js"></script>
   <script src="/js/theme.js" defer></script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
@@ -150,38 +151,7 @@
     </div>
   </footer>
 
-  <script>
-    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-    const savedTheme = localStorage.getItem('theme');
-    const root = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const applyTheme = (t) => {
-      if (t === 'light') {
-        root.setAttribute('data-theme', 'light');
-        if (toggle) toggle.textContent = '🌙';
-      } else {
-        root.removeAttribute('data-theme');
-        if (toggle) toggle.textContent = '☀️';
-      }
-      localStorage.setItem('theme', t);
-    };
-    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        applyTheme(current === 'light' ? 'dark' : 'light');
-      });
-    }
-    const obs = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          obs.unobserve(e.target);
-        }
-      }
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
-  </script>
+  <script src="/js/site.js"></script>
 </body>
 
 </html>
