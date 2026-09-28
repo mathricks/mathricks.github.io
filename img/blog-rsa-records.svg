@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">RSA factoring record timeline</title>
+  <desc id="desc">A timeline from RSA-250 in 2020 to RSA-260 and RSA-896 in September 2026.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#120d0f"/>
+      <stop offset="1" stop-color="#26131a"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#74404b"/>
+      <stop offset=".5" stop-color="#c86a78"/>
+      <stop offset="1" stop-color="#f0a8b3"/>
+    </linearGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" rx="32" fill="url(#bg)"/>
+  <g opacity=".32" fill="none" stroke="#d9909b">
+    <circle cx="1060" cy="80" r="170"/>
+    <circle cx="1060" cy="80" r="120"/>
+    <circle cx="140" cy="600" r="190"/>
+  </g>
+  <text x="74" y="86" fill="#b9a6ab" font-family="system-ui, sans-serif" font-size="22" letter-spacing="5">PUBLIC RSA FACTORING RECORD</text>
+  <text x="74" y="151" fill="#f7f2f3" font-family="system-ui, sans-serif" font-size="48" font-weight="650">Two records. Sixteen days.</text>
+  <text x="74" y="192" fill="#b9a6ab" font-family="system-ui, sans-serif" font-size="23">The mathematics stayed familiar. The engineering accelerated.</text>
+  <path d="M130 348H1068" stroke="url(#line)" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="system-ui, sans-serif">
+    <g transform="translate(205 348)">
+      <circle r="40" fill="#74404b" opacity=".28" filter="url(#glow)"/>
+      <circle r="21" fill="#120d0f" stroke="#9c6973" stroke-width="7"/>
+      <text text-anchor="middle" y="-68" fill="#f7f2f3" font-size="31" font-weight="700">RSA-250</text>
+      <text text-anchor="middle" y="75" fill="#b9a6ab" font-size="21">829 bits</text>
+      <text text-anchor="middle" y="107" fill="#b9a6ab" font-size="18">February 2020</text>
+    </g>
+    <g transform="translate(610 348)">
+      <circle r="54" fill="#c86a78" opacity=".25" filter="url(#glow)"/>
+      <circle r="25" fill="#120d0f" stroke="#c86a78" stroke-width="8"/>
+      <text text-anchor="middle" y="-68" fill="#f7f2f3" font-size="31" font-weight="700">RSA-260</text>
+      <text text-anchor="middle" y="75" fill="#d9909b" font-size="21">862 bits</text>
+      <text text-anchor="middle" y="107" fill="#b9a6ab" font-size="18">September 3, 2026</text>
+    </g>
+    <g transform="translate(1000 348)">
+      <circle r="68" fill="#f0a8b3" opacity=".3" filter="url(#glow)"/>
+      <circle r="29" fill="#120d0f" stroke="#f0a8b3" stroke-width="9"/>
+      <text text-anchor="middle" y="-68" fill="#f7f2f3" font-size="31" font-weight="700">RSA-896</text>
+      <text text-anchor="middle" y="75" fill="#f0a8b3" font-size="21">896 bits</text>
+      <text text-anchor="middle" y="107" fill="#b9a6ab" font-size="18">September 19, 2026</text>
+    </g>
+  </g>
+  <g transform="translate(74 548)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <text fill="#d9909b" font-size="22">N = p × q</text>
+    <text x="916" fill="#b9a6ab" font-size="18" text-anchor="end">MATHRICKS</text>
+  </g>
+</svg>

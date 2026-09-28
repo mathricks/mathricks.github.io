@@ -130,6 +130,11 @@ GitHub: https://github.com/mathricks
 - Description: The Mathricks blog with essays on puzzle design, game mechanics, and development.
 - Page: https://mathricks.com/blog/
 
+### Two RSA Records Fell in Sixteen Days
+- Description: A mathematics and app note on the RSA-260 and RSA-896 factoring records, explaining how AI-assisted GPU engineering accelerated established GNFS mathematics and what the results do and do not mean for RSA security.
+- Page: https://mathricks.com/blog/two-rsa-records-in-sixteen-days.html
+- Published: 2026-09-28
+
 ### Why Random Search Leaves Gaps
 - Description: An explainer on sampling with replacement, deriving why a full key-space of random guesses gives only a 63.2 percent chance of success, covering the coupon collector and birthday problems and the implications for progress indicators.
 - Page: https://mathricks.com/blog/why-random-search-leaves-gaps.html
