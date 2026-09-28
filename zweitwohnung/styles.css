@@ -769,6 +769,13 @@ footer {
   transform: translateY(0);
 }
 
+/* Grid items may shrink below their longest word instead of widening the page. */
+.hero-grid > *,
+.sample-grid > *,
+.support-layout > * {
+  min-width: 0;
+}
+
 @media (max-width: 900px) {
   .hero {
     min-height: auto;
@@ -813,8 +820,9 @@ footer {
     padding: 52px 0 44px;
   }
 
+  /* "Zweitwohnung" is one long word: at 16vw it outgrew a 375 px screen. */
   .hero h1 {
-    font-size: clamp(42px, 16vw, 68px);
+    font-size: clamp(36px, 11.5vw, 68px);
   }
 
   .hero-stats {
