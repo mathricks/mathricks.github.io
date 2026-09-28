@@ -66,3 +66,15 @@ const updated = [
 
 await writeFile(htmlPath, updated);
 console.log(`Rendered ${rows ? rows.split('<tr id=').length - 1 : 0} solved puzzle rows.`);
+
+// Figures for the Bitcoin Puzzle Quest card inside Factoring Challenge Quest,
+// which reads /bpq/promo.json once a day. Only the two figures are rewritten:
+// `active` (the kill switch) and any optional `headline`/`message` copy
+// overrides are kept. Overrides may use {btc} and {puzzles} placeholders.
+const promoPath = new URL('../promo.json', import.meta.url);
+const promo = JSON.parse(await readFile(promoPath, 'utf8'));
+const unsolved = Object.values(data).filter((entry) => !(entry.solvedDate || entry.solvedKey));
+promo.unsolvedPuzzles = unsolved.length;
+promo.unclaimedBTC = Math.round(unsolved.reduce((sum, entry) => sum + entry.rewardBTC, 0) * 1000) / 1000;
+await writeFile(promoPath, `${JSON.stringify(promo, null, 2)}\n`);
+console.log(`Promo figures: ${promo.unsolvedPuzzles} unsolved puzzles, ${promo.unclaimedBTC} BTC unclaimed.`);

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords"
+    content="factoring challenge quest, RSA factoring challenge, RSA-2048, integer factorization, prime numbers, trial division, mathricks, iOS" />
+  <meta name="description"
+    content="Factoring Challenge Quest by Mathricks&trade;: run real factoring attempts against every official RSA Factoring Challenge number on your iPhone or iPad. Free, no ads, no in-app purchases." />
+  <link rel="canonical" href="https://mathricks.com/fcq/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Factoring Challenge Quest | Mathricks" />
+  <meta property="og:description"
+    content="Attack a number nobody has solved. Every official RSA challenge modulus on one globe, with real on-device factoring attempts and odds." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mathricks.com/fcq/" />
+  <meta property="og:image" content="https://mathricks.com/img/fcq-icon.png" />
+  <meta property="og:site_name" content="Mathricks" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@mathricks" />
+  <meta name="twitter:title" content="Factoring Challenge Quest | Mathricks" />
+  <meta name="twitter:description"
+    content="Attack a number nobody has solved. Real factoring attempts against the official RSA challenge numbers." />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Factoring Challenge Quest",
+    "operatingSystem": "iOS",
+    "applicationCategory": "EducationalApplication",
+    "description": "Run real factoring attempts against every official RSA Factoring Challenge number, see exactly where the hidden prime must lie, and watch odds update live.",
+    "url": "https://mathricks.com/fcq/",
+    "author": {
+      "@type": "Organization",
+      "name": "Mathricks",
+      "url": "https://mathricks.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <title>Factoring Challenge Quest | Mathricks</title>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app-pages-common.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <script src="/js/theme.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="#how">How it Works</a>
+        <a class="btn" href="#archive">RSA Archive</a>
+        <a class="btn js-appstore" href="#download">App Store</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="corner draw" aria-hidden="true"></div>
+      <div class="corner-r animate-down draw-right delay" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">RSA Factoring Challenge</div>
+            <p class="formula">N = P &times; Q</p>
+            <h1 id="hero-title">Factoring Challenge Quest<sup class="name-mark">&trade;</sup></h1>
+            <p>Attack a number nobody has solved. Pick any official RSA challenge modulus, run real factoring attempts
+              on your iPhone or iPad, and see exactly where the hidden prime has to live.</p>
+            <div class="hero-cta">
+              <a class="cta js-appstore js-appstore-label" href="#download">Coming Soon</a>
+              <a class="btn" href="#how">Learn More</a>
+            </div>
+            <div class="metrics" aria-label="RSA challenge catalog summary">
+              <div class="metric">
+                <span class="metric-label">Targets</span>
+                <span class="metric-value" data-stat="total">54</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Factored</span>
+                <span class="metric-value" data-stat="solved">25</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Still open</span>
+                <span class="metric-value" data-stat="unsolved">29</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="hero-card" aria-label="Factoring Challenge Quest app preview">
+              <img src="screens/01.jpg" alt="Factoring Challenge Quest testing candidates against RSA-270" width="660"
+                height="1434">
+              <div class="glow" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="signature">Mathricks<sup class="name-mark">&trade;</sup> Studio</div>
+    </section>
+
+    <div class="band" aria-hidden="true">
+      <div class="container">
+        <div class="ticker">RSA-2048 = 2519590847565789349402718324004839857142928212620403202777713783604366202070759555626401852588078440691829064124951508218929855914917618450280848912007284499268739280728777673597141834727026189637501 … 617 digits • </div>
+        <div class="ticker" aria-hidden="true">RSA-2048 = 2519590847565789349402718324004839857142928212620403202777713783604366202070759555626401852588078440691829064124951508218929855914917618450280848912007284499268739280728777673597141834727026189637501 … 617 digits • </div>
+      </div>
+    </div>
+
+    <section class="section" id="how">
+      <div class="container reveal">
+        <div class="eyebrow">How it Works</div>
+        <h2>Pick a target. Press go.</h2>
+        <div class="steps">
+          <div class="step">
+            <h4>Choose a modulus</h4>
+            <p>Every official RSA challenge number sits on one globe. Solved ones are history; the open ones have never
+              been factored by anyone.</p>
+          </div>
+          <div class="step">
+            <h4>Run real attempts</h4>
+            <p>Your device draws random candidates from the range where the smaller prime must lie, sieves out the
+              obvious misses, and divides each survivor into N.</p>
+          </div>
+          <div class="step">
+            <h4>Watch the honest odds</h4>
+            <p>Live throughput, lifetime totals per target, and your true chance of having hit P, shown exactly as it
+              is: astronomically small.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="screens">
+      <div class="container reveal">
+        <div class="eyebrow">Inside the App</div>
+        <h2>The real math, on screen.</h2>
+        <div class="screens">
+          <figure class="screen">
+            <img src="screens/02.jpg" alt="Globe of all RSA challenge numbers, solved and open" loading="lazy"
+              width="660" height="1434">
+            <figcaption><strong>Every target</strong>All 54 RSA challenge moduli on one interactive globe.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="screens/03.jpg" alt="Live statistics: candidates tested, per second, chance to find" loading="lazy"
+              width="660" height="1434">
+            <figcaption><strong>Live throughput</strong>Millions of candidates per second, with running totals.
+            </figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="screens/04.jpg" alt="Search range for p, bounded by the square root of N" loading="lazy"
+              width="660" height="1434">
+            <figcaption><strong>Where P must live</strong>The exact search range, from its bit floor up to &lfloor;&radic;N&rfloor;.
+            </figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="screens/01.jpg" alt="Table of tested candidates and their remainders" loading="lazy" width="660"
+              height="1434">
+            <figcaption><strong>Every remainder</strong>See each candidate and N mod p. A zero would crack it.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="math">
+      <div class="container reveal">
+        <div class="eyebrow">Under the Hood</div>
+        <h2>Why the search looks where it does.</h2>
+        <p class="section-desc">Multiplying two primes takes a computer microseconds. Splitting their product back
+          apart has taken thousands of CPU-years, and the largest RSA numbers remain unfactored. RSA encryption relies
+          on that gap. Factoring Challenge Quest lets you feel it directly.</p>
+        <div class="math-grid">
+          <div class="card">
+            <h3>The ceiling</h3>
+            <p class="math-line">p &le; q &rArr; p &le; &lfloor;&radic;N&rfloor;</p>
+            <p>Call the smaller factor p. Since p &times; p &le; p &times; q = N, the smaller prime can never exceed the
+              integer square root of N.</p>
+          </div>
+          <div class="card">
+            <h3>The floor</h3>
+            <p class="math-line">bits(p) &asymp; bits(N) / 2</p>
+            <p>RSA challenge primes were generated at similar sizes, so p has about half of N's bits. The app starts one
+              bit lower as a safety margin.</p>
+          </div>
+          <div class="card">
+            <h3>The sieve</h3>
+            <p class="math-line">3 &middot; 5 &middot; 7 &middot; &hellip; &middot; 509</p>
+            <p>Any candidate divisible by an odd prime below 512 can't be P, so it's skipped before the expensive
+              big-number division.</p>
+          </div>
+          <div class="card">
+            <h3>Test your own prime</h3>
+            <p class="math-line">N mod p = 0 ?</p>
+            <p>Have a favorite prime? Type it in, and the app shows its remainder against N. Every technical term in the
+              app explains itself with a tap.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="archive">
+      <div class="container reveal">
+        <div class="eyebrow">RSA Archive</div>
+        <h2>Every official challenge number.</h2>
+        <p class="section-desc">RSA Laboratories published these moduli in 1991 and ended the challenge in 2007. No
+          prize is available any more, but the unsolved numbers are still open problems. This list is the same catalog
+          the app reads, and it updates when a new factorization is verified.</p>
+        <div class="archive-stats">
+          <div class="metric">
+            <span class="metric-label">Targets</span>
+            <span class="metric-value" data-stat="total">54</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Factored</span>
+            <span class="metric-value" data-stat="solved">25</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Still open</span>
+            <span class="metric-value" data-stat="unsolved">29</span>
+          </div>
+        </div>
+        <div class="archive-wrap">
+          <div class="archive-filters" role="group" aria-label="Filter challenges">
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="unsolved" aria-pressed="false">Open</button>
+            <button type="button" data-filter="solved" aria-pressed="false">Factored</button>
+          </div>
+          <div class="archive-scroll">
+            <table class="archive-table">
+              <thead>
+                <tr>
+                  <th scope="col">Challenge</th>
+                  <th scope="col">Digits</th>
+                  <th scope="col" class="col-bits">Bits</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" class="col-prize">Original prize</th>
+                </tr>
+              </thead>
+              <tbody id="archiveBody">
+                <tr>
+                  <td colspan="5">Loading the challenge catalog&hellip;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="archive-note" id="archiveNote">Source: <a
+            href="https://web.archive.org/web/20060616060143/http://www.rsasecurity.com/rsalabs/node.asp%3Fid%3D2093"
+            target="_blank" rel="noopener">RSA Laboratories challenge list (archived)</a>.</p>
+      </div>
+    </section>
+
+    <section class="section" id="honest">
+      <div class="container reveal">
+        <div class="eyebrow">Straight Talk</div>
+        <h2>No catch.</h2>
+        <div class="principles">
+          <div class="card">
+            <h3>Completely free</h3>
+            <p>No ads, no in-app purchases, no accounts. Every feature is available from the first launch.</p>
+          </div>
+          <div class="card">
+            <h3>Real work, honest odds</h3>
+            <p>Every attempt is a genuine division against the official modulus. The app never pretends you are close:
+              random trial division will not break a modern RSA number, and it says so.</p>
+          </div>
+          <div class="card">
+            <h3>Private by design</h3>
+            <p>Your runs and totals stay on your device. The app only downloads public files from
+              mathricks.com, such as the challenge catalog, and never uploads anything.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="container reveal section-center">
+        <div class="eyebrow">Ready</div>
+        <h2 class="section-title-tight">Attack the unsolved.</h2>
+        <a class="cta js-appstore js-appstore-label" href="#download">Coming Soon</a>
+        <p class="platform-note">Requires iOS 18.0 or later. Works on iPhone and iPad.</p>
+        <div class="qr-container" id="qrContainer" hidden>
+          <div class="qr-card">
+            <div id="qrcode"></div>
+            <p class="qr-label">Scan to download</p>
+          </div>
+        </div>
+        <p class="social-note">Like cryptographic hunts? Try
+          <a href="/bpq/">Bitcoin Puzzle Quest</a>, a different kind of search.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="#archive">RSA Archive</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="changelog/">Changelog</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="support/">Support</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="privacy/">Privacy</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    // Set once the app is live, e.g. 'https://apps.apple.com/us/app/factoring-challenge-quest/id0000000000'.
+    // Every App Store button and the QR code switch over automatically.
+    const APP_STORE_URL = '';
+
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+
+    const applyTheme = (theme) => {
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', theme);
+    };
+
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      }
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    if (APP_STORE_URL) {
+      document.querySelectorAll('.js-appstore').forEach((el) => {
+        el.href = APP_STORE_URL;
+        el.target = '_blank';
+        el.rel = 'noopener';
+      });
+      document.querySelectorAll('.js-appstore-label').forEach((el) => { el.textContent = 'Download'; });
+    } else {
+      document.querySelectorAll('.js-appstore-label').forEach((el) => el.classList.add('is-soon'));
+    }
+
+    // RSA archive, rendered from the same catalog the app downloads.
+    (() => {
+      const body = document.getElementById('archiveBody');
+      const note = document.getElementById('archiveNote');
+      const buttons = document.querySelectorAll('.archive-filters button');
+      let challenges = [];
+      let filter = 'all';
+
+      const formatDate = (iso) => {
+        const d = new Date(iso + 'T00:00:00Z');
+        return isNaN(d) ? iso : d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+      };
+
+      const cell = (text, className) => {
+        const td = document.createElement('td');
+        if (className) td.className = className;
+        td.textContent = text;
+        return td;
+      };
+
+      const render = () => {
+        body.replaceChildren();
+        challenges
+          .filter((c) => filter === 'all' || c.status === filter)
+          .forEach((c) => {
+            const tr = document.createElement('tr');
+            tr.append(cell(c.id, 'num'), cell(String(c.decimalDigitCount), 'num'), cell(String(c.bitLength), 'num col-bits'));
+
+            const status = document.createElement('td');
+            const pill = document.createElement('span');
+            pill.className = 'status-pill status-' + c.status;
+            pill.textContent = c.status === 'solved' ? 'Factored ' + formatDate(c.solvedDate) : 'Open';
+            status.append(pill);
+            tr.append(status);
+
+            const prize = cell(c.prizeUSD ? '$' + c.prizeUSD.toLocaleString('en-US') : '—', 'num col-prize');
+            if (c.prizeUSD) prize.classList.add('prize-ended');
+            tr.append(prize);
+            body.append(tr);
+          });
+      };
+
+      buttons.forEach((btn) => btn.addEventListener('click', () => {
+        filter = btn.dataset.filter;
+        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+        render();
+      }));
+
+      fetch('challenges/challenges.json', { cache: 'no-cache' })
+        .then((r) => r.ok ? r.json() : Promise.reject(r.status))
+        .then((catalog) => {
+          challenges = catalog.challenges || [];
+          const solved = challenges.filter((c) => c.status === 'solved').length;
+          const stats = { total: challenges.length, solved, unsolved: challenges.length - solved };
+          document.querySelectorAll('[data-stat]').forEach((el) => { el.textContent = stats[el.dataset.stat]; });
+          if (catalog.lastVerified) {
+            note.append(' Last verified ' + formatDate(catalog.lastVerified) + '.');
+          }
+          render();
+        })
+        .catch(() => {
+          body.innerHTML = '<tr><td colspan="5">The catalog could not be loaded right now. Please try again later.</td></tr>';
+        });
+    })();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    if (APP_STORE_URL && window.QRCode && document.getElementById('qrcode')) {
+      document.getElementById('qrContainer').hidden = false;
+      new QRCode(document.getElementById('qrcode'), {
+        text: APP_STORE_URL,
+        width: 160,
+        height: 160,
+        colorDark: '#241a1d',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+  </script>
+</body>
+
+</html>

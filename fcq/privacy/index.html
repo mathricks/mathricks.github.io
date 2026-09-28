@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Factoring Challenge Quest privacy policy by Mathricks&trade;. No personal data is collected; progress stays on your device." />
+  <link rel="canonical" href="https://mathricks.com/fcq/privacy/" />
+  <title>Privacy Policy - Factoring Challenge Quest | Mathricks</title>
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/app-pages-common.css">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .privacy-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 24px 40px;
+    }
+
+    .privacy-content h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .privacy-content h2 {
+      font-size: 1.25rem;
+      margin-top: 34px;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .privacy-content p {
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .privacy-content a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+  <!-- Mathricks Analytics (GA4 + click tracking) -->
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <script src="/js/theme.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo logo-soft"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <nav class="nav-actions">
+        <a class="btn" href="../">Back to App</a>
+        <a class="btn" href="../support/">Support</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="privacy-content">
+    <h1>Privacy Policy</h1>
+    <p>Last Updated: September 28, 2026</p>
+
+    <p>This privacy policy applies to the Factoring Challenge Quest application for iPhone and iPad ("the app"). The
+      app is provided free of charge by Mathricks and is intended for use "as is".</p>
+
+    <h2>Information Collection</h2>
+    <p>The app does not collect personal information. It has no accounts, no registration, no advertising, no
+      analytics and no tracking.</p>
+
+    <h2>Data Stored on Your Device</h2>
+    <p>Your factoring statistics, such as the number of candidates tested and drawn for each RSA challenge target, and
+      your preferences are stored locally on your device. This data is never uploaded, and it is removed when you delete
+      the app.</p>
+
+    <h2>Network Access</h2>
+    <p>At most once a day, the app downloads two small public files from mathricks.com: the list of RSA challenge
+      numbers, so that newly factored targets show up without an app update, and a short notice about Bitcoin Puzzle
+      Quest, another Mathricks app. These requests send no personal data, identifiers or statistics from the app. As
+      with any web request, the hosting provider may briefly process technical information such as your IP address to
+      deliver the files. The app works fully offline using its built-in copies.</p>
+
+    <h2>App Store Links</h2>
+    <p>If you choose to view Bitcoin Puzzle Quest from within the app, its App Store page is shown by Apple. Any data
+      handled there is subject to Apple's privacy policy.</p>
+
+    <h2>Location Data</h2>
+    <p>The app does not access your location.</p>
+
+    <h2>Third-Party Data Sharing</h2>
+    <p>Because the app does not collect personal information, no such data is shared with third parties.</p>
+
+    <h2>Children</h2>
+    <p>The app does not knowingly collect any information from anyone, including children under 13.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>This privacy policy may be updated from time to time. Updates will be posted on this page. Continued use of the
+      app after any update is considered acceptance of the revised policy.</p>
+
+    <h2>Contact</h2>
+    <p>If you have any questions regarding privacy while using the app, contact us at
+      info [at] mathricks [dot] com or via the
+      <a href="../support/">support page</a>.
+    </p>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="logo logo-muted"><a class="link" href="https://mathricks.com">MATHRICKS</a></div>
+      <div class="links">
+        <a class="link" href="../support/">Support</a>
+        <span class="footer-separator">|</span>
+        <a class="link" href="../">Factoring Challenge Quest Home</a>
+      </div>
+    </div>
+    <div class="container legal">
+      © 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const applyTheme = (t) => {
+      if (t === 'light') {
+        root.setAttribute('data-theme', 'light');
+        if (toggle) toggle.textContent = '🌙';
+      } else {
+        root.removeAttribute('data-theme');
+        if (toggle) toggle.textContent = '☀️';
+      }
+      localStorage.setItem('theme', t);
+    };
+    applyTheme(savedTheme || (prefersLight ? 'light' : 'dark'));
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'light' ? 'dark' : 'light');
+      });
+    }
+  </script>
+</body>
+
+</html>
