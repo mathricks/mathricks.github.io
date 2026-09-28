@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Mathricks bracket frame
+   The studio's signature: a top-left and a bottom-right corner bracket whose
+   legs extend past the junction and cross over. Pure CSS, no extra markup:
+   add `frame` to any positioned box.
+
+     .frame            quiet pair, always visible
+     .frame-hover      pair draws in on hover / focus-within
+     .frame-accent     gold legs
+     .frame-glow       gold legs with a soft glow at the crossing
+     .frame-sm/.frame-lg  size presets
+     .frame-inside     brackets sit inside the box (for clipped cards)
+
+   Tunable per element through the --frame-* tokens from tokens.css:
+     --frame-arm     length of each leg beyond the junction
+     --frame-ext     overshoot past the junction (the crossing)
+     --frame-stroke  line thickness
+     --frame-inset   distance from the box edge to the junction
+   ========================================================================== */
+
+.frame {
+  position: relative;
+}
+
+html .frame::before,
+html .frame::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  z-index: 2;
+  pointer-events: none;
+  width: calc(var(--frame-arm) + var(--frame-ext));
+  height: calc(var(--frame-arm) + var(--frame-ext));
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(var(--frame-color), var(--frame-color)),
+    linear-gradient(var(--frame-color), var(--frame-color));
+  background-size: var(--frame-stroke) 100%, 100% var(--frame-stroke);
+  transition: background-size var(--dur) var(--ease-out), opacity var(--dur-fast) ease;
+}
+
+/* Top-left: junction at (inset, inset); legs overshoot up and left. */
+html .frame::before {
+  top: calc(var(--frame-inset) - var(--frame-ext));
+  left: calc(var(--frame-inset) - var(--frame-ext));
+  background-position: var(--frame-ext) 0, 0 var(--frame-ext);
+}
+
+/* Bottom-right: junction at (inset, inset) from the far corner; legs overshoot down and right. */
+html .frame::after {
+  bottom: calc(var(--frame-inset) - var(--frame-ext));
+  right: calc(var(--frame-inset) - var(--frame-ext));
+  background-position: var(--frame-arm) 100%, 100% var(--frame-arm);
+}
+
+/* ----- Variants ----- */
+html .frame-hover::before,
+html .frame-hover::after {
+  opacity: 0;
+  background-size: var(--frame-stroke) 0, 0 var(--frame-stroke);
+}
+
+html .frame-hover:hover::before,
+html .frame-hover:hover::after,
+html .frame-hover:focus-within::before,
+html .frame-hover:focus-within::after {
+  opacity: 1;
+  background-size: var(--frame-stroke) 100%, 100% var(--frame-stroke);
+}
+
+.frame-accent {
+  --frame-color: var(--accent);
+}
+
+.frame-glow {
+  --frame-color: var(--accent);
+}
+
+html .frame-glow::before,
+html .frame-glow::after {
+  filter: drop-shadow(0 0 6px var(--frame-glow-color));
+}
+
+.frame-sm {
+  --frame-arm: 16px;
+  --frame-ext: 6px;
+  --frame-stroke: 1px;
+}
+
+.frame-lg {
+  --frame-arm: clamp(40px, 6vw, 72px);
+  --frame-ext: clamp(12px, 2vw, 24px);
+  --frame-stroke: 2px;
+}
+
+.frame-inside {
+  --frame-inset: 14px;
+  --frame-ext: 8px;
+}
