@@ -186,6 +186,56 @@ a.logo:hover .logo-mark {
   filter: drop-shadow(0 0 6px var(--frame-glow-color));
 }
 
+/* ----- Navigation ----- */
+.nav-actions .btn[aria-current="page"] {
+  border-color: var(--accent);
+  color: var(--fg);
+}
+
+/* Small screens: wordmark on top, nav as one horizontally scrollable strip. */
+@media (max-width: 640px) {
+  .container.nav {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .nav .nav-actions {
+    flex: 1 0 100%;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .nav .nav-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav .nav-actions .btn {
+    flex: none;
+    white-space: nowrap;
+    padding: 8px 11px;
+    font-size: .78rem;
+    letter-spacing: .04em;
+  }
+
+  .nav .nav-actions .toggle {
+    flex: none;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 17px;
+  }
+}
+
 /* ----- Motion preferences ----- */
 @media (prefers-reduced-motion: reduce) {
   *,
