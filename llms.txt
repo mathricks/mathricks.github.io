@@ -120,7 +120,7 @@ GitHub: https://github.com/mathricks
 - Platform: iOS, iPadOS
 
 ### Ferienwohnung
-- Description: Private iPhone and iPad app that keeps the day-by-day usage record of a holiday home in Germany: usage calendar with eight types of use, evidence per period, calendar file import, Anlage V-FeWo day counts, and annual PDF, CSV and ZIP export for a tax adviser.
+- Description: Private iPhone and iPad app that keeps the usage record of a holiday home in Germany for the owner's tax adviser.
 - Overview: https://mathricks.com/ferienwohnung/
 - Support: https://mathricks.com/ferienwohnung/support/
 - Privacy: https://mathricks.com/ferienwohnung/privacy/
