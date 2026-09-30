@@ -183,6 +183,7 @@ GitHub: https://github.com/mathricks
 - Factoring Quest: RSA Numbers: https://mathricks.com/fcq/support/
 - Der Wortschatz: https://mathricks.com/der-wortschatz/support/
 - Zweitwohnung: https://mathricks.com/zweitwohnung/support/
+- Ferienwohnung: https://mathricks.com/ferienwohnung/support/
 - Summit Numbers: https://mathricks.com/summit/support/
 - Entropy: Zero: https://mathricks.com/entropy/support/
 - GridLock Numbers: https://mathricks.com/gridlock/support/

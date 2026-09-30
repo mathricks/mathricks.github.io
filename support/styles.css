@@ -463,6 +463,17 @@ header {
   --support-card-hover: #19c5ff;
 }
 
+.card.support-card.support-card-ferienwohnung {
+  --support-card-bg-start: #10231f;
+  --support-card-bg-end: #0e1520;
+  --support-card-glow-main: rgba(79, 174, 147, .26);
+  --support-card-glow-alt: rgba(224, 145, 74, .16);
+  --support-card-line-strong: rgba(79, 174, 147, .38);
+  --support-card-title: #f4f1e8;
+  --support-card-muted: #bfd0ca;
+  --support-card-hover: #4fae93;
+}
+
 [data-theme="light"] .support-card {
   box-shadow: 0 10px 26px rgba(12, 20, 34, .12);
 }
@@ -564,6 +575,17 @@ header {
   --support-card-title: #07183c;
   --support-card-muted: #47667f;
   --support-card-hover: #007cb8;
+}
+
+[data-theme="light"] .card.support-card.support-card-ferienwohnung {
+  --support-card-bg-start: #e6f4ef;
+  --support-card-bg-end: #f7f7f2;
+  --support-card-glow-main: rgba(26, 107, 87, .16);
+  --support-card-glow-alt: rgba(209, 125, 41, .14);
+  --support-card-line-strong: rgba(26, 107, 87, .40);
+  --support-card-title: #172124;
+  --support-card-muted: #4f625d;
+  --support-card-hover: #1a6b57;
 }
 
 .section-center {
