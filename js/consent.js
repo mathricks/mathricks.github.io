@@ -105,8 +105,9 @@
     banner.className = 'cookie-banner';
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Cookie consent');
-    var privacyHref = window.location.pathname.indexOf('/zweitwohnung/') === 0
-        ? '/zweitwohnung/privacy/#website-privacy'
+    var appWithOwnPolicy = window.location.pathname.match(/^\/(zweitwohnung|ferienwohnung)\//);
+    var privacyHref = appWithOwnPolicy
+        ? '/' + appWithOwnPolicy[1] + '/privacy/#website-privacy'
         : '/company/privacy-policy.html';
     banner.innerHTML =
         '<span class="cookie-banner__text">Optional analytics load only after consent. ' +

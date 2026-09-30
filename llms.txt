@@ -119,6 +119,14 @@ GitHub: https://github.com/mathricks
 - Privacy: https://mathricks.com/zweitwohnung/privacy/
 - Platform: iOS, iPadOS
 
+### Ferienwohnung
+- Description: Private iPhone and iPad app that keeps the usage record of a holiday home in Germany for the owner's tax adviser.
+- Overview: https://mathricks.com/ferienwohnung/
+- Support: https://mathricks.com/ferienwohnung/support/
+- Privacy: https://mathricks.com/ferienwohnung/privacy/
+- Status: Coming soon to the App Store
+- Platform: iOS, iPadOS
+
 ### RMM
 - Description: Experimental workspace currently in active iteration.
 - Page: https://mathricks.com/rmm/

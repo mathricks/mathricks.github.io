@@ -364,6 +364,17 @@ header {
   --game-card-hover: #71ae89;
 }
 
+.card.game-card.game-card-ferienwohnung {
+  --game-card-bg-start: #10231f;
+  --game-card-bg-end: #0e1520;
+  --game-card-glow-main: rgba(79, 174, 147, .26);
+  --game-card-glow-alt: rgba(224, 145, 74, .16);
+  --game-card-line-strong: rgba(79, 174, 147, .38);
+  --game-card-title: #f4f1e8;
+  --game-card-muted: #bfd0ca;
+  --game-card-hover: #4fae93;
+}
+
 [data-theme="light"] .card.game-card {
   box-shadow: 0 10px 26px rgba(12, 20, 34, .12);
 }
@@ -476,6 +487,17 @@ header {
   --game-card-title: #173024;
   --game-card-muted: #4c6758;
   --game-card-hover: #35734e;
+}
+
+[data-theme="light"] .card.game-card.game-card-ferienwohnung {
+  --game-card-bg-start: #e6f4ef;
+  --game-card-bg-end: #f7f7f2;
+  --game-card-glow-main: rgba(26, 107, 87, .16);
+  --game-card-glow-alt: rgba(209, 125, 41, .14);
+  --game-card-line-strong: rgba(26, 107, 87, .40);
+  --game-card-title: #172124;
+  --game-card-muted: #4f625d;
+  --game-card-hover: #1a6b57;
 }
 
 .card:hover {
