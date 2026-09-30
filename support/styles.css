@@ -320,8 +320,22 @@ header {
 
 .support-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+}
+
+.support-groups {
+  display: grid;
+  gap: 34px;
+}
+
+.support-category {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .82rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
 
 .support-card {
