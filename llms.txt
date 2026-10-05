@@ -97,6 +97,7 @@ GitHub: https://github.com/mathricks
 - App Store: https://apps.apple.com/us/app/the-world-of-words/id6796671627
 - Overview: https://mathricks.com/world-of-words/
 - Support: https://mathricks.com/world-of-words/support/
+- Changelog: https://mathricks.com/world-of-words/changelog/
 - Privacy: https://mathricks.com/world-of-words/privacy/
 - Platform: iOS, iPadOS, macOS
 
@@ -122,6 +123,7 @@ GitHub: https://github.com/mathricks
 ### Ferienwohnung
 - Description: Private iPhone and iPad app that keeps the usage record of a holiday home in Germany for the owner's tax adviser.
 - Overview: https://mathricks.com/ferienwohnung/
+- Changelog: https://mathricks.com/ferienwohnung/changelog/
 - Support: https://mathricks.com/ferienwohnung/support/
 - Privacy: https://mathricks.com/ferienwohnung/privacy/
 - App Store: https://apps.apple.com/us/app/ferienwohnung/id6810383911
