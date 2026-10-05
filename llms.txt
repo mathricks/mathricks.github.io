@@ -35,7 +35,7 @@ GitHub: https://github.com/mathricks
 
 ### Factoring Quest: RSA Numbers
 - Description: Real factoring attempts against every official RSA Factoring Challenge number, from RSA-100 to RSA-2048. Shows the exact search range for the smaller prime, live throughput, and honest odds. Free, no ads, no in-app purchases.
-- App Store: coming soon
+- App Store: https://apps.apple.com/us/app/factoring-quest-rsa-numbers/id6809395954
 - Overview: https://mathricks.com/fcq/
 - RSA Challenge Catalog (JSON): https://mathricks.com/fcq/challenges/challenges.json
 - Support: https://mathricks.com/fcq/support/
@@ -124,7 +124,7 @@ GitHub: https://github.com/mathricks
 - Overview: https://mathricks.com/ferienwohnung/
 - Support: https://mathricks.com/ferienwohnung/support/
 - Privacy: https://mathricks.com/ferienwohnung/privacy/
-- Status: Coming soon to the App Store
+- App Store: https://apps.apple.com/us/app/ferienwohnung/id6810383911
 - Platform: iOS, iPadOS
 
 ### RMM
