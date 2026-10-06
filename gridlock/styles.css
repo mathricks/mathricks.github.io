@@ -173,6 +173,15 @@ header {
   font-weight: 620;
 }
 
+.hero h1 .title-sub {
+  display: block;
+  margin-top: .12em;
+  font-size: .46em;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--accent);
+}
+
 .hero p {
   color: var(--muted);
   font-size: clamp(16px, 2.2vw, 20px);
@@ -271,6 +280,7 @@ header {
 
 .hero-card img {
   width: min(74%, 320px);
+  border-radius: 22.37%;
   z-index: 1;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, .35));
 }

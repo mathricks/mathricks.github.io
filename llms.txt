@@ -64,9 +64,9 @@ GitHub: https://github.com/mathricks
 - Privacy: https://mathricks.com/entropy/privacy/
 - Platform: iOS
 
-### GridLock Numbers
+### GridLock: Number Puzzle
 - Description: A strategy-first number-filling puzzle. Jump double for orthogonal moves, single for diagonals, and master x2 bonus cells to chase high scores.
-- App Store: https://apps.apple.com/us/app/gridlock-numbers/id912871295
+- App Store: https://apps.apple.com/us/app/gridlock-number-puzzle/id912871295
 - Overview: https://mathricks.com/gridlock/
 - Support: https://mathricks.com/gridlock/support/
 - Story: https://mathricks.com/gridlock/support/story.html
@@ -188,5 +188,5 @@ GitHub: https://github.com/mathricks
 - Ferienwohnung: https://mathricks.com/ferienwohnung/support/
 - Summit Numbers: https://mathricks.com/summit/support/
 - Entropy: Zero: https://mathricks.com/entropy/support/
-- GridLock Numbers: https://mathricks.com/gridlock/support/
+- GridLock: Number Puzzle: https://mathricks.com/gridlock/support/
 - Astrovert: https://mathricks.com/astrovert/support/
