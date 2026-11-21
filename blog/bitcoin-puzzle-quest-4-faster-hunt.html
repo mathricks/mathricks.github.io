@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Measured results from Bitcoin Puzzle Quest 4.0: around 50 times more keys per second than version 3.0 in our comparison tests, with a refreshed Power Surge experience and new side quests." />
+  <link rel="canonical" href="https://mathricks.com/blog/bitcoin-puzzle-quest-4-faster-hunt.html" />
+
+  <title>A Faster Hunt: Bitcoin Puzzle Quest 4.0 | Mathricks</title>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/frame.css">
+  <link rel="stylesheet" href="/css/catalog-pages.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="A Faster Hunt: Bitcoin Puzzle Quest 4.0">
+  <meta property="og:description" content="A rebuilt on-device scanner, measured performance results, and what changes for players in Bitcoin Puzzle Quest 4.0.">
+  <meta property="og:url" content="https://mathricks.com/blog/bitcoin-puzzle-quest-4-faster-hunt.html">
+  <meta property="og:image" content="https://mathricks.com/img/og-bpq.png">
+  <meta property="article:published_time" content="2026-11-21">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="A Faster Hunt: Bitcoin Puzzle Quest 4.0">
+  <meta name="twitter:description" content="Measured results and a closer look at the 4.0 experience.">
+  <meta name="twitter:image" content="https://mathricks.com/img/og-bpq.png">
+  <script src="/js/theme-init.js"></script>
+  <script src="/js/analytics.js"></script>
+  <script src="/js/consent.js"></script>
+  <style>
+    /* Palette lifted from /bpq/styles.css so this post reads as part of the
+       Bitcoin Puzzle Quest set rather than the blue studio catalog pages. */
+    :root {
+      --bg: #0e1111;
+      --fg: #ffffff;
+      --muted: #9aa6b2;
+      --line: rgba(255, 255, 255, .12);
+      --line-strong: rgba(255, 255, 255, .30);
+      --accent: #F4C236;
+      --accent-grad-start: #F4D35E;
+      --accent-grad-end: #E8B02E;
+      --tint: rgba(244, 194, 54, .04);
+      --header-start: rgba(14, 17, 17, .94);
+      --header-end: rgba(14, 17, 17, .74);
+      --card-bg: rgba(28, 32, 32, .62);
+      --body-text: #ded9d1;
+      --rule: rgba(244, 194, 54, .26);
+      --panel: rgba(244, 194, 54, .06);
+      --panel-strong: rgba(244, 194, 54, .13);
+      --accent-text: #F4C236;
+    }
+
+    html[data-theme="light"] {
+      --bg: #F4F1EC;
+      --fg: #0e1111;
+      --muted: #6d6d6d;
+      --line: rgba(14, 17, 17, .12);
+      --line-strong: rgba(14, 17, 17, .34);
+      --accent: #E8B02E;
+      --accent-grad-start: #FFE37A;
+      --accent-grad-end: #E8B02E;
+      --tint: rgba(232, 176, 46, .05);
+      --header-start: rgba(244, 241, 236, .95);
+      --header-end: rgba(244, 241, 236, .80);
+      --card-bg: rgba(255, 255, 255, .84);
+      --body-text: #3b3936;
+      --rule: rgba(14, 17, 17, .18);
+      --panel: rgba(232, 176, 46, .12);
+      --panel-strong: rgba(232, 176, 46, .22);
+      --accent-text: #7d5c0d;
+    }
+
+    .article-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .article-content h2 {
+      margin-top: 3.5rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.9rem;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+    }
+
+    .article-content p {
+      margin-bottom: 1.6rem;
+      line-height: 1.75;
+      font-size: 1.15rem;
+      color: var(--body-text);
+    }
+
+    .article-content strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    .article-content ul {
+      margin-bottom: 1.6rem;
+      padding-left: 1.5rem;
+      color: var(--body-text);
+    }
+
+    .article-content li {
+      margin-bottom: 0.5rem;
+      line-height: 1.75;
+      font-size: 1.15rem;
+    }
+
+    .article-content article a {
+      color: var(--accent-text);
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--accent-text) 45%, transparent);
+      text-underline-offset: 2px;
+    }
+
+    .article-hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      display: block;
+    }
+
+    html[data-theme="light"] .article-hero-image {
+      box-shadow: 0 8px 30px rgba(14, 17, 17, 0.12);
+    }
+
+    .article-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .article-date {
+      font-size: 0.9rem;
+      color: var(--accent-text);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 3rem;
+      font-weight: 600;
+      color: var(--accent-text);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .back-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    /* Data tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin-bottom: 1.6rem;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table.data {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 1rem;
+      color: var(--body-text);
+    }
+
+    table.data caption {
+      text-align: left;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding-bottom: 0.8rem;
+    }
+
+    table.data th,
+    table.data td {
+      padding: 0.6rem 0.7rem;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    table.data th {
+      color: var(--accent-text);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      border-bottom-color: var(--line-strong);
+    }
+
+    table.data td.num {
+      font-variant-numeric: tabular-nums;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9rem;
+    }
+
+    table.data tr.hi td {
+      background: var(--panel-strong);
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+  </style>
+  <script src="/js/theme.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="/" aria-label="Mathricks home"><span class="logo-mark" aria-hidden="true"></span><span class="logo-word">MATHRICKS</span></a>
+      <nav class="nav-actions">
+        <a class="btn" href="/">Home</a>
+        <a class="btn" href="/blog/">Notes</a>
+        <a class="btn" href="/games.html">Games</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark/light"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top: 80px;">
+      <div class="container article-content">
+        <div class="article-header">
+          <time class="article-date" datetime="2026-11-21">November 21, 2026</time>
+          <h1
+            style="font-size: clamp(36px, 5vw, 56px); line-height: 1.15; margin-bottom: 24px; letter-spacing: -0.02em;">
+            A Faster Hunt: Bitcoin Puzzle Quest 4.0</h1>
+        </div>
+
+        <img src="/img/blog-bpq-4-faster-hunt.svg"
+          alt="Simulator comparison: about 2 times the throughput from 2.4 to 3.0, about 50 times from 3.0 to 4.0, and roughly 100 times overall"
+          class="article-hero-image">
+
+        <article>
+          <p>A good hunt makes you want to keep going. For version 4.0 of
+            <a href="/bpq/"><strong>Bitcoin Puzzle Quest</strong></a>, we focused on making that time count:
+            a faster on-device scanner, a clearer Power Surge experience, and another side quest for a change of pace.</p>
+          <p>In our comparison tests, the rebuilt scanner processed <strong>around 50 times more candidate keys per
+            second than version 3.0</strong>.</p>
+
+          <h2>A faster hunt on the same device</h2>
+          <p>Version 4.0 reworks the scanning engine and reduces overhead throughout the scanning pipeline. The
+            improvement is most visible in Continuous Mode: the counter advances faster while you follow the results
+            and explore your chosen puzzle range.</p>
+          <p>You still control how you search. Choose Random or Sequential, enter a starting key, adjust the step
+            size, or narrow the range. During Continuous Mode, the 1–100 control changes how many result rows are
+            shown without limiting scanning speed.</p>
+
+          <h2>The measured results</h2>
+          <p>We compared versions 3.0 and 4.0 on an iPad Pro (M1) using the same address-target workload. The following
+            physical-device measurements were taken from optimized Release builds.</p>
+          <div class="table-wrap">
+            <table class="data">
+              <caption>Physical-device comparison · iPad Pro · address-target scan</caption>
+              <thead>
+                <tr><th scope="col">Version</th><th scope="col">Candidate keys per second</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">3.0</th><td class="num">66,949</td></tr>
+                <tr class="hi"><th scope="row">4.0</th><td class="num">3,870,252</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>In a separate one-minute check of 4.0 with the results table visible, sampled throughput stayed between
+            3.67 and 3.84 million keys per second. These results describe the tested device and workload, rather than
+            a guaranteed rate on every iPhone or iPad.</p>
+          <h3>From version 2.4 to 4.0</h3>
+          <p>To compare all three generations, we also ran versions 2.4, 3.0 and 4.0 in the same optimized Release
+            process on an iPhone 17e simulator. These simulator measurements are separate from the physical iPad
+            results above.</p>
+          <div class="table-wrap">
+            <table class="data">
+              <caption>Simulator comparison · iPhone 17e · optimized Release build</caption>
+              <thead>
+                <tr><th scope="col">Version</th><th scope="col">Candidate keys per second</th><th scope="col">Time per key</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">2.4</th><td class="num">16,749</td><td class="num">59,705 ns</td></tr>
+                <tr><th scope="row">3.0</th><td class="num">32,810</td><td class="num">30,478 ns</td></tr>
+                <tr class="hi"><th scope="row">4.0</th><td class="num">1,766,385</td><td class="num">566 ns</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>In this matched comparison, version 3.0 was around twice as fast as 2.4, and version 4.0 was around
+            54 times as fast as 3.0: roughly <strong>100 times the throughput of version 2.4</strong> overall.
+            Simulator rates should not be read as physical-device performance.</p>
+          <p>Actual throughput varies with device, search settings, temperature and system activity. Scanning runs
+            while the app is open in the foreground. This update does not add background scanning, and faster
+            processing does not imply unchanged battery use.</p>
+
+          <h2>Speed has to come with correct results</h2>
+          <p>A faster counter is useful only if the search remains correct. We compared the rebuilt engine with our
+            reference implementation and checked known puzzle solutions, matching results, and search controls.</p>
+          <p>Candidate key generation and matching continue to happen locally and work offline. Candidate private
+            keys and found matches are not uploaded to Mathricks. Optional features such as Game Center, invites,
+            purchase verification and advertising use network services, as described in our
+            <a href="/bpq/privacy/">privacy policy</a>.</p>
+          <p>The remaining unsolved puzzle ranges are enormous. Testing more candidates per second does not make an
+            individual candidate more likely to match, and it does not guarantee a discovery or a Bitcoin reward.</p>
+
+          <h2>More ways to keep questing</h2>
+          <p>The refreshed Power Surge selector offers six packs, from 500 million to 100 billion keys, with a
+            separate confirmation button showing the selected pack and price. The permanent Continuous Mode Unlock
+            remains a one-time purchase. Existing owners keep their entitlement at no extra charge.</p>
+          <p>For a break from the main hunt, tap the treasure chest for the sliding puzzle or press and hold for
+            <strong>Node Sync</strong>. Both share the daily chest allowance, and a qualifying win grants 5 million
+            Power Surge keys.</p>
+          <p>Version 4.0 also refines the range controls, low-key balance display and found-key highlights. Read the
+            <a href="/bpq/changelog/">full changelog</a> for the release details.</p>
+
+          <h2>Your next run</h2>
+          <p>Bitcoin Puzzle Quest is free on iPhone and iPad. Try Continuous Mode with earned Power Surge keys,
+            top up with a pack, or use the permanent unlock if you enjoy a longer, hands-free hunt.</p>
+          <p>New to the challenge? Our <a href="/bpq/what-is-a-bitcoin-puzzle/">plain-English explainer</a>
+            introduces the public puzzles, and <a href="/blog/why-random-search-leaves-gaps.html">Why Random Search
+            Leaves Gaps</a> explores the probability behind the search.</p>
+          <p>Thank you for hunting with us. Keep testing, keep questing. The next key is still out there.</p>
+        </article>
+
+        <a href="/blog/" class="back-link">&larr; Back to Blog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <a class="logo" href="/" aria-label="Mathricks home"><span class="logo-mark" aria-hidden="true"></span><span class="logo-word">MATHRICKS</span></a>
+      <div class="links">
+        <a class="link" href="/support/">Support</a>
+        <a class="link" href="/">Home</a>
+      </div>
+    </div>
+    <div class="container legal">
+      &copy; 2010-2026, Mathricks&trade;. All rights reserved.<br>
+      Contact: info [at] mathricks [dot] com
+    </div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+
+</html>

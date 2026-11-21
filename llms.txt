@@ -140,6 +140,11 @@ GitHub: https://github.com/mathricks
 - Description: The Mathricks blog with essays on puzzle design, game mechanics, and development.
 - Page: https://mathricks.com/blog/
 
+### A Faster Hunt: Bitcoin Puzzle Quest 4.0
+
+- Page: https://mathricks.com/blog/bitcoin-puzzle-quest-4-faster-hunt.html
+- Description: Measured physical-device performance compared with version 3.0, foreground scanning conditions, correctness checks, and the new player experience in version 4.0.
+
 ### Two RSA Records Fell in Sixteen Days
 - Description: A mathematics and app note on the RSA-260 and RSA-896 factoring records, explaining how AI-assisted GPU engineering accelerated established GNFS mathematics and what the results do and do not mean for RSA security.
 - Page: https://mathricks.com/blog/two-rsa-records-in-sixteen-days.html

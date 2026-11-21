@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img"
+  aria-label="Performance gains in our simulator comparison: about twice the throughput from version 2.4 to 3.0, about fifty times from 3.0 to 4.0, and roughly one hundred times from 2.4 to 4.0 overall.">
+  <defs>
+    <radialGradient id="backGlow" cx="82%" cy="48%" r="46%">
+      <stop offset="0%" stop-color="#F4C236" stop-opacity="0.19"/>
+      <stop offset="58%" stop-color="#F4C236" stop-opacity="0.055"/>
+      <stop offset="100%" stop-color="#F4C236" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFE37A"/>
+      <stop offset="48%" stop-color="#F4C236"/>
+      <stop offset="100%" stop-color="#E8A91D"/>
+    </linearGradient>
+    <linearGradient id="trail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9AA6B2" stop-opacity="0.22"/>
+      <stop offset="45%" stop-color="#F4C236" stop-opacity="0.62"/>
+      <stop offset="100%" stop-color="#F4C236"/>
+    </linearGradient>
+    <filter id="goldGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="1 0 0 0 0.96  0 1 0 0 0.76  0 0 1 0 0.21  0 0 0 0.65 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .version { fill: #9aa6b2; font: 700 28px system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: 0.08em; }
+      .version.hot { fill: #F4C236; }
+      .gain { fill: #ffffff; font: 800 35px system-ui, -apple-system, "Segoe UI", sans-serif; }
+      .total { fill: #0e1111; font: 850 42px system-ui, -apple-system, "Segoe UI", sans-serif; }
+      .route { fill: #0e1111; fill-opacity: 0.66; font: 750 16px system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: 0.12em; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" rx="24" fill="#0e1111"/>
+  <rect width="1200" height="630" rx="24" fill="url(#backGlow)"/>
+
+  <path d="M96 470 C330 520 536 462 708 510 C866 554 1014 500 1135 435" fill="none"
+    stroke="#F4C236" stroke-opacity="0.08" stroke-width="2"/>
+  <path d="M76 142 C290 91 485 157 648 112 C821 64 1005 117 1140 184" fill="none"
+    stroke="#ffffff" stroke-opacity="0.055" stroke-width="2"/>
+
+  <line x1="276" y1="307" x2="438" y2="307" stroke="url(#trail)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M438 307 L418 294 L418 320 Z" fill="#F4C236"/>
+  <line x1="649" y1="307" x2="803" y2="307" stroke="url(#trail)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M803 307 L783 294 L783 320 Z" fill="#F4C236"/>
+
+  <text x="357" y="267" class="gain" text-anchor="middle">~2×</text>
+  <text x="726" y="267" class="gain" text-anchor="middle">~50×</text>
+
+  <g>
+    <circle cx="188" cy="307" r="91" fill="#171b1b" stroke="#ffffff" stroke-opacity="0.18" stroke-width="3"/>
+    <circle cx="188" cy="307" r="72" fill="none" stroke="#ffffff" stroke-opacity="0.055" stroke-width="2"/>
+    <text x="188" y="166" class="version" text-anchor="middle">V2.4</text>
+  </g>
+
+  <g>
+    <circle cx="548" cy="307" r="103" fill="#191d1d" stroke="#F4C236" stroke-opacity="0.44" stroke-width="3"/>
+    <circle cx="548" cy="307" r="82" fill="none" stroke="#F4C236" stroke-opacity="0.12" stroke-width="2"/>
+    <text x="548" y="154" class="version" text-anchor="middle">V3</text>
+  </g>
+
+  <g filter="url(#goldGlow)">
+    <circle cx="930" cy="307" r="136" fill="#F4C236" fill-opacity="0.12"/>
+    <circle cx="930" cy="307" r="116" fill="url(#gold)"/>
+  </g>
+  <g>
+    <circle cx="930" cy="307" r="91" fill="none" stroke="#0e1111" stroke-opacity="0.13" stroke-width="2"/>
+    <text x="930" y="141" class="version hot" text-anchor="middle">V4</text>
+  </g>
+
+  <g>
+    <rect x="806" y="470" width="248" height="92" rx="46" fill="url(#gold)"/>
+    <text x="930" y="515" class="total" text-anchor="middle">~100×</text>
+    <text x="930" y="541" class="route" text-anchor="middle">V2.4 → V4</text>
+  </g>
+
+  <circle cx="300" cy="307" r="4" fill="#F4C236" fill-opacity="0.52"/>
+  <circle cx="405" cy="307" r="3" fill="#F4C236" fill-opacity="0.72"/>
+  <circle cx="675" cy="307" r="4" fill="#F4C236" fill-opacity="0.58"/>
+  <circle cx="769" cy="307" r="3" fill="#F4C236" fill-opacity="0.8"/>
+  <text x="96" y="601" fill="#9aa6b2" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16">Relative throughput in our simulator comparison. Performance varies by device and workload.</text>
+</svg>
